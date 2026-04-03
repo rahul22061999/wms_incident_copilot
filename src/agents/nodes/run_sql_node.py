@@ -21,5 +21,5 @@ def run_sql_node(state: SQLGraphState) -> Command[Literal["return_result_node"]]
         update={
             "query_rows": result
         },
-        goto= "return_result_node"
+        goto= "sql_result_node"
     )

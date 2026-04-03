@@ -1,68 +1,51 @@
-from langgraph.types import Command
-
-INVENTORY_PROMPT = """\
-You are an inventory domain agent for a warehouse management system.
-
-Your job is to investigate inventory-related issues using the SQL tools available to you.
-
-Domain scope:
-- Stock accuracy (cycle count discrepancies, adjustment patterns)
-- Inventory holds and status (hold reasons, blocked stock, status transitions)
-- Location balance (mismatches, empty locations, capacity issues)
-- Availability and allocatability (available vs on-hand, reservation conflicts)
-
-Investigation guidelines:
-- Start with the broadest relevant query to understand the situation.
-- Drill into specifics only after the broad picture is clear.
-- Always ground your findings in data from the tools — never speculate without evidence.
-- Summarize your findings clearly, stating what you found, what it means, and confidence level.
-- If a tool call returns no data, state that explicitly — absence of data is a finding."""
-
-
 from langchain.agents import create_agent
-from langchain_core.messages import HumanMessage
-
-from data.state import WorkerInput, SubAgentResponse
-from models.model_loader import get_google_llm
+from langchain_core.messages import AIMessage
+from domain.states.supervisor.supervisor_worker_payload_state import SupervisorWorkerPayloadState
+from langgraph.types import Command
+from models.model_loader import get_google_llm, get_openai_fast_llm
 from tools.sql_lookup_tool import sql_lookup_tool
 from dotenv import load_dotenv
 load_dotenv()
 
-def inventory_agent_node(state: WorkerInput) -> Command:
+
+_llm = (
+    get_google_llm()
+    .with_retry(stop_after_attempt=2)
+    .with_fallbacks([
+        get_openai_fast_llm()
+        .with_retry(stop_after_attempt=2)
+    ])
+)
+
+_inventory_agent = create_agent(
+    model=_llm,
+    tools=[sql_lookup_tool],
+    system_prompt="hello",
+)
+
+
+def inventory_agent_node(state: SupervisorWorkerPayloadState) -> Command:
     """Inventory domain agent node"""
 
-    task_id = state.task_id
-    agent_name = state.agent_name
-    task = state.task
-
-    llm = get_google_llm()
-
-    agent = create_agent(
-        model=llm,
-        tools=[sql_lookup_tool],
-        system_prompt=INVENTORY_PROMPT
-    )
+    agent_name = state.subagent_name
+    task_description = state.worker_task
 
     try:
-        result = agent.invoke(HumanMessage(content=task))
+        result = _inventory_agent.invoke(
+            {"messages": [{"role": "user", "content": task_description}]}
+        )
         final_answer = result["messages"][-1].content
-
     except Exception as e:
-        return None
+        final_answer = f"[inventory_agent] Failed: {e}"
 
     return Command(
         update={
-            "subagent_responses": [
-                SubAgentResponse(
-                    task_id=task_id,
-                    agent_name=agent_name,
-                    messages=final_answer,
-                )
+            "messages": [
+                AIMessage(
+                    content=final_answer,
+                    name=agent_name,
+                    additional_kwargs={"loop": state.loop_counter}),
             ]
         },
         goto="supervisor_node",
     )
-
-
-
-

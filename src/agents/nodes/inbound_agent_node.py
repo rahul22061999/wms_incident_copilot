@@ -1,75 +1,51 @@
 from langchain.agents import create_agent
-from langgraph.runtime import Runtime
+from langchain_core.messages import AIMessage
+from domain.states.supervisor.supervisor_worker_payload_state import SupervisorWorkerPayloadState
+from prompts.generate_inbound_agent_prompt import inbound_agent_prompt
 from langgraph.types import Command
-
-from data.state import WorkerInput, SubAgentResponse
 from models.model_loader import get_google_llm, get_openai_fast_llm
 from tools.sql_lookup_tool import sql_lookup_tool
 from dotenv import load_dotenv
 load_dotenv()
 
-INBOUND_PROMPT = """\
-You are an inbound domain agent for a warehouse management system.
 
-Your job is to investigate inbound operational issues using the SQL tools available to you.
+# Build once at module level — not on every invocation
+_llm = (
+    get_google_llm()
+    .with_fallbacks([
+        get_openai_fast_llm()
+    ])
+)
 
-Domain scope:
-- Receiving and dock operations (dock door utilization, trailer backlog)
-- ASN and PO flow (advance shipment notices, purchase orders, timing gaps)
-- Putaway operations (putaway delays, location assignment failures)
-- Inbound throughput and backlog patterns
+_inbound_agent = create_agent(
+    model=_llm,
+    tools=[sql_lookup_tool],
+    system_prompt=inbound_agent_prompt,
+)
 
-Investigation guidelines:
-- Start with the broadest relevant query to understand the situation.
-- Drill into specifics only after the broad picture is clear.
-- Always ground your findings in data from the tools — never speculate without evidence.
-- Summarize your findings clearly, stating what you found, what it means, and confidence level.
-- If a tool call returns no data, state that explicitly — absence of data is a finding."""
 
-def inbound_agent_node(state: WorkerInput) -> Command:
+def inbound_agent_node(state: SupervisorWorkerPayloadState) -> Command:
     """Inbound domain agent node"""
 
-    task_id = state.task_id
-    agent_name = state.agent_name
-    task = state.task
-
-    llm = get_openai_fast_llm()
-
-    agent = create_agent(
-        model=llm,
-        tools=[sql_lookup_tool],
-        system_prompt=INBOUND_PROMPT
-    )
+    agent_name = state.subagent_name
+    task_description = state.worker_task
 
     try:
-        result = agent.invoke(
-            {
-                "messages": [
-                    {
-                        "role": "user",
-                        "content": task,
-                    }
-                ]
-            }
+        result = _inbound_agent.invoke(
+            {"messages": [{"role": "user", "content": task_description}]}
         )
         final_answer = result["messages"][-1].content
     except Exception as e:
-        final_answer = f"inbound_agent failed: {str(e)}"
+        final_answer = f"[inbound_agent] Failed: {e}"
 
     return Command(
         update={
-            "subagent_responses": [
-                SubAgentResponse(
-                    task_id=task_id,
-                    agent_name=agent_name,
-                    messages=final_answer,
-                )
+            "messages": [
+                AIMessage(
+                    content=final_answer,
+                    name=agent_name,
+                    additional_kwargs={"loop": state.loop_counter}),
             ]
         },
         goto="supervisor_node",
     )
-
-
-
-
-

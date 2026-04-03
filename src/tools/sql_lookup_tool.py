@@ -3,8 +3,7 @@ from langchain.tools import tool
 from dotenv import load_dotenv
 from langgraph.prebuilt import ToolRuntime
 from agents.graph.sql_subgraph import sql_graph
-from data.state import SQLGraphState
-
+from domain.sql_graph_state import SQLGraphState
 load_dotenv()
 
 

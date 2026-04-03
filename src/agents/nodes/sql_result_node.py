@@ -3,11 +3,10 @@ from langgraph.types import Command
 from domain.sql_graph_state import SQLGraphState
 from langgraph.graph import END
 import pandas as pd
-import datetime
 from dotenv import load_dotenv
 load_dotenv()
 
-def return_result_node(state: SQLGraphState) -> Command[Literal["__end__"]]:
+def sql_result_node(state: SQLGraphState) -> Command[Literal["__end__"]]:
     raw = state.query_rows
 
     if not raw:
