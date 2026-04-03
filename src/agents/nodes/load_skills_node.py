@@ -1,10 +1,11 @@
 from typing import Literal
 from langgraph.types import Command
-from data.state import WMState
 from context.skills.sql_skills import SKILLS
+from domain.sql_graph_state import SQLGraphState
+from dotenv import load_dotenv
+load_dotenv()
 
-
-def load_skills_node(state: WMState) -> Command[Literal["generate_sql_node"]]:
+def load_skills_node(state: SQLGraphState) -> Command[Literal["generate_sql_node"]]:
     state_skill = state.domain
     domain_skill = SKILLS[state_skill]
 

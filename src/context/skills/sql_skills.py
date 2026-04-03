@@ -154,6 +154,9 @@ ORDER BY hour_bucket;
 - received_qty is the actual received quantity recorded.
 - status is one of: PENDING, PARTIAL, RECEIVED, CANCELLED.
 - Quantity variance can be checked as expected_qty - received_qty.
+- case_number is unique per inventory record.
+- SKUS are SKU###
+- SKUS are all in uppercase only
 
 ## Example Queries
 

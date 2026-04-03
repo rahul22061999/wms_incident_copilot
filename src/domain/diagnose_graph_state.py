@@ -10,14 +10,6 @@ def merge_subagent_responses(existing: dict, new: dict) -> dict:
         merged[task_id] = merged.get(task_id, []) + responses
     return merged
 
-"""Schema output state for nodes"""
-class RoutingState(BaseModel):
-    intent: Literal["lookup", "diagnose"] = Field(
-        description="lookup = direct data retrieval; diagnose = root-cause investigation"
-    )
-    domain: Literal["inbound", "outbound", "inventory"] = Field(
-        description="Which warehouse domain the request is about"
-    )
 
 class SubAgentTaskInvokeItem(BaseModel):
     agent_name: Literal["inbound_agent_node", "outbound_agent_node", "inventory_agent_node"]

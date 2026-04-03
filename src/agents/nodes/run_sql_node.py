@@ -1,21 +1,25 @@
 from typing import Literal
-from langchain_community.tools import QuerySQLDatabaseTool
 from langgraph.types import Command
-from data.state import WMState
-from models.sql_tool_loader import get_sql_tools_loader
+from domain.sql_graph_state import SQLGraphState
+from models.model_loader import get_groq_llm
 
+from dotenv import load_dotenv
 
+from utils.sql_tools import WmsSqlTool
 
-def run_sql_node(state: WMState) -> Command[Literal["return_result_node"]]:
-    tools = get_sql_tools_loader()
-    _run_sql = next(t for t in tools if isinstance(t, QuerySQLDatabaseTool))
+load_dotenv()
 
-    checked_sql = state.checked_query
-    result = _run_sql.invoke({"query": checked_sql})
+def run_sql_node(state: SQLGraphState) -> Command[Literal["return_result_node"]]:
+    """Run sql's on the database"""
+
+    run_sql_query_with_columns_tool = WmsSqlTool(get_groq_llm())
+
+    checked_sql = state.validated_sql
+    result = run_sql_query_with_columns_tool.run_query(checked_sql)
 
     return Command(
         update={
-            "rows": result
+            "query_rows": result
         },
         goto= "return_result_node"
     )

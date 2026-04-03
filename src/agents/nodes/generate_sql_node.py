@@ -1,31 +1,42 @@
 from typing import Literal
-
-from langchain_core.messages import HumanMessage
 from langgraph.types import Command
+from domain.sql_graph_state import SQLGraphState
+from models.model_loader import get_google_llm, get_openai_fast_llm
+from prompts.generate_sql_system_prompt import get_sql_prompt
+from dotenv import load_dotenv
+load_dotenv()
 
-from data.state import WMState
-from models.model_loader import get_google_llm
+def generate_sql_node(state: SQLGraphState) -> Command[Literal["check_sql_node"]]:
+    prompt = get_sql_prompt()
+    main_llm = get_google_llm()
+    fallback_llm = get_openai_fast_llm()
+
+    try:
+        response = (prompt | main_llm).invoke({
+            "description": state.description,
+            "skill_context": state.skill_context,
+        })
+
+        generated_sql = response.content.strip()
+
+        return Command(
+            update={"generated_sql": generated_sql},
+            goto="check_sql_node",
+        )
+
+    except Exception as primary_exception:
+
+        response = (prompt | fallback_llm).invoke({
+            "description": state.description,
+            "skill_context": state.skill_context,
+        })
+
+        generated_sql = response.content.strip()
+
+        return Command(
+            update={"generated_sql": generated_sql},
+            goto="check_sql_node",
+        )
 
 
-def generate_sql_node(state: WMState) -> Command[Literal["check_sql_node"]]:
-    system_prompt = f"""
-        You are generating SQL for a WMS workflow.
-    
-        User request:
-        {state.description}
-        
-        Use only this skill context:
-        {state.skill_context}
-        
-        Rules:
-        - Return only SQL.
-        - Use only the listed table(s).
-        - Prefer the simplest correct query.
-        """
 
-    sql = get_google_llm().invoke([HumanMessage(content=system_prompt)]).content[0]["text"].strip()
-
-    return Command(
-        update={"sql": sql},
-        goto="check_sql_node",
-    )

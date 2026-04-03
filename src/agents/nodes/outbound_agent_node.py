@@ -1,23 +1,23 @@
 from langchain.agents import create_agent
-from langgraph.runtime import Runtime
+from langchain_core.messages import HumanMessage
 from langgraph.types import Command
 
-from data.state import WorkerInput, SubAgentResponse
-from models.model_loader import get_google_llm, get_openai_fast_llm
+from data.state import WorkerInput, SubAgentResponse, WMState
+from models.model_loader import get_google_llm
 from tools.sql_lookup_tool import sql_lookup_tool
 from dotenv import load_dotenv
 load_dotenv()
 
-INBOUND_PROMPT = """\
-You are an inbound domain agent for a warehouse management system.
+OUTBOUND_PROMPT = """\
+You are an outbound domain agent for a warehouse management system.
 
-Your job is to investigate inbound operational issues using the SQL tools available to you.
+Your job is to investigate outbound operational issues using the SQL tools available to you.
 
 Domain scope:
-- Receiving and dock operations (dock door utilization, trailer backlog)
-- ASN and PO flow (advance shipment notices, purchase orders, timing gaps)
-- Putaway operations (putaway delays, location assignment failures)
-- Inbound throughput and backlog patterns
+- Picking performance (UPH, pick rates, labor distribution)
+- Wave and work release (wave timing, release patterns, blocked work)
+- Packing and shipment flow (pack rates, carrier allocation, staging)
+- Allocation execution (order allocation failures, shortages)
 
 Investigation guidelines:
 - Start with the broadest relevant query to understand the situation.
@@ -26,35 +26,27 @@ Investigation guidelines:
 - Summarize your findings clearly, stating what you found, what it means, and confidence level.
 - If a tool call returns no data, state that explicitly — absence of data is a finding."""
 
-def inbound_agent_node(state: WorkerInput) -> Command:
+def outbound_agent_node(state: WorkerInput) -> Command:
     """Inbound domain agent node"""
 
     task_id = state.task_id
     agent_name = state.agent_name
     task = state.task
 
-    llm = get_openai_fast_llm()
+    llm = get_google_llm()
 
     agent = create_agent(
         model=llm,
         tools=[sql_lookup_tool],
-        system_prompt=INBOUND_PROMPT
+        system_prompt=OUTBOUND_PROMPT
     )
 
     try:
-        result = agent.invoke(
-            {
-                "messages": [
-                    {
-                        "role": "user",
-                        "content": task,
-                    }
-                ]
-            }
-        )
+        result = agent.invoke(HumanMessage(content=task))
         final_answer = result["messages"][-1].content
+
     except Exception as e:
-        final_answer = f"inbound_agent failed: {str(e)}"
+        return None
 
     return Command(
         update={

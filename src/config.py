@@ -40,9 +40,10 @@ class Settings(BaseSettings):
 
     LANGSMITH_API_KEY: SecretStr = Field(description="Langsmith API key")
 
-    GOOGLE_AI_MODEL: str = "gemini-3.1-flash-lite-preview"
+    GOOGLE_AI_MODEL: str = "gemini-2.5-flash-lite"
     OPEN_AI_MODEL: str = "gpt-5-nano"
     GROQ_MODEL: str ="llama-3.1-8b-instant"
+    GOOGLE_TIMEOUT: int = 10
 
 
     #Database config

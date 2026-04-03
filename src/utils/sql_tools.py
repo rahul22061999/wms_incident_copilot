@@ -14,6 +14,7 @@ class WmsSqlTool:
     def __init__(self, query_check_llm: BaseChatModel):
         self.llm = query_check_llm
         self.toolkit = self._create_tools()
+        self.db = self._create_database()
 
     def _create_engine_with_pooling(self):
         return create_engine(
@@ -37,6 +38,10 @@ class WmsSqlTool:
             schema=settings.DB_SCHEMA,
         )
 
+    def run_query(self, sql: str) -> str:
+        """Run SQL with column names included."""
+        return self.db.run(sql, include_columns=True)
+
     def _create_tools(self) -> list[BaseTool]:
         db = self._create_database()
 
@@ -50,6 +55,7 @@ class WmsSqlTool:
             db_tools.append(QuerySQLCheckerTool(llm=self.llm, db=db))
 
         return db_tools
+
 
     def get_sql_tools(self) -> list[BaseTool]:
         return self.toolkit

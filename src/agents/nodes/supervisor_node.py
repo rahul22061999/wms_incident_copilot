@@ -1,31 +1,29 @@
-from typing import List, Tuple, Optional
+from typing import List, Tuple, Optional, Literal
 from langchain_core.messages import AIMessage
 from langgraph.types import Send, Command
 from langchain_core.prompts import ChatPromptTemplate
 from config import settings
 from data.state import WMState, WorkerInput, SupervisorDeligationItem
-from models.model_loader import get_google_llm
+from models.model_loader import get_google_llm, get_openai_fast_llm
 from uuid import uuid4
 from dotenv import load_dotenv
 load_dotenv()
 
 
 def get_previous_task_findings(state: WMState, task_id: str) -> List[Tuple[str, str]]:
-    previous_task_findings = [
-        (
-            (f"Agent name {task.agent_name} \n",
-             f"Messages {task.messages}")
-            for prev_task in state.subagent_responses
-            if prev_task.task_id == task_id
-            for task in prev_task.subagent_responses
-        )
+    by_task = {}
+    for resp in state.subagent_responses:
+        by_task.setdefault(resp.task_id, []).append(resp)
+
+    return [
+        (f"Agent name: {resp.agent_name}", f"Messages: {resp.messages}")
+        for resp in by_task.get(task_id, [])
     ]
-    return previous_task_findings
 
 
 class SupervisorNode:
     def __init__(self, llm=None):
-        base_llm = llm or get_google_llm()
+        base_llm = llm or get_openai_fast_llm()
         self.llm = base_llm.with_structured_output(SupervisorDeligationItem)
         self.max_loops = settings.SUPERVISOR_MAX_LOOP
         self.prompt = ChatPromptTemplate.from_messages(
@@ -111,8 +109,9 @@ class SupervisorNode:
 
         current_loop = state.loop_count
         task_id = state.active_task_id or str(uuid4())
+        domain = state.domain
 
-        if current_loop > settings.SUPERVISOR_MAX_LOOP:
+        if current_loop >= settings.SUPERVISOR_MAX_LOOP:
             return self._force_final_answer(state, task_id, current_loop)
 
          ## {"task_id": Subagentresponse}
@@ -121,7 +120,10 @@ class SupervisorNode:
         ##inject messages from the task to the prompt
         decision = await self._invoke_llm(state.description, previous_task_findings)
 
-        return self._build_command(decision, task_id, current_loop)
+        if decision is None:
+            return self._force_final_answer(state, task_id, current_loop)
+
+        return self._build_command(decision, task_id, current_loop, domain)
 
 
     def _force_final_answer(self, state: WMState, task_id: str, current_loop: int):
@@ -140,17 +142,17 @@ class SupervisorNode:
                     )
                 ],
             },
-            goto=[],
+            goto= "return_result_node",
         )
 
-    def _invoke_llm(self, task_description: str,  previous_findings) -> Optional[SupervisorDeligationItem]:
+    async def _invoke_llm(self, task_description: str,  previous_findings) -> Optional[SupervisorDeligationItem]:
         messages = self.prompt.format_messages(
             previous_findings= previous_findings,
             description=task_description,
         )
 
         try:
-            result = self.llm.ainvoke(messages)
+            result = await self.llm.ainvoke(messages)
         except Exception:
             return None
 
@@ -160,11 +162,25 @@ class SupervisorNode:
             self,
             decision: SupervisorDeligationItem,
             task_id: str,
-            current_loop: int) -> Command:
+            current_loop: int,
+            domain: Literal["inbound", "outbound", "inventory"] | None = None) -> Command:
         """Convert a structured LLM decision into a LangGraph Command."""
 
         sends: list[Send] = []
         supervisor_messages: list[AIMessage] = []
+
+        if not decision.deligations:
+            return Command(
+                update={
+                    "active_task_id": task_id,
+                    "loop_count": current_loop + 1,
+                    "final_response": decision.final_answer,
+                    "messages": [
+                        AIMessage(content=f"[supervisor] Investigation complete.\n{decision.final_answer}")
+                    ],
+                },
+                goto="return_result_node",
+            )
 
         for event in decision.deligations:
             subagent_task = event.subagent_task
@@ -174,6 +190,7 @@ class SupervisorNode:
                 agent_name=agent_name,
                 task_id=str(task_id),
                 task=subagent_task,
+                domain= domain,
             )
 
             sends.append(
@@ -193,7 +210,7 @@ class SupervisorNode:
                 "loop_count": current_loop + 1,
                 "messages": supervisor_messages,
             },
-            goto=sends
+            goto=sends if sends else "return_result_node"
         )
 
 

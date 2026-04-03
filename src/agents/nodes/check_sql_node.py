@@ -1,22 +1,30 @@
 from typing import Literal
 from langchain_community.tools import QuerySQLCheckerTool
 from langgraph.types import Command
-from data.state import WMState
+from domain.sql_graph_state import SQLGraphState
 from models.sql_tool_loader import get_sql_tools_loader
+from dotenv import load_dotenv
+load_dotenv()
 
+def check_sql_node(state: SQLGraphState) -> Command[Literal["run_sql_node"]]:
+    """Check and verify SQL before passing them onto database"""
 
-def check_sql_node(state: WMState) -> Command[Literal["run_sql_node"]]:
+    sql_check_tool: QuerySQLCheckerTool | None = None
 
-    sql_tools = get_sql_tools_loader()
-    _query_check = next(t for t in sql_tools if isinstance(t, QuerySQLCheckerTool))
+    ##Loop over all sql tools and return only query check tool
+    for tool in get_sql_tools_loader():
+        if isinstance(tool, QuerySQLCheckerTool):
+            sql_check_tool = tool
+            break
 
-    sql_query = state.sql
+    sql_query = (state.generated_sql or "").strip()
 
-    checked_query = _query_check.invoke(sql_query)
+    ##check query using sql check tool
+    validated_sql = sql_check_tool.invoke(sql_query)
 
     return Command(
         update={
-            "checked_query": checked_query,
+            "validated_sql": validated_sql,
         },
         goto="run_sql_node"
     )

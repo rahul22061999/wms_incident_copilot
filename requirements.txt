@@ -20,10 +20,10 @@ psycopg2
 psycopg2-binary
 python-dotenv
 PyYAML
+pandas
 pydantic-settings
 boto3
 ipykernel
-ipykernel_launcher
 faker
 langchain-community
 langchain-openai
@@ -44,3 +44,4 @@ trustcall
 langchain_neo4j
 langchain-ollama
 prettyprinter
+tabulate
