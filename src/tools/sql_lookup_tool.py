@@ -1,14 +1,14 @@
 from typing import Literal
 from langchain.tools import tool
 from dotenv import load_dotenv
-from langgraph.prebuilt import ToolRuntime
 from agents.graph.sql_subgraph import sql_graph
-from domain.sql_graph_state import SQLGraphState
+from domain.states.sql_subgraph_state.sql_graph_state import SQLGraphState
+
 load_dotenv()
 
 
 @tool
-def sql_lookup_tool(question: str, domain: Literal["inbound", "outbound", "inventory"], runtime: ToolRuntime) -> dict:
+def sql_lookup_tool(question: str, domain: Literal["inbound", "outbound", "inventory"]) -> dict:
     """:arg question: SQL query to run
         :arg domain: Domain name"""
 
@@ -21,9 +21,7 @@ def sql_lookup_tool(question: str, domain: Literal["inbound", "outbound", "inven
 
     final_response = lookup_question_on_database['final_response']
 
-    return {
-        "database_response": final_response,
-    }
+    return final_response
 
 
 

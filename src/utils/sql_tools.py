@@ -13,8 +13,8 @@ from langchain_community.tools.sql_database.tool import (
 class WmsSqlTool:
     def __init__(self, query_check_llm: BaseChatModel):
         self.llm = query_check_llm
-        self.toolkit = self._create_tools()
         self.db = self._create_database()
+        self.toolkit = self._create_tools()
 
     def _create_engine_with_pooling(self):
         return create_engine(
@@ -43,16 +43,16 @@ class WmsSqlTool:
         return self.db.run(sql, include_columns=True)
 
     def _create_tools(self) -> list[BaseTool]:
-        db = self._create_database()
+
 
         db_tools =  [
-            QuerySQLDatabaseTool(db=db),
-            InfoSQLDatabaseTool(db=db),
-            ListSQLDatabaseTool(db=db),
+            QuerySQLDatabaseTool(db=self.db),
+            InfoSQLDatabaseTool(db=self.db),
+            ListSQLDatabaseTool(db=self.db),
         ]
 
         if self.llm is not None:
-            db_tools.append(QuerySQLCheckerTool(llm=self.llm, db=db))
+            db_tools.append(QuerySQLCheckerTool(llm=self.llm, db=self.db))
 
         return db_tools
 

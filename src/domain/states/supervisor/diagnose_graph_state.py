@@ -1,40 +1,35 @@
-from typing import Literal, Annotated, List
+from dataclasses import dataclass, field
 from langchain_core.messages import AnyMessage
-from langgraph.graph import add_messages
-from pydantic import BaseModel, Field
-from domain.states.supervisor.supervisor_subagent_task_state import SupervisorToSubAgentDeligationItem
+from domain.states.RoutingState.routing_decision_state import RoutingDecision
+from domain.states.sql_subgraph_state.sql_lookup_result import LookupResult
+from domain.states.supervisor.diagnosis_result import DiagnosisResult
 
 
-"""Main state for all the nodes"""
-class WMState(BaseModel):
-    ticket_number: str = Field( description="Ticket number")
-    description: str = Field( description="Description of the ticket")
-    intent: Literal["lookup", "diagnose"] | None = Field(
-        default=None,
-        description="Intent decided by router"
-    )
-    domain: Literal["inbound", "outbound", "inventory"] = Field(
-        description="Inbound and outbound domain",
-        default=None
-    )
-
-    ##supervisor node states
-    messages: Annotated[List[AnyMessage], add_messages] = Field(
-        default_factory=list,
-        description="Diagnostic messages messages"
-    )
-
-    loop_count: int = Field(
-        default=0,
-        description="Loop count"
-    )
-
-    subagent_task_deligation_item: List[SupervisorToSubAgentDeligationItem] = Field(
-        default_factory=list,
-        description="Subagent log"
-    )
+# class WMState(TypedDict, total=False):
+#     remaining_steps: int
+#     ticket_number: str
+#     description: str
+#     intent: Literal["lookup", "diagnose"] | None
+#     domain: Literal["inbound", "outbound", "inventory"] | None
+#     messages: Annotated[list[AnyMessage], add_messages]
+#     loop_count: int
+#     active_agent: str | None
+#     task_description: str | None
+#     final_responses: str | None
 
 
-    final_responses: str = Field(default=None, description="Final answer")
-
-
+@dataclass
+class WMState:
+    ticket_number: str
+    session_id: str
+    description: str | None = None
+    messages: list[AnyMessage] = field(default_factory=list)
+    user_context: dict[str, str] = field(default_factory=dict)
+    system_context: dict[str, str] = field(default_factory=dict)
+    routing_decision: RoutingDecision | None = None
+    lookup_result: LookupResult | None = None
+    diagnosis_result: DiagnosisResult | None = None
+    # final_response: str | None = None
+    # usage: UsageStats = field(default_factory=UsageStats)
+    # budget_state: BudgetState = field(default_factory=BudgetState)
+    # event_log: list[Event] = field(default_factory=list)

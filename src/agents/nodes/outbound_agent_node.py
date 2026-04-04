@@ -35,36 +35,10 @@ _llm = (
     ])
 )
 
-_outbound_agent = create_agent(
+outbound_agent = create_agent(
     model=_llm,
     tools=[sql_lookup_tool],
     system_prompt=OUTBOUND_PROMPT,
+    name="outbound_agent",
 )
 
-
-def outbound_agent_node(state: SupervisorWorkerPayloadState) -> Command:
-    """Outbound domain agent node"""
-
-    agent_name = state.subagent_name
-    task_description = state.worker_task
-
-    try:
-        result = _outbound_agent.invoke(
-            {"messages": [{"role": "user", "content": task_description}]}
-        )
-        final_answer = result[-1]
-    except Exception as e:
-        final_answer = f"[outbound_agent] Failed: {e}"
-
-    return Command(
-        update={
-            "messages": [
-                AIMessage(
-                    content=final_answer,
-                    name=agent_name,
-                    additional_kwargs={"loop": state.loop_counter},
-                )
-            ]
-        },
-        goto="supervisor_node",
-    )

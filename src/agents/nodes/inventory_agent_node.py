@@ -17,35 +17,10 @@ _llm = (
     ])
 )
 
-_inventory_agent = create_agent(
+inventory_agent = create_agent(
     model=_llm,
     tools=[sql_lookup_tool],
     system_prompt="hello",
+    name="inventory_agent",
 )
 
-
-def inventory_agent_node(state: SupervisorWorkerPayloadState) -> Command:
-    """Inventory domain agent node"""
-
-    agent_name = state.subagent_name
-    task_description = state.worker_task
-
-    try:
-        result = _inventory_agent.invoke(
-            {"messages": [{"role": "user", "content": task_description}]}
-        )
-        final_answer = result["messages"][-1].content
-    except Exception as e:
-        final_answer = f"[inventory_agent] Failed: {e}"
-
-    return Command(
-        update={
-            "messages": [
-                AIMessage(
-                    content=final_answer,
-                    name=agent_name,
-                    additional_kwargs={"loop": state.loop_counter}),
-            ]
-        },
-        goto="supervisor_node",
-    )

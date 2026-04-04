@@ -45,3 +45,4 @@ langchain_neo4j
 langchain-ollama
 prettyprinter
 tabulate
+langgraph-supervisor

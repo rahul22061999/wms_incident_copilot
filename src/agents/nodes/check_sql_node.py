@@ -1,7 +1,7 @@
 from typing import Literal
 from langchain_community.tools import QuerySQLCheckerTool
 from langgraph.types import Command
-from domain.sql_graph_state import SQLGraphState
+from domain.states.sql_subgraph_state.sql_graph_state import SQLGraphState
 from models.sql_tool_loader import get_sql_tools_loader
 from dotenv import load_dotenv
 load_dotenv()
@@ -17,7 +17,7 @@ def check_sql_node(state: SQLGraphState) -> Command[Literal["run_sql_node"]]:
             sql_check_tool = tool
             break
 
-    sql_query = (state.generated_sql or "").strip()
+    sql_query = state.get('generated_sql','').strip()
 
     ##check query using sql check tool
     validated_sql = sql_check_tool.invoke(sql_query)

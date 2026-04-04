@@ -6,6 +6,6 @@ from domain.states.supervisor.diagnose_graph_state import WMState
 
 def diagnose_result_node(state: WMState) -> Command[Literal["__end__"]]:
     return Command(
-        update={"final_responses": state.final_responses or "No results available."},
+        update={"final_responses": state.get('final_responses') or "No results available."},
         goto=END,
     )

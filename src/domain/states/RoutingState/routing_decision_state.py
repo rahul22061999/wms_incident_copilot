@@ -1,9 +1,9 @@
-"""Schema output state for routing node"""
 from typing import Literal
 from pydantic import BaseModel, Field
 
 
-class RoutingState(BaseModel):
+
+class RoutingDecision(BaseModel):
     intent: Literal["lookup", "diagnose"] = Field(
         description="lookup = direct data retrieval; diagnose = root-cause investigation"
     )

@@ -109,7 +109,7 @@ SELECT
     SUM(COALESCE(pck_qty, 0)) / 24.0 AS avg_uph_24h
 FROM wms1.pckwrk
 WHERE pck_dt >= NOW() - INTERVAL '24 hours'
-  AND COALESCE(pck_qty, 0) > 0;
+  AND COALESCE(pck_qty, 0) > 0
 
 -- Hourly picked units over last 24 hours
 SELECT
@@ -119,7 +119,7 @@ FROM wms1.pckwrk
 WHERE pck_dt >= NOW() - INTERVAL '24 hours'
   AND COALESCE(pck_qty, 0) > 0
 GROUP BY DATE_TRUNC('hour', pck_dt)
-ORDER BY hour_bucket;
+ORDER BY hour_bucket
 """,
         "table_name": "wms1.pckwrk",
     },
@@ -142,7 +142,7 @@ ORDER BY hour_bucket;
 - receiving_loc
 - status
 - created_at
-
+WARNING: There is NO column called "receiving_date". The correct name is "received_date".
 ## Use Cases
 - What receipts exist for a SKU?
 - How much was expected vs received?
@@ -173,7 +173,7 @@ SELECT
     received_date
 FROM wms1.rcv_inventory
 WHERE sku = 'SKU004'
-ORDER BY created_at DESC;
+ORDER BY created_at DESC
 
 -- Open inbound receipts
 SELECT
@@ -184,7 +184,7 @@ SELECT
     status
 FROM wms1.rcv_inventory
 WHERE status IN ('PENDING', 'PARTIAL')
-ORDER BY created_at DESC;
+ORDER BY created_at DESC
 
 -- Receipt variance for a SKU
 SELECT
@@ -196,7 +196,7 @@ SELECT
     status
 FROM wms1.rcv_inventory
 WHERE sku = 'SKU004'
-ORDER BY created_at DESC;
+ORDER BY created_at DESC
 """,
         "table_name": "wms1.rcv_inventory",
     },
