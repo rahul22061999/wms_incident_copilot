@@ -7,20 +7,20 @@ def force_final_answer(
     state: WMState,
     current_loop: int,
     max_loops: int,
+    final_answer: str
 ) -> Command:
-    findings = get_previous_task_findings(state)
 
     return Command(
         update={
             "loop_count": current_loop + 1,
-            "final_responses": f"Max loops reached. Findings: {findings}",
+            "final_responses": state.final_response,
+            "final": True,
             "messages": [
-                AIMessage(
-                    content=(
-                        f"[supervisor] Max investigation loops ({max_loops}) reached. "
-                        f"Best-effort summary based on findings so far:\n{findings}"
-                    )
-                )
+                {"role": "system", "content": (
+                    f"[supervisor] Max investigation loops ({max_loops}) reached. "
+                    f"Best-effort summary:\n{final_answer}"
+                    ),
+                }
             ],
         },
         goto="diagnose_result_node",

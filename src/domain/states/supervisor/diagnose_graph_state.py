@@ -1,8 +1,6 @@
 from dataclasses import dataclass, field
-from langchain_core.messages import AnyMessage
-from domain.states.RoutingState.routing_decision_state import RoutingDecision
-from domain.states.sql_subgraph_state.sql_lookup_result import LookupResult
-from domain.states.supervisor.diagnosis_result import DiagnosisResult
+from typing import  Optional, Dict, List, Any
+
 
 
 # class WMState(TypedDict, total=False):
@@ -17,19 +15,23 @@ from domain.states.supervisor.diagnosis_result import DiagnosisResult
 #     task_description: str | None
 #     final_responses: str | None
 
-
 @dataclass
 class WMState:
     ticket_number: str
     session_id: str
-    description: str | None = None
-    messages: list[AnyMessage] = field(default_factory=list)
-    user_context: dict[str, str] = field(default_factory=dict)
-    system_context: dict[str, str] = field(default_factory=dict)
-    routing_decision: RoutingDecision | None = None
-    lookup_result: LookupResult | None = None
-    diagnosis_result: DiagnosisResult | None = None
-    # final_response: str | None = None
-    # usage: UsageStats = field(default_factory=UsageStats)
-    # budget_state: BudgetState = field(default_factory=BudgetState)
-    # event_log: list[Event] = field(default_factory=list)
+    description: str = ""
+    loop_count: int = 0
+    max_turns: int = 0
+    error: Optional[str] = None
+    final: bool = False
+    task_description: Optional[str] = None
+    messages: List[Dict[str, Any]] = field(default_factory=list)
+    routing_decision: Optional[dict] = None
+    lookup_result: Optional[dict] = None
+    diagnosis_result: Optional[dict] = None
+    final_response: Optional[str] = None
+    file_history: List[Dict[str, Any]] = field(default_factory=list)
+    plugin_state: Dict[str, Any] = field(default_factory=dict)
+    usage: Dict[str, Any] = field(default_factory=dict)
+    budget_state: Dict[str, Any] = field(default_factory=dict)
+    scratchpad_directory: Optional[str] = None

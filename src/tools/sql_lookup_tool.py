@@ -8,18 +8,18 @@ load_dotenv()
 
 
 @tool
-def sql_lookup_tool(question: str, domain: Literal["inbound", "outbound", "inventory"]) -> dict:
+def sql_lookup_tool(question: str, domain: Literal["inbound", "outbound", "inventory"]):
     """:arg question: SQL query to run
         :arg domain: Domain name"""
 
     lookup_question_on_database = sql_graph.invoke(
         SQLGraphState(
             domain=domain,
-            description= question
+            user_question= question
         )
     )
 
-    final_response = lookup_question_on_database['final_response']
+    final_response = lookup_question_on_database.get('result').rows
 
     return final_response
 

@@ -1,3 +1,5 @@
+import ast
+
 from langchain_community.utilities import SQLDatabase
 from langchain_core.language_models import BaseChatModel
 from langchain_core.tools import BaseTool
@@ -40,7 +42,12 @@ class WmsSqlTool:
 
     def run_query(self, sql: str) -> str:
         """Run SQL with column names included."""
-        return self.db.run(sql, include_columns=True)
+        raw_string =  self.db.run(sql, include_columns=True)
+
+        try:
+            return ast.literal_eval(raw_string)
+        except (ValueError, SyntaxError):
+            return ast.literal_eval(raw_string)
 
     def _create_tools(self) -> list[BaseTool]:
 

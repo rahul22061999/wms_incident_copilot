@@ -1,11 +1,11 @@
-from typing_extensions import TypedDict, Any
+from dataclasses import dataclass
+from typing import Optional, List, Dict, Any
 
 
-class SQLTaskResult(TypedDict):
+@dataclass
+class SQLTaskResult:
     ok: bool
-    rows: list[dict] |  None
-    summary: str
-    generated_sql: str | None
-    error: str | None
-    telemetry: dict[str, Any]
-
+    generated_sql: Optional[str] = None
+    validated_sql: Optional[str] = None
+    rows: Optional[List[Dict[str, Any]]] = None
+    error: Optional[str] = None
