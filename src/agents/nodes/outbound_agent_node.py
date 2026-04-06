@@ -6,7 +6,7 @@ from models.model_loader import get_google_llm, get_openai_fast_llm
 from tools.sql_lookup_tool import sql_lookup_tool
 from dotenv import load_dotenv
 load_dotenv()
-
+from langchain_openai import ChatOpenAI
 OUTBOUND_PROMPT = """\
 You are an outbound domain agent for a warehouse management system.
 
@@ -35,8 +35,10 @@ _llm = (
     ])
 )
 
+llm = ChatOpenAI(model="gpt-4o-mini", temperature=0)
+
 outbound_agent = create_agent(
-    model=_llm,
+    model=llm,
     tools=[sql_lookup_tool],
     system_prompt=OUTBOUND_PROMPT,
     name="outbound_agent",

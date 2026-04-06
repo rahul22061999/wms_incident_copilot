@@ -1,5 +1,6 @@
 from langchain.agents import create_agent
 from langchain_core.messages import AIMessage
+from langchain_openai import ChatOpenAI
 from pydantic import BaseModel
 
 from prompts.generate_inbound_agent_prompt import inbound_agent_prompt
@@ -22,10 +23,10 @@ _llm = (
         get_openai_fast_llm()
     ])
 )
-
+llm = ChatOpenAI(model="gpt-4o-mini", temperature=0)
 
 inbound_agent = create_agent(
-        model=_llm,
+        model=llm,
         tools=[sql_lookup_tool],
         system_prompt=inbound_agent_prompt,
         name="inbound_agent",

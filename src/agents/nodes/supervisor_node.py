@@ -9,27 +9,22 @@ from utils.supervisor.supervisor_subagent_handoff import create_supervisor_hando
 from utils.supervisor.supervisor_fallback import force_final_answer
 from langgraph_supervisor import create_supervisor
 from agents.nodes.inbound_agent_node import inbound_agent
+from langchain_openai import ChatOpenAI
 
 load_dotenv()
 
-def _is_final_message(messages: list[dict]) -> bool:
+def _is_final_message(messages: list) -> bool:
     if not messages:
         return False
     last = messages[-1]
-    content = last.get("content", "")
-    # convention: supervisor marks final answer with 'FINAL:' or '/final' (choose your own)
+    content = last.content if hasattr(last, "content") else ""
     return "FINAL:" in content or content.strip().startswith("/final")
 
 class WarehouseSupervisorNode:
     def __init__(self):
 
         ##choose llm based on whats available
-        self.llm = (
-            get_google_llm()
-            .with_fallbacks([
-                get_openai_fast_llm()
-            ])
-        )
+        self.llm = ChatOpenAI(model="gpt-4o-mini", temperature=0)
 
         ##set max loops for and llm to run over an issue
         self.max_loops = int(settings.SUPERVISOR_MAX_LOOP or 3)
@@ -67,11 +62,13 @@ class WarehouseSupervisorNode:
                 outbound_agent,
                 inventory_agent,
             ],
-            tools=self.tools,
+            # tools=self.tools,
             model=self.llm,
-            output_mode="last_message",
+            prompt=self.prompt,
+            output_mode="full_history",
             add_handoff_messages=False,
             parallel_tool_calls=False,
+
             supervisor_name="warehouse_supervisor",
         ).compile(name="warehouse_supervisor")
 
@@ -109,7 +106,7 @@ class WarehouseSupervisorNode:
         final_detected = _is_final_message(messages)
 
         if final_detected or (current_loop + 1) >= self.max_loops:
-            final = messages[-1].get("content") if messages else ""
+            final = messages[-1].content if messages else ""
             final_output = force_final_answer(state, current_loop + 1, self.max_loops, final)
             return {
                 "final_responses": final_output,
@@ -120,7 +117,7 @@ class WarehouseSupervisorNode:
 
         # not final -> return patch for parent to merge
         return {
-            "final_responses": messages[-1].get("content") if messages else "",
+            "final_responses": messages[-1].content if messages else "",
             "loop_count": current_loop + 1,
             "messages": messages,
             "final": False,

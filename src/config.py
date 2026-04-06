@@ -40,8 +40,7 @@ class Settings(BaseSettings):
 
     LANGSMITH_API_KEY: SecretStr = Field(description="Langsmith API key")
 
-    GOOGLE_AI_MODEL: str = ""
-    # "gemini-3.1-flash-lite-preview"
+    GOOGLE_AI_MODEL: str = "gemini-3.1-flash-lite-preview"
     OPEN_AI_MODEL: str = "gpt-5-nano"
     GROQ_MODEL: str ="llama-3.1-8b-instant"
     GOOGLE_TIMEOUT: int = 10
@@ -65,6 +64,8 @@ class Settings(BaseSettings):
     SUPERVISOR_MAX_LOOP: int = 3
     CHILD_MAX_LOOP: int = 3
 
+    ##session store
+    SESSION_STORE_DIR: str='src/data/sessions'
 
 
 
