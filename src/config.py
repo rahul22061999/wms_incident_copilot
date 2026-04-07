@@ -45,6 +45,11 @@ class Settings(BaseSettings):
     GROQ_MODEL: str ="llama-3.1-8b-instant"
     GOOGLE_TIMEOUT: int = 10
 
+    ##embedding model
+    OPENAI_EMBEDDING_MODEL:str = "text-embedding-3-small"
+
+    VECTOR_STORE_PATH:str = "vectorstore/"
+
 
     #Database config
     DB_POOL_SIZE: int = 5
