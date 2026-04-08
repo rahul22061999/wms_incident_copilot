@@ -1,10 +1,11 @@
 from langchain_core.messages import HumanMessage, SystemMessage
+from langsmith import traceable
 from domain.states.RoutingState.routing_decision_state import RoutingDecision
 from domain.states.supervisor.diagnose_graph_state import WMState
 from models.model_loader import get_openai_fast_llm, get_google_llm
-from models.prompts.task_prompt import ROUTER_NODE_PROMPT
+from prompts.task_prompt import ROUTER_NODE_PROMPT
 
-
+@traceable(name="Routing Decision")
 def router_node(state: WMState) -> dict[str, dict]:
     description = state.description
     if not description:

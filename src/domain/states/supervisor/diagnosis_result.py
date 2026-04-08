@@ -1,5 +1,6 @@
 from dataclasses import field, dataclass
 
+
 @dataclass
 class DiagnosisResult:
     answer: str

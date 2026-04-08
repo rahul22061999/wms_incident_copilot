@@ -35,3 +35,4 @@ class WMState:
     usage: Dict[str, Any] = field(default_factory=dict)
     budget_state: Dict[str, Any] = field(default_factory=dict)
     scratchpad_directory: Optional[str] = None
+
