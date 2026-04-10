@@ -5,6 +5,7 @@ from domain.states.sql_subgraph_state.sql_graph_state import SQLGraphState
 from domain.states.supervisor.diagnose_graph_state import WMState
 
 
+
 def sql_query_subgraph_node(state: WMState) -> dict:
     """
     Parent WMState -> SQLGraphState
@@ -22,4 +23,9 @@ def sql_query_subgraph_node(state: WMState) -> dict:
     result = sql_graph.invoke(sql_input)
 
 
-    return {"lookup_result": result}
+    return {
+        "lookup_result": result,
+        "status": "done",
+        "current_node": "sql_query_subgraph_node",
+        "event_log": [{"node": "sql_query_subgraph_node", "status": "done"}],
+    }

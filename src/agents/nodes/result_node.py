@@ -1,20 +1,12 @@
+from langgraph.config import get_stream_writer
 from domain.states.supervisor.diagnose_graph_state import WMState
 
-
 def result_node(state: WMState):
+    writer = get_stream_writer()
 
-    # api_response = {
-    #         "session_id": state.session_id,
-    #         "ticket_number": state.ticket_number,
-    #         "answer": "",
-    #     "supporting_data": {
-    #         "sql_executed": state.lookup_result.get('validated_sql', ''),
-    #         "data_rows": state.lookup_result.get('execution_result', ''),
-    #         "diagnosis_result":""
-    #         }
-    #     }
-    # return api_response
+    final_text = state.final_response or state.diagnosis_result or ""
 
-    return state
-
-
+    return {
+        "final_response": final_text,
+        "final": True,
+    }

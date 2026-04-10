@@ -1,75 +1,103 @@
-from langchain_anthropic import ChatAnthropic
-from langsmith import traceable
-from agents.nodes.inventory_agent_node import inventory_agent
+import logging
+
+from langchain_core.messages import ToolMessage, AIMessageChunk
+from agents.nodes.inbound_agent_node import inbound_agent
 from agents.nodes.outbound_agent_node import outbound_agent
+from agents.nodes.inventory_agent_node import inventory_agent
 from prompts.generate_supervisor_prompt import supervisor_prompt
 from config import settings
-from domain.states.supervisor.diagnose_graph_state import WMState
 from langgraph_supervisor import create_supervisor
-from agents.nodes.inbound_agent_node import inbound_agent
 from langchain_openai import ChatOpenAI
-from langchain.messages import AIMessageChunk
+from langchain.messages import HumanMessage
+from domain.states.supervisor.diagnose_graph_state import WMState
+from utils.logging.logging_config import setup_logging
+
+setup_logging()
+logger = logging.getLogger(__name__)
 
 
-
-
-
-@traceable(name="supervisor_node")
 class WarehouseSupervisorNode:
     def __init__(self):
-
-        ##choose llm based on whats available
         self.llm = ChatOpenAI(model="gpt-4o-mini", temperature=0, streaming=True)
 
-
-        ##set max loops for and llm to run over an issue
         self.max_loops = int(settings.SUPERVISOR_MAX_LOOP or 3)
-        ##how many times child can loop
         self.child_max_loops = int(settings.CHILD_MAX_LOOP or 3)
-        ##system prompt and chat prompt built in
         self.prompt = supervisor_prompt
 
         self.warehouse_supervisor = create_supervisor(
             agents=[
                 inbound_agent,
                 outbound_agent,
-                inventory_agent,
-            ],
+                inventory_agent],
             model=self.llm,
             prompt=self.prompt,
             output_mode="last_message",
-            add_handoff_messages=False,
+            add_handoff_messages=True,
             parallel_tool_calls=False,
-            supervisor_name="warehouse_supervisor",
+            supervisor_name="warehouse_supervisor"
         ).compile(name="warehouse_supervisor")
 
-    async def __call__(self, state: WMState) -> dict:
-        enriched = f"Ticket: {state.description}\n\n"
+    def __call__(self, state: WMState) -> dict:
+        """Supervisor call method: stream messages and optionally capture final state.
+
+        Tuple shapes from graph.astream(..., stream_mode=["messages","values"], subgraphs=True):
+          (namespace, mode, payload)
+
+          - mode == "messages": payload is (chunk, meta)
+          - mode == "values"  and namespace == (): payload is the final outer graph state (dict)
+        """
+
+        final_text = ""
+
+        inputs = {
+            "messages": [HumanMessage(content=state.description)]
+        }
 
         try:
-            async for chunk in self.warehouse_supervisor.astream(
-                    {"messages": [{"role": "user", "content": enriched}]},
-                    stream_mode="messages",
-                    version="v2",
-                    config={"recursion_limit": min(25, int(settings.SUPERVISOR_MAX_LOOP or 3) * 10)},
+            for namespace, mode, payload in self.warehouse_supervisor.stream(
+                    inputs,
+                    config={"recursion_limit": min(25, self.max_loops * 10)},
+                    stream_mode=["messages"],
+                    subgraphs=True
             ):
-                msg, metadata = chunk["data"]
-                if msg.content:
-                    print(msg.content, end="", flush=True)
+                if mode != "messages":
+                    continue
+                message_chunk, metadata = payload
+
+                if isinstance(message_chunk, ToolMessage):
+                    continue
+
+                raw_content = getattr(message_chunk, "content", "") or ""
+
+                # content can be str OR list of content blocks
+                if isinstance(raw_content, list):
+                    # extract text from content blocks
+                    text = "".join(
+                        block.get("text", "")
+                        for block in raw_content
+                        if isinstance(block, dict) and block.get("type") == "text"
+                    )
+                else:
+                    text = raw_content
+
+                if text:
+                    print(text, end="", flush=True)
+                    final_text += text
+
 
         except Exception as exc:
             return {
-                "final_responses": f"Supervisor Error: {exc}",
+                "diagnosis_result": str(exc),
                 "error": str(exc),
-                "final": True,
             }
 
-
-        return {"diagnosis_result": "custom"}
-
-
-
-
-
+        logger.info("SUPERVISOR NODE CALLED")
+        return {
+            "status": "done",
+            "event_log": [{"node":"supervisor_node", "status":"Completed" \
+                          if final_text else "failed" }],
+            "diagnosis_result": final_text,
+            "error": None
+        }
 
 

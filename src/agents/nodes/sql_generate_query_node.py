@@ -1,15 +1,26 @@
+import logging
+
+from langsmith import traceable
+
 from domain.states.sql_generate_subquery.sql_generate_subqueries_state import GenerateSubqueries
 from domain.states.sql_subgraph_state.sql_graph_state import SQLGraphState
 from models.model_loader import get_google_llm, get_openai_fast_llm
 from prompts.generate_sql_subquery_split_prompt import get_subquery_split_prompt
 from prompts.generate_sql_system_prompt import get_sql_prompt
 from dotenv import load_dotenv
+
+from utils.logging.logging_config import setup_logging
+
 load_dotenv()
 
-# sql_generate_query_node — writes to state
-def sql_generate_query_node(state: SQLGraphState) -> SQLGraphState:
+setup_logging()
+logger = logging.getLogger(__name__)
+
+@traceable(name="sql_generate_query_node")
+def sql_generate_query_node(state: SQLGraphState) -> dict:
     domains = state.domain
     prompt = get_sql_prompt()
+    results = {}
 
     if len(domains) > 1:
         # Split + generate SQL per domain
@@ -21,7 +32,7 @@ def sql_generate_query_node(state: SQLGraphState) -> SQLGraphState:
         })
 
         llm = get_google_llm().with_fallbacks([get_openai_fast_llm()])
-        results = {}
+
         for sq in state.subqueries.subqueries:
             response = (prompt | llm).invoke({
                 "skill_context": next(
@@ -34,7 +45,7 @@ def sql_generate_query_node(state: SQLGraphState) -> SQLGraphState:
                 content = "".join(b["text"] for b in content if b.get("type") == "text")
             results[sq.domain] = content.strip()
 
-        state.generated_sql = results  # {"inbound": "SELECT ...", "outbound": "SELECT ..."}
+ # {"inbound": "SELECT ...", "outbound": "SELECT ..."}
     else:
         llm = get_google_llm().with_fallbacks([get_openai_fast_llm()])
         response = (prompt | llm).invoke({
@@ -44,5 +55,12 @@ def sql_generate_query_node(state: SQLGraphState) -> SQLGraphState:
         content = response.content
         if isinstance(content, list):
             content = "".join(b["text"] for b in content if b.get("type") == "text")
-        state.generated_sql[str(domains[0])] = content.strip()
-    return state
+        results[str(domains[0])] = content.strip()
+
+
+    logger.info("SQL Generated Query Node")
+
+    return {
+        "generated_sql": results,
+        "event_log": [{"node":"generate_sql_node", "message": "Completed generating SQL queries."}]
+    }

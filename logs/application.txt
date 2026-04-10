@@ -1,0 +1,316 @@
+2026-04-09 17:28:33,649 | INFO | agents.graph.application_graph | Application graph built
+2026-04-09 17:28:33,683 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-09 17:28:42,785 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 504 Gateway Timeout"
+2026-04-09 17:28:42,788 | INFO | google_genai._api_client | Retrying google.genai._api_client.BaseApiClient._request_once in 1.23 seconds as it raised ServerError: 504 DEADLINE_EXCEEDED. {'error': {'code': 504, 'message': 'Deadline expired before operation could complete.', 'status': 'DEADLINE_EXCEEDED'}}.
+2026-04-09 17:28:52,784 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 504 Gateway Timeout"
+2026-04-09 17:28:52,787 | INFO | google_genai._api_client | Retrying google.genai._api_client.BaseApiClient._request_once in 2.56 seconds as it raised ServerError: 504 DEADLINE_EXCEEDED. {'error': {'code': 504, 'message': 'Deadline expired before operation could complete.', 'status': 'DEADLINE_EXCEEDED'}}.
+2026-04-09 17:28:56,266 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-09 17:28:56,286 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-09 17:28:57,061 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-09 17:29:01,231 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-09 18:25:57,123 | INFO | agents.graph.application_graph | Application graph built
+2026-04-09 18:25:57,164 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-09 18:25:58,591 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-09 18:25:58,618 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-09 18:25:59,543 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-09 18:25:59,548 | INFO | src.agents.nodes.sql_generate_query_node | SQL Generated Query Node
+2026-04-09 18:26:03,578 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-09 18:26:07,004 | INFO | src.agents.nodes.sql_run_sql_node | SQL NODE: Sql ran on the database
+2026-04-09 18:27:11,331 | INFO | agents.graph.application_graph | Application graph built
+2026-04-09 18:27:11,377 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-09 18:27:13,067 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-09 18:27:13,091 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-09 18:27:14,199 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-09 18:27:14,204 | INFO | src.agents.nodes.sql_generate_query_node | SQL Generated Query Node
+2026-04-09 18:27:18,131 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-09 18:27:22,201 | INFO | src.agents.nodes.sql_run_sql_node | SQL NODE: Sql ran on the database
+2026-04-09 18:29:13,397 | WARNING | langgraph.checkpoint.serde.jsonplus | Deserializing unregistered type domain.states.sql_generate_subquery.sql_generate_subqueries_state.GenerateSubqueries from checkpoint. This will be blocked in a future version. Add to allowed_msgpack_modules to silence: [('domain.states.sql_generate_subquery.sql_generate_subqueries_state', 'GenerateSubqueries')]
+2026-04-09 18:29:31,900 | WARNING | langgraph.checkpoint.serde.jsonplus | Deserializing unregistered type domain.states.sql_generate_subquery.sql_generate_subqueries_state.GenerateSubqueries from checkpoint. This will be blocked in a future version. Add to allowed_msgpack_modules to silence: [('domain.states.sql_generate_subquery.sql_generate_subqueries_state', 'GenerateSubqueries')]
+2026-04-09 18:29:31,904 | WARNING | langgraph.checkpoint.serde.jsonplus | Deserializing unregistered type domain.states.sql_generate_subquery.sql_generate_subqueries_state.GenerateSubqueries from checkpoint. This will be blocked in a future version. Add to allowed_msgpack_modules to silence: [('domain.states.sql_generate_subquery.sql_generate_subqueries_state', 'GenerateSubqueries')]
+2026-04-09 18:29:31,906 | WARNING | langgraph.checkpoint.serde.jsonplus | Deserializing unregistered type domain.states.sql_generate_subquery.sql_generate_subqueries_state.GenerateSubqueries from checkpoint. This will be blocked in a future version. Add to allowed_msgpack_modules to silence: [('domain.states.sql_generate_subquery.sql_generate_subqueries_state', 'GenerateSubqueries')]
+2026-04-09 18:30:06,440 | WARNING | langgraph.checkpoint.serde.jsonplus | Deserializing unregistered type domain.states.sql_generate_subquery.sql_generate_subqueries_state.GenerateSubqueries from checkpoint. This will be blocked in a future version. Add to allowed_msgpack_modules to silence: [('domain.states.sql_generate_subquery.sql_generate_subqueries_state', 'GenerateSubqueries')]
+2026-04-09 18:30:06,443 | WARNING | langgraph.checkpoint.serde.jsonplus | Deserializing unregistered type domain.states.sql_generate_subquery.sql_generate_subqueries_state.GenerateSubqueries from checkpoint. This will be blocked in a future version. Add to allowed_msgpack_modules to silence: [('domain.states.sql_generate_subquery.sql_generate_subqueries_state', 'GenerateSubqueries')]
+2026-04-09 18:30:06,445 | WARNING | langgraph.checkpoint.serde.jsonplus | Deserializing unregistered type domain.states.sql_generate_subquery.sql_generate_subqueries_state.GenerateSubqueries from checkpoint. This will be blocked in a future version. Add to allowed_msgpack_modules to silence: [('domain.states.sql_generate_subquery.sql_generate_subqueries_state', 'GenerateSubqueries')]
+2026-04-09 18:30:56,638 | WARNING | langgraph.checkpoint.serde.jsonplus | Deserializing unregistered type domain.states.sql_generate_subquery.sql_generate_subqueries_state.GenerateSubqueries from checkpoint. This will be blocked in a future version. Add to allowed_msgpack_modules to silence: [('domain.states.sql_generate_subquery.sql_generate_subqueries_state', 'GenerateSubqueries')]
+2026-04-09 18:30:56,642 | WARNING | langgraph.checkpoint.serde.jsonplus | Deserializing unregistered type domain.states.sql_generate_subquery.sql_generate_subqueries_state.GenerateSubqueries from checkpoint. This will be blocked in a future version. Add to allowed_msgpack_modules to silence: [('domain.states.sql_generate_subquery.sql_generate_subqueries_state', 'GenerateSubqueries')]
+2026-04-09 18:30:56,643 | WARNING | langgraph.checkpoint.serde.jsonplus | Deserializing unregistered type domain.states.sql_generate_subquery.sql_generate_subqueries_state.GenerateSubqueries from checkpoint. This will be blocked in a future version. Add to allowed_msgpack_modules to silence: [('domain.states.sql_generate_subquery.sql_generate_subqueries_state', 'GenerateSubqueries')]
+2026-04-09 18:30:56,649 | WARNING | langgraph.checkpoint.serde.jsonplus | Deserializing unregistered type domain.states.sql_generate_subquery.sql_generate_subqueries_state.GenerateSubqueries from checkpoint. This will be blocked in a future version. Add to allowed_msgpack_modules to silence: [('domain.states.sql_generate_subquery.sql_generate_subqueries_state', 'GenerateSubqueries')]
+2026-04-09 18:32:15,389 | WARNING | langgraph.checkpoint.serde.jsonplus | Deserializing unregistered type domain.states.sql_generate_subquery.sql_generate_subqueries_state.GenerateSubqueries from checkpoint. This will be blocked in a future version. Add to allowed_msgpack_modules to silence: [('domain.states.sql_generate_subquery.sql_generate_subqueries_state', 'GenerateSubqueries')]
+2026-04-09 18:32:15,392 | WARNING | langgraph.checkpoint.serde.jsonplus | Deserializing unregistered type domain.states.sql_generate_subquery.sql_generate_subqueries_state.GenerateSubqueries from checkpoint. This will be blocked in a future version. Add to allowed_msgpack_modules to silence: [('domain.states.sql_generate_subquery.sql_generate_subqueries_state', 'GenerateSubqueries')]
+2026-04-09 18:32:15,392 | WARNING | langgraph.checkpoint.serde.jsonplus | Deserializing unregistered type domain.states.sql_generate_subquery.sql_generate_subqueries_state.GenerateSubqueries from checkpoint. This will be blocked in a future version. Add to allowed_msgpack_modules to silence: [('domain.states.sql_generate_subquery.sql_generate_subqueries_state', 'GenerateSubqueries')]
+2026-04-09 18:32:15,413 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-09 18:32:16,629 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-09 18:32:16,655 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-09 18:32:24,801 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-09 18:32:24,810 | INFO | src.agents.nodes.sql_generate_query_node | SQL Generated Query Node
+2026-04-09 18:32:25,102 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-09 18:32:29,170 | INFO | src.agents.nodes.sql_run_sql_node | SQL NODE: Sql ran on the database
+2026-04-09 21:42:23,939 | INFO | agents.nodes.inbound_agent_node | INBOUND AGENT CALLED
+2026-04-09 21:42:23,949 | INFO | agents.nodes.outbound_agent_node | OUTBOUND AGENT CALLED
+2026-04-09 21:42:23,957 | INFO | agents.nodes.inventory_agent_node | INVENTORY AGENT CALLED
+2026-04-09 21:43:17,992 | INFO | agents.nodes.inbound_agent_node | INBOUND AGENT CALLED
+2026-04-09 21:43:18,002 | INFO | agents.nodes.outbound_agent_node | OUTBOUND AGENT CALLED
+2026-04-09 21:43:18,009 | INFO | agents.nodes.inventory_agent_node | INVENTORY AGENT CALLED
+2026-04-09 21:43:18,062 | INFO | agents.graph.application_graph | Application graph built
+2026-04-09 21:43:18,097 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-09 21:43:24,741 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-09 21:43:26,435 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-09 21:43:30,939 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:streamGenerateContent?alt=sse "HTTP/1.1 200 OK"
+2026-04-09 21:48:01,415 | INFO | agents.nodes.inbound_agent_node | INBOUND AGENT CALLED
+2026-04-09 21:48:06,812 | INFO | agents.nodes.outbound_agent_node | OUTBOUND AGENT CALLED
+2026-04-09 21:48:06,823 | INFO | agents.nodes.inventory_agent_node | INVENTORY AGENT CALLED
+2026-04-09 21:48:06,893 | INFO | agents.graph.application_graph | Application graph built
+2026-04-09 21:48:06,932 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-09 21:48:10,325 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-09 21:48:12,235 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-09 21:48:19,757 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:streamGenerateContent?alt=sse "HTTP/1.1 200 OK"
+2026-04-09 21:49:59,479 | INFO | agents.nodes.inbound_agent_node | INBOUND AGENT CALLED
+2026-04-09 21:50:02,962 | INFO | agents.nodes.outbound_agent_node | OUTBOUND AGENT CALLED
+2026-04-09 21:50:02,972 | INFO | agents.nodes.inventory_agent_node | INVENTORY AGENT CALLED
+2026-04-09 21:50:03,031 | INFO | agents.graph.application_graph | Application graph built
+2026-04-09 21:50:03,076 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-09 21:50:09,869 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-09 21:50:11,021 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-09 21:50:54,336 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-09 21:53:49,487 | INFO | agents.nodes.inbound_agent_node | INBOUND AGENT CALLED
+2026-04-09 21:53:52,694 | INFO | agents.nodes.outbound_agent_node | OUTBOUND AGENT CALLED
+2026-04-09 21:53:52,706 | INFO | agents.nodes.inventory_agent_node | INVENTORY AGENT CALLED
+2026-04-09 21:53:52,764 | INFO | agents.graph.application_graph | Application graph built
+2026-04-09 21:53:52,801 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-09 21:53:55,706 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 503 Service Unavailable"
+2026-04-09 21:53:55,711 | INFO | google_genai._api_client | Retrying google.genai._api_client.BaseApiClient._request_once in 1.06 seconds as it raised ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}.
+2026-04-09 21:54:06,058 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-09 21:54:06,983 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-09 21:54:13,784 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:streamGenerateContent?alt=sse "HTTP/1.1 200 OK"
+2026-04-09 21:54:13,814 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-09 21:54:22,516 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:streamGenerateContent?alt=sse "HTTP/1.1 503 Service Unavailable"
+2026-04-09 21:54:22,519 | INFO | google_genai._api_client | Retrying google.genai._api_client.BaseApiClient._request_once in 1.88 seconds as it raised ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}.
+2026-04-09 21:54:27,328 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:streamGenerateContent?alt=sse "HTTP/1.1 200 OK"
+2026-04-09 21:54:27,481 | INFO | src.agents.nodes.sql_generate_query_node | SQL Generated Query Node
+2026-04-09 21:54:31,592 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-09 21:54:35,859 | INFO | src.agents.nodes.sql_run_sql_node | SQL NODE: Sql ran on the database
+2026-04-09 21:54:49,345 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:streamGenerateContent?alt=sse "HTTP/1.1 200 OK"
+2026-04-09 21:54:50,269 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-04-09 21:55:02,350 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:streamGenerateContent?alt=sse "HTTP/1.1 200 OK"
+2026-04-09 21:55:42,683 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-09 21:55:42,731 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-09 21:55:44,130 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-04-09 21:56:24,332 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-09 21:56:26,437 | INFO | src.agents.nodes.sql_generate_query_node | SQL Generated Query Node
+2026-04-09 21:56:26,646 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-09 21:56:31,162 | INFO | src.agents.nodes.sql_run_sql_node | SQL NODE: Sql ran on the database
+2026-04-09 21:56:35,434 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:streamGenerateContent?alt=sse "HTTP/1.1 503 Service Unavailable"
+2026-04-09 21:56:35,436 | INFO | google_genai._api_client | Retrying google.genai._api_client.BaseApiClient._request_once in 1.39 seconds as it raised ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}.
+2026-04-09 21:56:40,452 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:streamGenerateContent?alt=sse "HTTP/1.1 503 Service Unavailable"
+2026-04-09 21:56:40,453 | INFO | google_genai._api_client | Retrying google.genai._api_client.BaseApiClient._request_once in 2.85 seconds as it raised ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}.
+2026-04-09 21:56:44,238 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:streamGenerateContent?alt=sse "HTTP/1.1 503 Service Unavailable"
+2026-04-09 21:56:44,241 | INFO | google_genai._api_client | Retrying google.genai._api_client.BaseApiClient._request_once in 4.83 seconds as it raised ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}.
+2026-04-09 21:56:50,279 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:streamGenerateContent?alt=sse "HTTP/1.1 503 Service Unavailable"
+2026-04-09 21:56:50,281 | INFO | google_genai._api_client | Retrying google.genai._api_client.BaseApiClient._request_once in 8.58 seconds as it raised ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}.
+2026-04-09 21:57:00,008 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:streamGenerateContent?alt=sse "HTTP/1.1 503 Service Unavailable"
+2026-04-09 21:57:00,010 | INFO | google_genai._api_client | Retrying google.genai._api_client.BaseApiClient._request_once in 16.1 seconds as it raised ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}.
+2026-04-09 21:57:17,418 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:streamGenerateContent?alt=sse "HTTP/1.1 503 Service Unavailable"
+2026-04-09 21:57:19,191 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:streamGenerateContent?alt=sse "HTTP/1.1 503 Service Unavailable"
+2026-04-09 21:57:19,193 | INFO | google_genai._api_client | Retrying google.genai._api_client.BaseApiClient._request_once in 1.6 seconds as it raised ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}.
+2026-04-09 21:57:22,231 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:streamGenerateContent?alt=sse "HTTP/1.1 503 Service Unavailable"
+2026-04-09 21:57:22,233 | INFO | google_genai._api_client | Retrying google.genai._api_client.BaseApiClient._request_once in 2.54 seconds as it raised ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}.
+2026-04-09 21:57:32,366 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:streamGenerateContent?alt=sse "HTTP/1.1 503 Service Unavailable"
+2026-04-09 21:57:32,369 | INFO | google_genai._api_client | Retrying google.genai._api_client.BaseApiClient._request_once in 4.29 seconds as it raised ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}.
+2026-04-09 21:57:37,487 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:streamGenerateContent?alt=sse "HTTP/1.1 503 Service Unavailable"
+2026-04-09 21:57:37,488 | INFO | google_genai._api_client | Retrying google.genai._api_client.BaseApiClient._request_once in 8.79 seconds as it raised ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}.
+2026-04-09 21:57:47,523 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:streamGenerateContent?alt=sse "HTTP/1.1 503 Service Unavailable"
+2026-04-09 21:57:47,528 | INFO | google_genai._api_client | Retrying google.genai._api_client.BaseApiClient._request_once in 16.7 seconds as it raised ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}.
+2026-04-09 21:58:05,156 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:streamGenerateContent?alt=sse "HTTP/1.1 503 Service Unavailable"
+2026-04-09 21:58:08,016 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:streamGenerateContent?alt=sse "HTTP/1.1 503 Service Unavailable"
+2026-04-09 21:58:08,018 | INFO | google_genai._api_client | Retrying google.genai._api_client.BaseApiClient._request_once in 1.94 seconds as it raised ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}.
+2026-04-09 21:58:10,869 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:streamGenerateContent?alt=sse "HTTP/1.1 503 Service Unavailable"
+2026-04-09 21:58:10,872 | INFO | google_genai._api_client | Retrying google.genai._api_client.BaseApiClient._request_once in 2.16 seconds as it raised ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}.
+2026-04-09 21:58:14,045 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:streamGenerateContent?alt=sse "HTTP/1.1 503 Service Unavailable"
+2026-04-09 21:58:14,046 | INFO | google_genai._api_client | Retrying google.genai._api_client.BaseApiClient._request_once in 4.25 seconds as it raised ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}.
+2026-04-09 21:58:19,387 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:streamGenerateContent?alt=sse "HTTP/1.1 503 Service Unavailable"
+2026-04-09 21:58:19,389 | INFO | google_genai._api_client | Retrying google.genai._api_client.BaseApiClient._request_once in 8.72 seconds as it raised ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}.
+2026-04-09 21:58:29,302 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:streamGenerateContent?alt=sse "HTTP/1.1 503 Service Unavailable"
+2026-04-09 21:58:29,304 | INFO | google_genai._api_client | Retrying google.genai._api_client.BaseApiClient._request_once in 16.4 seconds as it raised ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}.
+2026-04-09 21:58:46,717 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:streamGenerateContent?alt=sse "HTTP/1.1 503 Service Unavailable"
+2026-04-09 21:59:08,728 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-09 21:59:09,105 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-09 21:59:10,034 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:streamGenerateContent?alt=sse "HTTP/1.1 503 Service Unavailable"
+2026-04-09 21:59:10,036 | INFO | google_genai._api_client | Retrying google.genai._api_client.BaseApiClient._request_once in 1.52 seconds as it raised ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}.
+2026-04-09 21:59:12,346 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:streamGenerateContent?alt=sse "HTTP/1.1 503 Service Unavailable"
+2026-04-09 21:59:12,348 | INFO | google_genai._api_client | Retrying google.genai._api_client.BaseApiClient._request_once in 2.39 seconds as it raised ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}.
+2026-04-09 21:59:15,485 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:streamGenerateContent?alt=sse "HTTP/1.1 503 Service Unavailable"
+2026-04-09 21:59:15,487 | INFO | google_genai._api_client | Retrying google.genai._api_client.BaseApiClient._request_once in 4.24 seconds as it raised ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}.
+2026-04-09 21:59:20,606 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:streamGenerateContent?alt=sse "HTTP/1.1 503 Service Unavailable"
+2026-04-09 21:59:20,608 | INFO | google_genai._api_client | Retrying google.genai._api_client.BaseApiClient._request_once in 8.09 seconds as it raised ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}.
+2026-04-09 21:59:31,357 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:streamGenerateContent?alt=sse "HTTP/1.1 503 Service Unavailable"
+2026-04-09 21:59:31,359 | INFO | google_genai._api_client | Retrying google.genai._api_client.BaseApiClient._request_once in 16.6 seconds as it raised ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}.
+2026-04-09 22:00:34,588 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-09 22:00:36,521 | INFO | src.agents.nodes.sql_generate_query_node | SQL Generated Query Node
+2026-04-09 22:00:36,894 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-09 22:00:41,184 | INFO | src.agents.nodes.sql_run_sql_node | SQL NODE: Sql ran on the database
+2026-04-09 22:01:13,537 | INFO | agents.nodes.inbound_agent_node | INBOUND AGENT CALLED
+2026-04-09 22:01:16,709 | INFO | agents.nodes.outbound_agent_node | OUTBOUND AGENT CALLED
+2026-04-09 22:01:16,722 | INFO | agents.nodes.inventory_agent_node | INVENTORY AGENT CALLED
+2026-04-09 22:01:16,785 | INFO | agents.graph.application_graph | Application graph built
+2026-04-09 22:01:16,848 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-09 22:01:22,465 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-09 22:01:23,426 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-09 22:01:26,133 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:streamGenerateContent?alt=sse "HTTP/1.1 200 OK"
+2026-04-09 22:01:26,853 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-04-09 22:01:28,881 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:streamGenerateContent?alt=sse "HTTP/1.1 200 OK"
+2026-04-09 22:01:35,878 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:streamGenerateContent?alt=sse "HTTP/1.1 200 OK"
+2026-04-09 22:01:52,671 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:streamGenerateContent?alt=sse "HTTP/1.1 200 OK"
+2026-04-09 22:02:17,243 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-09 22:03:52,031 | INFO | agents.nodes.inbound_agent_node | INBOUND AGENT CALLED
+2026-04-09 22:03:52,037 | INFO | agents.nodes.outbound_agent_node | OUTBOUND AGENT CALLED
+2026-04-09 22:03:52,044 | INFO | agents.nodes.inventory_agent_node | INVENTORY AGENT CALLED
+2026-04-09 22:03:52,100 | INFO | agents.graph.application_graph | Application graph built
+2026-04-09 22:03:52,149 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-09 22:04:01,270 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 504 Gateway Timeout"
+2026-04-09 22:04:01,274 | INFO | google_genai._api_client | Retrying google.genai._api_client.BaseApiClient._request_once in 1.21 seconds as it raised ServerError: 504 DEADLINE_EXCEEDED. {'error': {'code': 504, 'message': 'Deadline expired before operation could complete.', 'status': 'DEADLINE_EXCEEDED'}}.
+2026-04-09 22:04:11,608 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 504 Gateway Timeout"
+2026-04-09 22:04:11,612 | INFO | google_genai._api_client | Retrying google.genai._api_client.BaseApiClient._request_once in 2.93 seconds as it raised ServerError: 504 DEADLINE_EXCEEDED. {'error': {'code': 504, 'message': 'Deadline expired before operation could complete.', 'status': 'DEADLINE_EXCEEDED'}}.
+2026-04-09 22:04:23,487 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-09 22:04:24,116 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-09 22:08:21,442 | INFO | agents.nodes.outbound_agent_node | OUTBOUND AGENT CALLED
+2026-04-09 22:08:21,451 | INFO | agents.nodes.inventory_agent_node | INVENTORY AGENT CALLED
+2026-04-09 22:08:21,504 | INFO | agents.graph.application_graph | Application graph built
+2026-04-09 22:08:21,537 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-09 22:08:25,655 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-09 22:08:26,680 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-09 22:08:32,213 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-09 22:08:33,205 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-04-09 22:08:54,338 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-09 22:08:56,590 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-09 22:08:57,385 | INFO | agents.nodes.supervisor_node | SUPERVISOR NODE CALLED
+2026-04-09 22:09:38,080 | INFO | agents.nodes.outbound_agent_node | OUTBOUND AGENT CALLED
+2026-04-09 22:09:38,089 | INFO | agents.nodes.inventory_agent_node | INVENTORY AGENT CALLED
+2026-04-09 22:09:38,146 | INFO | agents.graph.application_graph | Application graph built
+2026-04-09 22:09:38,192 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-09 22:09:39,303 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-09 22:09:40,016 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-09 22:09:41,199 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:streamGenerateContent?alt=sse "HTTP/1.1 200 OK"
+2026-04-09 22:09:42,455 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-04-09 22:09:43,349 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:streamGenerateContent?alt=sse "HTTP/1.1 200 OK"
+2026-04-09 22:12:46,944 | INFO | agents.nodes.outbound_agent_node | OUTBOUND AGENT CALLED
+2026-04-09 22:12:46,952 | INFO | agents.nodes.inventory_agent_node | INVENTORY AGENT CALLED
+2026-04-09 22:12:47,007 | INFO | agents.graph.application_graph | Application graph built
+2026-04-09 22:12:47,053 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-09 22:12:48,177 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-09 22:12:50,781 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-09 22:12:51,723 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:streamGenerateContent?alt=sse "HTTP/1.1 200 OK"
+2026-04-09 22:12:52,701 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:streamGenerateContent?alt=sse "HTTP/1.1 200 OK"
+2026-04-09 22:12:56,512 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-09 22:13:56,512 | INFO | agents.nodes.outbound_agent_node | OUTBOUND AGENT CALLED
+2026-04-09 22:13:56,520 | INFO | agents.nodes.inventory_agent_node | INVENTORY AGENT CALLED
+2026-04-09 22:13:56,573 | INFO | agents.graph.application_graph | Application graph built
+2026-04-09 22:13:56,609 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-09 22:13:57,838 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-09 22:13:58,715 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-09 22:13:59,696 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:streamGenerateContent?alt=sse "HTTP/1.1 200 OK"
+2026-04-09 22:14:01,532 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:streamGenerateContent?alt=sse "HTTP/1.1 200 OK"
+2026-04-09 22:14:05,123 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-09 22:15:54,525 | INFO | agents.nodes.outbound_agent_node | OUTBOUND AGENT CALLED
+2026-04-09 22:15:54,532 | INFO | agents.nodes.inventory_agent_node | INVENTORY AGENT CALLED
+2026-04-09 22:15:54,587 | INFO | agents.graph.application_graph | Application graph built
+2026-04-09 22:15:54,645 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-09 22:15:56,161 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-09 22:15:56,982 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-09 22:15:58,236 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:streamGenerateContent?alt=sse "HTTP/1.1 200 OK"
+2026-04-09 22:15:59,469 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:streamGenerateContent?alt=sse "HTTP/1.1 200 OK"
+2026-04-09 22:53:57,558 | INFO | agents.nodes.outbound_agent_node | OUTBOUND AGENT CALLED
+2026-04-09 22:53:57,566 | INFO | agents.nodes.inventory_agent_node | INVENTORY AGENT CALLED
+2026-04-09 22:53:57,628 | INFO | agents.graph.application_graph | Application graph built
+2026-04-09 22:53:57,661 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-09 22:53:58,770 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-09 22:53:59,990 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-09 22:58:23,781 | INFO | agents.nodes.outbound_agent_node | OUTBOUND AGENT CALLED
+2026-04-09 22:58:23,789 | INFO | agents.nodes.inventory_agent_node | INVENTORY AGENT CALLED
+2026-04-09 22:58:23,863 | INFO | agents.graph.application_graph | Application graph built
+2026-04-09 22:58:23,894 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-09 22:58:24,811 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-09 22:58:25,780 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-09 22:58:26,951 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:streamGenerateContent?alt=sse "HTTP/1.1 200 OK"
+2026-04-09 22:58:27,821 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:streamGenerateContent?alt=sse "HTTP/1.1 200 OK"
+2026-04-09 22:58:30,425 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-09 22:58:31,336 | INFO | agents.nodes.supervisor_node | SUPERVISOR NODE CALLED
+2026-04-09 23:01:07,133 | INFO | agents.nodes.outbound_agent_node | OUTBOUND AGENT CALLED
+2026-04-09 23:01:07,140 | INFO | agents.nodes.inventory_agent_node | INVENTORY AGENT CALLED
+2026-04-09 23:01:07,191 | INFO | agents.graph.application_graph | Application graph built
+2026-04-09 23:01:07,222 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-09 23:01:08,194 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-09 23:01:08,986 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-09 23:01:09,982 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:streamGenerateContent?alt=sse "HTTP/1.1 200 OK"
+2026-04-09 23:01:10,873 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:streamGenerateContent?alt=sse "HTTP/1.1 200 OK"
+2026-04-09 23:01:13,590 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-09 23:01:14,792 | INFO | agents.nodes.supervisor_node | SUPERVISOR NODE CALLED
+2026-04-09 23:02:41,059 | INFO | agents.nodes.outbound_agent_node | OUTBOUND AGENT CALLED
+2026-04-09 23:02:41,067 | INFO | agents.nodes.inventory_agent_node | INVENTORY AGENT CALLED
+2026-04-09 23:02:41,119 | INFO | agents.graph.application_graph | Application graph built
+2026-04-09 23:02:41,164 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-09 23:02:42,084 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-09 23:02:43,566 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-09 23:02:44,471 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:streamGenerateContent?alt=sse "HTTP/1.1 200 OK"
+2026-04-09 23:02:45,510 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:streamGenerateContent?alt=sse "HTTP/1.1 200 OK"
+2026-04-09 23:05:20,511 | INFO | agents.nodes.inbound_agent_node | INBOUND AGENT CALLED
+2026-04-09 23:05:20,520 | INFO | agents.nodes.outbound_agent_node | OUTBOUND AGENT CALLED
+2026-04-09 23:05:20,528 | INFO | agents.nodes.inventory_agent_node | INVENTORY AGENT CALLED
+2026-04-09 23:05:20,582 | INFO | agents.graph.application_graph | Application graph built
+2026-04-09 23:05:20,644 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-09 23:05:21,739 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-09 23:05:22,420 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-09 23:05:23,244 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:streamGenerateContent?alt=sse "HTTP/1.1 200 OK"
+2026-04-09 23:05:25,673 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:streamGenerateContent?alt=sse "HTTP/1.1 200 OK"
+2026-04-09 23:06:23,281 | INFO | agents.nodes.inbound_agent_node | INBOUND AGENT CALLED
+2026-04-09 23:06:23,290 | INFO | agents.nodes.outbound_agent_node | OUTBOUND AGENT CALLED
+2026-04-09 23:06:23,297 | INFO | agents.nodes.inventory_agent_node | INVENTORY AGENT CALLED
+2026-04-09 23:06:23,350 | INFO | agents.graph.application_graph | Application graph built
+2026-04-09 23:06:23,384 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-09 23:06:25,257 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-09 23:06:25,911 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-09 23:06:26,801 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:streamGenerateContent?alt=sse "HTTP/1.1 200 OK"
+2026-04-09 23:06:27,904 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:streamGenerateContent?alt=sse "HTTP/1.1 200 OK"
+2026-04-09 23:06:31,007 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-09 23:06:32,310 | INFO | agents.nodes.supervisor_node | SUPERVISOR NODE CALLED
+2026-04-09 23:06:52,266 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-09 23:06:53,496 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-09 23:06:54,292 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-09 23:07:06,326 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:streamGenerateContent?alt=sse "HTTP/1.1 200 OK"
+2026-04-09 23:07:06,833 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-04-09 23:07:07,928 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:streamGenerateContent?alt=sse "HTTP/1.1 200 OK"
+2026-04-09 23:07:11,394 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-09 23:07:12,374 | INFO | agents.nodes.supervisor_node | SUPERVISOR NODE CALLED
+2026-04-09 23:11:10,705 | INFO | agents.nodes.inbound_agent_node | INBOUND AGENT CALLED
+2026-04-09 23:11:18,468 | INFO | agents.nodes.inbound_agent_node | INBOUND AGENT CALLED
+2026-04-09 23:11:21,932 | INFO | agents.nodes.outbound_agent_node | OUTBOUND AGENT CALLED
+2026-04-09 23:11:21,941 | INFO | agents.nodes.inventory_agent_node | INVENTORY AGENT CALLED
+2026-04-09 23:11:22,001 | INFO | agents.graph.application_graph | Application graph built
+2026-04-09 23:11:22,035 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-09 23:11:23,036 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-09 23:11:23,953 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-09 23:11:24,770 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:streamGenerateContent?alt=sse "HTTP/1.1 200 OK"
+2026-04-09 23:11:25,590 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-04-09 23:11:26,596 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:streamGenerateContent?alt=sse "HTTP/1.1 200 OK"
+2026-04-09 23:11:29,217 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-09 23:11:30,043 | INFO | agents.nodes.supervisor_node | SUPERVISOR NODE CALLED
+2026-04-09 23:14:45,240 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-09 23:14:46,515 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-09 23:14:46,540 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-09 23:14:47,677 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-09 23:14:47,682 | INFO | src.agents.nodes.sql_generate_query_node | SQL Generated Query Node
+2026-04-09 23:14:52,071 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-09 23:14:56,028 | INFO | src.agents.nodes.sql_run_sql_node | SQL NODE: Sql ran on the database
+2026-04-09 23:15:08,872 | WARNING | langgraph.checkpoint.serde.jsonplus | Deserializing unregistered type domain.states.sql_generate_subquery.sql_generate_subqueries_state.GenerateSubqueries from checkpoint. This will be blocked in a future version. Add to allowed_msgpack_modules to silence: [('domain.states.sql_generate_subquery.sql_generate_subqueries_state', 'GenerateSubqueries')]
+2026-04-09 23:15:08,873 | WARNING | langgraph.checkpoint.serde.jsonplus | Deserializing unregistered type domain.states.sql_generate_subquery.sql_generate_subqueries_state.GenerateSubqueries from checkpoint. This will be blocked in a future version. Add to allowed_msgpack_modules to silence: [('domain.states.sql_generate_subquery.sql_generate_subqueries_state', 'GenerateSubqueries')]
+2026-04-09 23:15:08,873 | WARNING | langgraph.checkpoint.serde.jsonplus | Deserializing unregistered type domain.states.sql_generate_subquery.sql_generate_subqueries_state.GenerateSubqueries from checkpoint. This will be blocked in a future version. Add to allowed_msgpack_modules to silence: [('domain.states.sql_generate_subquery.sql_generate_subqueries_state', 'GenerateSubqueries')]
+2026-04-09 23:15:30,558 | WARNING | langgraph.checkpoint.serde.jsonplus | Deserializing unregistered type domain.states.sql_generate_subquery.sql_generate_subqueries_state.GenerateSubqueries from checkpoint. This will be blocked in a future version. Add to allowed_msgpack_modules to silence: [('domain.states.sql_generate_subquery.sql_generate_subqueries_state', 'GenerateSubqueries')]
+2026-04-09 23:15:30,559 | WARNING | langgraph.checkpoint.serde.jsonplus | Deserializing unregistered type domain.states.sql_generate_subquery.sql_generate_subqueries_state.GenerateSubqueries from checkpoint. This will be blocked in a future version. Add to allowed_msgpack_modules to silence: [('domain.states.sql_generate_subquery.sql_generate_subqueries_state', 'GenerateSubqueries')]
+2026-04-09 23:15:30,559 | WARNING | langgraph.checkpoint.serde.jsonplus | Deserializing unregistered type domain.states.sql_generate_subquery.sql_generate_subqueries_state.GenerateSubqueries from checkpoint. This will be blocked in a future version. Add to allowed_msgpack_modules to silence: [('domain.states.sql_generate_subquery.sql_generate_subqueries_state', 'GenerateSubqueries')]
+2026-04-09 23:15:30,564 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-09 23:15:32,556 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-09 23:15:33,237 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-09 23:15:34,199 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:streamGenerateContent?alt=sse "HTTP/1.1 200 OK"
+2026-04-09 23:15:36,149 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-04-09 23:15:36,993 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:streamGenerateContent?alt=sse "HTTP/1.1 200 OK"
+2026-04-09 23:15:42,595 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-09 23:15:45,621 | INFO | agents.nodes.supervisor_node | SUPERVISOR NODE CALLED
