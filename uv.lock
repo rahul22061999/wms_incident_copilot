@@ -1693,6 +1693,18 @@ wheels = [
 ]
 
 [[package]]
+name = "langgraph-cli"
+version = "0.1.54"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "click" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/f1/5c/e8fc086a2c4e7021ec87088165f02f5c5e4f7441f864b0809ed49ba50d79/langgraph_cli-0.1.54.tar.gz", hash = "sha256:2714a62616ae9d9d7363d8a597f18c85aa38b8ed27bc85d6106c98da67e796eb", size = 17855, upload-time = "2024-11-15T19:03:22.55Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/19/e4/fac960db5b6cb1690018021a0ea77aa42b654048787a625c553b8f6b8e01/langgraph_cli-0.1.54-py3-none-any.whl", hash = "sha256:24f6e858e69c5e0f7d25e915742bf3506cdf7d3bc9033c2c0fbc950a3954fa85", size = 21084, upload-time = "2024-11-15T19:03:21.493Z" },
+]
+
+[[package]]
 name = "langgraph-prebuilt"
 version = "1.0.8"
 source = { registry = "https://pypi.org/simple" }
@@ -3397,7 +3409,7 @@ wheels = [
 [[package]]
 name = "wms-incident-copilot"
 version = "0.1.0"
-source = { virtual = "." }
+source = { editable = "." }
 dependencies = [
     { name = "anthropic" },
     { name = "boto3" },
@@ -3426,6 +3438,7 @@ dependencies = [
     { name = "langchain-text-splitters" },
     { name = "langgraph" },
     { name = "langgraph-checkpoint-postgres" },
+    { name = "langgraph-cli" },
     { name = "langgraph-supervisor" },
     { name = "pandas" },
     { name = "prettyprinter" },
@@ -3477,6 +3490,7 @@ requires-dist = [
     { name = "langchain-text-splitters", specifier = ">=1.1.1" },
     { name = "langgraph", specifier = ">=1.1.3" },
     { name = "langgraph-checkpoint-postgres", specifier = ">=3.0.5" },
+    { name = "langgraph-cli", extras = ["inmem"], specifier = ">=0.1.54" },
     { name = "langgraph-supervisor", specifier = ">=0.0.31" },
     { name = "pandas", specifier = ">=3.0.2" },
     { name = "prettyprinter", specifier = ">=0.18.0" },

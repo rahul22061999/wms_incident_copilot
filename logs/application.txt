@@ -314,3 +314,524 @@
 2026-04-09 23:15:36,993 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:streamGenerateContent?alt=sse "HTTP/1.1 200 OK"
 2026-04-09 23:15:42,595 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
 2026-04-09 23:15:45,621 | INFO | agents.nodes.supervisor_node | SUPERVISOR NODE CALLED
+2026-04-09 23:20:54,683 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-09 23:20:55,780 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-09 23:20:55,805 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-09 23:20:56,790 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-09 23:20:56,794 | INFO | src.agents.nodes.sql_generate_query_node | SQL Generated Query Node
+2026-04-09 23:20:57,192 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-09 23:21:01,336 | INFO | src.agents.nodes.sql_run_sql_node | SQL NODE: Sql ran on the database
+2026-04-09 23:21:03,500 | WARNING | langgraph.checkpoint.serde.jsonplus | Deserializing unregistered type domain.states.sql_generate_subquery.sql_generate_subqueries_state.GenerateSubqueries from checkpoint. This will be blocked in a future version. Add to allowed_msgpack_modules to silence: [('domain.states.sql_generate_subquery.sql_generate_subqueries_state', 'GenerateSubqueries')]
+2026-04-09 23:21:03,502 | WARNING | langgraph.checkpoint.serde.jsonplus | Deserializing unregistered type domain.states.sql_generate_subquery.sql_generate_subqueries_state.GenerateSubqueries from checkpoint. This will be blocked in a future version. Add to allowed_msgpack_modules to silence: [('domain.states.sql_generate_subquery.sql_generate_subqueries_state', 'GenerateSubqueries')]
+2026-04-09 23:21:03,502 | WARNING | langgraph.checkpoint.serde.jsonplus | Deserializing unregistered type domain.states.sql_generate_subquery.sql_generate_subqueries_state.GenerateSubqueries from checkpoint. This will be blocked in a future version. Add to allowed_msgpack_modules to silence: [('domain.states.sql_generate_subquery.sql_generate_subqueries_state', 'GenerateSubqueries')]
+2026-04-09 23:21:03,503 | WARNING | langgraph.checkpoint.serde.jsonplus | Deserializing unregistered type domain.states.sql_generate_subquery.sql_generate_subqueries_state.GenerateSubqueries from checkpoint. This will be blocked in a future version. Add to allowed_msgpack_modules to silence: [('domain.states.sql_generate_subquery.sql_generate_subqueries_state', 'GenerateSubqueries')]
+2026-04-09 23:21:03,503 | WARNING | langgraph.checkpoint.serde.jsonplus | Deserializing unregistered type domain.states.sql_generate_subquery.sql_generate_subqueries_state.GenerateSubqueries from checkpoint. This will be blocked in a future version. Add to allowed_msgpack_modules to silence: [('domain.states.sql_generate_subquery.sql_generate_subqueries_state', 'GenerateSubqueries')]
+2026-04-09 23:21:03,503 | WARNING | langgraph.checkpoint.serde.jsonplus | Deserializing unregistered type domain.states.sql_generate_subquery.sql_generate_subqueries_state.GenerateSubqueries from checkpoint. This will be blocked in a future version. Add to allowed_msgpack_modules to silence: [('domain.states.sql_generate_subquery.sql_generate_subqueries_state', 'GenerateSubqueries')]
+2026-04-09 23:38:35,855 | INFO | agents.nodes.inbound_agent_node | INBOUND AGENT CALLED
+2026-04-09 23:38:45,469 | INFO | agents.nodes.outbound_agent_node | OUTBOUND AGENT CALLED
+2026-04-09 23:38:45,480 | INFO | agents.nodes.inventory_agent_node | INVENTORY AGENT CALLED
+2026-04-09 23:38:45,546 | INFO | agents.graph.application_graph | Application graph built
+2026-04-09 23:38:45,548 | INFO | uvicorn.error | Started server process [20361]
+2026-04-09 23:38:45,549 | INFO | uvicorn.error | Waiting for application startup.
+2026-04-09 23:38:45,549 | INFO | uvicorn.error | Application startup complete.
+2026-04-09 23:38:45,550 | ERROR | uvicorn.error | [Errno 48] error while attempting to bind on address ('127.0.0.1', 8000): address already in use
+2026-04-09 23:38:45,550 | INFO | uvicorn.error | Waiting for application shutdown.
+2026-04-09 23:38:45,550 | INFO | uvicorn.error | Application shutdown complete.
+2026-04-09 23:41:12,573 | INFO | agents.nodes.inbound_agent_node | INBOUND AGENT CALLED
+2026-04-09 23:41:27,051 | INFO | agents.nodes.outbound_agent_node | OUTBOUND AGENT CALLED
+2026-04-09 23:41:27,060 | INFO | agents.nodes.inventory_agent_node | INVENTORY AGENT CALLED
+2026-04-09 23:41:27,103 | INFO | agents.graph.application_graph | Application graph built
+2026-04-09 23:41:27,107 | INFO | uvicorn.error | Started server process [20470]
+2026-04-09 23:41:27,107 | INFO | uvicorn.error | Waiting for application startup.
+2026-04-09 23:41:27,108 | INFO | uvicorn.error | Application startup complete.
+2026-04-09 23:41:27,110 | INFO | uvicorn.error | Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+2026-04-09 23:45:02,347 | INFO | uvicorn.access | 127.0.0.1:59715 - "POST / HTTP/1.1" 404
+2026-04-09 23:45:11,342 | INFO | uvicorn.access | 127.0.0.1:59716 - "POST / HTTP/1.1" 404
+2026-04-09 23:46:06,255 | INFO | uvicorn.access | 127.0.0.1:59724 - "POST / HTTP/1.1" 404
+2026-04-09 23:47:07,103 | INFO | uvicorn.error | Shutting down
+2026-04-09 23:47:07,209 | INFO | uvicorn.error | Waiting for application shutdown.
+2026-04-09 23:47:07,214 | INFO | uvicorn.error | Application shutdown complete.
+2026-04-09 23:47:07,215 | INFO | uvicorn.error | Finished server process [20470]
+2026-04-09 23:47:11,652 | INFO | agents.nodes.inbound_agent_node | INBOUND AGENT CALLED
+2026-04-09 23:47:13,348 | INFO | agents.nodes.outbound_agent_node | OUTBOUND AGENT CALLED
+2026-04-09 23:47:13,358 | INFO | agents.nodes.inventory_agent_node | INVENTORY AGENT CALLED
+2026-04-09 23:47:13,396 | INFO | agents.graph.application_graph | Application graph built
+2026-04-09 23:47:13,400 | INFO | uvicorn.error | Started server process [20883]
+2026-04-09 23:47:13,400 | INFO | uvicorn.error | Waiting for application startup.
+2026-04-09 23:47:13,400 | INFO | uvicorn.error | Application startup complete.
+2026-04-09 23:47:13,401 | INFO | uvicorn.error | Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+2026-04-09 23:47:21,245 | INFO | uvicorn.access | 127.0.0.1:59729 - "POST / HTTP/1.1" 404
+2026-04-09 23:47:46,321 | INFO | uvicorn.access | 127.0.0.1:59732 - "POST /diagnose HTTP/1.1" 200
+2026-04-09 23:48:23,453 | INFO | uvicorn.error | Shutting down
+2026-04-09 23:48:23,556 | INFO | uvicorn.error | Waiting for application shutdown.
+2026-04-09 23:48:23,558 | INFO | uvicorn.error | Application shutdown complete.
+2026-04-09 23:48:23,558 | INFO | uvicorn.error | Finished server process [20883]
+2026-04-09 23:48:26,946 | INFO | agents.nodes.inbound_agent_node | INBOUND AGENT CALLED
+2026-04-09 23:48:29,678 | INFO | agents.nodes.outbound_agent_node | OUTBOUND AGENT CALLED
+2026-04-09 23:48:29,688 | INFO | agents.nodes.inventory_agent_node | INVENTORY AGENT CALLED
+2026-04-09 23:48:29,726 | INFO | agents.graph.application_graph | Application graph built
+2026-04-09 23:48:29,731 | INFO | uvicorn.error | Started server process [20935]
+2026-04-09 23:48:29,731 | INFO | uvicorn.error | Waiting for application startup.
+2026-04-09 23:48:29,731 | INFO | uvicorn.error | Application startup complete.
+2026-04-09 23:48:29,732 | INFO | uvicorn.error | Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+2026-04-09 23:48:33,044 | INFO | uvicorn.access | 127.0.0.1:59735 - "POST /diagnose HTTP/1.1" 200
+2026-04-09 23:48:57,514 | INFO | uvicorn.access | 127.0.0.1:59746 - "POST /diagnose HTTP/1.1" 200
+2026-04-09 23:49:40,054 | INFO | uvicorn.error | Shutting down
+2026-04-09 23:49:40,157 | INFO | uvicorn.error | Waiting for application shutdown.
+2026-04-09 23:49:40,161 | INFO | uvicorn.error | Application shutdown complete.
+2026-04-09 23:49:40,161 | INFO | uvicorn.error | Finished server process [20935]
+2026-04-09 23:49:43,221 | INFO | agents.nodes.inbound_agent_node | INBOUND AGENT CALLED
+2026-04-09 23:49:44,912 | INFO | agents.nodes.outbound_agent_node | OUTBOUND AGENT CALLED
+2026-04-09 23:49:44,922 | INFO | agents.nodes.inventory_agent_node | INVENTORY AGENT CALLED
+2026-04-09 23:49:44,955 | INFO | agents.graph.application_graph | Application graph built
+2026-04-09 23:49:44,958 | INFO | uvicorn.error | Started server process [20978]
+2026-04-09 23:49:44,958 | INFO | uvicorn.error | Waiting for application startup.
+2026-04-09 23:49:44,958 | INFO | uvicorn.error | Application startup complete.
+2026-04-09 23:49:44,959 | INFO | uvicorn.error | Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+2026-04-09 23:49:50,248 | INFO | uvicorn.access | 127.0.0.1:59754 - "POST /diagnose HTTP/1.1" 200
+2026-04-09 23:49:50,317 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-09 23:49:51,345 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:streamGenerateContent?alt=sse "HTTP/1.1 200 OK"
+2026-04-09 23:49:53,007 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-09 23:49:55,028 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:streamGenerateContent?alt=sse "HTTP/1.1 200 OK"
+2026-04-09 23:50:11,080 | INFO | uvicorn.access | 127.0.0.1:59759 - "POST /diagnose HTTP/1.1" 200
+2026-04-09 23:50:11,093 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-09 23:50:13,721 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:streamGenerateContent?alt=sse "HTTP/1.1 200 OK"
+2026-04-09 23:50:14,526 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-09 23:50:15,664 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:streamGenerateContent?alt=sse "HTTP/1.1 200 OK"
+2026-04-09 23:53:05,263 | INFO | uvicorn.error | Shutting down
+2026-04-09 23:53:05,367 | INFO | uvicorn.error | Waiting for application shutdown.
+2026-04-09 23:53:05,371 | INFO | uvicorn.error | Application shutdown complete.
+2026-04-09 23:53:05,372 | INFO | uvicorn.error | Finished server process [20978]
+2026-04-09 23:53:08,771 | INFO | agents.nodes.inbound_agent_node | INBOUND AGENT CALLED
+2026-04-09 23:53:11,172 | INFO | agents.nodes.outbound_agent_node | OUTBOUND AGENT CALLED
+2026-04-09 23:53:11,182 | INFO | agents.nodes.inventory_agent_node | INVENTORY AGENT CALLED
+2026-04-09 23:53:11,214 | INFO | agents.graph.application_graph | Application graph built
+2026-04-09 23:53:11,218 | INFO | uvicorn.error | Started server process [21043]
+2026-04-09 23:53:11,218 | INFO | uvicorn.error | Waiting for application startup.
+2026-04-09 23:53:11,219 | INFO | uvicorn.error | Application startup complete.
+2026-04-09 23:53:11,219 | INFO | uvicorn.error | Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+2026-04-09 23:53:15,539 | INFO | uvicorn.access | 127.0.0.1:59787 - "POST /diagnose HTTP/1.1" 200
+2026-04-09 23:53:15,610 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-09 23:53:22,492 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:streamGenerateContent?alt=sse "HTTP/1.1 200 OK"
+2026-04-09 23:58:23,297 | INFO | agents.nodes.inbound_agent_node | INBOUND AGENT CALLED
+2026-04-09 23:58:24,585 | INFO | agents.nodes.outbound_agent_node | OUTBOUND AGENT CALLED
+2026-04-09 23:58:24,595 | INFO | agents.nodes.inventory_agent_node | INVENTORY AGENT CALLED
+2026-04-09 23:58:24,630 | INFO | uvicorn.error | Started server process [21105]
+2026-04-09 23:58:24,630 | INFO | uvicorn.error | Waiting for application startup.
+2026-04-09 23:58:24,630 | INFO | uvicorn.error | Application startup complete.
+2026-04-09 23:58:24,631 | ERROR | uvicorn.error | [Errno 48] error while attempting to bind on address ('127.0.0.1', 8000): address already in use
+2026-04-09 23:58:24,631 | INFO | uvicorn.error | Waiting for application shutdown.
+2026-04-09 23:58:24,631 | INFO | uvicorn.error | Application shutdown complete.
+2026-04-09 23:58:31,264 | INFO | agents.nodes.inbound_agent_node | INBOUND AGENT CALLED
+2026-04-09 23:58:32,808 | INFO | agents.nodes.outbound_agent_node | OUTBOUND AGENT CALLED
+2026-04-09 23:58:32,816 | INFO | agents.nodes.inventory_agent_node | INVENTORY AGENT CALLED
+2026-04-09 23:58:32,847 | INFO | uvicorn.error | Started server process [21110]
+2026-04-09 23:58:32,847 | INFO | uvicorn.error | Waiting for application startup.
+2026-04-09 23:58:32,847 | INFO | uvicorn.error | Application startup complete.
+2026-04-09 23:58:32,847 | ERROR | uvicorn.error | [Errno 48] error while attempting to bind on address ('127.0.0.1', 8000): address already in use
+2026-04-09 23:58:32,847 | INFO | uvicorn.error | Waiting for application shutdown.
+2026-04-09 23:58:32,848 | INFO | uvicorn.error | Application shutdown complete.
+2026-04-09 23:58:58,398 | INFO | agents.nodes.inbound_agent_node | INBOUND AGENT CALLED
+2026-04-09 23:59:01,020 | INFO | agents.nodes.outbound_agent_node | OUTBOUND AGENT CALLED
+2026-04-09 23:59:01,027 | INFO | agents.nodes.inventory_agent_node | INVENTORY AGENT CALLED
+2026-04-09 23:59:01,057 | INFO | uvicorn.error | Started server process [21124]
+2026-04-09 23:59:01,057 | INFO | uvicorn.error | Waiting for application startup.
+2026-04-09 23:59:01,057 | INFO | uvicorn.error | Application startup complete.
+2026-04-09 23:59:01,057 | INFO | uvicorn.error | Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+2026-04-09 23:59:05,764 | INFO | uvicorn.access | 127.0.0.1:59851 - "POST /diagnose HTTP/1.1" 200
+2026-04-09 23:59:05,873 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-09 23:59:09,464 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:streamGenerateContent?alt=sse "HTTP/1.1 200 OK"
+2026-04-09 23:59:10,915 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-09 23:59:11,707 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:streamGenerateContent?alt=sse "HTTP/1.1 200 OK"
+2026-04-10 00:01:22,518 | INFO | uvicorn.error | Shutting down
+2026-04-10 00:01:22,622 | INFO | uvicorn.error | Waiting for application shutdown.
+2026-04-10 00:01:22,623 | INFO | uvicorn.error | Application shutdown complete.
+2026-04-10 00:01:22,624 | INFO | uvicorn.error | Finished server process [21124]
+2026-04-10 00:01:26,373 | INFO | agents.nodes.inbound_agent_node | INBOUND AGENT CALLED
+2026-04-10 00:01:30,018 | INFO | agents.nodes.outbound_agent_node | OUTBOUND AGENT CALLED
+2026-04-10 00:01:30,028 | INFO | agents.nodes.inventory_agent_node | INVENTORY AGENT CALLED
+2026-04-10 00:01:30,068 | INFO | uvicorn.error | Started server process [21228]
+2026-04-10 00:01:30,069 | INFO | uvicorn.error | Waiting for application startup.
+2026-04-10 00:01:30,069 | INFO | uvicorn.error | Application startup complete.
+2026-04-10 00:01:30,069 | INFO | uvicorn.error | Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+2026-04-10 00:01:34,705 | INFO | uvicorn.access | 127.0.0.1:59876 - "POST /diagnose HTTP/1.1" 200
+2026-04-10 00:02:21,384 | INFO | uvicorn.error | Shutting down
+2026-04-10 00:02:21,488 | INFO | uvicorn.error | Waiting for application shutdown.
+2026-04-10 00:02:21,490 | INFO | uvicorn.error | Application shutdown complete.
+2026-04-10 00:02:21,491 | INFO | uvicorn.error | Finished server process [21228]
+2026-04-10 00:02:24,995 | INFO | agents.nodes.inbound_agent_node | INBOUND AGENT CALLED
+2026-04-10 00:02:26,732 | INFO | agents.nodes.outbound_agent_node | OUTBOUND AGENT CALLED
+2026-04-10 00:02:26,743 | INFO | agents.nodes.inventory_agent_node | INVENTORY AGENT CALLED
+2026-04-10 00:02:26,789 | INFO | uvicorn.error | Started server process [21274]
+2026-04-10 00:02:26,790 | INFO | uvicorn.error | Waiting for application startup.
+2026-04-10 00:02:26,790 | INFO | uvicorn.error | Application startup complete.
+2026-04-10 00:02:26,791 | INFO | uvicorn.error | Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+2026-04-10 00:02:30,426 | INFO | uvicorn.access | 127.0.0.1:59885 - "POST /diagnose HTTP/1.1" 200
+2026-04-10 00:02:30,492 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-10 00:02:39,450 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 504 Gateway Timeout"
+2026-04-10 00:02:39,463 | INFO | google_genai._api_client | Retrying google.genai._api_client.BaseApiClient._request_once in 1.07 seconds as it raised ServerError: 504 DEADLINE_EXCEEDED. {'error': {'code': 504, 'message': 'Deadline expired before operation could complete.', 'status': 'DEADLINE_EXCEEDED'}}.
+2026-04-10 00:02:49,645 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 504 Gateway Timeout"
+2026-04-10 00:02:49,651 | INFO | google_genai._api_client | Retrying google.genai._api_client.BaseApiClient._request_once in 2.23 seconds as it raised ServerError: 504 DEADLINE_EXCEEDED. {'error': {'code': 504, 'message': 'Deadline expired before operation could complete.', 'status': 'DEADLINE_EXCEEDED'}}.
+2026-04-10 00:03:00,845 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 504 Gateway Timeout"
+2026-04-10 00:03:00,847 | INFO | google_genai._api_client | Retrying google.genai._api_client.BaseApiClient._request_once in 4.67 seconds as it raised ServerError: 504 DEADLINE_EXCEEDED. {'error': {'code': 504, 'message': 'Deadline expired before operation could complete.', 'status': 'DEADLINE_EXCEEDED'}}.
+2026-04-10 00:03:06,540 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-10 00:03:07,973 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-10 00:03:13,666 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:streamGenerateContent?alt=sse "HTTP/1.1 200 OK"
+2026-04-10 00:05:54,507 | INFO | uvicorn.error | Shutting down
+2026-04-10 00:05:54,611 | INFO | uvicorn.error | Waiting for application shutdown.
+2026-04-10 00:05:54,613 | INFO | uvicorn.error | Application shutdown complete.
+2026-04-10 00:05:54,615 | INFO | uvicorn.error | Finished server process [21274]
+2026-04-10 00:05:57,760 | INFO | agents.nodes.inbound_agent_node | INBOUND AGENT CALLED
+2026-04-10 00:05:59,241 | INFO | agents.nodes.outbound_agent_node | OUTBOUND AGENT CALLED
+2026-04-10 00:05:59,250 | INFO | agents.nodes.inventory_agent_node | INVENTORY AGENT CALLED
+2026-04-10 00:06:18,597 | INFO | agents.nodes.inbound_agent_node | INBOUND AGENT CALLED
+2026-04-10 00:06:19,901 | INFO | agents.nodes.outbound_agent_node | OUTBOUND AGENT CALLED
+2026-04-10 00:06:19,908 | INFO | agents.nodes.inventory_agent_node | INVENTORY AGENT CALLED
+2026-04-10 00:06:19,939 | INFO | uvicorn.error | Started server process [21339]
+2026-04-10 00:06:19,939 | INFO | uvicorn.error | Waiting for application startup.
+2026-04-10 00:06:19,939 | INFO | uvicorn.error | Application startup complete.
+2026-04-10 00:06:19,941 | INFO | uvicorn.error | Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+2026-04-10 00:07:07,479 | INFO | uvicorn.access | 127.0.0.1:59947 - "GET /diagnose HTTP/1.1" 404
+2026-04-10 00:08:57,112 | INFO | uvicorn.access | 127.0.0.1:59976 - "POST /diagnose HTTP/1.1" 404
+2026-04-10 00:09:26,404 | INFO | uvicorn.access | 127.0.0.1:59979 - "POST /diagnose HTTP/1.1" 404
+2026-04-10 00:09:46,315 | INFO | uvicorn.access | 127.0.0.1:59983 - "POST /diagnose-stream HTTP/1.1" 200
+2026-04-10 00:09:46,402 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-10 00:09:50,918 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-10 00:09:52,341 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-10 00:10:17,127 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:streamGenerateContent?alt=sse "HTTP/1.1 200 OK"
+2026-04-10 00:11:57,872 | INFO | agents.nodes.inbound_agent_node | INBOUND AGENT CALLED
+2026-04-10 00:11:59,628 | INFO | agents.nodes.outbound_agent_node | OUTBOUND AGENT CALLED
+2026-04-10 00:11:59,637 | INFO | agents.nodes.inventory_agent_node | INVENTORY AGENT CALLED
+2026-04-10 00:11:59,673 | INFO | uvicorn.error | Started server process [21435]
+2026-04-10 00:11:59,673 | INFO | uvicorn.error | Waiting for application startup.
+2026-04-10 00:11:59,673 | INFO | uvicorn.error | Application startup complete.
+2026-04-10 00:11:59,674 | INFO | uvicorn.error | Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+2026-04-10 00:12:05,492 | INFO | uvicorn.access | 127.0.0.1:60020 - "POST /diagnose-stream HTTP/1.1" 200
+2026-04-10 00:12:05,568 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-10 00:12:14,682 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 504 Gateway Timeout"
+2026-04-10 00:12:14,684 | INFO | google_genai._api_client | Retrying google.genai._api_client.BaseApiClient._request_once in 1.7 seconds as it raised ServerError: 504 DEADLINE_EXCEEDED. {'error': {'code': 504, 'message': 'Deadline expired before operation could complete.', 'status': 'DEADLINE_EXCEEDED'}}.
+2026-04-10 00:12:25,534 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 504 Gateway Timeout"
+2026-04-10 00:12:25,536 | INFO | google_genai._api_client | Retrying google.genai._api_client.BaseApiClient._request_once in 2.89 seconds as it raised ServerError: 504 DEADLINE_EXCEEDED. {'error': {'code': 504, 'message': 'Deadline expired before operation could complete.', 'status': 'DEADLINE_EXCEEDED'}}.
+2026-04-10 00:12:29,630 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-10 00:12:30,570 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-10 00:12:42,841 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:streamGenerateContent?alt=sse "HTTP/1.1 200 OK"
+2026-04-10 00:12:50,118 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:streamGenerateContent?alt=sse "HTTP/1.1 200 OK"
+2026-04-10 00:12:54,717 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-10 00:12:55,880 | INFO | agents.nodes.supervisor_node | SUPERVISOR NODE CALLED
+2026-04-10 00:13:42,747 | INFO | uvicorn.access | 127.0.0.1:60056 - "POST /diagnose-stream HTTP/1.1" 200
+2026-04-10 00:13:42,771 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-10 00:13:43,700 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-10 00:13:43,719 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-10 00:13:46,184 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-10 00:13:46,188 | INFO | agents.nodes.sql_generate_query_node | SQL Generated Query Node
+2026-04-10 00:13:50,425 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-10 00:13:54,474 | INFO | agents.nodes.sql_run_sql_node | SQL NODE: Sql ran on the database
+2026-04-10 00:14:21,990 | INFO | uvicorn.access | 127.0.0.1:60068 - "POST /diagnose-stream HTTP/1.1" 200
+2026-04-10 00:14:21,993 | WARNING | langgraph.checkpoint.serde.jsonplus | Deserializing unregistered type domain.states.sql_generate_subquery.sql_generate_subqueries_state.GenerateSubqueries from checkpoint. This will be blocked in a future version. Add to allowed_msgpack_modules to silence: [('domain.states.sql_generate_subquery.sql_generate_subqueries_state', 'GenerateSubqueries')]
+2026-04-10 00:14:22,017 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-10 00:14:25,853 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-10 00:14:25,872 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-10 00:14:28,490 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-10 00:14:28,494 | INFO | agents.nodes.sql_generate_query_node | SQL Generated Query Node
+2026-04-10 00:14:28,927 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-10 00:14:33,214 | INFO | agents.nodes.sql_run_sql_node | SQL NODE: Sql ran on the database
+2026-04-10 00:15:37,030 | INFO | uvicorn.error | Shutting down
+2026-04-10 00:15:37,134 | INFO | uvicorn.error | Waiting for application shutdown.
+2026-04-10 00:15:37,136 | INFO | uvicorn.error | Application shutdown complete.
+2026-04-10 00:15:37,137 | INFO | uvicorn.error | Finished server process [21435]
+2026-04-10 00:15:41,673 | INFO | agents.nodes.inbound_agent_node | INBOUND AGENT CALLED
+2026-04-10 00:15:43,311 | INFO | agents.nodes.outbound_agent_node | OUTBOUND AGENT CALLED
+2026-04-10 00:15:43,319 | INFO | agents.nodes.inventory_agent_node | INVENTORY AGENT CALLED
+2026-04-10 00:15:43,352 | INFO | uvicorn.error | Started server process [21519]
+2026-04-10 00:15:43,352 | INFO | uvicorn.error | Waiting for application startup.
+2026-04-10 00:15:43,352 | INFO | uvicorn.error | Application startup complete.
+2026-04-10 00:15:43,353 | INFO | uvicorn.error | Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+2026-04-10 00:15:47,867 | INFO | uvicorn.access | 127.0.0.1:60079 - "POST /diagnose-stream HTTP/1.1" 200
+2026-04-10 00:15:47,918 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-10 00:15:49,514 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-10 00:15:49,536 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-10 00:15:50,746 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-10 00:15:50,752 | INFO | agents.nodes.sql_generate_query_node | SQL Generated Query Node
+2026-04-10 00:15:54,902 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-10 00:15:59,131 | INFO | agents.nodes.sql_run_sql_node | SQL NODE: Sql ran on the database
+2026-04-10 00:17:11,961 | INFO | uvicorn.error | Shutting down
+2026-04-10 00:17:12,064 | INFO | uvicorn.error | Waiting for application shutdown.
+2026-04-10 00:17:12,066 | INFO | uvicorn.error | Application shutdown complete.
+2026-04-10 00:17:12,066 | INFO | uvicorn.error | Finished server process [21519]
+2026-04-10 00:26:06,515 | INFO | agents.nodes.inbound_agent_node | INBOUND AGENT CALLED
+2026-04-10 00:26:08,586 | INFO | agents.nodes.outbound_agent_node | OUTBOUND AGENT CALLED
+2026-04-10 00:26:08,597 | INFO | agents.nodes.inventory_agent_node | INVENTORY AGENT CALLED
+2026-04-10 00:26:08,619 | INFO | uvicorn.error | Started server process [21827]
+2026-04-10 00:26:08,620 | INFO | uvicorn.error | Waiting for application startup.
+2026-04-10 00:26:08,620 | INFO | uvicorn.error | Application startup complete.
+2026-04-10 00:26:08,623 | INFO | uvicorn.error | Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+2026-04-10 00:26:12,431 | INFO | uvicorn.access | 127.0.0.1:60184 - "POST /diagnose-stream HTTP/1.1" 200
+2026-04-10 00:26:57,327 | INFO | uvicorn.error | Shutting down
+2026-04-10 00:26:57,432 | INFO | uvicorn.error | Waiting for application shutdown.
+2026-04-10 00:26:57,434 | INFO | uvicorn.error | Application shutdown complete.
+2026-04-10 00:26:57,434 | INFO | uvicorn.error | Finished server process [21827]
+2026-04-10 00:27:00,343 | INFO | agents.nodes.inbound_agent_node | INBOUND AGENT CALLED
+2026-04-10 00:27:00,923 | INFO | agents.nodes.outbound_agent_node | OUTBOUND AGENT CALLED
+2026-04-10 00:27:00,935 | INFO | agents.nodes.inventory_agent_node | INVENTORY AGENT CALLED
+2026-04-10 00:27:00,957 | INFO | uvicorn.error | Started server process [21860]
+2026-04-10 00:27:00,957 | INFO | uvicorn.error | Waiting for application startup.
+2026-04-10 00:27:00,957 | INFO | uvicorn.error | Application startup complete.
+2026-04-10 00:27:00,957 | INFO | uvicorn.error | Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+2026-04-10 00:27:04,370 | INFO | uvicorn.access | 127.0.0.1:60192 - "POST /diagnose-stream HTTP/1.1" 200
+2026-04-10 00:27:04,440 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-10 00:27:05,358 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:streamGenerateContent?alt=sse "HTTP/1.1 200 OK"
+2026-04-10 00:27:05,388 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-10 00:27:06,395 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:streamGenerateContent?alt=sse "HTTP/1.1 200 OK"
+2026-04-10 00:27:06,486 | INFO | agents.nodes.sql_generate_query_node | SQL Generated Query Node
+2026-04-10 00:27:10,369 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-10 00:27:14,516 | INFO | agents.nodes.sql_run_sql_node | SQL NODE: Sql ran on the database
+2026-04-10 00:27:25,536 | INFO | uvicorn.access | 127.0.0.1:60201 - "POST /diagnose-stream HTTP/1.1" 200
+2026-04-10 00:27:25,538 | WARNING | langgraph.checkpoint.serde.jsonplus | Deserializing unregistered type domain.states.sql_generate_subquery.sql_generate_subqueries_state.GenerateSubqueries from checkpoint. This will be blocked in a future version. Add to allowed_msgpack_modules to silence: [('domain.states.sql_generate_subquery.sql_generate_subqueries_state', 'GenerateSubqueries')]
+2026-04-10 00:27:25,544 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-10 00:27:26,579 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:streamGenerateContent?alt=sse "HTTP/1.1 200 OK"
+2026-04-10 00:27:27,990 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-10 00:27:33,031 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:streamGenerateContent?alt=sse "HTTP/1.1 200 OK"
+2026-04-10 00:27:34,352 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-04-10 00:27:35,286 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:streamGenerateContent?alt=sse "HTTP/1.1 200 OK"
+2026-04-10 00:27:39,554 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-10 00:27:40,297 | INFO | agents.nodes.supervisor_node | SUPERVISOR NODE CALLED
+2026-04-10 00:28:33,316 | INFO | uvicorn.access | 127.0.0.1:60210 - "POST /diagnose-stream HTTP/1.1" 200
+2026-04-10 00:28:33,323 | WARNING | langgraph.checkpoint.serde.jsonplus | Deserializing unregistered type domain.states.sql_generate_subquery.sql_generate_subqueries_state.GenerateSubqueries from checkpoint. This will be blocked in a future version. Add to allowed_msgpack_modules to silence: [('domain.states.sql_generate_subquery.sql_generate_subqueries_state', 'GenerateSubqueries')]
+2026-04-10 00:28:33,343 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-10 00:28:34,297 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:streamGenerateContent?alt=sse "HTTP/1.1 200 OK"
+2026-04-10 00:28:35,880 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-10 00:28:51,753 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:streamGenerateContent?alt=sse "HTTP/1.1 200 OK"
+2026-04-10 00:28:51,779 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-10 00:28:55,027 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:streamGenerateContent?alt=sse "HTTP/1.1 200 OK"
+2026-04-10 00:28:55,360 | INFO | agents.nodes.sql_generate_query_node | SQL Generated Query Node
+2026-04-10 00:28:55,555 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-10 00:29:00,034 | INFO | agents.nodes.sql_run_sql_node | SQL NODE: Sql ran on the database
+2026-04-10 00:29:00,749 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:streamGenerateContent?alt=sse "HTTP/1.1 200 OK"
+2026-04-10 00:29:04,142 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-10 00:29:07,905 | INFO | agents.nodes.supervisor_node | SUPERVISOR NODE CALLED
+2026-04-10 00:35:57,615 | INFO | uvicorn.error | Shutting down
+2026-04-10 00:35:57,718 | INFO | uvicorn.error | Waiting for application shutdown.
+2026-04-10 00:35:57,727 | INFO | uvicorn.error | Application shutdown complete.
+2026-04-10 00:35:57,728 | INFO | uvicorn.error | Finished server process [21860]
+2026-04-10 00:36:26,365 | INFO | agents.nodes.inbound_agent_node | INBOUND AGENT CALLED
+2026-04-10 00:40:21,463 | INFO | agents.nodes.inbound_agent_node | INBOUND AGENT CALLED
+2026-04-10 00:40:21,473 | INFO | agents.nodes.outbound_agent_node | OUTBOUND AGENT CALLED
+2026-04-10 00:40:21,479 | INFO | agents.nodes.inventory_agent_node | INVENTORY AGENT CALLED
+2026-04-10 00:40:21,494 | INFO | langgraph_api.timing.timer | {'name': '_graph_from_spec', 'elapsed_seconds': 1.4730267090490088, 'graph_id': 'wms_copilot', 'module': None, 'path': './src/agents/graph/application_graph.py', 'exception': 'ValueError("Heads up! Your graph \'graph\' from \'./src/agents/graph/application_graph.py\' includes a custom checkpointer (type <class \'langgraph.checkpoint.memory.InMemorySaver\'>). With LangGraph API, persistence is handled automatically by the platform, so providing a custom checkpointer (type <class \'langgraph.checkpoint.memory.InMemorySaver\'>) here isn\'t necessary and will be ignored when deployed.\\n\\nTo simplify your setup and use the built-in persistence, please remove the custom checkpointer (type <class \'langgraph.checkpoint.memory.InMemorySaver\'>) from your graph definition. If you are looking to customize which postgres database to connect to, please set the `POSTGRES_URI` environment variable. See https://langchain-ai.github.io/langgraph/cloud/reference/env_var/#postgres_uri_custom for more details.")', 'event': 'Importing graph profiling', 'thread_name': 'ThreadPoolExecutor-1_0', 'logger': 'langgraph_api.timing.timer', 'level': 'info', 'api_variant': 'local_dev', 'langgraph_api_version': '0.7.99', 'timestamp': '2026-04-10T07:40:21.494508Z'}
+2026-04-10 00:40:21,496 | ERROR | langgraph_runtime_inmem.lifespan | {'graph_id': 'wms_copilot', 'location': './src/agents/graph/application_graph.py', 'error_type': 'ValueError', 'error_message': "ValueError: Heads up! Your graph 'graph' from './src/agents/graph/application_graph.py' includes a custom checkpointer (type <class 'langgraph.checkpoint.memory.InMemorySaver'>). With LangGraph API, persistence is handled automatically by the platform, so providing a custom checkpointer (type <class 'langgraph.checkpoint.memory.InMemorySaver'>) here isn't necessary and will be ignored when deployed.\n\nTo simplify your setup and use the built-in persistence, please remove the custom checkpointer (type <class 'langgraph.checkpoint.memory.InMemorySaver'>) from your graph definition. If you are looking to customize which postgres database to connect to, please set the `POSTGRES_URI` environment variable. See https://langchain-ai.github.io/langgraph/cloud/reference/env_var/#postgres_uri_custom for more details.", 'error_boundary': 'user_graph', 'summary': "ValueError: ValueError: Heads up! Your graph 'graph' from './src/agents/graph/application_graph.py' includes a custom checkpointer (type <class 'langgraph.checkpoint.memory.InMemorySaver'>). With LangGraph API, persistence is handled automatically by the platform, so providing a custom checkpointer (type <class 'langgraph.checkpoint.memory.InMemorySaver'>) here isn't necessary and will be ignored when deployed.\n\nTo simplify your setup and use the built-in persistence, please remove the custom checkpointer (type <class 'langgraph.checkpoint.memory.InMemorySaver'>) from your graph definition. If you are looking to customize which postgres database to connect to, please set the `POSTGRES_URI` environment variable. See https://langchain-ai.github.io/langgraph/cloud/reference/env_var/#postgres_uri_custom for more details.", 'user_traceback': 'Traceback (most recent call last):\n  File "/Users/rahul/Library/Mobile Documents/com~apple~CloudDocs/SCM_Agentic_Ai/WMS_Incident_Copilot/.venv/lib/python3.12/site-packages/langgraph_api/graph.py", line 610, in collect_graphs_from_env\n    graph = await run_in_executor(None, _graph_from_spec, spec)\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/Users/rahul/Library/Mobile Documents/com~apple~CloudDocs/SCM_Agentic_Ai/WMS_Incident_Copilot/.venv/lib/python3.12/site-packages/langgraph_api/utils/config.py", line 145, in run_in_executor\n    return await asyncio.get_running_loop().run_in_executor(\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/opt/homebrew/Cellar/python@3.12/3.12.12/Frameworks/Python.framework/Versions/3.12/lib/python3.12/concurrent/futures/thread.py", line 59, in run\n    result = self.fn(*self.args, **self.kwargs)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/Users/rahul/Library/Mobile Documents/com~apple~CloudDocs/SCM_Agentic_Ai/WMS_Incident_Copilot/.venv/lib/python3.12/site-packages/langgraph_api/utils/config.py", line 136, in wrapper\n    return func(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^\n  File "/Users/rahul/Library/Mobile Documents/com~apple~CloudDocs/SCM_Agentic_Ai/WMS_Incident_Copilot/.venv/lib/python3.12/site-packages/langgraph_api/timing/timer.py", line 101, in wrapper\n    return func(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^\n  File "/Users/rahul/Library/Mobile Documents/com~apple~CloudDocs/SCM_Agentic_Ai/WMS_Incident_Copilot/.venv/lib/python3.12/site-packages/langgraph_api/graph.py", line 783, in _graph_from_spec\n    raise ValueError(\nValueError: Heads up! Your graph \'graph\' from \'./src/agents/graph/application_graph.py\' includes a custom checkpointer (type <class \'langgraph.checkpoint.memory.InMemorySaver\'>). With LangGraph API, persistence is handled automatically by the platform, so providing a custom checkpointer (type <class \'langgraph.checkpoint.memory.InMemorySaver\'>) here isn\'t necessary and will be ignored when deployed.\n\nTo simplify your setup and use the built-in persistence, please remove the custom checkpointer (type <class \'langgraph.checkpoint.memory.InMemorySaver\'>) from your graph definition. If you are looking to customize which postgres database to connect to, please set the `POSTGRES_URI` environment variable. See https://langchain-ai.github.io/langgraph/cloud/reference/env_var/#postgres_uri_custom for more details.\n', 'action': 'fix_user_graph', 'event': "Graph 'wms_copilot' failed to load: ValueError: Heads up! Your graph 'graph' from './src/agents/graph/application_graph.py' includes a custom checkpointer (type <class 'langgraph.checkpoint.memory.InMemorySaver'>). With LangGraph API, persistence is handled automatically by the platform, so providing a custom checkpointer (type <class 'langgraph.checkpoint.memory.InMemorySaver'>) here isn't necessary and will be ignored when deployed.\n\nTo simplify your setup and use the built-in persistence, please remove the custom checkpointer (type <class 'langgraph.checkpoint.memory.InMemorySaver'>) from your graph definition. If you are looking to customize which postgres database to connect to, please set the `POSTGRES_URI` environment variable. See https://langchain-ai.github.io/langgraph/cloud/reference/env_var/#postgres_uri_custom for more details.", 'thread_name': 'ThreadPoolExecutor-1_0', 'logger': 'langgraph_runtime_inmem.lifespan', 'level': 'error', 'api_variant': 'local_dev', 'langgraph_api_version': '0.7.99', 'timestamp': '2026-04-10T07:40:21.496176Z'}
+2026-04-10 00:40:21,496 | INFO | langgraph_api.graph | {'event': 'Shutting down remote graphs', 'thread_name': 'MainThread', 'logger': 'langgraph_api.graph', 'level': 'info', 'api_variant': 'local_dev', 'langgraph_api_version': '0.7.99', 'timestamp': '2026-04-10T07:40:21.496924Z'}
+2026-04-10 00:40:21,497 | INFO | langgraph_runtime_inmem._persistence | Stopping dev persistence flush loop
+2026-04-10 00:40:21,497 | INFO | langgraph_runtime_inmem._persistence | dev persistence flush loop exiting
+2026-04-10 00:40:21,501 | ERROR | uvicorn.error | Traceback (most recent call last):
+  File "/Users/rahul/Library/Mobile Documents/com~apple~CloudDocs/SCM_Agentic_Ai/WMS_Incident_Copilot/.venv/lib/python3.12/site-packages/langgraph_api/graph.py", line 610, in collect_graphs_from_env
+    graph = await run_in_executor(None, _graph_from_spec, spec)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rahul/Library/Mobile Documents/com~apple~CloudDocs/SCM_Agentic_Ai/WMS_Incident_Copilot/.venv/lib/python3.12/site-packages/langgraph_api/utils/config.py", line 145, in run_in_executor
+    return await asyncio.get_running_loop().run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.12/3.12.12/Frameworks/Python.framework/Versions/3.12/lib/python3.12/concurrent/futures/thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rahul/Library/Mobile Documents/com~apple~CloudDocs/SCM_Agentic_Ai/WMS_Incident_Copilot/.venv/lib/python3.12/site-packages/langgraph_api/utils/config.py", line 136, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rahul/Library/Mobile Documents/com~apple~CloudDocs/SCM_Agentic_Ai/WMS_Incident_Copilot/.venv/lib/python3.12/site-packages/langgraph_api/timing/timer.py", line 101, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rahul/Library/Mobile Documents/com~apple~CloudDocs/SCM_Agentic_Ai/WMS_Incident_Copilot/.venv/lib/python3.12/site-packages/langgraph_api/graph.py", line 783, in _graph_from_spec
+    raise ValueError(
+ValueError: Heads up! Your graph 'graph' from './src/agents/graph/application_graph.py' includes a custom checkpointer (type <class 'langgraph.checkpoint.memory.InMemorySaver'>). With LangGraph API, persistence is handled automatically by the platform, so providing a custom checkpointer (type <class 'langgraph.checkpoint.memory.InMemorySaver'>) here isn't necessary and will be ignored when deployed.
+
+To simplify your setup and use the built-in persistence, please remove the custom checkpointer (type <class 'langgraph.checkpoint.memory.InMemorySaver'>) from your graph definition. If you are looking to customize which postgres database to connect to, please set the `POSTGRES_URI` environment variable. See https://langchain-ai.github.io/langgraph/cloud/reference/env_var/#postgres_uri_custom for more details.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/rahul/Library/Mobile Documents/com~apple~CloudDocs/SCM_Agentic_Ai/WMS_Incident_Copilot/.venv/lib/python3.12/site-packages/starlette/routing.py", line 638, in lifespan
+    async with self.lifespan_context(app) as maybe_state:
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.12/3.12.12/Frameworks/Python.framework/Versions/3.12/lib/python3.12/contextlib.py", line 210, in __aenter__
+    return await anext(self.gen)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rahul/Library/Mobile Documents/com~apple~CloudDocs/SCM_Agentic_Ai/WMS_Incident_Copilot/.venv/lib/python3.12/site-packages/langgraph_api/timing/timer.py", line 227, in combined_lifespan
+    await stack.enter_async_context(ls(app))
+  File "/opt/homebrew/Cellar/python@3.12/3.12.12/Frameworks/Python.framework/Versions/3.12/lib/python3.12/contextlib.py", line 659, in enter_async_context
+    result = await _enter(cm)
+             ^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.12/3.12.12/Frameworks/Python.framework/Versions/3.12/lib/python3.12/contextlib.py", line 210, in __aenter__
+    return await anext(self.gen)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rahul/Library/Mobile Documents/com~apple~CloudDocs/SCM_Agentic_Ai/WMS_Incident_Copilot/.venv/lib/python3.12/site-packages/langgraph_runtime_inmem/lifespan.py", line 114, in lifespan
+    await graph.collect_graphs_from_env(True)
+  File "/Users/rahul/Library/Mobile Documents/com~apple~CloudDocs/SCM_Agentic_Ai/WMS_Incident_Copilot/.venv/lib/python3.12/site-packages/langgraph_api/graph.py", line 612, in collect_graphs_from_env
+    raise GraphLoadError(spec, exc) from exc
+langgraph_api.utils.errors.GraphLoadError: Failed to load graph 'wms_copilot' from ./src/agents/graph/application_graph.py: Heads up! Your graph 'graph' from './src/agents/graph/application_graph.py' includes a custom checkpointer (type <class 'langgraph.checkpoint.memory.InMemorySaver'>). With LangGraph API, persistence is handled automatically by the platform, so providing a custom checkpointer (type <class 'langgraph.checkpoint.memory.InMemorySaver'>) here isn't necessary and will be ignored when deployed.
+
+To simplify your setup and use the built-in persistence, please remove the custom checkpointer (type <class 'langgraph.checkpoint.memory.InMemorySaver'>) from your graph definition. If you are looking to customize which postgres database to connect to, please set the `POSTGRES_URI` environment variable. See https://langchain-ai.github.io/langgraph/cloud/reference/env_var/#postgres_uri_custom for more details.
+
+2026-04-10 00:40:21,502 | ERROR | uvicorn.error | Application startup failed. Exiting.
+2026-04-10 00:40:47,903 | INFO | agents.nodes.inbound_agent_node | INBOUND AGENT CALLED
+2026-04-10 00:40:47,913 | INFO | agents.nodes.outbound_agent_node | OUTBOUND AGENT CALLED
+2026-04-10 00:40:47,919 | INFO | agents.nodes.inventory_agent_node | INVENTORY AGENT CALLED
+2026-04-10 00:40:47,934 | INFO | langgraph_api.timing.timer | {'name': '_graph_from_spec', 'elapsed_seconds': 1.3082716249627993, 'graph_id': 'wms_copilot', 'module': None, 'path': './src/agents/graph/application_graph.py', 'exception': 'ValueError("Heads up! Your graph \'graph\' from \'./src/agents/graph/application_graph.py\' includes a custom checkpointer (type <class \'langgraph.checkpoint.memory.InMemorySaver\'>). With LangGraph API, persistence is handled automatically by the platform, so providing a custom checkpointer (type <class \'langgraph.checkpoint.memory.InMemorySaver\'>) here isn\'t necessary and will be ignored when deployed.\\n\\nTo simplify your setup and use the built-in persistence, please remove the custom checkpointer (type <class \'langgraph.checkpoint.memory.InMemorySaver\'>) from your graph definition. If you are looking to customize which postgres database to connect to, please set the `POSTGRES_URI` environment variable. See https://langchain-ai.github.io/langgraph/cloud/reference/env_var/#postgres_uri_custom for more details.")', 'event': 'Importing graph profiling', 'thread_name': 'ThreadPoolExecutor-1_0', 'logger': 'langgraph_api.timing.timer', 'level': 'info', 'api_variant': 'local_dev', 'langgraph_api_version': '0.7.99', 'timestamp': '2026-04-10T07:40:47.934237Z'}
+2026-04-10 00:40:47,935 | ERROR | langgraph_runtime_inmem.lifespan | {'graph_id': 'wms_copilot', 'location': './src/agents/graph/application_graph.py', 'error_type': 'ValueError', 'error_message': "ValueError: Heads up! Your graph 'graph' from './src/agents/graph/application_graph.py' includes a custom checkpointer (type <class 'langgraph.checkpoint.memory.InMemorySaver'>). With LangGraph API, persistence is handled automatically by the platform, so providing a custom checkpointer (type <class 'langgraph.checkpoint.memory.InMemorySaver'>) here isn't necessary and will be ignored when deployed.\n\nTo simplify your setup and use the built-in persistence, please remove the custom checkpointer (type <class 'langgraph.checkpoint.memory.InMemorySaver'>) from your graph definition. If you are looking to customize which postgres database to connect to, please set the `POSTGRES_URI` environment variable. See https://langchain-ai.github.io/langgraph/cloud/reference/env_var/#postgres_uri_custom for more details.", 'error_boundary': 'user_graph', 'summary': "ValueError: ValueError: Heads up! Your graph 'graph' from './src/agents/graph/application_graph.py' includes a custom checkpointer (type <class 'langgraph.checkpoint.memory.InMemorySaver'>). With LangGraph API, persistence is handled automatically by the platform, so providing a custom checkpointer (type <class 'langgraph.checkpoint.memory.InMemorySaver'>) here isn't necessary and will be ignored when deployed.\n\nTo simplify your setup and use the built-in persistence, please remove the custom checkpointer (type <class 'langgraph.checkpoint.memory.InMemorySaver'>) from your graph definition. If you are looking to customize which postgres database to connect to, please set the `POSTGRES_URI` environment variable. See https://langchain-ai.github.io/langgraph/cloud/reference/env_var/#postgres_uri_custom for more details.", 'user_traceback': 'Traceback (most recent call last):\n  File "/Users/rahul/Library/Mobile Documents/com~apple~CloudDocs/SCM_Agentic_Ai/WMS_Incident_Copilot/.venv/lib/python3.12/site-packages/langgraph_api/graph.py", line 610, in collect_graphs_from_env\n    graph = await run_in_executor(None, _graph_from_spec, spec)\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/Users/rahul/Library/Mobile Documents/com~apple~CloudDocs/SCM_Agentic_Ai/WMS_Incident_Copilot/.venv/lib/python3.12/site-packages/langgraph_api/utils/config.py", line 145, in run_in_executor\n    return await asyncio.get_running_loop().run_in_executor(\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/opt/homebrew/Cellar/python@3.12/3.12.12/Frameworks/Python.framework/Versions/3.12/lib/python3.12/concurrent/futures/thread.py", line 59, in run\n    result = self.fn(*self.args, **self.kwargs)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/Users/rahul/Library/Mobile Documents/com~apple~CloudDocs/SCM_Agentic_Ai/WMS_Incident_Copilot/.venv/lib/python3.12/site-packages/langgraph_api/utils/config.py", line 136, in wrapper\n    return func(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^\n  File "/Users/rahul/Library/Mobile Documents/com~apple~CloudDocs/SCM_Agentic_Ai/WMS_Incident_Copilot/.venv/lib/python3.12/site-packages/langgraph_api/timing/timer.py", line 101, in wrapper\n    return func(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^\n  File "/Users/rahul/Library/Mobile Documents/com~apple~CloudDocs/SCM_Agentic_Ai/WMS_Incident_Copilot/.venv/lib/python3.12/site-packages/langgraph_api/graph.py", line 783, in _graph_from_spec\n    raise ValueError(\nValueError: Heads up! Your graph \'graph\' from \'./src/agents/graph/application_graph.py\' includes a custom checkpointer (type <class \'langgraph.checkpoint.memory.InMemorySaver\'>). With LangGraph API, persistence is handled automatically by the platform, so providing a custom checkpointer (type <class \'langgraph.checkpoint.memory.InMemorySaver\'>) here isn\'t necessary and will be ignored when deployed.\n\nTo simplify your setup and use the built-in persistence, please remove the custom checkpointer (type <class \'langgraph.checkpoint.memory.InMemorySaver\'>) from your graph definition. If you are looking to customize which postgres database to connect to, please set the `POSTGRES_URI` environment variable. See https://langchain-ai.github.io/langgraph/cloud/reference/env_var/#postgres_uri_custom for more details.\n', 'action': 'fix_user_graph', 'event': "Graph 'wms_copilot' failed to load: ValueError: Heads up! Your graph 'graph' from './src/agents/graph/application_graph.py' includes a custom checkpointer (type <class 'langgraph.checkpoint.memory.InMemorySaver'>). With LangGraph API, persistence is handled automatically by the platform, so providing a custom checkpointer (type <class 'langgraph.checkpoint.memory.InMemorySaver'>) here isn't necessary and will be ignored when deployed.\n\nTo simplify your setup and use the built-in persistence, please remove the custom checkpointer (type <class 'langgraph.checkpoint.memory.InMemorySaver'>) from your graph definition. If you are looking to customize which postgres database to connect to, please set the `POSTGRES_URI` environment variable. See https://langchain-ai.github.io/langgraph/cloud/reference/env_var/#postgres_uri_custom for more details.", 'thread_name': 'ThreadPoolExecutor-1_0', 'logger': 'langgraph_runtime_inmem.lifespan', 'level': 'error', 'api_variant': 'local_dev', 'langgraph_api_version': '0.7.99', 'timestamp': '2026-04-10T07:40:47.935791Z'}
+2026-04-10 00:40:47,936 | INFO | langgraph_api.graph | {'event': 'Shutting down remote graphs', 'thread_name': 'MainThread', 'logger': 'langgraph_api.graph', 'level': 'info', 'api_variant': 'local_dev', 'langgraph_api_version': '0.7.99', 'timestamp': '2026-04-10T07:40:47.936472Z'}
+2026-04-10 00:40:47,937 | INFO | langgraph_runtime_inmem._persistence | Stopping dev persistence flush loop
+2026-04-10 00:40:47,937 | INFO | langgraph_runtime_inmem._persistence | dev persistence flush loop exiting
+2026-04-10 00:40:47,940 | ERROR | uvicorn.error | Traceback (most recent call last):
+  File "/Users/rahul/Library/Mobile Documents/com~apple~CloudDocs/SCM_Agentic_Ai/WMS_Incident_Copilot/.venv/lib/python3.12/site-packages/langgraph_api/graph.py", line 610, in collect_graphs_from_env
+    graph = await run_in_executor(None, _graph_from_spec, spec)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rahul/Library/Mobile Documents/com~apple~CloudDocs/SCM_Agentic_Ai/WMS_Incident_Copilot/.venv/lib/python3.12/site-packages/langgraph_api/utils/config.py", line 145, in run_in_executor
+    return await asyncio.get_running_loop().run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.12/3.12.12/Frameworks/Python.framework/Versions/3.12/lib/python3.12/concurrent/futures/thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rahul/Library/Mobile Documents/com~apple~CloudDocs/SCM_Agentic_Ai/WMS_Incident_Copilot/.venv/lib/python3.12/site-packages/langgraph_api/utils/config.py", line 136, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rahul/Library/Mobile Documents/com~apple~CloudDocs/SCM_Agentic_Ai/WMS_Incident_Copilot/.venv/lib/python3.12/site-packages/langgraph_api/timing/timer.py", line 101, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rahul/Library/Mobile Documents/com~apple~CloudDocs/SCM_Agentic_Ai/WMS_Incident_Copilot/.venv/lib/python3.12/site-packages/langgraph_api/graph.py", line 783, in _graph_from_spec
+    raise ValueError(
+ValueError: Heads up! Your graph 'graph' from './src/agents/graph/application_graph.py' includes a custom checkpointer (type <class 'langgraph.checkpoint.memory.InMemorySaver'>). With LangGraph API, persistence is handled automatically by the platform, so providing a custom checkpointer (type <class 'langgraph.checkpoint.memory.InMemorySaver'>) here isn't necessary and will be ignored when deployed.
+
+To simplify your setup and use the built-in persistence, please remove the custom checkpointer (type <class 'langgraph.checkpoint.memory.InMemorySaver'>) from your graph definition. If you are looking to customize which postgres database to connect to, please set the `POSTGRES_URI` environment variable. See https://langchain-ai.github.io/langgraph/cloud/reference/env_var/#postgres_uri_custom for more details.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/rahul/Library/Mobile Documents/com~apple~CloudDocs/SCM_Agentic_Ai/WMS_Incident_Copilot/.venv/lib/python3.12/site-packages/starlette/routing.py", line 638, in lifespan
+    async with self.lifespan_context(app) as maybe_state:
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.12/3.12.12/Frameworks/Python.framework/Versions/3.12/lib/python3.12/contextlib.py", line 210, in __aenter__
+    return await anext(self.gen)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rahul/Library/Mobile Documents/com~apple~CloudDocs/SCM_Agentic_Ai/WMS_Incident_Copilot/.venv/lib/python3.12/site-packages/langgraph_api/timing/timer.py", line 227, in combined_lifespan
+    await stack.enter_async_context(ls(app))
+  File "/opt/homebrew/Cellar/python@3.12/3.12.12/Frameworks/Python.framework/Versions/3.12/lib/python3.12/contextlib.py", line 659, in enter_async_context
+    result = await _enter(cm)
+             ^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.12/3.12.12/Frameworks/Python.framework/Versions/3.12/lib/python3.12/contextlib.py", line 210, in __aenter__
+    return await anext(self.gen)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rahul/Library/Mobile Documents/com~apple~CloudDocs/SCM_Agentic_Ai/WMS_Incident_Copilot/.venv/lib/python3.12/site-packages/langgraph_runtime_inmem/lifespan.py", line 114, in lifespan
+    await graph.collect_graphs_from_env(True)
+  File "/Users/rahul/Library/Mobile Documents/com~apple~CloudDocs/SCM_Agentic_Ai/WMS_Incident_Copilot/.venv/lib/python3.12/site-packages/langgraph_api/graph.py", line 612, in collect_graphs_from_env
+    raise GraphLoadError(spec, exc) from exc
+langgraph_api.utils.errors.GraphLoadError: Failed to load graph 'wms_copilot' from ./src/agents/graph/application_graph.py: Heads up! Your graph 'graph' from './src/agents/graph/application_graph.py' includes a custom checkpointer (type <class 'langgraph.checkpoint.memory.InMemorySaver'>). With LangGraph API, persistence is handled automatically by the platform, so providing a custom checkpointer (type <class 'langgraph.checkpoint.memory.InMemorySaver'>) here isn't necessary and will be ignored when deployed.
+
+To simplify your setup and use the built-in persistence, please remove the custom checkpointer (type <class 'langgraph.checkpoint.memory.InMemorySaver'>) from your graph definition. If you are looking to customize which postgres database to connect to, please set the `POSTGRES_URI` environment variable. See https://langchain-ai.github.io/langgraph/cloud/reference/env_var/#postgres_uri_custom for more details.
+
+2026-04-10 00:40:47,941 | ERROR | uvicorn.error | Application startup failed. Exiting.
+2026-04-10 00:41:41,115 | INFO | agents.nodes.inbound_agent_node | INBOUND AGENT CALLED
+2026-04-10 00:41:41,127 | INFO | agents.nodes.outbound_agent_node | OUTBOUND AGENT CALLED
+2026-04-10 00:41:41,133 | INFO | agents.nodes.inventory_agent_node | INVENTORY AGENT CALLED
+2026-04-10 00:41:41,148 | INFO | langgraph_api.timing.timer | {'name': '_graph_from_spec', 'elapsed_seconds': 1.4717722500208765, 'graph_id': 'wms_copilot', 'module': None, 'path': './src/agents/graph/application_graph.py', 'event': 'Importing graph profiling', 'thread_name': 'ThreadPoolExecutor-1_0', 'logger': 'langgraph_api.timing.timer', 'level': 'info', 'api_variant': 'local_dev', 'langgraph_api_version': '0.7.99', 'timestamp': '2026-04-10T07:41:41.148727Z'}
+2026-04-10 00:41:41,217 | INFO | langgraph_api.timing.timer | {'elapsed': 1.7832289589568973, 'event': 'Application started up in 1.783s', 'thread_name': 'MainThread', 'logger': 'langgraph_api.timing.timer', 'level': 'info', 'api_variant': 'local_dev', 'langgraph_api_version': '0.7.99', 'timestamp': '2026-04-10T07:41:41.217754Z'}
+2026-04-10 00:41:41,234 | INFO | langgraph_api.cron_scheduler | {'event': 'Starting cron scheduler', 'thread_name': 'MainThread', 'logger': 'langgraph_api.cron_scheduler', 'level': 'info', 'api_variant': 'local_dev', 'langgraph_api_version': '0.7.99', 'timestamp': '2026-04-10T07:41:41.234723Z'}
+2026-04-10 00:41:41,234 | INFO | langgraph_runtime_inmem.queue | {'event': 'Starting queue with shared loop', 'thread_name': 'ThreadPoolExecutor-1_0', 'logger': 'langgraph_runtime_inmem.queue', 'level': 'info', 'api_variant': 'local_dev', 'langgraph_api_version': '0.7.99', 'timestamp': '2026-04-10T07:41:41.234858Z'}
+2026-04-10 00:41:41,235 | INFO | langgraph_runtime_inmem.queue | {'event': 'Starting 1 background workers', 'thread_name': 'ThreadPoolExecutor-1_0', 'logger': 'langgraph_runtime_inmem.queue', 'level': 'info', 'api_variant': 'local_dev', 'langgraph_api_version': '0.7.99', 'timestamp': '2026-04-10T07:41:41.235259Z'}
+2026-04-10 00:41:41,235 | INFO | langgraph_runtime_inmem.queue | {'max': 1, 'available': 1, 'active': 0, 'event': 'Worker stats', 'thread_name': 'ThreadPoolExecutor-1_0', 'logger': 'langgraph_runtime_inmem.queue', 'level': 'info', 'api_variant': 'local_dev', 'langgraph_api_version': '0.7.99', 'timestamp': '2026-04-10T07:41:41.235408Z'}
+2026-04-10 00:41:41,336 | INFO | langgraph_runtime_inmem.queue | {'event': 'Shutting down background workers', 'thread_name': 'MainThread', 'logger': 'langgraph_runtime_inmem.queue', 'level': 'info', 'api_variant': 'local_dev', 'langgraph_api_version': '0.7.99', 'timestamp': '2026-04-10T07:41:41.336839Z'}
+2026-04-10 00:41:41,339 | INFO | langgraph_api.graph | {'event': 'Shutting down remote graphs', 'thread_name': 'MainThread', 'logger': 'langgraph_api.graph', 'level': 'info', 'api_variant': 'local_dev', 'langgraph_api_version': '0.7.99', 'timestamp': '2026-04-10T07:41:41.339293Z'}
+2026-04-10 00:41:41,340 | INFO | langgraph_runtime_inmem._persistence | Stopping dev persistence flush loop
+2026-04-10 00:41:41,341 | INFO | langgraph_runtime_inmem._persistence | dev persistence flush loop exiting
+2026-04-10 00:41:44,454 | INFO | agents.nodes.inbound_agent_node | INBOUND AGENT CALLED
+2026-04-10 00:41:44,462 | INFO | agents.nodes.outbound_agent_node | OUTBOUND AGENT CALLED
+2026-04-10 00:41:44,468 | INFO | agents.nodes.inventory_agent_node | INVENTORY AGENT CALLED
+2026-04-10 00:41:44,481 | INFO | langgraph_api.timing.timer | {'name': '_graph_from_spec', 'elapsed_seconds': 1.164122041896917, 'graph_id': 'wms_copilot', 'module': None, 'path': './src/agents/graph/application_graph.py', 'event': 'Importing graph profiling', 'thread_name': 'ThreadPoolExecutor-1_0', 'logger': 'langgraph_api.timing.timer', 'level': 'info', 'api_variant': 'local_dev', 'langgraph_api_version': '0.7.99', 'timestamp': '2026-04-10T07:41:44.481690Z'}
+2026-04-10 00:41:44,495 | INFO | langgraph_api.timing.timer | {'elapsed': 1.3133758750045672, 'event': 'Application started up in 1.313s', 'thread_name': 'MainThread', 'logger': 'langgraph_api.timing.timer', 'level': 'info', 'api_variant': 'local_dev', 'langgraph_api_version': '0.7.99', 'timestamp': '2026-04-10T07:41:44.495158Z'}
+2026-04-10 00:41:44,510 | INFO | langgraph_api.cron_scheduler | {'event': 'Starting cron scheduler', 'thread_name': 'MainThread', 'logger': 'langgraph_api.cron_scheduler', 'level': 'info', 'api_variant': 'local_dev', 'langgraph_api_version': '0.7.99', 'timestamp': '2026-04-10T07:41:44.510422Z'}
+2026-04-10 00:41:44,510 | INFO | langgraph_runtime_inmem.queue | {'event': 'Starting queue with shared loop', 'thread_name': 'ThreadPoolExecutor-1_0', 'logger': 'langgraph_runtime_inmem.queue', 'level': 'info', 'api_variant': 'local_dev', 'langgraph_api_version': '0.7.99', 'timestamp': '2026-04-10T07:41:44.510583Z'}
+2026-04-10 00:41:44,511 | INFO | langgraph_runtime_inmem.queue | {'event': 'Starting 1 background workers', 'thread_name': 'ThreadPoolExecutor-1_0', 'logger': 'langgraph_runtime_inmem.queue', 'level': 'info', 'api_variant': 'local_dev', 'langgraph_api_version': '0.7.99', 'timestamp': '2026-04-10T07:41:44.511537Z'}
+2026-04-10 00:41:44,511 | INFO | langgraph_runtime_inmem.queue | {'max': 1, 'available': 1, 'active': 0, 'event': 'Worker stats', 'thread_name': 'ThreadPoolExecutor-1_0', 'logger': 'langgraph_runtime_inmem.queue', 'level': 'info', 'api_variant': 'local_dev', 'langgraph_api_version': '0.7.99', 'timestamp': '2026-04-10T07:41:44.511675Z'}
+2026-04-10 00:41:45,013 | INFO | langgraph_runtime_inmem.queue | {'n_pending': 0, 'pending_runs_wait_time_max_secs': None, 'pending_runs_wait_time_med_secs': None, 'pending_unblocked_runs_wait_time_max_secs': None, 'n_running': 0, 'event': 'Queue stats', 'thread_name': 'ThreadPoolExecutor-1_0', 'logger': 'langgraph_runtime_inmem.queue', 'level': 'info', 'api_variant': 'local_dev', 'langgraph_api_version': '0.7.99', 'timestamp': '2026-04-10T07:41:45.013190Z'}
+2026-04-10 00:41:50,713 | WARNING | langgraph_api.server | {'method': 'GET', 'path': '/assistants/{assistant_id}', 'status': 404, 'latency_ms': 1, 'ttfb_ms': 1.0, 'run_id': None, 'response_size_bytes': 22, 'route': '/assistants/{assistant_id}', 'path_params': {'assistant_id': '97a32b4d-bb68-5726-b16d-cac9a93ac049'}, 'query_string': '', 'error_detail': None, 'proto': '1.1', 'req_header': {}, 'res_header': {}, 'event': 'GET /assistants/97a32b4d-bb68-5726-b16d-cac9a93ac049 404 1ms', 'thread_name': 'MainThread', 'logger': 'langgraph_api.server', 'level': 'warning', 'api_variant': 'local_dev', 'langgraph_api_version': '0.7.99', 'timestamp': '2026-04-10T07:41:50.713121Z'}
+2026-04-10 00:41:50,714 | WARNING | langgraph_api.server | {'method': 'GET', 'path': '/assistants/{assistant_id}/schemas', 'status': 404, 'latency_ms': 2, 'ttfb_ms': 1.0, 'run_id': None, 'response_size_bytes': 22, 'route': '/assistants/{assistant_id}/schemas', 'path_params': {'assistant_id': '97a32b4d-bb68-5726-b16d-cac9a93ac049'}, 'query_string': '', 'error_detail': None, 'proto': '1.1', 'req_header': {}, 'res_header': {}, 'event': 'GET /assistants/97a32b4d-bb68-5726-b16d-cac9a93ac049/schemas 404 2ms', 'thread_name': 'MainThread', 'logger': 'langgraph_api.server', 'level': 'warning', 'api_variant': 'local_dev', 'langgraph_api_version': '0.7.99', 'timestamp': '2026-04-10T07:41:50.714466Z'}
+2026-04-10 00:41:52,002 | WARNING | langgraph_api.server | {'method': 'GET', 'path': '/assistants/{assistant_id}', 'status': 404, 'latency_ms': 2, 'ttfb_ms': 2.0, 'run_id': None, 'response_size_bytes': 22, 'route': '/assistants/{assistant_id}', 'path_params': {'assistant_id': '97a32b4d-bb68-5726-b16d-cac9a93ac049'}, 'query_string': '', 'error_detail': None, 'proto': '1.1', 'req_header': {}, 'res_header': {}, 'event': 'GET /assistants/97a32b4d-bb68-5726-b16d-cac9a93ac049 404 2ms', 'thread_name': 'MainThread', 'logger': 'langgraph_api.server', 'level': 'warning', 'api_variant': 'local_dev', 'langgraph_api_version': '0.7.99', 'timestamp': '2026-04-10T07:41:52.001829Z'}
+2026-04-10 00:41:52,003 | WARNING | langgraph_api.server | {'method': 'GET', 'path': '/assistants/{assistant_id}/schemas', 'status': 404, 'latency_ms': 3, 'ttfb_ms': 1.0, 'run_id': None, 'response_size_bytes': 22, 'route': '/assistants/{assistant_id}/schemas', 'path_params': {'assistant_id': '97a32b4d-bb68-5726-b16d-cac9a93ac049'}, 'query_string': '', 'error_detail': None, 'proto': '1.1', 'req_header': {}, 'res_header': {}, 'event': 'GET /assistants/97a32b4d-bb68-5726-b16d-cac9a93ac049/schemas 404 3ms', 'thread_name': 'MainThread', 'logger': 'langgraph_api.server', 'level': 'warning', 'api_variant': 'local_dev', 'langgraph_api_version': '0.7.99', 'timestamp': '2026-04-10T07:41:52.003085Z'}
+2026-04-10 00:41:52,011 | WARNING | langgraph_api.server | {'method': 'GET', 'path': '/assistants/{assistant_id}/schemas', 'status': 404, 'latency_ms': 6, 'ttfb_ms': 3.0, 'run_id': None, 'response_size_bytes': 22, 'route': '/assistants/{assistant_id}/schemas', 'path_params': {'assistant_id': '97a32b4d-bb68-5726-b16d-cac9a93ac049'}, 'query_string': '', 'error_detail': None, 'proto': '1.1', 'req_header': {}, 'res_header': {}, 'event': 'GET /assistants/97a32b4d-bb68-5726-b16d-cac9a93ac049/schemas 404 6ms', 'thread_name': 'MainThread', 'logger': 'langgraph_api.server', 'level': 'warning', 'api_variant': 'local_dev', 'langgraph_api_version': '0.7.99', 'timestamp': '2026-04-10T07:41:52.011015Z'}
+2026-04-10 00:41:52,011 | WARNING | langgraph_api.server | {'method': 'GET', 'path': '/assistants/{assistant_id}', 'status': 404, 'latency_ms': 3, 'ttfb_ms': 1.0, 'run_id': None, 'response_size_bytes': 22, 'route': '/assistants/{assistant_id}', 'path_params': {'assistant_id': '97a32b4d-bb68-5726-b16d-cac9a93ac049'}, 'query_string': '', 'error_detail': None, 'proto': '1.1', 'req_header': {}, 'res_header': {}, 'event': 'GET /assistants/97a32b4d-bb68-5726-b16d-cac9a93ac049 404 3ms', 'thread_name': 'MainThread', 'logger': 'langgraph_api.server', 'level': 'warning', 'api_variant': 'local_dev', 'langgraph_api_version': '0.7.99', 'timestamp': '2026-04-10T07:41:52.011625Z'}
+2026-04-10 00:42:21,852 | INFO | langgraph_api.models.run | {'run_id': '019d7657-8a9b-7e80-8e54-d10c286f4dae', 'thread_id': '9b02d5ba-c835-4ad1-b004-9f9d034529a5', 'assistant_id': 'f5b624a8-2879-5080-b4b4-9aea8e9b197d', 'multitask_strategy': 'rollback', 'stream_mode': ['debug', 'messages'], 'temporary': False, 'after_seconds': 0, 'if_not_exists': 'reject', 'stream_resumable': False, 'run_create_ms': 2, 'run_put_ms': 0, 'checkpoint_id': 'None', 'event': 'Created run', 'thread_name': 'MainThread', 'logger': 'langgraph_api.models.run', 'level': 'info', 'api_variant': 'local_dev', 'langgraph_api_version': '0.7.99', 'timestamp': '2026-04-10T07:42:21.852284Z', 'request_id': '85777b2f-f2c7-4755-bc53-be6d2e76258b', 'path': '/threads/{thread_id}/runs/stream', 'method': 'POST'}
+2026-04-10 00:42:22,616 | INFO | langgraph_api.worker | {'run_started_at': '2026-04-10T07:42:22.614308+00:00', 'run_creation_ms': 2, 'run_queue_ms': 762, 'run_stream_start_ms': 0, 'temporary': False, 'resumable': False, 'event': 'Starting background run', 'thread_name': 'ThreadPoolExecutor-1_0', 'logger': 'langgraph_api.worker', 'level': 'info', 'api_variant': 'local_dev', 'langgraph_api_version': '0.7.99', 'timestamp': '2026-04-10T07:42:22.615902Z', 'run_id': '019d7657-8a9b-7e80-8e54-d10c286f4dae', 'run_attempt': 1, 'thread_id': '9b02d5ba-c835-4ad1-b004-9f9d034529a5', 'assistant_id': 'f5b624a8-2879-5080-b4b4-9aea8e9b197d', 'graph_id': 'wms_copilot', 'request_id': '85777b2f-f2c7-4755-bc53-be6d2e76258b'}
+2026-04-10 00:42:22,830 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-10 00:42:30,693 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:streamGenerateContent?alt=sse "HTTP/1.1 200 OK"
+2026-04-10 00:42:30,732 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-10 00:42:33,222 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:streamGenerateContent?alt=sse "HTTP/1.1 200 OK"
+2026-04-10 00:42:33,283 | INFO | agents.nodes.sql_generate_query_node | SQL Generated Query Node
+2026-04-10 00:42:37,331 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-10 00:42:41,666 | INFO | agents.nodes.sql_run_sql_node | SQL NODE: Sql ran on the database
+2026-04-10 00:42:41,677 | INFO | langgraph_api.worker | {'run_id': '019d7657-8a9b-7e80-8e54-d10c286f4dae', 'run_attempt': 1, 'run_created_at': '2026-04-10T07:42:21.852196+00:00', 'run_started_at': '2026-04-10T07:42:22.614308+00:00', 'run_ended_at': '2026-04-10T07:42:41.677701+00:00', 'run_exec_ms': 19063, 'run_completed_in_ms': 19827, 'run_wait_time_ms': 762, 'event': 'Background run succeeded', 'thread_name': 'ThreadPoolExecutor-1_0', 'logger': 'langgraph_api.worker', 'level': 'info', 'api_variant': 'local_dev', 'langgraph_api_version': '0.7.99', 'timestamp': '2026-04-10T07:42:41.677866Z', 'thread_id': '9b02d5ba-c835-4ad1-b004-9f9d034529a5', 'assistant_id': 'f5b624a8-2879-5080-b4b4-9aea8e9b197d', 'graph_id': 'wms_copilot', 'request_id': '85777b2f-f2c7-4755-bc53-be6d2e76258b'}
+2026-04-10 00:42:44,685 | INFO | langgraph_runtime_inmem.queue | {'max': 1, 'available': 1, 'active': 0, 'event': 'Worker stats', 'thread_name': 'ThreadPoolExecutor-1_1', 'logger': 'langgraph_runtime_inmem.queue', 'level': 'info', 'api_variant': 'local_dev', 'langgraph_api_version': '0.7.99', 'timestamp': '2026-04-10T07:42:44.685771Z'}
+2026-04-10 00:42:45,187 | INFO | langgraph_runtime_inmem.queue | {'n_pending': 0, 'pending_runs_wait_time_max_secs': None, 'pending_runs_wait_time_med_secs': None, 'pending_unblocked_runs_wait_time_max_secs': None, 'n_running': 0, 'event': 'Queue stats', 'thread_name': 'ThreadPoolExecutor-1_0', 'logger': 'langgraph_runtime_inmem.queue', 'level': 'info', 'api_variant': 'local_dev', 'langgraph_api_version': '0.7.99', 'timestamp': '2026-04-10T07:42:45.187150Z'}
+2026-04-10 00:43:41,579 | INFO | langgraph_api.models.run | {'run_id': '019d7658-c209-74a1-a546-fdafa9ff1744', 'thread_id': 'b02eafab-2908-4b02-97c4-315f487a872c', 'assistant_id': 'f5b624a8-2879-5080-b4b4-9aea8e9b197d', 'multitask_strategy': 'rollback', 'stream_mode': ['debug', 'messages'], 'temporary': False, 'after_seconds': 0, 'if_not_exists': 'reject', 'stream_resumable': False, 'run_create_ms': 2, 'run_put_ms': 0, 'checkpoint_id': 'None', 'event': 'Created run', 'thread_name': 'MainThread', 'logger': 'langgraph_api.models.run', 'level': 'info', 'api_variant': 'local_dev', 'langgraph_api_version': '0.7.99', 'timestamp': '2026-04-10T07:43:41.579238Z', 'request_id': '2ee5e590-03b1-484b-85ce-adb866dd69ed', 'path': '/threads/{thread_id}/runs/stream', 'method': 'POST'}
+2026-04-10 00:43:42,317 | INFO | langgraph_api.worker | {'run_started_at': '2026-04-10T07:43:42.316644+00:00', 'run_creation_ms': 2, 'run_queue_ms': 737, 'run_stream_start_ms': 0, 'temporary': False, 'resumable': False, 'event': 'Starting background run', 'thread_name': 'ThreadPoolExecutor-1_0', 'logger': 'langgraph_api.worker', 'level': 'info', 'api_variant': 'local_dev', 'langgraph_api_version': '0.7.99', 'timestamp': '2026-04-10T07:43:42.317282Z', 'run_id': '019d7658-c209-74a1-a546-fdafa9ff1744', 'run_attempt': 1, 'thread_id': 'b02eafab-2908-4b02-97c4-315f487a872c', 'assistant_id': 'f5b624a8-2879-5080-b4b4-9aea8e9b197d', 'graph_id': 'wms_copilot', 'request_id': '2ee5e590-03b1-484b-85ce-adb866dd69ed'}
+2026-04-10 00:43:42,347 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-10 00:43:43,422 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:streamGenerateContent?alt=sse "HTTP/1.1 200 OK"
+2026-04-10 00:43:43,455 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-10 00:43:44,376 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:streamGenerateContent?alt=sse "HTTP/1.1 200 OK"
+2026-04-10 00:43:44,455 | INFO | agents.nodes.sql_generate_query_node | SQL Generated Query Node
+2026-04-10 00:43:44,675 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-10 00:43:48,853 | INFO | agents.nodes.sql_run_sql_node | SQL NODE: Sql ran on the database
+2026-04-10 00:43:48,885 | INFO | langgraph_api.worker | {'run_id': '019d7658-c209-74a1-a546-fdafa9ff1744', 'run_attempt': 1, 'run_created_at': '2026-04-10T07:43:41.578925+00:00', 'run_started_at': '2026-04-10T07:43:42.316644+00:00', 'run_ended_at': '2026-04-10T07:43:48.885253+00:00', 'run_exec_ms': 6568, 'run_completed_in_ms': 7309, 'run_wait_time_ms': 737, 'event': 'Background run succeeded', 'thread_name': 'ThreadPoolExecutor-1_2', 'logger': 'langgraph_api.worker', 'level': 'info', 'api_variant': 'local_dev', 'langgraph_api_version': '0.7.99', 'timestamp': '2026-04-10T07:43:48.885428Z', 'thread_id': 'b02eafab-2908-4b02-97c4-315f487a872c', 'assistant_id': 'f5b624a8-2879-5080-b4b4-9aea8e9b197d', 'graph_id': 'wms_copilot', 'request_id': '2ee5e590-03b1-484b-85ce-adb866dd69ed'}
+2026-04-10 00:43:48,888 | INFO | langgraph_runtime_inmem.queue | {'max': 1, 'available': 1, 'active': 0, 'event': 'Worker stats', 'thread_name': 'ThreadPoolExecutor-1_0', 'logger': 'langgraph_runtime_inmem.queue', 'level': 'info', 'api_variant': 'local_dev', 'langgraph_api_version': '0.7.99', 'timestamp': '2026-04-10T07:43:48.888336Z'}
+2026-04-10 00:43:48,889 | INFO | langgraph_runtime_inmem.queue | {'n_pending': 0, 'pending_runs_wait_time_max_secs': None, 'pending_runs_wait_time_med_secs': None, 'pending_unblocked_runs_wait_time_max_secs': None, 'n_running': 0, 'event': 'Queue stats', 'thread_name': 'ThreadPoolExecutor-1_2', 'logger': 'langgraph_runtime_inmem.queue', 'level': 'info', 'api_variant': 'local_dev', 'langgraph_api_version': '0.7.99', 'timestamp': '2026-04-10T07:43:48.889200Z'}
+2026-04-10 00:44:49,035 | INFO | langgraph_runtime_inmem.queue | {'max': 1, 'available': 1, 'active': 0, 'event': 'Worker stats', 'thread_name': 'ThreadPoolExecutor-1_2', 'logger': 'langgraph_runtime_inmem.queue', 'level': 'info', 'api_variant': 'local_dev', 'langgraph_api_version': '0.7.99', 'timestamp': '2026-04-10T07:44:49.035223Z'}
+2026-04-10 00:44:49,539 | INFO | langgraph_runtime_inmem.queue | {'n_pending': 0, 'pending_runs_wait_time_max_secs': None, 'pending_runs_wait_time_med_secs': None, 'pending_unblocked_runs_wait_time_max_secs': None, 'n_running': 0, 'event': 'Queue stats', 'thread_name': 'ThreadPoolExecutor-1_0', 'logger': 'langgraph_runtime_inmem.queue', 'level': 'info', 'api_variant': 'local_dev', 'langgraph_api_version': '0.7.99', 'timestamp': '2026-04-10T07:44:49.539383Z'}
+2026-04-10 00:45:19,708 | INFO | langgraph_runtime_inmem.queue | {'event': 'Shutting down background workers', 'thread_name': 'MainThread', 'logger': 'langgraph_runtime_inmem.queue', 'level': 'info', 'api_variant': 'local_dev', 'langgraph_api_version': '0.7.99', 'timestamp': '2026-04-10T07:45:19.708612Z'}
+2026-04-10 00:45:19,717 | INFO | langgraph_api.graph | {'event': 'Shutting down remote graphs', 'thread_name': 'MainThread', 'logger': 'langgraph_api.graph', 'level': 'info', 'api_variant': 'local_dev', 'langgraph_api_version': '0.7.99', 'timestamp': '2026-04-10T07:45:19.716653Z'}
+2026-04-10 00:45:19,724 | INFO | langgraph_runtime_inmem._persistence | Stopping dev persistence flush loop
+2026-04-10 00:45:19,724 | INFO | langgraph_runtime_inmem._persistence | dev persistence flush loop exiting
+2026-04-10 00:45:56,407 | INFO | agents.nodes.inbound_agent_node | INBOUND AGENT CALLED
+2026-04-10 00:45:56,418 | INFO | agents.nodes.outbound_agent_node | OUTBOUND AGENT CALLED
+2026-04-10 00:45:56,424 | INFO | agents.nodes.inventory_agent_node | INVENTORY AGENT CALLED
+2026-04-10 00:45:56,438 | INFO | langgraph_api.timing.timer | {'name': '_graph_from_spec', 'elapsed_seconds': 1.3741263330448419, 'graph_id': 'wms_copilot', 'module': None, 'path': './src/agents/graph/application_graph.py', 'event': 'Importing graph profiling', 'thread_name': 'ThreadPoolExecutor-1_0', 'logger': 'langgraph_api.timing.timer', 'level': 'info', 'api_variant': 'local_dev', 'langgraph_api_version': '0.7.99', 'timestamp': '2026-04-10T07:45:56.438845Z'}
+2026-04-10 00:45:56,462 | INFO | langgraph_api.timing.timer | {'elapsed': 1.6131430409150198, 'event': 'Application started up in 1.613s', 'thread_name': 'MainThread', 'logger': 'langgraph_api.timing.timer', 'level': 'info', 'api_variant': 'local_dev', 'langgraph_api_version': '0.7.99', 'timestamp': '2026-04-10T07:45:56.462687Z'}
+2026-04-10 00:45:56,486 | INFO | langgraph_api.cron_scheduler | {'event': 'Starting cron scheduler', 'thread_name': 'MainThread', 'logger': 'langgraph_api.cron_scheduler', 'level': 'info', 'api_variant': 'local_dev', 'langgraph_api_version': '0.7.99', 'timestamp': '2026-04-10T07:45:56.485880Z'}
+2026-04-10 00:45:56,486 | INFO | langgraph_runtime_inmem.queue | {'event': 'Starting queue with shared loop', 'thread_name': 'ThreadPoolExecutor-1_0', 'logger': 'langgraph_runtime_inmem.queue', 'level': 'info', 'api_variant': 'local_dev', 'langgraph_api_version': '0.7.99', 'timestamp': '2026-04-10T07:45:56.486402Z'}
+2026-04-10 00:45:56,487 | INFO | langgraph_runtime_inmem.queue | {'event': 'Starting 1 background workers', 'thread_name': 'ThreadPoolExecutor-1_0', 'logger': 'langgraph_runtime_inmem.queue', 'level': 'info', 'api_variant': 'local_dev', 'langgraph_api_version': '0.7.99', 'timestamp': '2026-04-10T07:45:56.487700Z'}
+2026-04-10 00:45:56,488 | INFO | langgraph_runtime_inmem.queue | {'max': 1, 'available': 1, 'active': 0, 'event': 'Worker stats', 'thread_name': 'ThreadPoolExecutor-1_0', 'logger': 'langgraph_runtime_inmem.queue', 'level': 'info', 'api_variant': 'local_dev', 'langgraph_api_version': '0.7.99', 'timestamp': '2026-04-10T07:45:56.488586Z'}
+2026-04-10 00:45:56,997 | INFO | langgraph_runtime_inmem.queue | {'n_pending': 0, 'pending_runs_wait_time_max_secs': None, 'pending_runs_wait_time_med_secs': None, 'pending_unblocked_runs_wait_time_max_secs': None, 'n_running': 0, 'event': 'Queue stats', 'thread_name': 'ThreadPoolExecutor-1_0', 'logger': 'langgraph_runtime_inmem.queue', 'level': 'info', 'api_variant': 'local_dev', 'langgraph_api_version': '0.7.99', 'timestamp': '2026-04-10T07:45:56.997489Z'}
+2026-04-10 00:45:57,800 | INFO | langgraph_runtime_inmem.queue | {'event': 'Shutting down background workers', 'thread_name': 'MainThread', 'logger': 'langgraph_runtime_inmem.queue', 'level': 'info', 'api_variant': 'local_dev', 'langgraph_api_version': '0.7.99', 'timestamp': '2026-04-10T07:45:57.800540Z'}
+2026-04-10 00:45:57,805 | INFO | langgraph_api.graph | {'event': 'Shutting down remote graphs', 'thread_name': 'MainThread', 'logger': 'langgraph_api.graph', 'level': 'info', 'api_variant': 'local_dev', 'langgraph_api_version': '0.7.99', 'timestamp': '2026-04-10T07:45:57.805430Z'}
+2026-04-10 00:45:57,809 | INFO | langgraph_runtime_inmem._persistence | Stopping dev persistence flush loop
+2026-04-10 00:45:57,810 | INFO | langgraph_runtime_inmem._persistence | dev persistence flush loop exiting
+2026-04-10 00:45:59,431 | INFO | agents.nodes.inbound_agent_node | INBOUND AGENT CALLED
+2026-04-10 00:45:59,441 | INFO | agents.nodes.outbound_agent_node | OUTBOUND AGENT CALLED
+2026-04-10 00:45:59,447 | INFO | agents.nodes.inventory_agent_node | INVENTORY AGENT CALLED
+2026-04-10 00:45:59,460 | INFO | langgraph_api.timing.timer | {'name': '_graph_from_spec', 'elapsed_seconds': 1.1669677079189569, 'graph_id': 'wms_copilot', 'module': None, 'path': './src/agents/graph/application_graph.py', 'event': 'Importing graph profiling', 'thread_name': 'ThreadPoolExecutor-1_0', 'logger': 'langgraph_api.timing.timer', 'level': 'info', 'api_variant': 'local_dev', 'langgraph_api_version': '0.7.99', 'timestamp': '2026-04-10T07:45:59.460471Z'}
+2026-04-10 00:45:59,474 | INFO | langgraph_api.timing.timer | {'elapsed': 1.3085127921076491, 'event': 'Application started up in 1.309s', 'thread_name': 'MainThread', 'logger': 'langgraph_api.timing.timer', 'level': 'info', 'api_variant': 'local_dev', 'langgraph_api_version': '0.7.99', 'timestamp': '2026-04-10T07:45:59.474483Z'}
+2026-04-10 00:45:59,486 | INFO | langgraph_api.cron_scheduler | {'event': 'Starting cron scheduler', 'thread_name': 'MainThread', 'logger': 'langgraph_api.cron_scheduler', 'level': 'info', 'api_variant': 'local_dev', 'langgraph_api_version': '0.7.99', 'timestamp': '2026-04-10T07:45:59.486633Z'}
+2026-04-10 00:45:59,486 | INFO | langgraph_runtime_inmem.queue | {'event': 'Starting queue with shared loop', 'thread_name': 'ThreadPoolExecutor-1_0', 'logger': 'langgraph_runtime_inmem.queue', 'level': 'info', 'api_variant': 'local_dev', 'langgraph_api_version': '0.7.99', 'timestamp': '2026-04-10T07:45:59.486808Z'}
+2026-04-10 00:45:59,487 | INFO | langgraph_runtime_inmem.queue | {'event': 'Starting 1 background workers', 'thread_name': 'ThreadPoolExecutor-1_0', 'logger': 'langgraph_runtime_inmem.queue', 'level': 'info', 'api_variant': 'local_dev', 'langgraph_api_version': '0.7.99', 'timestamp': '2026-04-10T07:45:59.487249Z'}
+2026-04-10 00:45:59,487 | INFO | langgraph_runtime_inmem.queue | {'max': 1, 'available': 1, 'active': 0, 'event': 'Worker stats', 'thread_name': 'ThreadPoolExecutor-1_0', 'logger': 'langgraph_runtime_inmem.queue', 'level': 'info', 'api_variant': 'local_dev', 'langgraph_api_version': '0.7.99', 'timestamp': '2026-04-10T07:45:59.487349Z'}
+2026-04-10 00:45:59,990 | INFO | langgraph_runtime_inmem.queue | {'n_pending': 0, 'pending_runs_wait_time_max_secs': None, 'pending_runs_wait_time_med_secs': None, 'pending_unblocked_runs_wait_time_max_secs': None, 'n_running': 0, 'event': 'Queue stats', 'thread_name': 'ThreadPoolExecutor-1_0', 'logger': 'langgraph_runtime_inmem.queue', 'level': 'info', 'api_variant': 'local_dev', 'langgraph_api_version': '0.7.99', 'timestamp': '2026-04-10T07:45:59.989884Z'}
+2026-04-10 00:46:59,642 | INFO | langgraph_runtime_inmem.queue | {'max': 1, 'available': 1, 'active': 0, 'event': 'Worker stats', 'thread_name': 'ThreadPoolExecutor-1_0', 'logger': 'langgraph_runtime_inmem.queue', 'level': 'info', 'api_variant': 'local_dev', 'langgraph_api_version': '0.7.99', 'timestamp': '2026-04-10T07:46:59.641785Z'}
+2026-04-10 00:47:00,153 | INFO | langgraph_runtime_inmem.queue | {'n_pending': 0, 'pending_runs_wait_time_max_secs': None, 'pending_runs_wait_time_med_secs': None, 'pending_unblocked_runs_wait_time_max_secs': None, 'n_running': 0, 'event': 'Queue stats', 'thread_name': 'ThreadPoolExecutor-1_0', 'logger': 'langgraph_runtime_inmem.queue', 'level': 'info', 'api_variant': 'local_dev', 'langgraph_api_version': '0.7.99', 'timestamp': '2026-04-10T07:47:00.153773Z'}
+2026-04-10 00:47:42,387 | INFO | langgraph_api.models.run | {'run_id': '019d765c-6eb1-7bd1-b209-7f5bc3e3c617', 'thread_id': 'b02eafab-2908-4b02-97c4-315f487a872c', 'assistant_id': 'f5b624a8-2879-5080-b4b4-9aea8e9b197d', 'multitask_strategy': 'rollback', 'stream_mode': ['debug', 'messages'], 'temporary': False, 'after_seconds': 0, 'if_not_exists': 'reject', 'stream_resumable': False, 'run_create_ms': 9, 'run_put_ms': 0, 'checkpoint_id': 'None', 'event': 'Created run', 'thread_name': 'MainThread', 'logger': 'langgraph_api.models.run', 'level': 'info', 'api_variant': 'local_dev', 'langgraph_api_version': '0.7.99', 'timestamp': '2026-04-10T07:47:42.387370Z', 'request_id': '48e8c3f3-8e56-4f1f-904b-420c85e5b7da', 'path': '/threads/{thread_id}/runs/stream', 'method': 'POST'}
+2026-04-10 00:47:43,255 | INFO | langgraph_api.worker | {'run_started_at': '2026-04-10T07:47:43.254708+00:00', 'run_creation_ms': 8, 'run_queue_ms': 867, 'run_stream_start_ms': 0, 'temporary': False, 'resumable': False, 'event': 'Starting background run', 'thread_name': 'ThreadPoolExecutor-1_0', 'logger': 'langgraph_api.worker', 'level': 'info', 'api_variant': 'local_dev', 'langgraph_api_version': '0.7.99', 'timestamp': '2026-04-10T07:47:43.255105Z', 'run_id': '019d765c-6eb1-7bd1-b209-7f5bc3e3c617', 'run_attempt': 1, 'thread_id': 'b02eafab-2908-4b02-97c4-315f487a872c', 'assistant_id': 'f5b624a8-2879-5080-b4b4-9aea8e9b197d', 'graph_id': 'wms_copilot', 'request_id': '48e8c3f3-8e56-4f1f-904b-420c85e5b7da'}
+2026-04-10 00:47:43,551 | WARNING | langgraph.checkpoint.serde.jsonplus | Deserializing unregistered type domain.states.sql_generate_subquery.sql_generate_subqueries_state.GenerateSubqueries from checkpoint. This will be blocked in a future version. Add to allowed_msgpack_modules to silence: [('domain.states.sql_generate_subquery.sql_generate_subqueries_state', 'GenerateSubqueries')]
+2026-04-10 00:47:43,559 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-10 00:47:47,868 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:streamGenerateContent?alt=sse "HTTP/1.1 200 OK"
+2026-04-10 00:47:47,975 | INFO | langgraph_api.worker | {'run_id': '019d765c-6eb1-7bd1-b209-7f5bc3e3c617', 'run_attempt': 1, 'run_created_at': '2026-04-10T07:47:42.386812+00:00', 'run_started_at': '2026-04-10T07:47:43.254708+00:00', 'run_ended_at': '2026-04-10T07:47:47.975250+00:00', 'run_exec_ms': 4720, 'run_completed_in_ms': 5597, 'run_wait_time_ms': 867, 'event': 'Background run succeeded', 'thread_name': 'ThreadPoolExecutor-1_1', 'logger': 'langgraph_api.worker', 'level': 'info', 'api_variant': 'local_dev', 'langgraph_api_version': '0.7.99', 'timestamp': '2026-04-10T07:47:47.975383Z', 'thread_id': 'b02eafab-2908-4b02-97c4-315f487a872c', 'assistant_id': 'f5b624a8-2879-5080-b4b4-9aea8e9b197d', 'graph_id': 'wms_copilot', 'request_id': '48e8c3f3-8e56-4f1f-904b-420c85e5b7da'}
+2026-04-10 00:47:51,298 | INFO | langgraph_api.models.run | {'run_id': '019d765c-9181-74e2-b58a-7491e9a6227b', 'thread_id': 'b02eafab-2908-4b02-97c4-315f487a872c', 'assistant_id': 'f5b624a8-2879-5080-b4b4-9aea8e9b197d', 'multitask_strategy': 'rollback', 'stream_mode': ['debug', 'messages'], 'temporary': False, 'after_seconds': 0, 'if_not_exists': 'reject', 'stream_resumable': False, 'run_create_ms': 4, 'run_put_ms': 0, 'checkpoint_id': 'None', 'event': 'Created run', 'thread_name': 'MainThread', 'logger': 'langgraph_api.models.run', 'level': 'info', 'api_variant': 'local_dev', 'langgraph_api_version': '0.7.99', 'timestamp': '2026-04-10T07:47:51.298340Z', 'request_id': '7d3d10c2-2c44-4445-ac0d-e8c204e33500', 'path': '/threads/{thread_id}/runs/stream', 'method': 'POST'}
+2026-04-10 00:47:51,985 | INFO | langgraph_api.worker | {'run_started_at': '2026-04-10T07:47:51.984733+00:00', 'run_creation_ms': 4, 'run_queue_ms': 686, 'run_stream_start_ms': 0, 'temporary': False, 'resumable': False, 'event': 'Starting background run', 'thread_name': 'ThreadPoolExecutor-1_0', 'logger': 'langgraph_api.worker', 'level': 'info', 'api_variant': 'local_dev', 'langgraph_api_version': '0.7.99', 'timestamp': '2026-04-10T07:47:51.985111Z', 'run_id': '019d765c-9181-74e2-b58a-7491e9a6227b', 'run_attempt': 1, 'thread_id': 'b02eafab-2908-4b02-97c4-315f487a872c', 'assistant_id': 'f5b624a8-2879-5080-b4b4-9aea8e9b197d', 'graph_id': 'wms_copilot', 'request_id': '7d3d10c2-2c44-4445-ac0d-e8c204e33500'}
+2026-04-10 00:47:51,989 | WARNING | langgraph.checkpoint.serde.jsonplus | Deserializing unregistered type domain.states.sql_generate_subquery.sql_generate_subqueries_state.GenerateSubqueries from checkpoint. This will be blocked in a future version. Add to allowed_msgpack_modules to silence: [('domain.states.sql_generate_subquery.sql_generate_subqueries_state', 'GenerateSubqueries')]
+2026-04-10 00:47:53,661 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-10 00:47:54,789 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:streamGenerateContent?alt=sse "HTTP/1.1 200 OK"
+2026-04-10 00:47:54,937 | WARNING | py.warnings | /Users/rahul/Library/Mobile Documents/com~apple~CloudDocs/SCM_Agentic_Ai/WMS_Incident_Copilot/.venv/lib/python3.12/site-packages/langchain_classic/embeddings/cache.py:58: UserWarning: Using default key encoder: SHA-1 is *not* collision-resistant. While acceptable for most cache scenarios, a motivated attacker can craft two different payloads that map to the same cache key. If that risk matters in your environment, supply a stronger encoder (e.g. SHA-256 or BLAKE2) via the `key_encoder` argument. If you change the key encoder, consider also creating a new cache, to avoid (the potential for) collisions with existing keys.
+  _warn_about_sha1_encoder()
+
+2026-04-10 00:47:56,121 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:streamGenerateContent?alt=sse "HTTP/1.1 200 OK"
+2026-04-10 00:47:59,924 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-10 00:48:03,416 | INFO | agents.nodes.supervisor_node | SUPERVISOR NODE CALLED
+2026-04-10 00:48:03,426 | INFO | langgraph_api.worker | {'run_id': '019d765c-9181-74e2-b58a-7491e9a6227b', 'run_attempt': 1, 'run_created_at': '2026-04-10T07:47:51.298255+00:00', 'run_started_at': '2026-04-10T07:47:51.984733+00:00', 'run_ended_at': '2026-04-10T07:48:03.426339+00:00', 'run_exec_ms': 11441, 'run_completed_in_ms': 12132, 'run_wait_time_ms': 686, 'event': 'Background run succeeded', 'thread_name': 'ThreadPoolExecutor-1_0', 'logger': 'langgraph_api.worker', 'level': 'info', 'api_variant': 'local_dev', 'langgraph_api_version': '0.7.99', 'timestamp': '2026-04-10T07:48:03.426478Z', 'thread_id': 'b02eafab-2908-4b02-97c4-315f487a872c', 'assistant_id': 'f5b624a8-2879-5080-b4b4-9aea8e9b197d', 'graph_id': 'wms_copilot', 'request_id': '7d3d10c2-2c44-4445-ac0d-e8c204e33500'}
+2026-04-10 00:48:03,428 | INFO | langgraph_runtime_inmem.queue | {'max': 1, 'available': 1, 'active': 0, 'event': 'Worker stats', 'thread_name': 'ThreadPoolExecutor-1_1', 'logger': 'langgraph_runtime_inmem.queue', 'level': 'info', 'api_variant': 'local_dev', 'langgraph_api_version': '0.7.99', 'timestamp': '2026-04-10T07:48:03.428755Z'}
+2026-04-10 00:48:03,429 | INFO | langgraph_runtime_inmem.queue | {'n_pending': 0, 'pending_runs_wait_time_max_secs': None, 'pending_runs_wait_time_med_secs': None, 'pending_unblocked_runs_wait_time_max_secs': None, 'n_running': 0, 'event': 'Queue stats', 'thread_name': 'ThreadPoolExecutor-1_0', 'logger': 'langgraph_runtime_inmem.queue', 'level': 'info', 'api_variant': 'local_dev', 'langgraph_api_version': '0.7.99', 'timestamp': '2026-04-10T07:48:03.429886Z'}
+2026-04-10 00:48:54,031 | INFO | langgraph_runtime_inmem.queue | {'event': 'Shutting down background workers', 'thread_name': 'MainThread', 'logger': 'langgraph_runtime_inmem.queue', 'level': 'info', 'api_variant': 'local_dev', 'langgraph_api_version': '0.7.99', 'timestamp': '2026-04-10T07:48:54.031724Z'}
+2026-04-10 00:48:54,036 | INFO | langgraph_api.graph | {'event': 'Shutting down remote graphs', 'thread_name': 'MainThread', 'logger': 'langgraph_api.graph', 'level': 'info', 'api_variant': 'local_dev', 'langgraph_api_version': '0.7.99', 'timestamp': '2026-04-10T07:48:54.036588Z'}
+2026-04-10 00:48:54,043 | INFO | langgraph_runtime_inmem._persistence | Stopping dev persistence flush loop
+2026-04-10 00:48:54,043 | INFO | langgraph_runtime_inmem._persistence | dev persistence flush loop exiting

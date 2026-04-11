@@ -30,3 +30,4 @@ def sql_load_skills_node(state: SQLGraphState) -> dict:
         "scratch": scratch_update,
         "event_log": [{"node": "sql_load_skills_node", "message": "Completed loading skills"}],
     }
+

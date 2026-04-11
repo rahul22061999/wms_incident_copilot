@@ -48,3 +48,4 @@ prettyprinter
 tabulate
 langgraph-supervisor
 qdrant-client
+langgraph-cli[inmem]

@@ -4,7 +4,7 @@ from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain_openai import ChatOpenAI
 from langchain_groq import ChatGroq
 
-from src.config import settings
+from config import settings
 
 
 _gemini_llm = None

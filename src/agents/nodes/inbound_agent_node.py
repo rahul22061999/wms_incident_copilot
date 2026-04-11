@@ -41,14 +41,6 @@ def inbound_agent():
                 thread_limit=10,
                 run_limit=3,
                 exit_behavior="error"
-            ),
-            HumanInTheLoopMiddleware(
-                interrupt_on={
-                    "sop_retrieval_tool":{
-                        "allowed_decisions": input("y or n")
-                    },
-                    "sql_lookup_tool": False
-                }
             )
 
         ]
