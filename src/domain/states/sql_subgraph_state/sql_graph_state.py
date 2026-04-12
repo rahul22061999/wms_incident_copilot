@@ -1,7 +1,8 @@
 from dataclasses import dataclass, field
-from typing import Literal, Optional, List
-from typing_extensions import Any, Dict
+from typing import Literal, Optional, List, Annotated, Any, Dict
 from domain.states.sql_generate_subquery.sql_generate_subqueries_state import GenerateSubqueries
+import operator
+
 
 @dataclass
 class SQLGraphState:
@@ -12,7 +13,6 @@ class SQLGraphState:
 
     # context / scratch
     skill_context: List[Dict[str, str]] = field(default_factory=list)
-    scratch: Dict[str, Any] = field(default_factory=dict)
 
     # intermediate outputsre
     subqueries: GenerateSubqueries = field(default_factory=GenerateSubqueries)
@@ -20,3 +20,7 @@ class SQLGraphState:
     validated_sql: Dict[str, str] = field(default_factory=dict)
     execution_result: Optional[Dict[str, Any]] = None
     errors: List[str] = field(default_factory=list)
+
+    #evidence
+    source: Literal["sql", "log", "sop", "ticket"] = None
+    content: Annotated[dict, operator.or_] = field(default_factory=dict)

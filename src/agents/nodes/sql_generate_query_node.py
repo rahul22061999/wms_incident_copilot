@@ -1,7 +1,5 @@
 import logging
-
 from langsmith import traceable
-
 from domain.states.sql_generate_subquery.sql_generate_subqueries_state import GenerateSubqueries
 from domain.states.sql_subgraph_state.sql_graph_state import SQLGraphState
 from models.model_loader import get_google_llm, get_openai_fast_llm
@@ -45,7 +43,7 @@ def sql_generate_query_node(state: SQLGraphState) -> dict:
                 content = "".join(b["text"] for b in content if b.get("type") == "text")
             results[sq.domain] = content.strip()
 
- # {"inbound": "SELECT ...", "outbound": "SELECT ..."}
+            # {"inbound": "SELECT ...", "outbound": "SELECT ..."}
     else:
         llm = get_google_llm().with_fallbacks([get_openai_fast_llm()])
         response = (prompt | llm).invoke({
@@ -58,7 +56,7 @@ def sql_generate_query_node(state: SQLGraphState) -> dict:
         results[str(domains[0])] = content.strip()
 
 
-    logger.info("SQL Generated Query Node")
+    logger.info("SQL Generate Query Node completed. Domains: %s", list(results.keys()))
 
     return {
         "generated_sql": results,

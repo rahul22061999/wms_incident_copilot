@@ -6,5 +6,6 @@ models
 prompts
 rag_pipeline
 runtime
+tests
 tools
 utils

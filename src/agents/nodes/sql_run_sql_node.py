@@ -22,18 +22,31 @@ def sql_run_sql_node(state: SQLGraphState) -> dict:
 
         if not sql:
             state.errors.append("No sql was provided")
-        state.scratch["last_query"] = sql
+            all_results[domain] = {"rows": None, "error": "No SQL was provided"}
+            continue
 
-        state.scratch["last_query"] = sql
         try:
             rows = run_sql_query_with_columns_tool.run_query(sql)
-            all_results[domain] = {"rows": rows}
+            all_results[domain] = {"rows": rows, "error": None}
         except Exception as e:
             state.errors.append(str(e))
             all_results[domain] = {"rows": None, "error": str(e)}
 
-    logger.info("SQL NODE: Sql ran on the database")
+    content = {
+        domain: {
+            "sql": state.validated_sql.get(domain),
+            "rows": all_results[domain].get("rows"),
+            "error": all_results[domain].get("error"),
+        }
+        for domain, result in all_results.items()
+    }
+
+    success = all(r.get("error") is None for r in all_results.values())
+    logger.info("SQL node completed. Success: %s, Domains: %s", success, list(all_results.keys()))
+
     return {
+        "source": "sql",
+        "content": content,
         "execution_result": all_results,
         "event_log": [{"node": "sql_run_sql_node", "message": \
             "SQL Ran successfully" if all_results else "SQL Run failed"}],

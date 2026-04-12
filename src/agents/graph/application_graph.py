@@ -3,7 +3,7 @@ from langgraph.graph import StateGraph, START, END
 from langgraph.checkpoint.memory import InMemorySaver
 
 from domain.states.supervisor.diagnose_graph_state import WMState
-from agents.nodes.router import router_node
+from agents.nodes.query_enrich_node import router_node
 from agents.edges.router_intent_edge import router_intent_edge
 from agents.nodes.supervisor_node import WarehouseSupervisorNode
 from agents.nodes.result_node import result_node
@@ -37,5 +37,5 @@ def _application_graph():
 
     return builder
 
-
-graph = _application_graph().compile()
+checkpointer = InMemorySaver()
+graph = _application_graph().compile(checkpointer)

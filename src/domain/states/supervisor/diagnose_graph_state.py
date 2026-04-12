@@ -2,19 +2,8 @@ from dataclasses import dataclass, field
 from typing import  Optional, Dict, List, Any
 import operator
 from typing_extensions import Annotated, Literal
+from domain.states.supervisor.supervisor_evidence_states import EvidenceRecord, VerificationResult
 
-
-# class WMState(TypedDict, total=False):
-#     remaining_steps: int
-#     ticket_number: str
-#     description: str
-#     intent: Literal["lookup", "diagnose"] | None
-#     domain: Literal["inbound", "outbound", "inventory"] | None
-#     messages: Annotated[list[AnyMessage], add_messages]
-#     loop_count: int
-#     active_agent: str | None
-#     task_description: str | None
-#     final_responses: str | None
 
 @dataclass
 class WMState:
@@ -40,6 +29,10 @@ class WMState:
     lookup_result: Optional[dict] = None
     diagnosis_result: Optional[dict] = None
     final_response: Optional[str] = None
+    structured_response: Any = None
+
+    verification_record: EvidenceRecord  = None
+    verification_result: VerificationResult = None
 
 
 

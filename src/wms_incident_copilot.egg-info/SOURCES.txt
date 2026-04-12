@@ -13,8 +13,8 @@ src/agents/nodes/check_sql_node.py
 src/agents/nodes/inbound_agent_node.py
 src/agents/nodes/inventory_agent_node.py
 src/agents/nodes/outbound_agent_node.py
+src/agents/nodes/query_enrich_node.py
 src/agents/nodes/result_node.py
-src/agents/nodes/router.py
 src/agents/nodes/sql_generate_query_node.py
 src/agents/nodes/sql_load_skills_node.py
 src/agents/nodes/sql_lookup_subgraph_node.py
@@ -28,7 +28,7 @@ src/data/sessions/__init__.py
 src/domain/__init__.py
 src/domain/states/__init__.py
 src/domain/states/RoutingState/__init__.py
-src/domain/states/RoutingState/routing_decision_state.py
+src/domain/states/RoutingState/query_enrich_state.py
 src/domain/states/sql_generate_subquery/__init__.py
 src/domain/states/sql_generate_subquery/sql_generate_subqueries_state.py
 src/domain/states/sql_subgraph_state/__init__.py
@@ -38,6 +38,7 @@ src/domain/states/supervisor/__init__.py
 src/domain/states/supervisor/diagnose_graph_state.py
 src/domain/states/supervisor/diagnosis_result.py
 src/domain/states/supervisor/subagent_supervisor_response_state.py
+src/domain/states/supervisor/supervisor_result_schema.py
 src/domain/states/supervisor/supervisor_subagent_task_state.py
 src/domain/states/supervisor/supervisor_worker_payload_state.py
 src/models/__init__.py
@@ -57,6 +58,8 @@ src/rag_pipeline/ingest.py
 src/runtime/__init__.py
 src/runtime/session_runtime.py
 src/runtime/session_store.py
+src/tests/__init__.py
+src/tests/test_query_enrich_node.py
 src/tools/__init__.py
 src/tools/rag_lookup_tool.py
 src/tools/sql_lookup_tool.py

@@ -49,3 +49,5 @@ tabulate
 langgraph-supervisor
 qdrant-client
 langgraph-cli[inmem]
+slowapi
+pytest
