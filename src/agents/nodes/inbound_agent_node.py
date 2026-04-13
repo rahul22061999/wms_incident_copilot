@@ -25,6 +25,7 @@ def inbound_agent():
         tools=[sql_lookup_tool, sop_retrieval_tool],
         system_prompt=inbound_agent_prompt,
         name="inbound_agent",
+
         middleware=[
             ModelFallbackMiddleware(fallback_llm),
             ModelRetryMiddleware(max_retries=2, on_failure="error"),

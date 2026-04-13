@@ -4,7 +4,7 @@ from domain.states.supervisor.diagnose_graph_state import WMState
 def result_node(state: WMState):
     writer = get_stream_writer()
 
-    final_text = state.final_response or state.diagnosis_result or ""
+    final_text = state.result or ""
 
     return {
         "final_response": final_text,

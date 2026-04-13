@@ -1235,3 +1235,763 @@ To simplify your setup and use the built-in persistence, please remove the custo
 2026-04-10 19:42:43,313 | WARNING | langgraph.checkpoint.serde.jsonplus | Deserializing unregistered type domain.states.supervisor.supervisor_result_schema.DiagnosisResult from checkpoint. This will be blocked in a future version. Add to allowed_msgpack_modules to silence: [('domain.states.supervisor.supervisor_result_schema', 'DiagnosisResult')]
 2026-04-10 19:42:43,314 | WARNING | langgraph.checkpoint.serde.jsonplus | Deserializing unregistered type domain.states.supervisor.supervisor_result_schema.DiagnosisResult from checkpoint. This will be blocked in a future version. Add to allowed_msgpack_modules to silence: [('domain.states.supervisor.supervisor_result_schema', 'DiagnosisResult')]
 2026-04-10 19:42:43,315 | WARNING | langgraph.checkpoint.serde.jsonplus | Deserializing unregistered type domain.states.supervisor.supervisor_result_schema.DiagnosisResult from checkpoint. This will be blocked in a future version. Add to allowed_msgpack_modules to silence: [('domain.states.supervisor.supervisor_result_schema', 'DiagnosisResult')]
+2026-04-13 12:48:09,089 | INFO | agents.nodes.inbound_agent_node | INBOUND AGENT CALLED
+2026-04-13 12:48:09,108 | INFO | agents.nodes.outbound_agent_node | OUTBOUND AGENT CALLED
+2026-04-13 12:48:09,116 | INFO | agents.nodes.inventory_agent_node | INVENTORY AGENT CALLED
+2026-04-13 12:50:20,827 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-13 12:50:26,282 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-13 12:53:34,473 | INFO | agents.nodes.inbound_agent_node | INBOUND AGENT CALLED
+2026-04-13 12:53:34,484 | INFO | agents.nodes.outbound_agent_node | OUTBOUND AGENT CALLED
+2026-04-13 12:53:34,492 | INFO | agents.nodes.inventory_agent_node | INVENTORY AGENT CALLED
+2026-04-13 12:53:38,356 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-13 12:53:40,713 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-13 12:55:36,942 | INFO | agents.nodes.inbound_agent_node | INBOUND AGENT CALLED
+2026-04-13 12:55:36,951 | INFO | agents.nodes.outbound_agent_node | OUTBOUND AGENT CALLED
+2026-04-13 12:55:36,958 | INFO | agents.nodes.inventory_agent_node | INVENTORY AGENT CALLED
+2026-04-13 12:56:20,243 | INFO | agents.nodes.inbound_agent_node | INBOUND AGENT CALLED
+2026-04-13 12:56:20,254 | INFO | agents.nodes.outbound_agent_node | OUTBOUND AGENT CALLED
+2026-04-13 12:56:20,262 | INFO | agents.nodes.inventory_agent_node | INVENTORY AGENT CALLED
+2026-04-13 12:56:22,698 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-13 12:56:24,420 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-13 12:57:24,775 | INFO | agents.nodes.inbound_agent_node | INBOUND AGENT CALLED
+2026-04-13 12:57:24,785 | INFO | agents.nodes.outbound_agent_node | OUTBOUND AGENT CALLED
+2026-04-13 12:57:24,792 | INFO | agents.nodes.inventory_agent_node | INVENTORY AGENT CALLED
+2026-04-13 12:57:26,988 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-13 12:57:29,526 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-13 12:58:28,948 | INFO | agents.nodes.inbound_agent_node | INBOUND AGENT CALLED
+2026-04-13 12:58:28,958 | INFO | agents.nodes.outbound_agent_node | OUTBOUND AGENT CALLED
+2026-04-13 12:58:28,965 | INFO | agents.nodes.inventory_agent_node | INVENTORY AGENT CALLED
+2026-04-13 12:58:30,836 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-13 12:58:32,646 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-13 12:58:34,402 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-13 12:58:35,670 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-13 12:58:35,698 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-13 12:58:37,262 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-13 12:58:37,268 | INFO | agents.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['inbound']
+2026-04-13 12:58:41,216 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-13 12:58:45,061 | INFO | agents.nodes.sql_run_sql_node | SQL node completed. Success: False, Domains: ['inbound']
+2026-04-13 12:58:46,306 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-13 12:58:47,946 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-13 12:58:47,950 | INFO | agents.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['inbound']
+2026-04-13 12:58:48,257 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-13 12:58:52,039 | INFO | agents.nodes.sql_run_sql_node | SQL node completed. Success: False, Domains: ['inbound']
+2026-04-13 12:58:54,534 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-13 12:58:55,631 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-13 12:58:55,636 | INFO | agents.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['inbound']
+2026-04-13 12:58:55,900 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-13 12:58:59,689 | INFO | agents.nodes.sql_run_sql_node | SQL node completed. Success: False, Domains: ['inbound']
+2026-04-13 13:00:44,522 | INFO | agents.nodes.inbound_agent_node | INBOUND AGENT CALLED
+2026-04-13 13:00:44,535 | INFO | agents.nodes.outbound_agent_node | OUTBOUND AGENT CALLED
+2026-04-13 13:00:44,541 | INFO | agents.nodes.inventory_agent_node | INVENTORY AGENT CALLED
+2026-04-13 13:00:46,458 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-13 13:00:47,735 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-13 13:00:48,775 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-13 13:00:49,921 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-13 13:00:49,951 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-13 13:00:49,953 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-13 13:00:50,839 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-13 13:00:50,845 | INFO | agents.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['inventory']
+2026-04-13 13:00:51,017 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-13 13:00:51,020 | INFO | agents.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['inbound']
+2026-04-13 13:00:54,653 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-13 13:00:54,667 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-13 13:00:58,390 | INFO | agents.nodes.sql_run_sql_node | SQL node completed. Success: True, Domains: ['inventory']
+2026-04-13 13:00:58,434 | INFO | agents.nodes.sql_run_sql_node | SQL node completed. Success: False, Domains: ['inbound']
+2026-04-13 13:00:59,267 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-13 13:00:59,447 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-13 13:01:00,308 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-13 13:01:00,312 | INFO | agents.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['inventory']
+2026-04-13 13:01:00,759 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-13 13:01:00,875 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-13 13:01:00,877 | INFO | agents.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['inbound']
+2026-04-13 13:01:01,165 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-13 13:01:04,470 | INFO | agents.nodes.sql_run_sql_node | SQL node completed. Success: True, Domains: ['inventory']
+2026-04-13 13:01:04,890 | INFO | agents.nodes.sql_run_sql_node | SQL node completed. Success: False, Domains: ['inbound']
+2026-04-13 13:01:05,988 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-13 13:01:06,566 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-13 13:01:07,136 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-13 13:01:07,139 | INFO | agents.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['inventory']
+2026-04-13 13:01:07,826 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-13 13:01:08,203 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-13 13:01:08,206 | INFO | agents.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['inbound']
+2026-04-13 13:01:08,497 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-13 13:01:11,696 | INFO | agents.nodes.sql_run_sql_node | SQL node completed. Success: True, Domains: ['inventory']
+2026-04-13 13:01:12,381 | INFO | agents.nodes.sql_run_sql_node | SQL node completed. Success: False, Domains: ['inbound']
+2026-04-13 13:01:12,415 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-13 13:01:13,805 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-13 14:14:41,837 | INFO | agents.nodes.inbound_agent_node | INBOUND AGENT CALLED
+2026-04-13 14:14:41,851 | INFO | agents.nodes.outbound_agent_node | OUTBOUND AGENT CALLED
+2026-04-13 14:14:41,858 | INFO | agents.nodes.inventory_agent_node | INVENTORY AGENT CALLED
+2026-04-13 14:15:20,419 | INFO | agents.nodes.inbound_agent_node | INBOUND AGENT CALLED
+2026-04-13 14:15:20,428 | INFO | agents.nodes.outbound_agent_node | OUTBOUND AGENT CALLED
+2026-04-13 14:15:20,434 | INFO | agents.nodes.inventory_agent_node | INVENTORY AGENT CALLED
+2026-04-13 14:16:15,142 | INFO | agents.nodes.inbound_agent_node | INBOUND AGENT CALLED
+2026-04-13 14:16:15,151 | INFO | agents.nodes.outbound_agent_node | OUTBOUND AGENT CALLED
+2026-04-13 14:16:15,157 | INFO | agents.nodes.inventory_agent_node | INVENTORY AGENT CALLED
+2026-04-13 14:17:55,979 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-13 14:17:57,306 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-13 14:17:58,758 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-13 14:17:59,832 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-13 14:17:59,856 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-13 14:18:00,990 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-13 14:18:00,994 | INFO | agents.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['inbound']
+2026-04-13 14:18:05,059 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-13 14:18:08,878 | INFO | agents.nodes.sql_run_sql_node | SQL node completed. Success: False, Domains: ['inbound']
+2026-04-13 14:18:09,800 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-13 14:18:11,098 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-13 14:18:11,104 | INFO | agents.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['inbound']
+2026-04-13 14:18:11,392 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-13 14:18:15,430 | INFO | agents.nodes.sql_run_sql_node | SQL node completed. Success: False, Domains: ['inbound']
+2026-04-13 14:18:16,974 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-13 14:18:18,545 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-13 14:18:18,551 | INFO | agents.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['inbound']
+2026-04-13 14:18:18,804 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-13 14:18:22,594 | INFO | agents.nodes.sql_run_sql_node | SQL node completed. Success: False, Domains: ['inbound']
+2026-04-13 14:18:22,623 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-13 14:18:23,593 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-13 14:18:23,605 | INFO | agents.nodes.supervisor_node | Supervisor re-invoked with 178 missing checks
+2026-04-13 14:18:24,167 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-13 14:18:25,432 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-13 14:18:25,455 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-13 14:18:26,296 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-13 14:18:26,302 | INFO | agents.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['inbound']
+2026-04-13 14:18:26,567 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-13 14:18:30,285 | INFO | agents.nodes.sql_run_sql_node | SQL node completed. Success: False, Domains: ['inbound']
+2026-04-13 14:18:31,125 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-13 14:18:32,497 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-13 14:18:32,503 | INFO | agents.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['inbound']
+2026-04-13 14:18:32,806 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-13 14:18:36,648 | INFO | agents.nodes.sql_run_sql_node | SQL node completed. Success: False, Domains: ['inbound']
+2026-04-13 14:18:39,068 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-13 14:18:40,282 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-13 14:18:40,287 | INFO | agents.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['inbound']
+2026-04-13 14:18:40,588 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-13 14:18:44,488 | INFO | agents.nodes.sql_run_sql_node | SQL node completed. Success: False, Domains: ['inbound']
+2026-04-13 14:18:44,520 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-13 14:18:45,708 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-13 14:18:45,718 | INFO | agents.nodes.supervisor_node | Supervisor re-invoked with 200 missing checks
+2026-04-13 14:18:47,478 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-13 14:18:48,574 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-13 14:18:48,597 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-13 14:18:50,112 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-13 14:18:50,117 | INFO | agents.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['inbound']
+2026-04-13 14:18:50,624 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-13 14:18:54,397 | INFO | agents.nodes.sql_run_sql_node | SQL node completed. Success: False, Domains: ['inbound']
+2026-04-13 14:18:55,544 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-13 14:18:56,768 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-13 14:18:56,773 | INFO | agents.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['inbound']
+2026-04-13 14:18:57,178 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-13 14:19:00,992 | INFO | agents.nodes.sql_run_sql_node | SQL node completed. Success: False, Domains: ['inbound']
+2026-04-13 14:19:02,626 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-13 14:19:04,253 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-13 14:19:04,258 | INFO | agents.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['inbound']
+2026-04-13 14:19:04,653 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-13 14:19:08,405 | INFO | agents.nodes.sql_run_sql_node | SQL node completed. Success: False, Domains: ['inbound']
+2026-04-13 14:19:08,435 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-13 14:19:09,930 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-13 14:19:09,937 | INFO | agents.nodes.supervisor_node | Supervisor re-invoked with 183 missing checks
+2026-04-13 14:19:11,610 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-13 14:19:13,971 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-13 14:19:13,999 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-13 14:19:14,000 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-13 14:19:15,097 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-13 14:19:15,104 | INFO | agents.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['inventory']
+2026-04-13 14:19:15,313 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-13 14:19:15,318 | INFO | agents.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['inbound']
+2026-04-13 14:19:15,370 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-13 14:19:15,576 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-13 14:19:19,180 | INFO | agents.nodes.sql_run_sql_node | SQL node completed. Success: True, Domains: ['inventory']
+2026-04-13 14:19:19,378 | INFO | agents.nodes.sql_run_sql_node | SQL node completed. Success: False, Domains: ['inbound']
+2026-04-13 14:19:20,260 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-13 14:19:20,298 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-13 14:19:21,446 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-13 14:19:21,451 | INFO | agents.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['inventory']
+2026-04-13 14:19:21,540 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-13 14:19:21,541 | INFO | agents.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['inbound']
+2026-04-13 14:19:21,854 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-13 14:19:21,902 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-13 14:19:25,647 | INFO | agents.nodes.sql_run_sql_node | SQL node completed. Success: True, Domains: ['inventory']
+2026-04-13 14:19:25,652 | INFO | agents.nodes.sql_run_sql_node | SQL node completed. Success: False, Domains: ['inbound']
+2026-04-13 14:19:27,478 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-13 14:19:28,059 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-13 14:19:28,873 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-13 14:19:28,878 | INFO | agents.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['inbound']
+2026-04-13 14:19:29,226 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-13 14:19:31,364 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-13 14:19:31,371 | INFO | agents.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['inventory']
+2026-04-13 14:19:31,578 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-13 14:19:33,000 | INFO | agents.nodes.sql_run_sql_node | SQL node completed. Success: False, Domains: ['inbound']
+2026-04-13 14:19:35,280 | INFO | agents.nodes.sql_run_sql_node | SQL node completed. Success: True, Domains: ['inventory']
+2026-04-13 14:19:35,325 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-13 14:19:37,027 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-13 14:19:37,035 | INFO | agents.nodes.supervisor_node | Supervisor re-invoked with 171 missing checks
+2026-04-13 14:19:37,809 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-13 14:19:38,853 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-13 14:19:38,868 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-13 14:19:40,149 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-13 14:19:40,152 | INFO | agents.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['inbound']
+2026-04-13 14:19:40,397 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-13 14:19:44,155 | INFO | agents.nodes.sql_run_sql_node | SQL node completed. Success: False, Domains: ['inbound']
+2026-04-13 14:19:45,336 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-13 14:19:51,551 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-13 14:19:51,554 | INFO | agents.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['inbound']
+2026-04-13 14:19:51,960 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-13 14:32:21,291 | INFO | agents.nodes.inbound_agent_node | INBOUND AGENT CALLED
+2026-04-13 14:32:21,303 | INFO | agents.nodes.outbound_agent_node | OUTBOUND AGENT CALLED
+2026-04-13 14:32:21,310 | INFO | agents.nodes.inventory_agent_node | INVENTORY AGENT CALLED
+2026-04-13 14:32:23,207 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-13 14:32:32,382 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 504 Gateway Timeout"
+2026-04-13 14:32:32,388 | INFO | google_genai._api_client | Retrying google.genai._api_client.BaseApiClient._request_once in 1.19 seconds as it raised ServerError: 504 DEADLINE_EXCEEDED. {'error': {'code': 504, 'message': 'Deadline expired before operation could complete.', 'status': 'DEADLINE_EXCEEDED'}}.
+2026-04-13 14:32:34,836 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-13 14:32:35,746 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-13 14:32:44,973 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 504 Gateway Timeout"
+2026-04-13 14:32:44,978 | INFO | google_genai._api_client | Retrying google.genai._api_client.BaseApiClient._request_once in 1.87 seconds as it raised ServerError: 504 DEADLINE_EXCEEDED. {'error': {'code': 504, 'message': 'Deadline expired before operation could complete.', 'status': 'DEADLINE_EXCEEDED'}}.
+2026-04-13 14:32:47,943 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-13 14:32:47,966 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-13 14:32:48,967 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-13 14:32:48,974 | INFO | agents.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['inbound']
+2026-04-13 14:32:52,957 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-13 14:32:56,683 | INFO | agents.nodes.sql_run_sql_node | SQL node completed. Success: False, Domains: ['inbound']
+2026-04-13 14:32:57,776 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-13 14:32:58,953 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-13 14:32:58,958 | INFO | agents.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['inbound']
+2026-04-13 14:32:59,413 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-13 14:33:03,296 | INFO | agents.nodes.sql_run_sql_node | SQL node completed. Success: False, Domains: ['inbound']
+2026-04-13 14:33:05,126 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-13 14:33:13,954 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 504 Gateway Timeout"
+2026-04-13 14:33:13,957 | INFO | google_genai._api_client | Retrying google.genai._api_client.BaseApiClient._request_once in 1.89 seconds as it raised ServerError: 504 DEADLINE_EXCEEDED. {'error': {'code': 504, 'message': 'Deadline expired before operation could complete.', 'status': 'DEADLINE_EXCEEDED'}}.
+2026-04-13 14:33:25,115 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 504 Gateway Timeout"
+2026-04-13 14:33:25,118 | INFO | google_genai._api_client | Retrying google.genai._api_client.BaseApiClient._request_once in 2.94 seconds as it raised ServerError: 504 DEADLINE_EXCEEDED. {'error': {'code': 504, 'message': 'Deadline expired before operation could complete.', 'status': 'DEADLINE_EXCEEDED'}}.
+2026-04-13 14:33:28,988 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-13 14:33:28,994 | INFO | agents.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['inbound']
+2026-04-13 14:33:29,416 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-13 14:33:33,365 | INFO | agents.nodes.sql_run_sql_node | SQL node completed. Success: False, Domains: ['inbound']
+2026-04-13 14:33:33,399 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-13 14:33:35,748 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-13 14:33:35,758 | INFO | agents.nodes.supervisor_node | Supervisor re-invoked with 230 missing checks
+2026-04-13 14:33:36,473 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-13 14:33:45,409 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 504 Gateway Timeout"
+2026-04-13 14:33:45,413 | INFO | google_genai._api_client | Retrying google.genai._api_client.BaseApiClient._request_once in 1.93 seconds as it raised ServerError: 504 DEADLINE_EXCEEDED. {'error': {'code': 504, 'message': 'Deadline expired before operation could complete.', 'status': 'DEADLINE_EXCEEDED'}}.
+2026-04-13 14:33:48,359 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-13 14:33:48,380 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-13 14:33:50,918 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-13 14:33:50,924 | INFO | agents.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['inbound']
+2026-04-13 14:33:51,238 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-13 14:33:55,034 | INFO | agents.nodes.sql_run_sql_node | SQL node completed. Success: False, Domains: ['inbound']
+2026-04-13 14:33:56,208 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-13 14:34:00,650 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-13 14:34:00,657 | INFO | agents.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['inbound']
+2026-04-13 14:34:01,057 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-13 14:34:04,966 | INFO | agents.nodes.sql_run_sql_node | SQL node completed. Success: False, Domains: ['inbound']
+2026-04-13 14:34:06,544 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-13 14:34:07,511 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-13 14:34:07,517 | INFO | agents.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['inbound']
+2026-04-13 14:34:07,817 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-13 14:34:11,737 | INFO | agents.nodes.sql_run_sql_node | SQL node completed. Success: False, Domains: ['inbound']
+2026-04-13 14:34:11,766 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-13 14:34:13,242 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-13 14:34:13,251 | INFO | agents.nodes.supervisor_node | Supervisor re-invoked with 142 missing checks
+2026-04-13 14:34:14,779 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-13 14:34:24,586 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 504 Gateway Timeout"
+2026-04-13 14:34:24,590 | INFO | google_genai._api_client | Retrying google.genai._api_client.BaseApiClient._request_once in 1.27 seconds as it raised ServerError: 504 DEADLINE_EXCEEDED. {'error': {'code': 504, 'message': 'Deadline expired before operation could complete.', 'status': 'DEADLINE_EXCEEDED'}}.
+2026-04-13 14:34:27,170 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-13 14:34:27,190 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-13 14:34:27,200 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-13 14:34:28,501 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-13 14:34:28,508 | INFO | agents.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['inventory']
+2026-04-13 14:34:28,777 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-13 14:34:29,114 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-13 14:34:29,119 | INFO | agents.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['inbound']
+2026-04-13 14:34:29,471 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-13 14:34:32,557 | INFO | agents.nodes.sql_run_sql_node | SQL node completed. Success: True, Domains: ['inventory']
+2026-04-13 14:34:33,248 | INFO | agents.nodes.sql_run_sql_node | SQL node completed. Success: False, Domains: ['inbound']
+2026-04-13 14:34:33,651 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-13 14:34:34,241 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-13 14:34:34,958 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-13 14:34:34,959 | INFO | agents.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['inventory']
+2026-04-13 14:34:35,256 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-13 14:34:35,446 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-13 14:34:35,451 | INFO | agents.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['inbound']
+2026-04-13 14:34:35,863 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-13 14:35:21,007 | INFO | agents.nodes.sql_run_sql_node | SQL node completed. Success: False, Domains: ['inbound']
+2026-04-13 14:35:22,995 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-13 14:42:18,875 | INFO | agents.nodes.inbound_agent_node | INBOUND AGENT CALLED
+2026-04-13 14:42:18,889 | INFO | agents.nodes.outbound_agent_node | OUTBOUND AGENT CALLED
+2026-04-13 14:42:18,896 | INFO | agents.nodes.inventory_agent_node | INVENTORY AGENT CALLED
+2026-04-13 14:42:20,929 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-13 14:42:30,024 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 504 Gateway Timeout"
+2026-04-13 14:42:30,028 | INFO | google_genai._api_client | Retrying google.genai._api_client.BaseApiClient._request_once in 1.37 seconds as it raised ServerError: 504 DEADLINE_EXCEEDED. {'error': {'code': 504, 'message': 'Deadline expired before operation could complete.', 'status': 'DEADLINE_EXCEEDED'}}.
+2026-04-13 14:42:32,529 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-13 14:42:33,491 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-13 14:42:36,615 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-13 14:42:36,644 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-13 14:42:36,648 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-13 14:42:37,652 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-13 14:42:37,658 | INFO | agents.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['inventory']
+2026-04-13 14:42:38,132 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-13 14:42:38,138 | INFO | agents.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['inbound']
+2026-04-13 14:42:41,728 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-13 14:42:41,873 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-13 14:42:45,478 | INFO | agents.nodes.sql_run_sql_node | SQL node completed. Success: False, Domains: ['inbound']
+2026-04-13 14:42:45,615 | INFO | agents.nodes.sql_run_sql_node | SQL node completed. Success: True, Domains: ['inventory']
+2026-04-13 14:42:46,511 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-13 14:42:46,550 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-13 14:42:48,602 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-13 14:42:48,608 | INFO | agents.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['inventory']
+2026-04-13 14:42:48,886 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-13 14:42:49,080 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-13 14:42:49,083 | INFO | agents.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['inbound']
+2026-04-13 14:42:49,391 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-13 14:42:52,652 | INFO | agents.nodes.sql_run_sql_node | SQL node completed. Success: True, Domains: ['inventory']
+2026-04-13 14:42:53,169 | INFO | agents.nodes.sql_run_sql_node | SQL node completed. Success: False, Domains: ['inbound']
+2026-04-13 14:42:54,719 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-13 14:42:54,981 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-13 14:42:55,701 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-13 14:42:55,708 | INFO | agents.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['inbound']
+2026-04-13 14:42:55,988 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-13 14:42:59,816 | INFO | agents.nodes.sql_run_sql_node | SQL node completed. Success: False, Domains: ['inbound']
+2026-04-13 14:43:01,259 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-13 14:43:01,265 | INFO | agents.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['inventory']
+2026-04-13 14:43:01,767 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-13 14:43:05,714 | INFO | agents.nodes.sql_run_sql_node | SQL node completed. Success: True, Domains: ['inventory']
+2026-04-13 14:43:05,741 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-13 14:43:07,445 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-13 14:43:07,452 | INFO | agents.nodes.supervisor_node | Supervisor re-invoked with 241 missing checks
+2026-04-13 14:43:08,267 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-13 14:43:13,016 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-13 14:43:13,044 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-13 14:43:13,045 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-13 14:43:14,450 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-13 14:43:14,455 | INFO | agents.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['inbound']
+2026-04-13 14:43:14,787 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-13 14:43:15,247 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-13 14:43:15,252 | INFO | agents.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['inbound']
+2026-04-13 14:43:15,438 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-13 14:43:18,567 | INFO | agents.nodes.sql_run_sql_node | SQL node completed. Success: False, Domains: ['inbound']
+2026-04-13 14:43:19,207 | INFO | agents.nodes.sql_run_sql_node | SQL node completed. Success: True, Domains: ['inbound']
+2026-04-13 14:43:19,685 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-13 14:43:20,153 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-13 14:43:25,163 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-13 14:43:25,172 | INFO | agents.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['inbound']
+2026-04-13 14:43:25,428 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-13 14:43:27,805 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-13 14:43:27,815 | INFO | agents.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['inbound']
+2026-04-13 14:43:28,184 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-13 14:43:29,285 | INFO | agents.nodes.sql_run_sql_node | SQL node completed. Success: True, Domains: ['inbound']
+2026-04-13 14:43:31,680 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-13 14:43:31,983 | INFO | agents.nodes.sql_run_sql_node | SQL node completed. Success: False, Domains: ['inbound']
+2026-04-13 14:43:33,939 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-13 14:43:33,962 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-13 14:43:33,964 | INFO | agents.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['inbound']
+2026-04-13 14:43:34,315 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-13 14:43:36,259 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-13 14:43:36,264 | INFO | agents.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['inbound']
+2026-04-13 14:43:36,491 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-13 14:46:20,056 | INFO | agents.nodes.inbound_agent_node | INBOUND AGENT CALLED
+2026-04-13 14:46:20,066 | INFO | agents.nodes.outbound_agent_node | OUTBOUND AGENT CALLED
+2026-04-13 14:46:20,072 | INFO | agents.nodes.inventory_agent_node | INVENTORY AGENT CALLED
+2026-04-13 14:47:14,819 | INFO | agents.nodes.inbound_agent_node | INBOUND AGENT CALLED
+2026-04-13 14:47:14,828 | INFO | agents.nodes.outbound_agent_node | OUTBOUND AGENT CALLED
+2026-04-13 14:47:14,834 | INFO | agents.nodes.inventory_agent_node | INVENTORY AGENT CALLED
+2026-04-13 14:47:17,027 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-13 14:47:21,851 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-13 14:47:23,078 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-13 14:47:25,127 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-13 14:47:25,155 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-13 14:47:25,160 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-13 14:47:26,251 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-13 14:47:26,257 | INFO | agents.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['inbound']
+2026-04-13 14:47:27,107 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-13 14:47:27,112 | INFO | agents.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['inventory']
+2026-04-13 14:47:29,940 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-13 14:47:30,833 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-13 14:47:33,714 | INFO | agents.nodes.sql_run_sql_node | SQL node completed. Success: False, Domains: ['inbound']
+2026-04-13 14:47:34,564 | INFO | agents.nodes.sql_run_sql_node | SQL node completed. Success: True, Domains: ['inventory']
+2026-04-13 14:47:34,913 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-13 14:47:35,381 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-13 14:47:35,932 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-13 14:47:35,935 | INFO | agents.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['inbound']
+2026-04-13 14:47:36,198 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-13 14:47:36,981 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-13 14:47:36,984 | INFO | agents.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['inventory']
+2026-04-13 14:47:37,194 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-13 14:47:39,894 | INFO | agents.nodes.sql_run_sql_node | SQL node completed. Success: False, Domains: ['inbound']
+2026-04-13 14:47:41,020 | INFO | agents.nodes.sql_run_sql_node | SQL node completed. Success: True, Domains: ['inventory']
+2026-04-13 14:47:41,536 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-13 14:47:42,994 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-13 14:47:49,908 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-13 14:47:49,914 | INFO | agents.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['inventory']
+2026-04-13 14:47:50,336 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-13 14:47:50,628 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 504 Gateway Timeout"
+2026-04-13 14:47:50,631 | INFO | google_genai._api_client | Retrying google.genai._api_client.BaseApiClient._request_once in 1.02 seconds as it raised ServerError: 504 DEADLINE_EXCEEDED. {'error': {'code': 504, 'message': 'Deadline expired before operation could complete.', 'status': 'DEADLINE_EXCEEDED'}}.
+2026-04-13 14:47:52,842 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-13 14:47:52,848 | INFO | agents.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['inbound']
+2026-04-13 14:47:53,084 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-13 14:47:54,154 | INFO | agents.nodes.sql_run_sql_node | SQL node completed. Success: True, Domains: ['inventory']
+2026-04-13 14:47:56,792 | INFO | agents.nodes.sql_run_sql_node | SQL node completed. Success: False, Domains: ['inbound']
+2026-04-13 14:47:56,813 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-13 14:48:05,881 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 504 Gateway Timeout"
+2026-04-13 14:48:05,883 | INFO | google_genai._api_client | Retrying google.genai._api_client.BaseApiClient._request_once in 1.3 seconds as it raised ServerError: 504 DEADLINE_EXCEEDED. {'error': {'code': 504, 'message': 'Deadline expired before operation could complete.', 'status': 'DEADLINE_EXCEEDED'}}.
+2026-04-13 14:48:13,972 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-13 14:48:13,983 | INFO | agents.nodes.supervisor_node | Supervisor re-invoked with 273 missing checks
+2026-04-13 14:48:14,696 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-13 14:48:23,335 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 504 Gateway Timeout"
+2026-04-13 14:48:23,339 | INFO | google_genai._api_client | Retrying google.genai._api_client.BaseApiClient._request_once in 1.65 seconds as it raised ServerError: 504 DEADLINE_EXCEEDED. {'error': {'code': 504, 'message': 'Deadline expired before operation could complete.', 'status': 'DEADLINE_EXCEEDED'}}.
+2026-04-13 14:48:33,744 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 504 Gateway Timeout"
+2026-04-13 14:48:33,749 | INFO | google_genai._api_client | Retrying google.genai._api_client.BaseApiClient._request_once in 2.54 seconds as it raised ServerError: 504 DEADLINE_EXCEEDED. {'error': {'code': 504, 'message': 'Deadline expired before operation could complete.', 'status': 'DEADLINE_EXCEEDED'}}.
+2026-04-13 14:48:45,305 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 504 Gateway Timeout"
+2026-04-13 14:48:45,308 | INFO | google_genai._api_client | Retrying google.genai._api_client.BaseApiClient._request_once in 4.1 seconds as it raised ServerError: 504 DEADLINE_EXCEEDED. {'error': {'code': 504, 'message': 'Deadline expired before operation could complete.', 'status': 'DEADLINE_EXCEEDED'}}.
+2026-04-13 14:48:50,336 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-13 14:48:50,358 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-13 14:48:51,239 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-13 14:48:51,243 | INFO | agents.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['inbound']
+2026-04-13 14:48:51,532 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-13 14:48:55,462 | INFO | agents.nodes.sql_run_sql_node | SQL node completed. Success: False, Domains: ['inbound']
+2026-04-13 14:48:56,568 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-13 14:48:58,758 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-13 14:48:58,764 | INFO | agents.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['inbound']
+2026-04-13 14:48:59,026 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-13 14:49:02,764 | INFO | agents.nodes.sql_run_sql_node | SQL node completed. Success: False, Domains: ['inbound']
+2026-04-13 14:49:04,802 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-13 14:49:13,262 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 504 Gateway Timeout"
+2026-04-13 14:49:13,265 | INFO | google_genai._api_client | Retrying google.genai._api_client.BaseApiClient._request_once in 1.18 seconds as it raised ServerError: 504 DEADLINE_EXCEEDED. {'error': {'code': 504, 'message': 'Deadline expired before operation could complete.', 'status': 'DEADLINE_EXCEEDED'}}.
+2026-04-13 15:49:41,438 | INFO | agents.nodes.inbound_agent_node | INBOUND AGENT CALLED
+2026-04-13 15:49:41,450 | INFO | agents.nodes.outbound_agent_node | OUTBOUND AGENT CALLED
+2026-04-13 15:49:41,456 | INFO | agents.nodes.inventory_agent_node | INVENTORY AGENT CALLED
+2026-04-13 15:49:44,307 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-13 15:49:48,492 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-13 15:49:50,662 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-13 15:49:50,691 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-13 15:49:55,556 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-13 15:49:55,567 | INFO | agents.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['inbound']
+2026-04-13 15:49:59,756 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-13 15:50:03,743 | INFO | agents.nodes.sql_run_sql_node | SQL node completed. Success: False, Domains: ['inbound']
+2026-04-13 15:50:03,775 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-13 15:50:06,600 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-13 15:50:06,608 | INFO | agents.nodes.supervisor_node | Supervisor re-invoked with 234 missing checks
+2026-04-13 15:50:08,136 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-13 15:50:08,146 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-13 15:50:15,592 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-13 15:50:15,622 | INFO | agents.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['inbound']
+2026-04-13 15:50:15,863 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-13 15:50:19,621 | INFO | agents.nodes.sql_run_sql_node | SQL node completed. Success: False, Domains: ['inbound']
+2026-04-13 15:50:19,636 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-13 15:50:21,111 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-13 15:50:21,119 | INFO | agents.nodes.supervisor_node | Supervisor re-invoked with 265 missing checks
+2026-04-13 15:50:23,487 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-13 15:50:23,511 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-13 15:50:27,648 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-13 15:50:27,654 | INFO | agents.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['inbound']
+2026-04-13 15:50:28,005 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-13 15:50:31,854 | INFO | agents.nodes.sql_run_sql_node | SQL node completed. Success: False, Domains: ['inbound']
+2026-04-13 15:50:31,872 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-13 15:50:41,436 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 504 Gateway Timeout"
+2026-04-13 15:50:41,446 | INFO | google_genai._api_client | Retrying google.genai._api_client.BaseApiClient._request_once in 1.64 seconds as it raised ServerError: 504 DEADLINE_EXCEEDED. {'error': {'code': 504, 'message': 'Deadline expired before operation could complete.', 'status': 'DEADLINE_EXCEEDED'}}.
+2026-04-13 15:50:44,910 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-13 15:50:44,926 | INFO | agents.nodes.supervisor_node | Supervisor re-invoked with 326 missing checks
+2026-04-13 15:50:46,447 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-13 15:50:46,466 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-13 15:50:50,338 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-13 15:50:50,344 | INFO | agents.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['inbound']
+2026-04-13 15:50:50,583 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-13 15:50:54,344 | INFO | agents.nodes.sql_run_sql_node | SQL node completed. Success: False, Domains: ['inbound']
+2026-04-13 15:50:54,375 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-13 15:50:55,973 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-13 15:50:55,979 | INFO | agents.nodes.supervisor_node | Supervisor re-invoked with 202 missing checks
+2026-04-13 15:50:57,289 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-13 15:50:57,306 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-13 15:51:00,680 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-13 15:51:00,685 | INFO | agents.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['inbound']
+2026-04-13 15:51:00,989 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-13 15:51:04,873 | INFO | agents.nodes.sql_run_sql_node | SQL node completed. Success: False, Domains: ['inbound']
+2026-04-13 15:51:04,897 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-13 15:51:13,211 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-13 15:51:13,222 | INFO | agents.nodes.supervisor_node | Supervisor re-invoked with 265 missing checks
+2026-04-13 15:51:14,610 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-13 15:51:14,626 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-13 15:51:15,838 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-13 15:51:15,844 | INFO | agents.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['inbound']
+2026-04-13 15:51:16,352 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-13 15:51:20,340 | INFO | agents.nodes.sql_run_sql_node | SQL node completed. Success: False, Domains: ['inbound']
+2026-04-13 15:51:20,360 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-13 15:51:21,675 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-13 15:51:21,684 | INFO | agents.nodes.supervisor_node | Supervisor re-invoked with 167 missing checks
+2026-04-13 15:51:23,004 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-13 15:51:23,020 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-13 15:51:23,850 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-13 15:51:23,856 | INFO | agents.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['inbound']
+2026-04-13 15:51:24,125 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-13 15:53:53,553 | INFO | agents.nodes.inbound_agent_node | INBOUND AGENT CALLED
+2026-04-13 15:53:53,563 | INFO | agents.nodes.outbound_agent_node | OUTBOUND AGENT CALLED
+2026-04-13 15:53:53,569 | INFO | agents.nodes.inventory_agent_node | INVENTORY AGENT CALLED
+2026-04-13 15:53:55,622 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-13 15:53:58,229 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-13 15:53:59,107 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-13 15:54:01,000 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-13 15:54:01,024 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-13 15:54:03,878 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-13 15:54:03,885 | INFO | agents.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['inbound']
+2026-04-13 15:54:07,769 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-13 15:54:11,791 | INFO | agents.nodes.sql_run_sql_node | SQL node completed. Success: False, Domains: ['inbound']
+2026-04-13 15:54:12,725 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-13 15:54:14,322 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-13 15:54:14,327 | INFO | agents.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['inbound']
+2026-04-13 15:54:14,731 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-13 15:54:18,455 | INFO | agents.nodes.sql_run_sql_node | SQL node completed. Success: False, Domains: ['inbound']
+2026-04-13 15:54:20,227 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-13 15:54:21,488 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-13 15:54:21,492 | INFO | agents.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['inbound']
+2026-04-13 15:54:21,901 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-13 15:54:25,703 | INFO | agents.nodes.sql_run_sql_node | SQL node completed. Success: False, Domains: ['inbound']
+2026-04-13 15:54:25,743 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-13 15:54:27,120 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-13 15:54:27,132 | INFO | agents.nodes.supervisor_node | Supervisor re-invoked with 263 missing checks
+2026-04-13 15:54:28,226 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-13 15:54:28,241 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-13 15:54:29,491 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-13 15:54:29,497 | INFO | agents.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['inbound']
+2026-04-13 15:54:29,884 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-13 15:54:33,926 | INFO | agents.nodes.sql_run_sql_node | SQL node completed. Success: False, Domains: ['inbound']
+2026-04-13 15:54:33,958 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-13 15:54:36,049 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-13 15:54:36,059 | INFO | agents.nodes.supervisor_node | Supervisor re-invoked with 263 missing checks
+2026-04-13 15:54:37,064 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-13 15:54:37,082 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-13 15:54:38,178 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-13 15:54:38,185 | INFO | agents.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['inbound']
+2026-04-13 15:54:38,983 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-13 15:54:42,883 | INFO | agents.nodes.sql_run_sql_node | SQL node completed. Success: False, Domains: ['inbound']
+2026-04-13 15:54:42,906 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-13 15:54:44,109 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-13 15:54:44,115 | INFO | agents.nodes.supervisor_node | Supervisor re-invoked with 172 missing checks
+2026-04-13 15:54:45,178 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-13 15:54:45,198 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-13 15:54:46,214 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-13 15:54:46,219 | INFO | agents.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['inbound']
+2026-04-13 15:54:46,577 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-13 15:54:50,519 | INFO | agents.nodes.sql_run_sql_node | SQL node completed. Success: False, Domains: ['inbound']
+2026-04-13 15:54:50,550 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-13 15:54:51,699 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-13 15:54:51,703 | INFO | agents.nodes.supervisor_node | Supervisor re-invoked with 255 missing checks
+2026-04-13 15:54:52,618 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-13 15:54:52,639 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-13 15:54:54,257 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-13 15:54:54,275 | INFO | agents.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['inbound']
+2026-04-13 15:54:54,665 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-13 15:54:58,463 | INFO | agents.nodes.sql_run_sql_node | SQL node completed. Success: False, Domains: ['inbound']
+2026-04-13 15:54:58,492 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-13 15:54:59,786 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-13 15:54:59,795 | INFO | agents.nodes.supervisor_node | Supervisor re-invoked with 309 missing checks
+2026-04-13 15:55:00,676 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-13 15:55:00,693 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-13 15:55:02,864 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-13 15:55:02,868 | INFO | agents.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['inbound']
+2026-04-13 15:55:03,248 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-13 15:57:45,795 | INFO | agents.nodes.inbound_agent_node | INBOUND AGENT CALLED
+2026-04-13 15:57:45,804 | INFO | agents.nodes.outbound_agent_node | OUTBOUND AGENT CALLED
+2026-04-13 15:57:45,811 | INFO | agents.nodes.inventory_agent_node | INVENTORY AGENT CALLED
+2026-04-13 15:57:47,703 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-13 15:57:49,668 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-13 15:57:50,571 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-13 15:57:52,267 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-13 15:57:52,299 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-13 15:57:52,299 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-13 15:57:53,200 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-13 15:57:53,207 | INFO | agents.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['inventory']
+2026-04-13 15:57:53,582 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-13 15:57:53,587 | INFO | agents.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['inbound']
+2026-04-13 15:57:57,023 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-13 15:57:57,142 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-13 15:58:00,825 | INFO | agents.nodes.sql_run_sql_node | SQL node completed. Success: True, Domains: ['inventory']
+2026-04-13 15:58:00,898 | INFO | agents.nodes.sql_run_sql_node | SQL node completed. Success: False, Domains: ['inbound']
+2026-04-13 15:58:02,068 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-13 15:58:02,087 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-13 15:58:11,199 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 504 Gateway Timeout"
+2026-04-13 15:58:11,207 | INFO | google_genai._api_client | Retrying google.genai._api_client.BaseApiClient._request_once in 1.34 seconds as it raised ServerError: 504 DEADLINE_EXCEEDED. {'error': {'code': 504, 'message': 'Deadline expired before operation could complete.', 'status': 'DEADLINE_EXCEEDED'}}.
+2026-04-13 15:58:13,730 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-13 15:58:13,746 | INFO | agents.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['inbound']
+2026-04-13 15:58:14,011 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-13 15:58:17,933 | INFO | agents.nodes.sql_run_sql_node | SQL node completed. Success: False, Domains: ['inbound']
+2026-04-13 15:58:19,448 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-13 15:58:19,476 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-13 15:58:22,218 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-13 15:58:22,228 | INFO | agents.nodes.supervisor_node | Supervisor re-invoked with 153 missing checks
+2026-04-13 15:58:23,365 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-13 15:58:23,385 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-13 15:58:24,584 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-13 15:58:24,589 | INFO | agents.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['inbound']
+2026-04-13 15:58:24,799 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-13 15:58:28,683 | INFO | agents.nodes.sql_run_sql_node | SQL node completed. Success: False, Domains: ['inbound']
+2026-04-13 15:58:30,068 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-13 15:58:30,090 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-13 15:58:30,950 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-13 15:58:30,955 | INFO | agents.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['inbound']
+2026-04-13 15:58:31,312 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-13 15:58:35,204 | INFO | agents.nodes.sql_run_sql_node | SQL node completed. Success: False, Domains: ['inbound']
+2026-04-13 15:58:36,191 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-13 15:58:36,206 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-13 15:58:38,000 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-13 15:58:38,004 | INFO | agents.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['inbound']
+2026-04-13 15:58:38,244 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-13 15:58:42,166 | INFO | agents.nodes.sql_run_sql_node | SQL node completed. Success: False, Domains: ['inbound']
+2026-04-13 15:58:43,427 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-13 15:58:43,444 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-13 15:58:45,913 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-13 15:58:45,918 | INFO | agents.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['inbound']
+2026-04-13 15:58:46,285 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-13 15:58:50,072 | INFO | agents.nodes.sql_run_sql_node | SQL node completed. Success: False, Domains: ['inbound']
+2026-04-13 15:58:51,210 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-13 15:58:51,230 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-13 15:58:53,155 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-13 15:58:53,160 | INFO | agents.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['inbound']
+2026-04-13 15:58:53,667 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-13 15:58:57,497 | INFO | agents.nodes.sql_run_sql_node | SQL node completed. Success: False, Domains: ['inbound']
+2026-04-13 15:58:58,332 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-13 15:58:59,503 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-13 15:58:59,516 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-13 15:59:00,834 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-13 15:59:00,840 | INFO | agents.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['inbound']
+2026-04-13 15:59:01,245 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-13 15:59:04,968 | INFO | agents.nodes.sql_run_sql_node | SQL node completed. Success: False, Domains: ['inbound']
+2026-04-13 15:59:05,918 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-13 15:59:05,937 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-13 15:59:08,504 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-13 15:59:08,508 | INFO | agents.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['inbound']
+2026-04-13 15:59:08,835 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-13 15:59:12,573 | INFO | agents.nodes.sql_run_sql_node | SQL node completed. Success: False, Domains: ['inbound']
+2026-04-13 15:59:13,485 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-13 15:59:13,510 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-13 15:59:14,358 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-13 15:59:14,364 | INFO | agents.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['inbound']
+2026-04-13 15:59:14,578 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-13 15:59:18,309 | INFO | agents.nodes.sql_run_sql_node | SQL node completed. Success: True, Domains: ['inbound']
+2026-04-13 15:59:19,212 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-13 15:59:19,238 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-13 15:59:22,748 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-13 15:59:22,762 | INFO | agents.nodes.supervisor_node | Supervisor re-invoked with 179 missing checks
+2026-04-13 15:59:23,773 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-13 15:59:23,789 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-13 15:59:25,410 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-13 15:59:25,415 | INFO | agents.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['inbound']
+2026-04-13 15:59:25,815 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-13 15:59:29,583 | INFO | agents.nodes.sql_run_sql_node | SQL node completed. Success: False, Domains: ['inbound']
+2026-04-13 15:59:30,737 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-13 15:59:30,752 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-13 16:19:34,211 | INFO | agents.nodes.inbound_agent_node | INBOUND AGENT CALLED
+2026-04-13 16:19:34,226 | INFO | agents.nodes.outbound_agent_node | OUTBOUND AGENT CALLED
+2026-04-13 16:19:34,233 | INFO | agents.nodes.inventory_agent_node | INVENTORY AGENT CALLED
+2026-04-13 16:19:36,567 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-13 16:19:45,728 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 504 Gateway Timeout"
+2026-04-13 16:19:45,737 | INFO | google_genai._api_client | Retrying google.genai._api_client.BaseApiClient._request_once in 1.27 seconds as it raised ServerError: 504 DEADLINE_EXCEEDED. {'error': {'code': 504, 'message': 'Deadline expired before operation could complete.', 'status': 'DEADLINE_EXCEEDED'}}.
+2026-04-13 16:19:48,580 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-13 16:19:50,544 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-13 16:19:50,572 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-13 16:19:51,417 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-13 16:19:51,423 | INFO | agents.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['inbound']
+2026-04-13 16:19:55,185 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-13 16:19:59,204 | INFO | agents.nodes.sql_run_sql_node | SQL node completed. Success: False, Domains: ['inbound']
+2026-04-13 16:19:59,857 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-13 16:20:09,180 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 503 Service Unavailable"
+2026-04-13 16:20:09,184 | INFO | google_genai._api_client | Retrying google.genai._api_client.BaseApiClient._request_once in 1.47 seconds as it raised ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}.
+2026-04-13 16:20:13,071 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-13 16:20:13,092 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-13 16:20:20,803 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-13 16:20:20,809 | INFO | agents.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['inbound']
+2026-04-13 16:20:21,213 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-13 16:20:24,956 | INFO | agents.nodes.sql_run_sql_node | SQL node completed. Success: False, Domains: ['inbound']
+2026-04-13 16:20:26,177 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-13 16:20:26,198 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-13 16:20:34,490 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 504 Gateway Timeout"
+2026-04-13 16:20:34,493 | INFO | google_genai._api_client | Retrying google.genai._api_client.BaseApiClient._request_once in 1.72 seconds as it raised ServerError: 504 DEADLINE_EXCEEDED. {'error': {'code': 504, 'message': 'Deadline expired before operation could complete.', 'status': 'DEADLINE_EXCEEDED'}}.
+2026-04-13 16:20:45,160 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 504 Gateway Timeout"
+2026-04-13 16:20:45,164 | INFO | google_genai._api_client | Retrying google.genai._api_client.BaseApiClient._request_once in 2.56 seconds as it raised ServerError: 504 DEADLINE_EXCEEDED. {'error': {'code': 504, 'message': 'Deadline expired before operation could complete.', 'status': 'DEADLINE_EXCEEDED'}}.
+2026-04-13 16:20:50,341 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-13 16:20:50,347 | INFO | agents.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['inbound']
+2026-04-13 16:20:50,909 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-13 16:20:54,902 | INFO | agents.nodes.sql_run_sql_node | SQL node completed. Success: False, Domains: ['inbound']
+2026-04-13 16:20:55,730 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-13 16:20:55,737 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-13 16:20:56,692 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-13 16:20:56,698 | INFO | agents.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['inbound']
+2026-04-13 16:20:57,106 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-13 16:23:09,775 | INFO | agents.nodes.inbound_agent_node | INBOUND AGENT CALLED
+2026-04-13 16:23:09,785 | INFO | agents.nodes.outbound_agent_node | OUTBOUND AGENT CALLED
+2026-04-13 16:23:09,792 | INFO | agents.nodes.inventory_agent_node | INVENTORY AGENT CALLED
+2026-04-13 16:23:11,442 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-13 16:23:14,457 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-13 16:23:15,752 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-13 16:23:24,806 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 504 Gateway Timeout"
+2026-04-13 16:23:24,813 | INFO | google_genai._api_client | Retrying google.genai._api_client.BaseApiClient._request_once in 1.63 seconds as it raised ServerError: 504 DEADLINE_EXCEEDED. {'error': {'code': 504, 'message': 'Deadline expired before operation could complete.', 'status': 'DEADLINE_EXCEEDED'}}.
+2026-04-13 16:23:27,325 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-13 16:23:27,350 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-13 16:23:36,436 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 504 Gateway Timeout"
+2026-04-13 16:23:36,437 | INFO | google_genai._api_client | Retrying google.genai._api_client.BaseApiClient._request_once in 1.25 seconds as it raised ServerError: 504 DEADLINE_EXCEEDED. {'error': {'code': 504, 'message': 'Deadline expired before operation could complete.', 'status': 'DEADLINE_EXCEEDED'}}.
+2026-04-13 16:23:42,482 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-13 16:23:42,486 | INFO | agents.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['inbound']
+2026-04-13 16:23:46,416 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-13 16:23:50,605 | INFO | agents.nodes.sql_run_sql_node | SQL node completed. Success: False, Domains: ['inbound']
+2026-04-13 16:23:55,588 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-13 16:23:55,610 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-13 16:24:04,690 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 504 Gateway Timeout"
+2026-04-13 16:24:04,692 | INFO | google_genai._api_client | Retrying google.genai._api_client.BaseApiClient._request_once in 1.69 seconds as it raised ServerError: 504 DEADLINE_EXCEEDED. {'error': {'code': 504, 'message': 'Deadline expired before operation could complete.', 'status': 'DEADLINE_EXCEEDED'}}.
+2026-04-13 16:24:10,125 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-13 16:24:10,131 | INFO | agents.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['inbound']
+2026-04-13 16:24:10,639 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-13 16:24:14,575 | INFO | agents.nodes.sql_run_sql_node | SQL node completed. Success: False, Domains: ['inbound']
+2026-04-13 16:24:15,554 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-13 16:24:15,576 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-13 16:24:24,590 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 504 Gateway Timeout"
+2026-04-13 16:24:24,593 | INFO | google_genai._api_client | Retrying google.genai._api_client.BaseApiClient._request_once in 1.23 seconds as it raised ServerError: 504 DEADLINE_EXCEEDED. {'error': {'code': 504, 'message': 'Deadline expired before operation could complete.', 'status': 'DEADLINE_EXCEEDED'}}.
+2026-04-13 16:24:26,782 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-13 16:24:26,791 | INFO | agents.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['inbound']
+2026-04-13 16:24:27,257 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-13 16:24:30,989 | INFO | agents.nodes.sql_run_sql_node | SQL node completed. Success: False, Domains: ['inbound']
+2026-04-13 16:24:32,258 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-13 16:24:32,271 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-13 16:24:41,366 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 504 Gateway Timeout"
+2026-04-13 16:24:41,370 | INFO | google_genai._api_client | Retrying google.genai._api_client.BaseApiClient._request_once in 1.92 seconds as it raised ServerError: 504 DEADLINE_EXCEEDED. {'error': {'code': 504, 'message': 'Deadline expired before operation could complete.', 'status': 'DEADLINE_EXCEEDED'}}.
+2026-04-13 16:24:44,431 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-13 16:24:44,456 | INFO | agents.nodes.supervisor_node | Supervisor re-invoked with 213 missing checks
+2026-04-13 16:24:45,283 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-13 16:24:46,274 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-13 16:24:46,293 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-13 16:24:47,298 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-13 16:24:47,304 | INFO | agents.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['inbound']
+2026-04-13 16:24:47,708 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-13 16:24:51,775 | INFO | agents.nodes.sql_run_sql_node | SQL node completed. Success: False, Domains: ['inbound']
+2026-04-13 16:24:53,031 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-13 16:24:53,044 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-13 16:25:02,151 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 504 Gateway Timeout"
+2026-04-13 16:25:02,157 | INFO | google_genai._api_client | Retrying google.genai._api_client.BaseApiClient._request_once in 1.68 seconds as it raised ServerError: 504 DEADLINE_EXCEEDED. {'error': {'code': 504, 'message': 'Deadline expired before operation could complete.', 'status': 'DEADLINE_EXCEEDED'}}.
+2026-04-13 16:25:06,040 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-13 16:25:06,050 | INFO | agents.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['inbound']
+2026-04-13 16:25:06,447 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-13 16:25:10,630 | INFO | agents.nodes.sql_run_sql_node | SQL node completed. Success: False, Domains: ['inbound']
+2026-04-13 16:25:12,490 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-13 16:25:12,510 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-13 16:25:13,612 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-13 16:25:13,614 | INFO | agents.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['inbound']
+2026-04-13 16:25:13,922 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-13 16:25:14,194 | WARNING | langgraph.checkpoint.serde.jsonplus | Deserializing unregistered type domain.states.supervisor.supervisor_evidence_states.VerificationResult from checkpoint. This will be blocked in a future version. Add to allowed_msgpack_modules to silence: [('domain.states.supervisor.supervisor_evidence_states', 'VerificationResult')]
+2026-04-13 16:25:14,198 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-13 16:25:15,346 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-13 16:25:16,210 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-13 16:25:17,698 | INFO | agents.nodes.sql_run_sql_node | SQL node completed. Success: False, Domains: ['inbound']
+2026-04-13 16:25:23,329 | INFO | agents.nodes.inbound_agent_node | INBOUND AGENT CALLED
+2026-04-13 16:25:23,338 | INFO | agents.nodes.outbound_agent_node | OUTBOUND AGENT CALLED
+2026-04-13 16:25:23,345 | INFO | agents.nodes.inventory_agent_node | INVENTORY AGENT CALLED
+2026-04-13 16:25:25,087 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-13 16:25:26,316 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-13 16:25:27,161 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-13 16:25:28,265 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-13 16:25:28,285 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-13 16:25:29,073 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-13 16:25:29,079 | INFO | agents.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['inbound']
+2026-04-13 16:25:32,810 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-13 16:25:36,656 | INFO | agents.nodes.sql_run_sql_node | SQL node completed. Success: True, Domains: ['inbound']
+2026-04-13 16:25:37,691 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-13 16:25:38,809 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-04-13 16:25:48,384 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 504 Gateway Timeout"
+2026-04-13 16:25:48,391 | INFO | google_genai._api_client | Retrying google.genai._api_client.BaseApiClient._request_once in 1.9 seconds as it raised ServerError: 504 DEADLINE_EXCEEDED. {'error': {'code': 504, 'message': 'Deadline expired before operation could complete.', 'status': 'DEADLINE_EXCEEDED'}}.
+2026-04-13 16:25:59,337 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 504 Gateway Timeout"
+2026-04-13 16:25:59,340 | INFO | google_genai._api_client | Retrying google.genai._api_client.BaseApiClient._request_once in 2.45 seconds as it raised ServerError: 504 DEADLINE_EXCEEDED. {'error': {'code': 504, 'message': 'Deadline expired before operation could complete.', 'status': 'DEADLINE_EXCEEDED'}}.

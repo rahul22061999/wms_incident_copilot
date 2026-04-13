@@ -27,11 +27,11 @@ class WMState:
     messages: List[Dict[str, Any]] = field(default_factory=list)
     routing_decision: Optional[dict] = None
     lookup_result: Optional[dict] = None
-    diagnosis_result: Optional[dict] = None
+    result: Optional[dict] = None
     final_response: Optional[str] = None
     structured_response: Any = None
 
-    verification_record: EvidenceRecord  = None
+    evidence_records: Annotated[List[EvidenceRecord], operator.add] = field(default_factory=list)
     verification_result: VerificationResult = None
 
 

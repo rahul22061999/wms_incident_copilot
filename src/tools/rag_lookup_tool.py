@@ -5,6 +5,8 @@ from langchain_qdrant.qdrant import QdrantClient, QdrantVectorStore
 from langchain_classic.storage import LocalFileStore
 from langchain_classic.embeddings import CacheBackedEmbeddings
 from langchain_openai import OpenAIEmbeddings
+from langgraph.prebuilt import ToolRuntime
+
 from config import settings, BASE_DIR
 import pickle
 from datetime import datetime
@@ -59,7 +61,10 @@ def _get_parent_dict() -> dict:
         "putaway process, or what should happen operationally. "
         "Do not use this for live transactional counts or current system state."
     ))
-def sop_retrieval_tool(query: str, k: int = 3) -> list:
+def sop_retrieval_tool(
+        runtime: ToolRuntime,
+        query: str,
+        k: int = 3) -> list:
     """Retrieve relevant inbound SOP guidance for a natural-language question."""
     vectorstore = _get_vectorstore()
     parent_dict = _get_parent_dict()
@@ -74,6 +79,13 @@ def sop_retrieval_tool(query: str, k: int = 3) -> list:
         if pid and pid not in seen and pid in parent_dict:
             seen.add(pid)
             parents.append(parent_dict[pid])
+
+    collector = runtime.config.get("configurable", {}).get("evidence_collector")
+    collector.add(
+        source="sop",
+        content=parents,
+    )
+
 
     return parents
 
