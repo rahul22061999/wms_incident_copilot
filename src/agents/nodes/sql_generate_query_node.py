@@ -6,13 +6,22 @@ from models.model_loader import get_google_llm, get_openai_fast_llm
 from prompts.generate_sql_subquery_split_prompt import get_subquery_split_prompt
 from prompts.generate_sql_system_prompt import get_sql_prompt
 from dotenv import load_dotenv
-
+import re
 from utils.logging.logging_config import setup_logging
 
 load_dotenv()
 
 setup_logging()
 logger = logging.getLogger(__name__)
+
+
+def _strip_sql_fences(text: str) -> str:
+    """Defensive cleanup in case the LLM still wraps SQL in markdown fences."""
+    text = text.strip()
+    if text.startswith("```"):
+        text = re.sub(r"^```[a-zA-Z]*\n?", "", text)
+        text = re.sub(r"\n?```$", "", text)
+    return text.strip().rstrip(";").strip()
 
 @traceable(name="sql_generate_query_node")
 def sql_generate_query_node(state: SQLGraphState) -> dict:
@@ -41,7 +50,7 @@ def sql_generate_query_node(state: SQLGraphState) -> dict:
             content = response.content
             if isinstance(content, list):
                 content = "".join(b["text"] for b in content if b.get("type") == "text")
-            results[sq.domain] = content.strip()
+            results[sq.domain] = _strip_sql_fences(content)
 
             # {"inbound": "SELECT ...", "outbound": "SELECT ..."}
     else:
@@ -53,7 +62,7 @@ def sql_generate_query_node(state: SQLGraphState) -> dict:
         content = response.content
         if isinstance(content, list):
             content = "".join(b["text"] for b in content if b.get("type") == "text")
-        results[str(domains[0])] = content.strip()
+        results[str(domains[0])] = _strip_sql_fences(content)
 
 
     logger.info("SQL Generate Query Node completed. Domains: %s", list(results.keys()))

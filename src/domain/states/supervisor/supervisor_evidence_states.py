@@ -21,6 +21,6 @@ class VerificationResult(BaseModel):
     consistent: bool
     sufficient: bool
 
-    missing_checks: str =  Field(
+    missing_checks: list[str] =  Field(
         description="Details of missing facts and checks from the evidence",
-        default_factory=str)
+        default_factory= list)

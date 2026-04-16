@@ -3,7 +3,7 @@ import ast
 from langchain_community.utilities import SQLDatabase
 from langchain_core.language_models import BaseChatModel
 from langchain_core.tools import BaseTool
-from sqlalchemy import create_engine
+from sqlalchemy import create_engine, text
 from config import settings
 from langchain_community.tools.sql_database.tool import (
     InfoSQLDatabaseTool,
@@ -40,14 +40,20 @@ class WmsSqlTool:
             schema=settings.DB_SCHEMA,
         )
 
-    def run_query(self, sql: str) -> str:
-        """Run SQL with column names included."""
-        raw_string =  self.db.run(sql, include_columns=True)
+    # def run_query(self, sql: str) -> str:
+    #     """Run SQL with column names included."""
+    #     raw_string =  self.db.run(sql, include_columns=True)
+    #
+    #     try:
+    #         return ast.literal_eval(raw_string)
+    #     except (ValueError, SyntaxError):
+    #         return ast.literal_eval(raw_string)
 
-        try:
-            return ast.literal_eval(raw_string)
-        except (ValueError, SyntaxError):
-            return ast.literal_eval(raw_string)
+    def run_query(self, sql: str) -> list[dict]:
+        """Run SQL and return rows as list of dicts."""
+        with self.db._engine.connect() as conn:
+            result = conn.execute(text(sql))
+            return [dict(row._mapping) for row in result]
 
     def _create_tools(self) -> list[BaseTool]:
 

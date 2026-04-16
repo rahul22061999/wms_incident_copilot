@@ -8,8 +8,11 @@ from agents.nodes.inventory_agent_node import inventory_agent
 from prompts.generate_supervisor_prompt import supervisor_prompt
 from config import settings
 from domain.states.supervisor.diagnose_graph_state import WMState
+from tools import rag_lookup_tool
+from tools.rag_lookup_tool import sop_retrieval_tool
 from tools.sql_lookup_tool import sql_lookup_tool
 from utils.verification.evidence_collector import EvidenceCollector
+from langchain.agents import create_agent
 
 logger = logging.getLogger(__name__)
 
@@ -20,22 +23,11 @@ class WarehouseSupervisorNode:
         self.max_loops = int(settings.SUPERVISOR_MAX_LOOP or 3)
         self.prompt = supervisor_prompt
 
-        self.warehouse_supervisor = create_supervisor(
-            agents=[
-                inbound_agent,
-                outbound_agent,
-                inventory_agent
-            ],
-            model=self.llm,
-            prompt=self.prompt,
-            output_mode="last_message",
-            add_handoff_messages=True,
-            parallel_tool_calls=False,
-            supervisor_name="warehouse_supervisor",
-        ).compile(name="warehouse_supervisor")
+        self.warehouse_supervisor = create_agent(
+            tools=[sql_lookup_tool, rag_lookup_tool],
+        )
 
     def __call__(self, state: WMState) -> dict: # ← grabs the parent stream's writer
-        final_text = ""
 
         ##Feedback from verification node
         verification = state.verification_result

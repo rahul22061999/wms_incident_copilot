@@ -6,7 +6,7 @@ class EvidenceCollector:
         self.existing: list[EvidenceRecord] = existing or []
         self.collected: list[EvidenceRecord] = []
 
-    def add(self, source: str, content: dict):
+    def add(self, source, content: dict):
         version = (
             len([r for r in self.existing if r.source == source]) +
             len([r for r in self.collected if r.source == source])

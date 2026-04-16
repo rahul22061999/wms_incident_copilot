@@ -7,11 +7,11 @@ from domain.states.sql_subgraph_state.sql_graph_state import SQLGraphState
 
 load_dotenv()
 
+
 @tool(description="Lookup sql on the database")
 def sql_lookup_tool(
         question: str,
-        domain: Literal["inbound", "outbound", "inventory"],
-        runtime: ToolRuntime
+        domain: Literal["inbound", "outbound", "inventory"]
 ):
     """
     Run a SQL lookup against the WMS database for a specific domain.
@@ -31,15 +31,6 @@ def sql_lookup_tool(
         )
     )
 
-    content = lookup_question_on_database.get('content')
-
-    ##write it into the runtime collection object
-    collector = runtime.config.get("configurable", {}).get("evidence_collector")
-    if collector is not None:
-        collector.add(
-            source="sql",
-            content=content,
-        )
 
     return lookup_question_on_database.get('content')
 

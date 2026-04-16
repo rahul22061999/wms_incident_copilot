@@ -2,7 +2,7 @@ import logging
 from functools import lru_cache
 from langchain.agents import create_agent
 from langchain.agents.middleware import ModelFallbackMiddleware, ModelRetryMiddleware, ToolRetryMiddleware, \
-    ModelCallLimitMiddleware, ToolCallLimitMiddleware
+    ModelCallLimitMiddleware, ToolCallLimitMiddleware, SummarizationMiddleware
 from models.model_loader import get_google_llm, get_openai_fast_llm
 from tools.rag_lookup_tool import sop_retrieval_tool
 from tools.sql_lookup_tool import sql_lookup_tool
@@ -74,6 +74,14 @@ def inventory_agent():
                 thread_limit=10,
                 run_limit=3,
                 exit_behavior="error"
+            ),
+            SummarizationMiddleware(
+                model=fallback_llm,
+                trigger=[
+                    ("tokens", 10000),
+                    ("messages", 5)
+                ],
+                keep=("messages", 20)
             )
         ]
     )

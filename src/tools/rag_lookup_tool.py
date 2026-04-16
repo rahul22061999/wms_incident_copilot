@@ -1,22 +1,22 @@
 from functools import lru_cache
-
 from langchain_core.tools import tool
 from langchain_qdrant.qdrant import QdrantClient, QdrantVectorStore
 from langchain_classic.storage import LocalFileStore
 from langchain_classic.embeddings import CacheBackedEmbeddings
 from langchain_openai import OpenAIEmbeddings
-from langgraph.prebuilt import ToolRuntime
-
 from config import settings, BASE_DIR
 import pickle
-from datetime import datetime
 from dotenv import load_dotenv
+
+import logging
+logger = logging.getLogger(__name__)
 load_dotenv()
 QDRANT_PATH = BASE_DIR / "vectorstore"
 DOCUMENT_EMBED_CACHE_PATH = BASE_DIR / "vectorstore" / "document_embedding_cache"
 QUERY_EMBED_CACHE_PATH = BASE_DIR / "vectorstore" / "query_embedding_cache"
 COLLECTION_NAME   = "warehouse_sop"
 PARENT_STORE_PATH  = BASE_DIR/ "src" / "parent_documents.pkl"
+
 
 
 
@@ -53,7 +53,7 @@ def _get_parent_dict() -> dict:
     with open(PARENT_STORE_PATH, "rb") as f:
         return pickle.load(f)
 
-@tool("inbound_sop_lookup",
+@tool("sop_lookup",
     description=(
         "Search inbound SOP/process documentation. "
         "Use this when the question is about expected process, policy, procedure, "
@@ -62,9 +62,8 @@ def _get_parent_dict() -> dict:
         "Do not use this for live transactional counts or current system state."
     ))
 def sop_retrieval_tool(
-        runtime: ToolRuntime,
         query: str,
-        k: int = 3) -> list:
+        k: int = 2) -> list:
     """Retrieve relevant inbound SOP guidance for a natural-language question."""
     vectorstore = _get_vectorstore()
     parent_dict = _get_parent_dict()
@@ -78,14 +77,11 @@ def sop_retrieval_tool(
         pid = child.metadata.get("parent_id")
         if pid and pid not in seen and pid in parent_dict:
             seen.add(pid)
-            parents.append(parent_dict[pid])
-
-    collector = runtime.config.get("configurable", {}).get("evidence_collector")
-    collector.add(
-        source="sop",
-        content=parents,
-    )
+            parent_doc = parent_dict[pid]
+            parents.append({
+                "text": parent_doc.page_content,
+                "metadata": parent_doc.metadata,
+            })
 
 
     return parents
-

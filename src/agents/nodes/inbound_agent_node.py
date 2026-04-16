@@ -1,6 +1,6 @@
 from functools import lru_cache
 from langchain.agents.middleware import ModelFallbackMiddleware, ModelRetryMiddleware, ToolRetryMiddleware, \
-    ModelCallLimitMiddleware, ToolCallLimitMiddleware, HumanInTheLoopMiddleware
+    ModelCallLimitMiddleware, ToolCallLimitMiddleware, HumanInTheLoopMiddleware, SummarizationMiddleware
 from prompts.generate_inbound_agent_prompt import inbound_agent_prompt
 from models.model_loader import get_google_llm, get_openai_fast_llm
 from tools.sql_lookup_tool import sql_lookup_tool
@@ -25,7 +25,6 @@ def inbound_agent():
         tools=[sql_lookup_tool, sop_retrieval_tool],
         system_prompt=inbound_agent_prompt,
         name="inbound_agent",
-
         middleware=[
             ModelFallbackMiddleware(fallback_llm),
             ModelRetryMiddleware(max_retries=2, on_failure="error"),
@@ -34,7 +33,7 @@ def inbound_agent():
             ),
             ModelCallLimitMiddleware(
                 thread_limit=20,
-                run_limit=6,
+                run_limit=12,
                 exit_behavior="end"
             ),
             ToolCallLimitMiddleware(
@@ -42,20 +41,16 @@ def inbound_agent():
                 thread_limit=10,
                 run_limit=3,
                 exit_behavior="error"
+            ),
+            SummarizationMiddleware(
+                model=fallback_llm,
+                trigger=[
+                    ("tokens", 10000),
+                ],
+                keep=("messages", 20)
             )
 
         ]
     )
 
 inbound_agent = inbound_agent()
-
-
-# llm = get_google_llm()
-#
-# inbound_agent = create_agent(
-#     model=llm,
-#     tools=[sql_lookup_tool, sop_retrieval_tool],
-#     name="inbound_agent",
-#     system_prompt=inbound_agent_prompt,
-#
-# )
