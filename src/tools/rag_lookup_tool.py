@@ -25,7 +25,7 @@ def _load_cached_embeddings():
     """OpenAI embeddings wrapped with persistent disk cache."""
     underlying_embeddings = OpenAIEmbeddings(
         model=settings.OPENAI_EMBEDDING_MODEL,
-        api_key=settings.OPENAI_API_KEY,
+        api_key=settings.OPENAI_API_KEY
     )
 
 

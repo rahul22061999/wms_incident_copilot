@@ -4198,3 +4198,1144 @@ content
 2026-04-16 00:31:45,192 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
 2026-04-16 00:31:45,413 | INFO | agents.nodes.sql_run_sql_node | SQL node completed. Success: True, Domains: ['outbound']
 2026-04-16 00:31:49,025 | INFO | agents.nodes.sql_run_sql_node | SQL node completed. Success: True, Domains: ['inventory']
+2026-04-16 00:37:46,540 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-16 00:37:46,759 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent "HTTP/1.1 429 Too Many Requests"
+2026-04-16 00:38:04,465 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-16 00:38:04,471 | INFO | agents.nodes.router_node | task='parallel' enriched_query='Provide current on-hand inventory for SKU-009 and stock levels for SKU-4412 and SKU-9981; report inbound workload, outbound pick rate, and the putaway SOP as well as the WMS overview; define cycle count and the cycle count SOP; list counts of open POs and open sales orders; enumerate pending shipments and pending receipts; deliver inbound KPIs and outbound KPIs for today; compare pick rates across zones A, B, and C; report damage rate and the damage handling SOP; provide inbound and outbound process SOPs; identify the SKU with the highest returns and its supplier quality score; identify the warehouse with the lowest fill rate and recommended stock reallocation; determine PO-4521 received status and supplier contact if not received; identify the most backlogged order and its assigned carrier; identify the zone with the slowest pick rate and the corresponding improvement SOP; assess remaining inbound work and whether outbound picking improves after inbound; identify the SKU closest to stockout and compute the reorder quantity; identify overdue inbound shipments and the assigned dock supervisor; report root causes for today’s outbound delay; identify the oldest pending order and its customer priority tier; summarize today’s operations and provide recommended first actions; confirm whether the warehouse is running normally and report inbound throughput and stock coming in; outline putaway steps and how to handle broken boxes; report on stuck orders and any issues; report warehouse B utilization and the scope of the cycle count SOP; explain why shipments are late and how to handle damaged boxes; assess team performance on picking and any issues to know today.'
+2026-04-16 00:38:04,474 | INFO | agents.edges.route_after_router | Routing to PARALLEL path (ticket=INC, query=Provide current on-hand inventory for SKU-009 and stock levels for SKU-4412 and SKU-9981; report inbound workload, outbound pick rate, and the putaway SOP as well as the WMS overview; define cycle count and the cycle count SOP; list counts of open POs and open sales orders; enumerate pending shipments and pending receipts; deliver inbound KPIs and outbound KPIs for today; compare pick rates across zones A, B, and C; report damage rate and the damage handling SOP; provide inbound and outbound process SOPs; identify the SKU with the highest returns and its supplier quality score; identify the warehouse with the lowest fill rate and recommended stock reallocation; determine PO-4521 received status and supplier contact if not received; identify the most backlogged order and its assigned carrier; identify the zone with the slowest pick rate and the corresponding improvement SOP; assess remaining inbound work and whether outbound picking improves after inbound; identify the SKU closest to stockout and compute the reorder quantity; identify overdue inbound shipments and the assigned dock supervisor; report root causes for today’s outbound delay; identify the oldest pending order and its customer priority tier; summarize today’s operations and provide recommended first actions; confirm whether the warehouse is running normally and report inbound throughput and stock coming in; outline putaway steps and how to handle broken boxes; report on stuck orders and any issues; report warehouse B utilization and the scope of the cycle count SOP; explain why shipments are late and how to handle damaged boxes; assess team performance on picking and any issues to know today.)
+2026-04-16 00:38:09,498 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-16 00:38:09,692 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent "HTTP/1.1 429 Too Many Requests"
+2026-04-16 00:38:52,073 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-16 00:38:52,103 | INFO | agents.nodes.sql_lookup_node | SQL Lookup Node: inventory
+2026-04-16 00:38:52,103 | INFO | agents.nodes.sql_lookup_node | SQL Lookup Node: inventory
+2026-04-16 00:38:52,109 | INFO | agents.nodes.sql_lookup_node | SQL Lookup Node: inventory
+2026-04-16 00:38:52,111 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-16 00:38:52,111 | INFO | agents.nodes.sql_lookup_node | SQL Lookup Node: inbound
+2026-04-16 00:38:52,115 | INFO | agents.nodes.sql_lookup_node | SQL Lookup Node: outbound
+2026-04-16 00:38:52,117 | INFO | agents.nodes.sop_lookup_node | Sop lookup query: What is the standard operating procedure for putaway?
+2026-04-16 00:38:52,120 | INFO | agents.nodes.sop_lookup_node | Sop lookup query: Provide a high-level overview of the current WMS operations.
+2026-04-16 00:38:52,122 | INFO | agents.nodes.sop_lookup_node | Sop lookup query: Define cycle count.
+2026-04-16 00:38:52,124 | INFO | agents.nodes.sop_lookup_node | Sop lookup query: What is the standard operating procedure for cycle counts?
+2026-04-16 00:38:52,125 | INFO | agents.nodes.sql_lookup_node | SQL Lookup Node: inbound
+2026-04-16 00:38:52,128 | INFO | agents.nodes.sql_lookup_node | SQL Lookup Node: outbound
+2026-04-16 00:38:52,130 | INFO | agents.nodes.sql_lookup_node | SQL Lookup Node: outbound
+2026-04-16 00:38:52,132 | INFO | agents.nodes.sql_lookup_node | SQL Lookup Node: inbound
+2026-04-16 00:38:52,132 | INFO | agents.nodes.sql_lookup_node | SQL Lookup Node: inbound
+2026-04-16 00:38:52,133 | INFO | agents.nodes.sql_lookup_node | SQL Lookup Node: outbound
+2026-04-16 00:38:52,134 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-16 00:38:52,134 | INFO | agents.nodes.sql_lookup_node | SQL Lookup Node: outbound
+2026-04-16 00:38:52,139 | INFO | agents.nodes.sql_lookup_node | SQL Lookup Node: outbound
+2026-04-16 00:38:52,140 | INFO | agents.nodes.sql_lookup_node | SQL Lookup Node: outbound
+2026-04-16 00:38:52,141 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-16 00:38:52,142 | INFO | agents.nodes.sql_lookup_node | SQL Lookup Node: inbound
+2026-04-16 00:38:52,145 | INFO | agents.nodes.sop_lookup_node | Sop lookup query: What is the standard operating procedure for handling damaged goods?
+2026-04-16 00:38:52,145 | INFO | agents.nodes.sop_lookup_node | Sop lookup query: What is the inbound process SOP?
+2026-04-16 00:38:52,145 | INFO | agents.nodes.sop_lookup_node | Sop lookup query: What is the outbound process SOP?
+2026-04-16 00:38:52,146 | INFO | agents.nodes.sql_lookup_node | SQL Lookup Node: inbound
+2026-04-16 00:38:52,147 | INFO | agents.nodes.sql_lookup_node | SQL Lookup Node: inventory
+2026-04-16 00:38:52,148 | INFO | agents.nodes.sql_lookup_node | SQL Lookup Node: inbound
+2026-04-16 00:38:52,149 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-16 00:38:52,149 | INFO | agents.nodes.sql_lookup_node | SQL Lookup Node: outbound
+2026-04-16 00:38:52,152 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-16 00:38:52,152 | INFO | agents.nodes.sql_lookup_node | SQL Lookup Node: outbound
+2026-04-16 00:38:52,154 | INFO | agents.nodes.sql_lookup_node | SQL Lookup Node: inbound
+2026-04-16 00:38:52,155 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-16 00:38:52,155 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-16 00:38:52,155 | INFO | agents.nodes.sql_lookup_node | SQL Lookup Node: outbound
+2026-04-16 00:38:52,156 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-16 00:38:52,158 | INFO | agents.nodes.sql_lookup_node | SQL Lookup Node: inventory
+2026-04-16 00:38:52,159 | INFO | agents.nodes.sql_lookup_node | SQL Lookup Node: inbound
+2026-04-16 00:38:52,159 | INFO | agents.nodes.sql_lookup_node | SQL Lookup Node: outbound
+2026-04-16 00:38:52,159 | INFO | agents.nodes.sql_lookup_node | SQL Lookup Node: outbound
+2026-04-16 00:38:52,160 | INFO | agents.nodes.sop_lookup_node | Sop lookup query: Provide a summary of today’s operations and recommended first actions.
+2026-04-16 00:38:52,160 | INFO | agents.nodes.sop_lookup_node | Sop lookup query: Is the warehouse running normally today?
+2026-04-16 00:38:52,160 | INFO | agents.nodes.sql_lookup_node | SQL Lookup Node: inbound
+2026-04-16 00:38:52,160 | INFO | agents.nodes.sql_lookup_node | SQL Lookup Node: inbound
+2026-04-16 00:38:52,160 | INFO | agents.nodes.sop_lookup_node | Sop lookup query: What are the putaway steps?
+2026-04-16 00:38:52,160 | INFO | agents.nodes.sop_lookup_node | Sop lookup query: How should broken boxes be handled during putaway?
+2026-04-16 00:38:52,161 | INFO | agents.nodes.sql_lookup_node | SQL Lookup Node: outbound
+2026-04-16 00:38:52,161 | INFO | agents.nodes.sql_lookup_node | SQL Lookup Node: inventory
+2026-04-16 00:38:52,161 | INFO | agents.nodes.sop_lookup_node | Sop lookup query: What is the scope of the cycle count SOP?
+2026-04-16 00:38:52,161 | INFO | agents.nodes.sql_lookup_node | SQL Lookup Node: outbound
+2026-04-16 00:38:52,161 | INFO | agents.nodes.sop_lookup_node | Sop lookup query: What is the SOP for handling damaged boxes during shipping?
+2026-04-16 00:38:52,161 | INFO | agents.nodes.sql_lookup_node | SQL Lookup Node: outbound
+2026-04-16 00:38:52,277 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent "HTTP/1.1 429 Too Many Requests"
+2026-04-16 00:38:52,298 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent "HTTP/1.1 429 Too Many Requests"
+2026-04-16 00:38:52,303 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent "HTTP/1.1 429 Too Many Requests"
+2026-04-16 00:38:52,303 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent "HTTP/1.1 429 Too Many Requests"
+2026-04-16 00:38:52,319 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent "HTTP/1.1 429 Too Many Requests"
+2026-04-16 00:38:52,320 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent "HTTP/1.1 429 Too Many Requests"
+2026-04-16 00:38:52,321 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent "HTTP/1.1 429 Too Many Requests"
+2026-04-16 00:38:52,324 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent "HTTP/1.1 429 Too Many Requests"
+2026-04-16 00:38:52,460 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-04-16 00:38:52,477 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-16 00:38:52,510 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-04-16 00:38:52,522 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-16 00:38:52,572 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent "HTTP/1.1 429 Too Many Requests"
+2026-04-16 00:38:52,572 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-04-16 00:38:52,585 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-16 00:38:52,631 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent "HTTP/1.1 429 Too Many Requests"
+2026-04-16 00:38:52,717 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-04-16 00:38:52,730 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-16 00:38:52,737 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent "HTTP/1.1 429 Too Many Requests"
+2026-04-16 00:38:52,819 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent "HTTP/1.1 429 Too Many Requests"
+2026-04-16 00:38:55,577 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-16 00:38:55,595 | INFO | agents.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['inventory']
+2026-04-16 00:38:55,925 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-16 00:38:58,117 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-16 00:38:58,122 | INFO | agents.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['inventory']
+2026-04-16 00:38:58,583 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-16 00:38:58,945 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-16 00:38:58,950 | INFO | agents.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['inventory']
+2026-04-16 00:38:59,476 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-16 00:38:59,642 | INFO | agents.nodes.sql_run_sql_node | SQL node completed. Success: True, Domains: ['inventory']
+2026-04-16 00:38:59,655 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-16 00:38:59,828 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent "HTTP/1.1 429 Too Many Requests"
+2026-04-16 00:39:00,087 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-16 00:39:00,090 | INFO | agents.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['outbound']
+2026-04-16 00:39:00,289 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-16 00:39:01,266 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-16 00:39:01,275 | INFO | agents.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['inbound']
+2026-04-16 00:39:01,545 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-16 00:39:02,245 | INFO | agents.nodes.sql_run_sql_node | SQL node completed. Success: True, Domains: ['inventory']
+2026-04-16 00:39:02,248 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-16 00:39:02,348 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent "HTTP/1.1 429 Too Many Requests"
+2026-04-16 00:39:02,545 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-16 00:39:02,546 | INFO | agents.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['inbound']
+2026-04-16 00:39:02,762 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-16 00:39:03,192 | INFO | agents.nodes.sql_run_sql_node | SQL node completed. Success: True, Domains: ['inventory']
+2026-04-16 00:39:03,196 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-16 00:39:03,294 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent "HTTP/1.1 429 Too Many Requests"
+2026-04-16 00:39:03,551 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-16 00:39:03,554 | INFO | agents.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['outbound']
+2026-04-16 00:39:03,955 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-16 00:39:04,125 | INFO | agents.nodes.sql_run_sql_node | SQL node completed. Success: True, Domains: ['outbound']
+2026-04-16 00:39:04,137 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-16 00:39:04,237 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent "HTTP/1.1 429 Too Many Requests"
+2026-04-16 00:39:04,687 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-16 00:39:04,692 | INFO | agents.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['inbound']
+2026-04-16 00:39:05,127 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-16 00:39:05,131 | INFO | agents.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['outbound']
+2026-04-16 00:39:05,343 | INFO | agents.nodes.sql_run_sql_node | SQL node completed. Success: True, Domains: ['inbound']
+2026-04-16 00:39:05,355 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-16 00:39:05,390 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-16 00:39:05,454 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent "HTTP/1.1 429 Too Many Requests"
+2026-04-16 00:39:05,544 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-16 00:39:06,367 | INFO | agents.nodes.sql_run_sql_node | SQL node completed. Success: True, Domains: ['inbound']
+2026-04-16 00:39:06,381 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-16 00:39:06,488 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent "HTTP/1.1 429 Too Many Requests"
+2026-04-16 00:39:06,890 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-16 00:39:06,895 | INFO | agents.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['inbound']
+2026-04-16 00:39:07,254 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-16 00:39:07,640 | INFO | agents.nodes.sql_run_sql_node | SQL node completed. Success: True, Domains: ['outbound']
+2026-04-16 00:39:07,650 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-16 00:39:07,759 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent "HTTP/1.1 429 Too Many Requests"
+2026-04-16 00:39:08,974 | INFO | agents.nodes.sql_run_sql_node | SQL node completed. Success: True, Domains: ['inbound']
+2026-04-16 00:39:08,988 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-16 00:39:09,100 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent "HTTP/1.1 429 Too Many Requests"
+2026-04-16 00:39:09,215 | INFO | agents.nodes.sql_run_sql_node | SQL node completed. Success: True, Domains: ['outbound']
+2026-04-16 00:39:09,226 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-16 00:39:09,329 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent "HTTP/1.1 429 Too Many Requests"
+2026-04-16 00:39:10,868 | INFO | agents.nodes.sql_run_sql_node | SQL node completed. Success: True, Domains: ['inbound']
+2026-04-16 00:39:10,883 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-16 00:39:10,998 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent "HTTP/1.1 429 Too Many Requests"
+2026-04-16 00:39:12,341 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-16 00:39:12,346 | INFO | agents.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['outbound']
+2026-04-16 00:39:12,430 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-16 00:39:12,433 | INFO | agents.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['outbound']
+2026-04-16 00:39:12,761 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-16 00:39:12,858 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-16 00:39:13,922 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-16 00:39:13,927 | INFO | agents.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['outbound']
+2026-04-16 00:39:14,201 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-16 00:39:15,051 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-16 00:39:15,056 | INFO | agents.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['inbound']
+2026-04-16 00:39:15,188 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-16 00:39:15,191 | INFO | agents.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['inbound']
+2026-04-16 00:39:15,281 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-16 00:39:15,560 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-16 00:39:16,397 | INFO | agents.nodes.sql_run_sql_node | SQL node completed. Success: True, Domains: ['outbound']
+2026-04-16 00:39:16,415 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-16 00:39:16,524 | INFO | agents.nodes.sql_run_sql_node | SQL node completed. Success: True, Domains: ['outbound']
+2026-04-16 00:39:16,535 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-16 00:39:16,581 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent "HTTP/1.1 429 Too Many Requests"
+2026-04-16 00:39:16,708 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent "HTTP/1.1 429 Too Many Requests"
+2026-04-16 00:39:17,802 | INFO | agents.nodes.sql_run_sql_node | SQL node completed. Success: True, Domains: ['outbound']
+2026-04-16 00:39:17,812 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-16 00:39:17,917 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent "HTTP/1.1 429 Too Many Requests"
+2026-04-16 00:39:17,965 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-16 00:39:17,968 | INFO | agents.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['outbound']
+2026-04-16 00:39:18,178 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-16 00:39:18,181 | INFO | agents.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['inbound']
+2026-04-16 00:39:18,268 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-16 00:39:18,500 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-16 00:39:18,505 | INFO | agents.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['outbound']
+2026-04-16 00:39:18,520 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-16 00:39:18,852 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-16 00:39:18,889 | INFO | agents.nodes.sql_run_sql_node | SQL node completed. Success: True, Domains: ['inbound']
+2026-04-16 00:39:18,900 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-16 00:39:19,001 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent "HTTP/1.1 429 Too Many Requests"
+2026-04-16 00:39:19,125 | INFO | agents.nodes.sql_run_sql_node | SQL node completed. Success: True, Domains: ['inbound']
+2026-04-16 00:39:19,140 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-16 00:39:19,244 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent "HTTP/1.1 429 Too Many Requests"
+2026-04-16 00:39:21,872 | INFO | agents.nodes.sql_run_sql_node | SQL node completed. Success: True, Domains: ['outbound']
+2026-04-16 00:39:21,883 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-16 00:39:22,135 | ERROR | agents.nodes.sql_lookup_node | SQL Lookup Node Timeout
+2026-04-16 00:39:22,149 | ERROR | agents.nodes.sql_lookup_node | SQL Lookup Node Timeout
+2026-04-16 00:39:22,150 | ERROR | agents.nodes.sql_lookup_node | SQL Lookup Node Timeout
+2026-04-16 00:39:22,152 | INFO | agents.nodes.sql_run_sql_node | SQL node completed. Success: True, Domains: ['inbound']
+2026-04-16 00:39:22,159 | ERROR | agents.nodes.sql_lookup_node | SQL Lookup Node Timeout
+2026-04-16 00:39:22,160 | ERROR | agents.nodes.sql_lookup_node | SQL Lookup Node Timeout
+2026-04-16 00:39:22,161 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-16 00:39:22,162 | ERROR | agents.nodes.sql_lookup_node | SQL Lookup Node Timeout
+2026-04-16 00:39:22,164 | ERROR | agents.nodes.sql_lookup_node | SQL Lookup Node Timeout
+2026-04-16 00:39:22,164 | ERROR | agents.nodes.sql_lookup_node | SQL Lookup Node Timeout
+2026-04-16 00:39:22,164 | ERROR | agents.nodes.sql_lookup_node | SQL Lookup Node Timeout
+2026-04-16 00:39:22,164 | ERROR | agents.nodes.sql_lookup_node | SQL Lookup Node Timeout
+2026-04-16 00:39:22,165 | ERROR | agents.nodes.sql_lookup_node | SQL Lookup Node Timeout
+2026-04-16 00:39:22,165 | ERROR | agents.nodes.sql_lookup_node | SQL Lookup Node Timeout
+2026-04-16 00:39:22,165 | ERROR | agents.nodes.sql_lookup_node | SQL Lookup Node Timeout
+2026-04-16 00:39:22,166 | ERROR | agents.nodes.sql_lookup_node | SQL Lookup Node Timeout
+2026-04-16 00:39:22,166 | ERROR | agents.nodes.sql_lookup_node | SQL Lookup Node Timeout
+2026-04-16 00:39:22,167 | ERROR | agents.nodes.sql_lookup_node | SQL Lookup Node Timeout
+2026-04-16 00:39:22,321 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent "HTTP/1.1 429 Too Many Requests"
+2026-04-16 00:39:22,463 | INFO | agents.nodes.sql_run_sql_node | SQL node completed. Success: True, Domains: ['outbound']
+2026-04-16 00:39:22,783 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent "HTTP/1.1 200 OK"
+2026-04-16 00:39:22,786 | INFO | agents.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['inbound']
+2026-04-16 00:39:23,091 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-16 00:39:26,416 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-16 00:39:26,422 | INFO | agents.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['outbound']
+2026-04-16 00:39:26,700 | INFO | agents.nodes.sql_run_sql_node | SQL node completed. Success: True, Domains: ['inbound']
+2026-04-16 00:39:27,254 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-16 00:39:29,010 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-16 00:39:29,017 | INFO | agents.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['inbound']
+2026-04-16 00:39:29,222 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-16 00:39:30,938 | INFO | agents.nodes.sql_run_sql_node | SQL node completed. Success: True, Domains: ['outbound']
+2026-04-16 00:39:31,330 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-16 00:39:31,334 | INFO | agents.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['inventory']
+2026-04-16 00:39:31,607 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-16 00:39:32,456 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-16 00:39:32,460 | INFO | agents.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['inbound']
+2026-04-16 00:39:32,697 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-16 00:39:32,850 | INFO | agents.nodes.sql_run_sql_node | SQL node completed. Success: True, Domains: ['inbound']
+2026-04-16 00:39:35,207 | INFO | agents.nodes.sql_run_sql_node | SQL node completed. Success: True, Domains: ['inventory']
+2026-04-16 00:39:35,338 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-16 00:39:35,342 | INFO | agents.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['inbound']
+2026-04-16 00:39:35,558 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-16 00:39:36,351 | INFO | agents.nodes.sql_run_sql_node | SQL node completed. Success: True, Domains: ['inbound']
+2026-04-16 00:39:38,218 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-16 00:39:38,224 | INFO | agents.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['inventory']
+2026-04-16 00:39:38,706 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-16 00:39:39,162 | INFO | agents.nodes.sql_run_sql_node | SQL node completed. Success: True, Domains: ['inbound']
+2026-04-16 00:39:40,396 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-16 00:39:40,402 | INFO | agents.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['outbound']
+2026-04-16 00:39:40,798 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-16 00:39:41,118 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-16 00:39:41,124 | INFO | agents.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['outbound']
+2026-04-16 00:39:41,597 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-16 00:39:41,597 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-16 00:39:41,601 | INFO | agents.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['outbound']
+2026-04-16 00:39:41,958 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-16 00:39:42,530 | INFO | agents.nodes.sql_run_sql_node | SQL node completed. Success: True, Domains: ['inventory']
+2026-04-16 00:39:44,495 | INFO | agents.nodes.sql_run_sql_node | SQL node completed. Success: False, Domains: ['outbound']
+2026-04-16 00:39:45,243 | INFO | agents.nodes.sql_run_sql_node | SQL node completed. Success: True, Domains: ['outbound']
+2026-04-16 00:39:45,618 | INFO | agents.nodes.sql_run_sql_node | SQL node completed. Success: True, Domains: ['outbound']
+2026-04-16 00:39:50,331 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-16 00:39:50,338 | INFO | agents.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['outbound']
+2026-04-16 00:39:50,889 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-16 00:39:54,766 | INFO | agents.nodes.sql_run_sql_node | SQL node completed. Success: False, Domains: ['outbound']
+2026-04-16 00:41:13,993 | INFO | httpx | HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-04-16 00:41:15,172 | INFO | agents.nodes.router_node | task='parallel' enriched_query='What is the current on-hand inventory level for SKU-009?'
+2026-04-16 00:41:15,176 | INFO | agents.edges.route_after_router | Routing to PARALLEL path (ticket=INC, query=What is the current on-hand inventory level for SKU-009?)
+2026-04-16 00:41:15,610 | INFO | httpx | HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-04-16 00:41:16,875 | INFO | agents.nodes.sql_lookup_node | SQL Lookup Node: inventory
+2026-04-16 00:41:16,890 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-16 00:41:17,057 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent "HTTP/1.1 429 Too Many Requests"
+2026-04-16 00:41:23,310 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-16 00:41:23,313 | INFO | agents.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['inventory']
+2026-04-16 00:41:23,822 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-16 00:41:27,768 | INFO | agents.nodes.sql_run_sql_node | SQL node completed. Success: True, Domains: ['inventory']
+2026-04-16 00:41:44,394 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-16 00:41:44,564 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent "HTTP/1.1 429 Too Many Requests"
+2026-04-16 00:41:48,500 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-16 00:41:48,504 | INFO | agents.nodes.router_node | task='parallel' enriched_query='What is the on-hand quantity for SKU-009 in inventory?'
+2026-04-16 00:41:48,506 | INFO | agents.edges.route_after_router | Routing to PARALLEL path (ticket=INC, query=What is the on-hand quantity for SKU-009 in inventory?)
+2026-04-16 00:41:53,526 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-16 00:41:53,704 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent "HTTP/1.1 429 Too Many Requests"
+2026-04-16 00:41:56,076 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-16 00:41:56,083 | INFO | agents.nodes.sql_lookup_node | SQL Lookup Node: inventory
+2026-04-16 00:41:56,089 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-16 00:41:56,182 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent "HTTP/1.1 429 Too Many Requests"
+2026-04-16 00:42:00,380 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-16 00:42:00,385 | INFO | agents.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['inventory']
+2026-04-16 00:42:00,788 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-16 00:42:04,475 | INFO | agents.nodes.sql_run_sql_node | SQL node completed. Success: True, Domains: ['inventory']
+2026-04-16 07:48:56,011 | INFO | httpx | HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-04-16 07:48:56,941 | INFO | agents.nodes.router_node | task='parallel' enriched_query='What is the current on-hand inventory level for SKU-009?'
+2026-04-16 07:48:56,945 | INFO | agents.edges.route_after_router | Routing to PARALLEL path (ticket=INC, query=What is the current on-hand inventory level for SKU-009?)
+2026-04-16 07:48:57,445 | INFO | httpx | HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-04-16 07:48:59,154 | INFO | agents.nodes.sql_lookup_node | SQL Lookup Node: inventory
+2026-04-16 07:48:59,165 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-16 07:49:03,074 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent "HTTP/1.1 200 OK"
+2026-04-16 07:49:03,080 | INFO | agents.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['inventory']
+2026-04-16 07:49:03,732 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-16 07:49:09,131 | INFO | agents.nodes.sql_run_sql_node | SQL node completed. Success: True, Domains: ['inventory']
+2026-04-16 07:51:31,205 | INFO | httpx | HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-04-16 07:51:32,347 | INFO | agents.nodes.router_node | task='parallel' enriched_query='What is the current inventory level for SKU-009 and what are the standard operating procedures for outbound trailer dispatch?'
+2026-04-16 07:51:32,350 | INFO | agents.edges.route_after_router | Routing to PARALLEL path (ticket=INC, query=What is the current inventory level for SKU-009 and what are the standard operating procedures for outbound trailer dispatch?)
+2026-04-16 07:51:32,736 | INFO | httpx | HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-04-16 07:51:35,299 | INFO | agents.nodes.sql_lookup_node | SQL Lookup Node: inventory
+2026-04-16 07:51:35,301 | INFO | agents.nodes.sop_lookup_node | Sop lookup query: What are the standard operating procedures for outbound trailer dispatch?
+2026-04-16 07:51:35,319 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-16 07:51:35,516 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent "HTTP/1.1 429 Too Many Requests"
+2026-04-16 07:51:36,636 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-04-16 07:51:41,116 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-16 07:51:41,121 | INFO | agents.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['inventory']
+2026-04-16 07:51:41,387 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-16 07:51:45,157 | INFO | agents.nodes.sql_run_sql_node | SQL node completed. Success: True, Domains: ['inventory']
+2026-04-16 07:55:16,158 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-16 07:55:16,977 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent "HTTP/1.1 200 OK"
+2026-04-16 07:55:16,989 | INFO | agents.nodes.router_node | task='parallel' enriched_query='What is the current inventory level for SKU-009? Provide the standard operating procedure for outbound trailer dispatch and the process for inter-warehouse inventory transfers.'
+2026-04-16 07:55:16,992 | INFO | agents.edges.route_after_router | Routing to PARALLEL path (ticket=INC, query=What is the current inventory level for SKU-009? Provide the standard operating procedure for outbound trailer dispatch and the process for inter-warehouse inventory transfers.)
+2026-04-16 07:55:22,026 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-16 07:55:22,222 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent "HTTP/1.1 429 Too Many Requests"
+2026-04-16 07:55:29,901 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-16 07:55:29,914 | INFO | agents.nodes.sql_lookup_node | SQL Lookup Node: inventory
+2026-04-16 07:55:29,915 | INFO | agents.nodes.sop_lookup_node | Sop lookup query: What is the standard operating procedure for outbound trailer dispatch?
+2026-04-16 07:55:29,919 | INFO | agents.nodes.sop_lookup_node | Sop lookup query: What is the standard operating procedure for inter-warehouse inventory transfers?
+2026-04-16 07:55:29,925 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-16 07:55:30,098 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent "HTTP/1.1 429 Too Many Requests"
+2026-04-16 07:55:30,665 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-04-16 07:55:30,722 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-04-16 07:55:36,759 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-16 07:55:36,764 | INFO | agents.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['inventory']
+2026-04-16 07:55:37,173 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-16 07:55:40,977 | INFO | agents.nodes.sql_run_sql_node | SQL node completed. Success: True, Domains: ['inventory']
+2026-04-16 07:59:05,312 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-16 07:59:05,511 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent "HTTP/1.1 429 Too Many Requests"
+2026-04-16 07:59:12,111 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-16 07:59:12,120 | INFO | agents.nodes.router_node | task='parallel' enriched_query='What is the remaining pick task count in the current picking batch?'
+2026-04-16 07:59:12,123 | INFO | agents.edges.route_after_router | Routing to PARALLEL path (ticket=INC, query=What is the remaining pick task count in the current picking batch?)
+2026-04-16 07:59:17,146 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-16 07:59:17,324 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent "HTTP/1.1 429 Too Many Requests"
+2026-04-16 07:59:21,939 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-16 07:59:21,951 | INFO | agents.nodes.sql_lookup_node | SQL Lookup Node: outbound
+2026-04-16 07:59:21,959 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-16 07:59:22,075 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent "HTTP/1.1 429 Too Many Requests"
+2026-04-16 07:59:39,041 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-16 07:59:39,051 | INFO | agents.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['outbound']
+2026-04-16 07:59:39,609 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-16 07:59:43,406 | INFO | agents.nodes.sql_run_sql_node | SQL node completed. Success: True, Domains: ['outbound']
+2026-04-16 08:01:23,693 | INFO | httpx | HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-04-16 08:01:25,870 | INFO | agents.nodes.router_node | task='parallel' enriched_query='What is the remaining pick volume in the picking queue?'
+2026-04-16 08:01:25,874 | INFO | agents.edges.route_after_router | Routing to PARALLEL path (ticket=INC, query=What is the remaining pick volume in the picking queue?)
+2026-04-16 08:01:26,620 | INFO | httpx | HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-04-16 08:01:45,296 | INFO | agents.nodes.sql_lookup_node | SQL Lookup Node: outbound
+2026-04-16 08:01:45,306 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-16 08:01:45,540 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent "HTTP/1.1 429 Too Many Requests"
+2026-04-16 08:01:55,645 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-16 08:01:55,649 | INFO | agents.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['outbound']
+2026-04-16 08:01:56,052 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-16 08:01:59,765 | INFO | agents.nodes.sql_run_sql_node | SQL node completed. Success: True, Domains: ['outbound']
+2026-04-16 08:55:16,028 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-16 08:55:16,996 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent "HTTP/1.1 200 OK"
+2026-04-16 08:55:17,010 | INFO | agents.nodes.router_node | task='parallel' enriched_query='What is the remaining quantity of units in the inbound picking process?'
+2026-04-16 08:55:17,012 | INFO | agents.edges.route_after_router | Routing to PARALLEL path (ticket=INC, query=What is the remaining quantity of units in the inbound picking process?)
+2026-04-16 08:55:22,035 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-16 08:55:22,250 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent "HTTP/1.1 429 Too Many Requests"
+2026-04-16 08:55:27,357 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-16 08:55:27,373 | INFO | agents.nodes.sql_lookup_node | SQL Lookup Node: inbound
+2026-04-16 08:55:27,386 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-16 08:55:27,558 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent "HTTP/1.1 429 Too Many Requests"
+2026-04-16 08:55:34,252 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-16 08:55:34,259 | INFO | agents.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['inbound']
+2026-04-16 08:55:34,701 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-16 08:55:39,217 | INFO | agents.nodes.sql_run_sql_node | SQL node completed. Success: True, Domains: ['inbound']
+2026-04-16 08:55:50,022 | INFO | httpx | HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-04-16 08:55:50,583 | INFO | agents.nodes.router_node | task='parallel' enriched_query='What is the current pending volume for inbound putaway?'
+2026-04-16 08:55:50,586 | INFO | agents.edges.route_after_router | Routing to PARALLEL path (ticket=INC, query=What is the current pending volume for inbound putaway?)
+2026-04-16 08:55:51,047 | INFO | httpx | HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-04-16 08:55:52,096 | INFO | agents.nodes.sql_lookup_node | SQL Lookup Node: inbound
+2026-04-16 08:55:52,104 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-16 08:55:52,287 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent "HTTP/1.1 429 Too Many Requests"
+2026-04-16 08:55:58,530 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-16 08:55:58,539 | INFO | agents.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['inbound']
+2026-04-16 08:55:58,840 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-16 08:56:03,154 | INFO | agents.nodes.sql_run_sql_node | SQL node completed. Success: True, Domains: ['inbound']
+2026-04-16 08:57:08,712 | INFO | httpx | HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-04-16 08:57:09,358 | INFO | agents.nodes.router_node | task='parallel' enriched_query='Identify the throughput bottlenecks within the inbound process.'
+2026-04-16 08:57:09,360 | INFO | agents.edges.route_after_router | Routing to PARALLEL path (ticket=INC, query=Identify the throughput bottlenecks within the inbound process.)
+2026-04-16 08:57:09,989 | INFO | httpx | HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-04-16 08:57:11,411 | INFO | agents.nodes.sql_lookup_node | SQL Lookup Node: inbound
+2026-04-16 08:57:11,432 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-16 08:57:11,846 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent "HTTP/1.1 429 Too Many Requests"
+2026-04-16 08:57:41,413 | ERROR | agents.nodes.sql_lookup_node | SQL Lookup Node Timeout
+2026-04-16 08:57:49,770 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-16 08:57:49,792 | INFO | agents.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['inbound']
+2026-04-16 08:57:50,758 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-16 08:57:54,473 | INFO | agents.nodes.sql_run_sql_node | SQL node completed. Success: True, Domains: ['inbound']
+2026-04-16 08:58:13,694 | INFO | httpx | HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-04-16 08:58:14,328 | INFO | agents.nodes.router_node | task='parallel' enriched_query='What are the primary bottlenecks within the inbound process?'
+2026-04-16 08:58:14,330 | INFO | agents.edges.route_after_router | Routing to PARALLEL path (ticket=INC, query=What are the primary bottlenecks within the inbound process?)
+2026-04-16 08:58:14,783 | INFO | httpx | HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-04-16 08:58:16,034 | INFO | agents.nodes.sql_lookup_node | SQL Lookup Node: inbound
+2026-04-16 08:58:16,045 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-16 08:58:16,927 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent "HTTP/1.1 200 OK"
+2026-04-16 08:58:16,932 | INFO | agents.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['inbound']
+2026-04-16 08:58:17,279 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-16 08:58:20,993 | INFO | agents.nodes.sql_run_sql_node | SQL node completed. Success: True, Domains: ['inbound']
+2026-04-16 09:11:23,502 | INFO | httpx | HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-04-16 09:11:24,133 | INFO | agents.nodes.router_node | task='parallel' enriched_query='Identify the operational bottlenecks within the inbound process.'
+2026-04-16 09:11:24,137 | INFO | agents.edges.route_after_router | Routing to PARALLEL path (ticket=INC, query=Identify the operational bottlenecks within the inbound process.)
+2026-04-16 09:11:24,697 | INFO | httpx | HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-04-16 09:11:26,072 | INFO | agents.nodes.sql_lookup_node | SQL Lookup Node: inbound
+2026-04-16 09:11:26,078 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-16 09:11:26,324 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent "HTTP/1.1 429 Too Many Requests"
+2026-04-16 09:11:55,348 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-16 09:11:55,369 | INFO | agents.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['inbound']
+2026-04-16 09:11:56,073 | ERROR | agents.nodes.sql_lookup_node | SQL Lookup Node Timeout
+2026-04-16 09:11:56,248 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-16 09:11:59,780 | INFO | agents.nodes.sql_run_sql_node | SQL node completed. Success: False, Domains: ['inbound']
+2026-04-16 09:13:39,171 | INFO | httpx | HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-04-16 09:13:39,672 | INFO | agents.nodes.router_node | task='parallel' enriched_query='What are the current bottlenecks within the inbound process throughput?'
+2026-04-16 09:13:39,674 | INFO | agents.edges.route_after_router | Routing to PARALLEL path (ticket=INC, query=What are the current bottlenecks within the inbound process throughput?)
+2026-04-16 09:13:39,999 | INFO | httpx | HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-04-16 09:13:41,044 | INFO | agents.nodes.sql_lookup_node | SQL Lookup Node: inbound
+2026-04-16 09:13:41,054 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-16 09:13:41,259 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent "HTTP/1.1 429 Too Many Requests"
+2026-04-16 09:14:05,430 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-16 09:14:05,442 | INFO | agents.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['inbound']
+2026-04-16 09:14:06,000 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-16 09:14:09,894 | INFO | agents.nodes.sql_run_sql_node | SQL node completed. Success: True, Domains: ['inbound']
+2026-04-16 17:28:56,144 | INFO | httpx | HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-04-16 17:28:56,918 | INFO | agents.nodes.router_node | task='sequential' enriched_query='Identify throughput bottlenecks within the inbound process and determine if they are dependent on picking operations.'
+2026-04-16 17:28:56,920 | INFO | agents.edges.route_after_router | Routing to SEQUENTIAL path (ticket=INC, query=Identify throughput bottlenecks within the inbound process and determine if they are dependent on picking operations.)
+2026-04-16 17:28:58,964 | INFO | httpx | HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-04-16 17:29:00,467 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-16 17:29:00,478 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-16 17:29:03,115 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent "HTTP/1.1 200 OK"
+2026-04-16 17:29:03,121 | INFO | agents.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['outbound']
+2026-04-16 17:29:06,220 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent "HTTP/1.1 200 OK"
+2026-04-16 17:29:06,227 | INFO | agents.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['inbound']
+2026-04-16 17:29:07,441 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-16 17:29:10,092 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-16 17:29:11,144 | INFO | agents.nodes.sql_run_sql_node | SQL node completed. Success: False, Domains: ['outbound']
+2026-04-16 17:29:13,867 | INFO | agents.nodes.sql_run_sql_node | SQL node completed. Success: False, Domains: ['inbound']
+2026-04-16 17:29:16,008 | INFO | httpx | HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-04-16 17:29:57,233 | INFO | httpx | HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-04-16 17:29:58,073 | INFO | agents.nodes.router_node | task='sequential' enriched_query='Identify the bottlenecks within the inbound process and determine if they are creating a dependency that impacts picking throughput.'
+2026-04-16 17:29:58,077 | INFO | agents.edges.route_after_router | Routing to SEQUENTIAL path (ticket=INC, query=Identify the bottlenecks within the inbound process and determine if they are creating a dependency that impacts picking throughput.)
+2026-04-16 17:30:00,231 | INFO | httpx | HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-04-16 17:30:03,889 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-16 17:30:03,892 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-16 17:30:03,894 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-16 17:30:04,115 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent "HTTP/1.1 429 Too Many Requests"
+2026-04-16 17:30:04,117 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent "HTTP/1.1 429 Too Many Requests"
+2026-04-16 17:30:04,117 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent "HTTP/1.1 429 Too Many Requests"
+2026-04-16 17:30:07,538 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-04-16 17:30:24,308 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-16 17:30:24,325 | INFO | agents.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['inbound']
+2026-04-16 17:30:27,740 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-16 17:30:27,746 | INFO | agents.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['outbound']
+2026-04-16 17:30:28,225 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-16 17:30:29,244 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-16 17:30:29,249 | INFO | agents.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['inventory']
+2026-04-16 17:30:29,737 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-16 17:30:31,403 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-16 17:30:31,871 | INFO | agents.nodes.sql_run_sql_node | SQL node completed. Success: False, Domains: ['inbound']
+2026-04-16 17:30:33,378 | INFO | agents.nodes.sql_run_sql_node | SQL node completed. Success: True, Domains: ['inventory']
+2026-04-16 17:30:35,144 | INFO | agents.nodes.sql_run_sql_node | SQL node completed. Success: False, Domains: ['outbound']
+2026-04-16 17:31:24,801 | INFO | httpx | HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-04-16 17:31:25,665 | INFO | agents.nodes.router_node | task='sequential' enriched_query='Identify bottlenecks within the inbound process and determine if there is a dependency between inbound throughput and picking operations.'
+2026-04-16 17:31:25,667 | INFO | agents.edges.route_after_router | Routing to SEQUENTIAL path (ticket=INC, query=Identify bottlenecks within the inbound process and determine if there is a dependency between inbound throughput and picking operations.)
+2026-04-16 17:31:27,709 | INFO | httpx | HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-04-16 17:31:28,973 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-04-16 17:33:33,777 | INFO | httpx | HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-04-16 17:33:34,579 | INFO | agents.nodes.router_node | task='sequential' enriched_query='Identify throughput bottlenecks within the inbound process and determine if there is a dependency between inbound constraints and picking productivity.'
+2026-04-16 17:33:34,584 | INFO | agents.edges.route_after_router | Routing to SEQUENTIAL path (ticket=INC, query=Identify throughput bottlenecks within the inbound process and determine if there is a dependency between inbound constraints and picking productivity.)
+2026-04-16 17:33:36,509 | INFO | httpx | HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-04-16 17:33:36,819 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-16 17:33:37,121 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent "HTTP/1.1 429 Too Many Requests"
+2026-04-16 17:33:37,959 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-04-16 17:34:14,097 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-16 17:34:14,113 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-16 17:34:14,336 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent "HTTP/1.1 429 Too Many Requests"
+2026-04-16 17:34:30,893 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-16 17:34:30,903 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-16 17:34:31,121 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent "HTTP/1.1 429 Too Many Requests"
+2026-04-16 17:34:44,093 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-16 17:34:44,100 | INFO | agents.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['inbound', 'outbound']
+2026-04-16 17:34:48,088 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-16 17:34:48,393 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-16 17:34:52,534 | INFO | agents.nodes.sql_run_sql_node | SQL node completed. Success: False, Domains: ['inbound', 'outbound']
+2026-04-16 17:34:54,540 | INFO | httpx | HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-04-16 17:40:58,631 | INFO | httpx | HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-04-16 17:40:59,356 | INFO | agents.nodes.router_node | task='sequential' enriched_query='Identify the bottlenecks within the inbound process and determine if they are dependent on the picking throughput.'
+2026-04-16 17:40:59,359 | INFO | agents.edges.route_after_router | Routing to SEQUENTIAL path (ticket=INC, query=Identify the bottlenecks within the inbound process and determine if they are dependent on the picking throughput.)
+2026-04-16 17:41:01,366 | INFO | httpx | HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-04-16 17:41:02,039 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-16 17:41:02,354 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent "HTTP/1.1 429 Too Many Requests"
+2026-04-16 17:41:02,576 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-04-16 17:41:35,029 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-16 17:41:35,071 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-16 17:41:35,256 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent "HTTP/1.1 429 Too Many Requests"
+2026-04-16 17:41:48,641 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-16 17:41:48,646 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-16 17:41:48,827 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent "HTTP/1.1 429 Too Many Requests"
+2026-04-16 17:41:57,553 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-16 17:41:57,562 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-16 17:41:57,726 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent "HTTP/1.1 429 Too Many Requests"
+2026-04-16 17:42:03,800 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-16 17:42:03,806 | INFO | agents.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['inbound', 'outbound', 'inventory']
+2026-04-16 17:42:07,697 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-16 17:42:07,937 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-16 17:42:08,119 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-16 17:42:12,607 | INFO | agents.nodes.sql_run_sql_node | SQL node completed. Success: True, Domains: ['inbound', 'outbound', 'inventory']
+2026-04-16 17:42:14,857 | INFO | httpx | HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-04-16 17:52:49,783 | INFO | httpx | HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-04-16 17:52:50,465 | INFO | agents.nodes.router_node | task='sequential' enriched_query='Identify current bottlenecks within the inbound process and determine if these constraints are impacting outbound picking throughput.'
+2026-04-16 17:52:50,467 | INFO | agents.edges.route_after_router | Routing to SEQUENTIAL path (ticket=INC, query=Identify current bottlenecks within the inbound process and determine if these constraints are impacting outbound picking throughput.)
+2026-04-16 17:52:52,704 | INFO | httpx | HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-04-16 17:52:53,145 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-16 17:52:53,446 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent "HTTP/1.1 429 Too Many Requests"
+2026-04-16 17:52:54,338 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-04-16 17:53:19,532 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-16 17:53:19,557 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-16 17:53:19,732 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent "HTTP/1.1 429 Too Many Requests"
+2026-04-16 17:53:27,823 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-16 17:53:27,833 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-16 17:53:28,013 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent "HTTP/1.1 429 Too Many Requests"
+2026-04-16 17:53:51,276 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-16 17:53:51,285 | INFO | agents.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['inbound', 'outbound']
+2026-04-16 17:53:55,269 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-16 17:53:55,780 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-16 17:53:59,854 | INFO | agents.nodes.sql_run_sql_node | SQL node completed. Success: False, Domains: ['inbound', 'outbound']
+2026-04-16 17:54:02,537 | INFO | httpx | HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-04-16 17:54:02,630 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-16 17:54:02,839 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent "HTTP/1.1 429 Too Many Requests"
+2026-04-16 17:54:19,949 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-16 17:54:19,955 | INFO | agents.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['outbound']
+2026-04-16 17:54:20,425 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-16 17:54:26,130 | INFO | agents.nodes.sql_run_sql_node | SQL node completed. Success: True, Domains: ['outbound']
+2026-04-16 17:54:28,461 | INFO | httpx | HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-04-16 17:54:29,548 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-16 17:54:29,708 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent "HTTP/1.1 429 Too Many Requests"
+2026-04-16 17:55:02,759 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-16 17:55:02,788 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-16 17:55:02,987 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent "HTTP/1.1 429 Too Many Requests"
+2026-04-16 17:55:15,346 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-16 17:55:15,359 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-16 17:55:15,539 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent "HTTP/1.1 429 Too Many Requests"
+2026-04-16 17:55:27,531 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-16 17:55:27,536 | INFO | agents.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['inbound', 'inventory']
+2026-04-16 17:55:28,042 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-16 17:55:28,453 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-16 17:55:32,630 | INFO | agents.nodes.sql_run_sql_node | SQL node completed. Success: False, Domains: ['inbound', 'inventory']
+2026-04-16 17:55:34,802 | INFO | httpx | HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-04-16 17:55:34,828 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-16 17:55:34,991 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent "HTTP/1.1 429 Too Many Requests"
+2026-04-16 17:56:05,594 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-16 17:56:05,615 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-16 17:56:05,789 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent "HTTP/1.1 429 Too Many Requests"
+2026-04-16 17:56:15,661 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-16 17:56:15,670 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-16 17:56:15,870 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent "HTTP/1.1 429 Too Many Requests"
+2026-04-16 17:56:21,085 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-16 17:56:21,087 | INFO | agents.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['inbound']
+2026-04-16 17:56:21,393 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-16 17:56:25,245 | INFO | agents.nodes.sql_run_sql_node | SQL node completed. Success: True, Domains: ['inbound']
+2026-04-16 17:56:28,474 | INFO | httpx | HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-04-16 17:56:28,607 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-16 17:56:28,809 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent "HTTP/1.1 429 Too Many Requests"
+2026-04-16 17:56:49,657 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-16 17:56:49,668 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-16 17:56:49,845 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent "HTTP/1.1 429 Too Many Requests"
+2026-04-16 17:57:02,058 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-16 17:57:02,065 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-16 17:57:02,275 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent "HTTP/1.1 429 Too Many Requests"
+2026-04-16 17:57:09,726 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-16 17:57:09,732 | INFO | agents.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['inbound', 'inventory']
+2026-04-16 17:57:10,138 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-16 17:57:10,545 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-16 17:57:14,735 | INFO | agents.nodes.sql_run_sql_node | SQL node completed. Success: True, Domains: ['inbound', 'inventory']
+2026-04-16 17:57:15,455 | INFO | httpx | HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-04-16 20:12:32,832 | INFO | httpx | HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-04-16 20:12:33,825 | INFO | agents.nodes.router_node | task='sequential' enriched_query='Analyze the cause of low picking throughput and determine if it is correlated with low inventory levels; if so, identify the root cause of the inventory shortage.'
+2026-04-16 20:12:33,829 | INFO | agents.edges.route_after_router | Routing to SEQUENTIAL path (ticket=INC, query=Analyze the cause of low picking throughput and determine if it is correlated with low inventory levels; if so, identify the root cause of the inventory shortage.)
+2026-04-16 20:12:41,608 | INFO | httpx | HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-04-16 20:12:41,698 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-16 20:12:42,724 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent "HTTP/1.1 200 OK"
+2026-04-16 20:12:42,736 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-16 20:12:42,847 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent "HTTP/1.1 429 Too Many Requests"
+2026-04-16 20:12:55,440 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-16 20:12:55,458 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-16 20:12:55,642 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent "HTTP/1.1 429 Too Many Requests"
+2026-04-16 20:13:02,385 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-16 20:13:02,394 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-16 20:13:02,605 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent "HTTP/1.1 429 Too Many Requests"
+2026-04-16 20:13:17,540 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-16 20:13:17,547 | INFO | agents.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['outbound', 'inventory']
+2026-04-16 20:13:21,577 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-16 20:13:22,146 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-16 20:13:26,566 | INFO | agents.nodes.sql_run_sql_node | SQL node completed. Success: True, Domains: ['outbound', 'inventory']
+2026-04-16 20:13:30,652 | INFO | httpx | HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-04-16 20:13:30,768 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-16 20:13:30,935 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent "HTTP/1.1 429 Too Many Requests"
+2026-04-16 20:14:22,259 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-16 20:14:22,268 | INFO | agents.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['outbound']
+2026-04-16 20:14:22,949 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-16 20:14:26,621 | INFO | agents.nodes.sql_run_sql_node | SQL node completed. Success: True, Domains: ['outbound']
+2026-04-16 20:14:28,094 | INFO | httpx | HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-04-16 20:14:28,148 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-16 20:14:28,308 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent "HTTP/1.1 429 Too Many Requests"
+2026-04-16 20:14:43,931 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-16 20:14:43,940 | INFO | agents.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['inventory']
+2026-04-16 20:14:44,376 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-16 20:14:48,393 | INFO | agents.nodes.sql_run_sql_node | SQL node completed. Success: True, Domains: ['inventory']
+2026-04-16 20:14:50,419 | INFO | httpx | HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-04-16 20:14:50,464 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-16 20:14:50,642 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent "HTTP/1.1 429 Too Many Requests"
+2026-04-16 20:15:16,424 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-16 20:15:16,445 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-16 20:15:16,621 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent "HTTP/1.1 429 Too Many Requests"
+2026-04-16 20:15:24,518 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-16 20:15:24,528 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-16 20:15:24,719 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent "HTTP/1.1 429 Too Many Requests"
+2026-04-16 20:15:34,500 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-16 20:15:34,507 | INFO | agents.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['inventory', 'inbound']
+2026-04-16 20:15:34,860 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-16 20:15:35,166 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-16 20:15:39,231 | INFO | agents.nodes.sql_run_sql_node | SQL node completed. Success: True, Domains: ['inventory', 'inbound']
+2026-04-16 20:19:27,833 | INFO | httpx | HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-04-16 20:19:28,754 | INFO | agents.nodes.router_node | task='sequential' enriched_query='Analyze the cause of low picking throughput and determine if it is correlated with low inventory levels; if so, identify the root cause of the inventory deficit.'
+2026-04-16 20:19:28,761 | INFO | agents.edges.route_after_router | Routing to SEQUENTIAL path (ticket=INC, query=Analyze the cause of low picking throughput and determine if it is correlated with low inventory levels; if so, identify the root cause of the inventory deficit.)
+2026-04-16 20:19:41,955 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-16 20:19:41,988 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-16 20:19:42,203 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent "HTTP/1.1 429 Too Many Requests"
+2026-04-16 20:21:01,992 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-16 20:21:02,015 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-16 20:21:02,222 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent "HTTP/1.1 429 Too Many Requests"
+2026-04-16 20:21:51,181 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-16 20:21:51,195 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-16 20:21:51,757 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent "HTTP/1.1 200 OK"
+2026-04-16 20:21:51,767 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-16 20:21:52,386 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent "HTTP/1.1 200 OK"
+2026-04-16 20:21:52,388 | INFO | agents.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['outbound', 'inventory', 'inbound']
+2026-04-16 20:21:57,020 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-16 20:21:57,287 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-16 20:21:57,631 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-16 20:22:02,345 | INFO | agents.nodes.sql_run_sql_node | SQL node completed. Success: False, Domains: ['outbound', 'inventory', 'inbound']
+2026-04-16 20:22:27,887 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-16 20:22:27,917 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-16 20:22:28,092 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent "HTTP/1.1 429 Too Many Requests"
+2026-04-16 20:22:46,785 | INFO | httpx | HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-04-16 20:22:47,785 | INFO | agents.nodes.router_node | task='sequential' enriched_query='Analyze the cause of low picking throughput and determine if it is correlated with low inventory levels; if so, identify the root cause of the inventory shortage.'
+2026-04-16 20:22:47,786 | INFO | agents.edges.route_after_router | Routing to SEQUENTIAL path (ticket=INC, query=Analyze the cause of low picking throughput and determine if it is correlated with low inventory levels; if so, identify the root cause of the inventory shortage.)
+2026-04-16 20:22:57,844 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-16 20:22:57,876 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-16 20:22:58,066 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent "HTTP/1.1 429 Too Many Requests"
+2026-04-16 20:25:21,304 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-16 20:25:21,326 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-16 20:25:21,507 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent "HTTP/1.1 429 Too Many Requests"
+2026-04-16 20:26:27,979 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-16 20:26:27,991 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-16 20:26:28,211 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent "HTTP/1.1 429 Too Many Requests"
+2026-04-16 20:26:49,793 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-16 20:26:49,802 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-16 20:26:49,980 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent "HTTP/1.1 429 Too Many Requests"
+2026-04-16 20:27:30,548 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-16 20:27:30,559 | INFO | agents.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['outbound', 'inventory', 'inbound']
+2026-04-16 20:27:35,366 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-16 20:27:35,771 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-16 20:27:36,346 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-16 20:27:40,957 | INFO | agents.nodes.sql_run_sql_node | SQL node completed. Success: False, Domains: ['outbound', 'inventory', 'inbound']
+2026-04-16 20:28:07,815 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-16 20:57:43,112 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-16 20:57:43,346 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent "HTTP/1.1 429 Too Many Requests"
+2026-04-16 20:57:55,850 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-16 20:57:55,874 | INFO | agents.nodes.router_node | task='sequential' enriched_query='Identify the drivers of low order-picking throughput; if low on-hand inventory is contributing, explain why and how stockouts and replenishment cycles impact pick rate.'
+2026-04-16 20:57:55,876 | INFO | agents.edges.route_after_router | Routing to SEQUENTIAL path (ticket=INC, query=Identify the drivers of low order-picking throughput; if low on-hand inventory is contributing, explain why and how stockouts and replenishment cycles impact pick rate.)
+2026-04-16 20:58:04,349 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-16 20:58:04,377 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-16 20:58:04,556 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent "HTTP/1.1 429 Too Many Requests"
+2026-04-16 20:58:42,133 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-16 20:58:42,145 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-16 20:58:42,320 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent "HTTP/1.1 429 Too Many Requests"
+2026-04-16 20:58:59,745 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-16 20:58:59,756 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-16 20:59:00,582 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent "HTTP/1.1 200 OK"
+2026-04-16 20:59:00,585 | INFO | agents.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['outbound', 'inventory']
+2026-04-16 20:59:04,764 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-16 20:59:05,170 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-16 20:59:09,395 | INFO | agents.nodes.sql_run_sql_node | SQL node completed. Success: False, Domains: ['outbound', 'inventory']
+2026-04-16 20:59:25,446 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-16 20:59:25,469 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-16 20:59:25,637 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent "HTTP/1.1 429 Too Many Requests"
+2026-04-16 20:59:55,553 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-16 20:59:55,564 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-16 20:59:55,754 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent "HTTP/1.1 429 Too Many Requests"
+2026-04-16 21:00:05,484 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-16 21:00:05,494 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-16 21:00:05,672 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent "HTTP/1.1 429 Too Many Requests"
+2026-04-16 21:00:14,803 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-16 21:00:14,809 | INFO | agents.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['outbound', 'inventory']
+2026-04-16 21:00:15,224 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-16 21:00:15,431 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-16 21:00:19,786 | INFO | agents.nodes.sql_run_sql_node | SQL node completed. Success: True, Domains: ['outbound', 'inventory']
+2026-04-16 21:00:41,749 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-16 21:00:41,785 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-16 21:00:41,996 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent "HTTP/1.1 429 Too Many Requests"
+2026-04-16 21:01:40,287 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-16 21:01:42,664 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-16 21:01:42,672 | INFO | agents.nodes.router_node | task='sequential' enriched_query='Identify the root cause for low outbound picking throughput and determine if inventory availability constraints are negatively impacting pick performance.'
+2026-04-16 21:01:42,676 | INFO | agents.edges.route_after_router | Routing to SEQUENTIAL path (ticket=INC, query=Identify the root cause for low outbound picking throughput and determine if inventory availability constraints are negatively impacting pick performance.)
+2026-04-16 21:01:56,384 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-16 21:01:56,421 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-16 21:02:01,810 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-16 21:02:01,825 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-16 21:02:03,748 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-16 21:02:03,755 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-16 21:02:05,600 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-16 21:02:05,610 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-16 21:02:08,465 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-16 21:02:08,474 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-16 21:02:09,191 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-16 21:02:09,198 | INFO | agents.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['outbound', 'inventory']
+2026-04-16 21:02:13,200 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-16 21:02:13,586 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-16 21:02:18,029 | INFO | agents.nodes.sql_run_sql_node | SQL node completed. Success: True, Domains: ['outbound', 'inventory']
+2026-04-16 21:02:41,440 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-16 21:02:41,462 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-16 21:02:44,510 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-16 21:02:44,516 | INFO | agents.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['outbound']
+2026-04-16 21:02:44,816 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-16 21:02:48,780 | INFO | agents.nodes.sql_run_sql_node | SQL node completed. Success: True, Domains: ['outbound']
+2026-04-16 21:02:50,246 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-16 21:02:50,260 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-16 21:02:51,779 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-16 21:02:51,788 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-16 21:02:53,417 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-16 21:02:53,426 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-16 21:02:58,845 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-16 21:02:58,850 | INFO | agents.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['outbound', 'inventory']
+2026-04-16 21:02:59,358 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-16 21:02:59,868 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-16 21:03:03,971 | INFO | agents.nodes.sql_run_sql_node | SQL node completed. Success: True, Domains: ['outbound', 'inventory']
+2026-04-16 21:03:18,710 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-16 21:03:18,726 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-16 21:03:27,113 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 504 Gateway Timeout"
+2026-04-16 21:03:49,206 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-16 21:03:49,227 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-16 21:03:50,352 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-16 21:03:50,358 | INFO | agents.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['outbound']
+2026-04-16 21:03:50,770 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-16 21:03:54,751 | INFO | agents.nodes.sql_run_sql_node | SQL node completed. Success: True, Domains: ['outbound']
+2026-04-16 21:04:21,277 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-16 21:05:03,377 | INFO | httpx | HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-04-16 21:05:04,130 | INFO | agents.nodes.router_node | task='parallel' enriched_query='What is the standard operating procedure for the putaway process of inbound pallets?'
+2026-04-16 21:05:04,131 | INFO | agents.edges.route_after_router | Routing to PARALLEL path (ticket=INC, query=What is the standard operating procedure for the putaway process of inbound pallets?)
+2026-04-16 21:05:04,547 | INFO | httpx | HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-04-16 21:05:05,683 | WARNING | langgraph | Ignoring unknown node name sop_retrieval_tool in pending sends
+2026-04-16 21:05:10,998 | INFO | httpx | HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-04-16 21:05:11,697 | INFO | agents.nodes.router_node | task='parallel' enriched_query='What is the standard operating procedure for the putaway process of inbound pallets?'
+2026-04-16 21:05:11,698 | INFO | agents.edges.route_after_router | Routing to PARALLEL path (ticket=INC, query=What is the standard operating procedure for the putaway process of inbound pallets?)
+2026-04-16 21:05:12,065 | INFO | httpx | HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-04-16 21:05:15,857 | WARNING | langgraph | Ignoring unknown node name sop_retrieval_tool in pending sends
+2026-04-16 21:07:44,641 | INFO | httpx | HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-04-16 21:07:45,225 | INFO | agents.nodes.router_node | task='parallel' enriched_query='What is the standard operating procedure for the putaway process of inbound pallets?'
+2026-04-16 21:07:45,226 | INFO | agents.edges.route_after_router | Routing to PARALLEL path (ticket=INC, query=What is the standard operating procedure for the putaway process of inbound pallets?)
+2026-04-16 21:07:45,493 | INFO | httpx | HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-04-16 21:07:46,627 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-16 21:07:47,710 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-16 21:07:47,720 | INFO | agents.nodes.sop_lookup_node | Sop lookup query: What is the standard operating procedure for the putaway process of inbound pallets?
+2026-04-16 21:07:48,634 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-04-16 21:08:11,365 | INFO | httpx | HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-04-16 21:08:12,010 | INFO | agents.nodes.router_node | task='parallel' enriched_query='What is the standard operating procedure for the putaway process of inbound pallets?'
+2026-04-16 21:08:12,012 | INFO | agents.edges.route_after_router | Routing to PARALLEL path (ticket=INC, query=What is the standard operating procedure for the putaway process of inbound pallets?)
+2026-04-16 21:08:12,391 | INFO | httpx | HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-04-16 21:08:18,410 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-16 21:08:25,211 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-16 21:08:25,221 | INFO | agents.nodes.sop_lookup_node | Sop lookup query: What is the standard operating procedure for the putaway process of inbound pallets?
+2026-04-16 21:08:41,786 | INFO | httpx | HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-04-16 21:08:42,573 | INFO | agents.nodes.router_node | task='parallel' enriched_query='What is the putaway process for inbound pallets and what is the current inventory quantity for SKU-003?'
+2026-04-16 21:08:42,575 | INFO | agents.edges.route_after_router | Routing to PARALLEL path (ticket=INC, query=What is the putaway process for inbound pallets and what is the current inventory quantity for SKU-003?)
+2026-04-16 21:08:46,026 | INFO | httpx | HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-04-16 21:08:47,835 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-16 21:08:49,050 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-16 21:08:49,060 | INFO | agents.nodes.sop_lookup_node | Sop lookup query: What is the standard operating procedure for the putaway process for inbound pallets?
+2026-04-16 21:08:49,062 | INFO | agents.nodes.sql_lookup_node | SQL Lookup Node: inventory
+2026-04-16 21:08:49,570 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-04-16 21:10:15,511 | INFO | httpx | HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-04-16 21:10:16,455 | INFO | agents.nodes.router_node | task='parallel' enriched_query='Provide the standard operating procedure for the putaway process of inbound pallets and the current inventory quantity for SKU-003.'
+2026-04-16 21:10:16,460 | INFO | agents.edges.route_after_router | Routing to PARALLEL path (ticket=INC, query=Provide the standard operating procedure for the putaway process of inbound pallets and the current inventory quantity for SKU-003.)
+2026-04-16 21:10:16,752 | INFO | httpx | HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-04-16 21:10:18,715 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-16 21:10:21,862 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-16 21:10:21,879 | INFO | agents.nodes.sop_lookup_node | Sop lookup query: What is the standard operating procedure for the putaway process of inbound pallets?
+2026-04-16 21:10:21,879 | INFO | agents.nodes.sql_lookup_node | SQL Lookup Node: ['inventory']
+2026-04-16 21:10:21,892 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-16 21:10:25,299 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-16 21:10:25,305 | INFO | agents.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['inventory']
+2026-04-16 21:10:29,220 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-16 21:10:33,092 | INFO | agents.nodes.sql_run_sql_node | SQL node completed. Success: True, Domains: ['inventory']
+2026-04-16 21:10:47,379 | INFO | httpx | HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-04-16 21:10:48,409 | INFO | agents.nodes.router_node | task='parallel' enriched_query='What is the SOP for the putaway process of inbound pallets and what is the current on-hand quantity for SKU-003?'
+2026-04-16 21:10:48,411 | INFO | agents.edges.route_after_router | Routing to PARALLEL path (ticket=INC, query=What is the SOP for the putaway process of inbound pallets and what is the current on-hand quantity for SKU-003?)
+2026-04-16 21:10:48,751 | INFO | httpx | HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-04-16 21:10:50,617 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-16 21:10:51,690 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-16 21:10:51,706 | INFO | agents.nodes.sop_lookup_node | Sop lookup query: What is the standard operating procedure for the putaway process of inbound pallets?
+2026-04-16 21:10:51,707 | INFO | agents.nodes.sql_lookup_node | SQL Lookup Node: ['inventory']
+2026-04-16 21:10:51,719 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-16 21:10:52,360 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-16 21:10:52,366 | INFO | agents.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['inventory']
+2026-04-16 21:10:52,649 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-16 21:10:56,485 | INFO | agents.nodes.sql_run_sql_node | SQL node completed. Success: True, Domains: ['inventory']
+2026-04-16 21:11:40,944 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-16 21:11:41,781 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-16 21:11:41,789 | INFO | agents.nodes.router_node | task='parallel' enriched_query='Provide the standard operating procedure for the putaway process of inbound pallets and perform a stock level inquiry for SKU003.'
+2026-04-16 21:11:41,792 | INFO | agents.edges.route_after_router | Routing to PARALLEL path (ticket=INC, query=Provide the standard operating procedure for the putaway process of inbound pallets and perform a stock level inquiry for SKU003.)
+2026-04-16 21:11:46,815 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-16 21:11:49,065 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-16 21:11:49,084 | INFO | agents.nodes.sop_lookup_node | Sop lookup query: What is the standard operating procedure for the putaway process of inbound pallets?
+2026-04-16 21:11:49,085 | INFO | agents.nodes.sql_lookup_node | SQL Lookup Node: ['inventory']
+2026-04-16 21:11:49,094 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-16 21:11:50,394 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-16 21:11:50,400 | INFO | agents.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['inventory']
+2026-04-16 21:11:50,905 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-16 21:11:55,027 | INFO | agents.nodes.sql_run_sql_node | SQL node completed. Success: True, Domains: ['inventory']
+2026-04-18 19:06:43,864 | INFO | httpx | HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-04-18 19:06:44,552 | INFO | agents.nodes.router_node | task='parallel' enriched_query='What is the standard operating procedure for the putaway process of inbound pallets?'
+2026-04-18 19:06:44,553 | INFO | agents.edges.route_after_router | Routing to PARALLEL path (ticket=INC, query=What is the standard operating procedure for the putaway process of inbound pallets?)
+2026-04-18 19:06:44,983 | INFO | httpx | HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-04-18 19:06:46,325 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-18 19:06:55,538 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 504 Gateway Timeout"
+2026-04-18 19:07:04,448 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-18 19:07:04,479 | INFO | agents.nodes.sop_lookup_node | Sop lookup query: What is the standard operating procedure for inbound pallet putaway?
+2026-04-18 19:07:07,212 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-04-18 22:56:40,810 | INFO | httpx | HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-04-18 22:56:47,249 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-18 22:56:56,181 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 503 Service Unavailable"
+2026-04-18 22:57:04,348 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-18 22:57:04,411 | INFO | agents.nodes.router_node | task='parallel' enriched_query='Describe the inbound pallet putaway process (putaway SOP) for inbound shipments.'
+2026-04-18 22:57:04,414 | INFO | agents.edges.route_after_router | Routing to PARALLEL path (ticket=INC, query=Describe the inbound pallet putaway process (putaway SOP) for inbound shipments.)
+2026-04-18 22:57:06,108 | INFO | httpx | HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-04-18 22:57:07,487 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-18 22:57:07,819 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 503 Service Unavailable"
+2026-04-18 22:57:14,992 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-18 22:57:15,007 | INFO | agents.nodes.sop_lookup_node | Sop lookup query: What is the standard operating procedure for inbound pallet putaway for inbound shipments?
+2026-04-18 22:57:16,490 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-04-18 22:57:28,022 | INFO | httpx | HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-04-18 22:57:28,673 | INFO | agents.nodes.router_node | task='parallel' enriched_query='What is the standard operating procedure for the putaway process of inbound pallets?'
+2026-04-18 22:57:28,675 | INFO | agents.edges.route_after_router | Routing to PARALLEL path (ticket=INC, query=What is the standard operating procedure for the putaway process of inbound pallets?)
+2026-04-18 22:57:28,964 | INFO | httpx | HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-04-18 22:57:30,390 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-18 22:57:33,033 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 503 Service Unavailable"
+2026-04-18 22:57:44,794 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-18 22:57:44,817 | INFO | agents.nodes.sop_lookup_node | Sop lookup query: What is the standard operating procedure for the inbound putaway process for pallets?
+2026-04-18 22:57:45,293 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-04-18 23:01:44,219 | INFO | agents.nodes.router_node | task='parallel' enriched_query='What is the standard operating procedure for the putaway process of inbound pallets?'
+2026-04-18 23:01:44,222 | INFO | agents.edges.route_after_router | Routing to PARALLEL path (ticket=INC, query=What is the standard operating procedure for the putaway process of inbound pallets?)
+2026-04-18 23:01:44,234 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-18 23:01:45,841 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 503 Service Unavailable"
+2026-04-18 23:01:45,862 | INFO | agents.nodes.sop_lookup_node | Sop lookup query: What is the standard operating procedure for the inbound putaway process for pallets?
+2026-04-18 23:01:49,930 | INFO | agents.nodes.router_node | task='parallel' enriched_query='What is the standard operating procedure for the putaway process of inbound pallets?'
+2026-04-18 23:01:49,931 | INFO | agents.edges.route_after_router | Routing to PARALLEL path (ticket=INC, query=What is the standard operating procedure for the putaway process of inbound pallets?)
+2026-04-18 23:01:49,941 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-18 23:01:59,559 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 504 Gateway Timeout"
+2026-04-18 23:01:59,574 | INFO | agents.nodes.sop_lookup_node | Sop lookup query: What is the standard operating procedure for the inbound putaway process for pallets?
+2026-04-18 23:02:02,896 | INFO | agents.nodes.router_node | task='parallel' enriched_query='What is the standard operating procedure for the putaway process of inbound pallets?'
+2026-04-18 23:02:02,904 | INFO | agents.edges.route_after_router | Routing to PARALLEL path (ticket=INC, query=What is the standard operating procedure for the putaway process of inbound pallets?)
+2026-04-18 23:02:02,943 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-18 23:02:03,454 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 503 Service Unavailable"
+2026-04-18 23:02:03,467 | INFO | agents.nodes.sop_lookup_node | Sop lookup query: What is the standard operating procedure for the inbound putaway process for pallets?
+2026-04-18 23:02:30,249 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-18 23:02:39,909 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 504 Gateway Timeout"
+2026-04-18 23:02:45,542 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-18 23:02:45,566 | INFO | agents.nodes.router_node | task='parallel' enriched_query='What is the on-hand quantity for SKU003?'
+2026-04-18 23:02:45,568 | INFO | agents.edges.route_after_router | Routing to PARALLEL path (ticket=INC, query=What is the on-hand quantity for SKU003?)
+2026-04-18 23:02:46,410 | INFO | httpx | HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-04-18 23:02:47,789 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-18 23:02:56,701 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 504 Gateway Timeout"
+2026-04-18 23:03:01,208 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-18 23:03:01,229 | INFO | agents.nodes.sql_lookup_node | SQL Lookup Node: ['inventory']
+2026-04-18 23:03:01,260 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-18 23:03:01,855 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 503 Service Unavailable"
+2026-04-18 23:03:25,066 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-18 23:03:25,084 | INFO | agents.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['inventory']
+2026-04-18 23:03:29,259 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-18 23:03:33,279 | INFO | agents.nodes.sql_run_sql_node | SQL node completed. Success: True, Domains: ['inventory']
+2026-04-18 23:04:06,355 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-18 23:04:06,765 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 503 Service Unavailable"
+2026-04-18 23:04:06,774 | INFO | agents.nodes.router_node | task='parallel' enriched_query='What is the on-hand quantity for SKU003?'
+2026-04-18 23:04:06,776 | INFO | agents.edges.route_after_router | Routing to PARALLEL path (ticket=INC, query=What is the on-hand quantity for SKU003?)
+2026-04-18 23:04:06,788 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-18 23:04:07,153 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 503 Service Unavailable"
+2026-04-18 23:04:07,165 | INFO | agents.nodes.sql_lookup_node | SQL Lookup Node: ['inventory']
+2026-04-18 23:04:07,172 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-18 23:04:07,665 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 503 Service Unavailable"
+2026-04-18 23:04:07,679 | INFO | agents.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['inventory']
+2026-04-18 23:04:07,972 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-18 23:04:12,032 | INFO | agents.nodes.sql_run_sql_node | SQL node completed. Success: True, Domains: ['inventory']
+2026-04-18 23:04:16,368 | INFO | httpx | HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-04-18 23:04:17,183 | INFO | agents.nodes.router_node | task='parallel' enriched_query='What is the current inventory level for SKU-003?'
+2026-04-18 23:04:17,188 | INFO | agents.edges.route_after_router | Routing to PARALLEL path (ticket=INC, query=What is the current inventory level for SKU-003?)
+2026-04-18 23:04:17,597 | INFO | httpx | HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-04-18 23:04:18,875 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-18 23:04:19,336 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 503 Service Unavailable"
+2026-04-18 23:04:26,827 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-18 23:04:26,844 | INFO | agents.nodes.sql_lookup_node | SQL Lookup Node: ['inventory']
+2026-04-18 23:04:26,851 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-18 23:04:28,254 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 503 Service Unavailable"
+2026-04-18 23:04:35,415 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-18 23:04:35,431 | INFO | agents.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['inventory']
+2026-04-18 23:04:35,824 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-18 23:04:39,620 | INFO | agents.nodes.sql_run_sql_node | SQL node completed. Success: True, Domains: ['inventory']
+2026-04-18 23:04:41,881 | INFO | agents.nodes.router_node | task='parallel' enriched_query='What is the current inventory level for SKU-003?'
+2026-04-18 23:04:41,882 | INFO | agents.edges.route_after_router | Routing to PARALLEL path (ticket=INC, query=What is the current inventory level for SKU-003?)
+2026-04-18 23:04:41,891 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-18 23:04:42,903 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 503 Service Unavailable"
+2026-04-18 23:04:42,923 | INFO | agents.nodes.sql_lookup_node | SQL Lookup Node: ['inventory']
+2026-04-18 23:04:42,930 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-18 23:04:43,804 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 503 Service Unavailable"
+2026-04-18 23:04:43,814 | INFO | agents.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['inventory']
+2026-04-18 23:04:44,034 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-18 23:04:47,729 | INFO | agents.nodes.sql_run_sql_node | SQL node completed. Success: True, Domains: ['inventory']
+2026-04-18 23:05:48,279 | INFO | agents.nodes.router_node | task='parallel' enriched_query='What is the current inventory level for SKU-003?'
+2026-04-18 23:05:48,281 | INFO | agents.edges.route_after_router | Routing to PARALLEL path (ticket=INC, query=What is the current inventory level for SKU-003?)
+2026-04-18 23:05:48,299 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-18 23:05:51,562 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 503 Service Unavailable"
+2026-04-18 23:05:51,586 | INFO | agents.nodes.sql_lookup_node | SQL Lookup Node: ['inventory']
+2026-04-18 23:05:51,592 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-18 23:05:59,794 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 504 Gateway Timeout"
+2026-04-18 23:05:59,807 | INFO | agents.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['inventory']
+2026-04-18 23:06:00,306 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-18 23:06:04,221 | INFO | agents.nodes.sql_run_sql_node | SQL node completed. Success: True, Domains: ['inventory']
+2026-04-18 23:13:45,293 | INFO | agents.nodes.router_node | task='parallel' enriched_query='What is the current inventory level for SKU-003?'
+2026-04-18 23:13:45,295 | INFO | agents.edges.route_after_router | Routing to PARALLEL path (ticket=INC, query=What is the current inventory level for SKU-003?)
+2026-04-18 23:13:45,306 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-18 23:13:45,896 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 503 Service Unavailable"
+2026-04-18 23:13:45,906 | INFO | agents.nodes.sql_lookup_node | SQL Lookup Node: ['inventory']
+2026-04-18 23:13:45,913 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-18 23:13:46,333 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 503 Service Unavailable"
+2026-04-18 23:13:46,343 | INFO | agents.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['inventory']
+2026-04-18 23:13:46,615 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-18 23:13:50,510 | INFO | agents.nodes.sql_run_sql_node | SQL node completed. Success: True, Domains: ['inventory']
+2026-04-18 23:15:08,576 | INFO | agents.nodes.router_node | task='parallel' enriched_query='What is the current inventory level for SKU-003?'
+2026-04-18 23:15:08,578 | INFO | agents.edges.route_after_router | Routing to PARALLEL path (ticket=INC, query=What is the current inventory level for SKU-003?)
+2026-04-18 23:15:08,589 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-18 23:15:09,093 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 503 Service Unavailable"
+2026-04-18 23:15:09,111 | INFO | agents.nodes.sql_lookup_node | SQL Lookup Node: ['inventory']
+2026-04-18 23:15:09,117 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-18 23:15:09,488 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 503 Service Unavailable"
+2026-04-18 23:15:09,494 | INFO | agents.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['inventory']
+2026-04-18 23:15:09,893 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-18 23:15:14,040 | INFO | agents.nodes.sql_run_sql_node | SQL node completed. Success: True, Domains: ['inventory']
+2026-04-18 23:19:26,071 | INFO | agents.nodes.router_node | task='parallel' enriched_query='What is the current inventory level for SKU-003?'
+2026-04-18 23:19:26,073 | INFO | agents.edges.route_after_router | Routing to PARALLEL path (ticket=INC, query=What is the current inventory level for SKU-003?)
+2026-04-18 23:19:26,099 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-18 23:19:26,527 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 503 Service Unavailable"
+2026-04-18 23:19:26,539 | INFO | agents.nodes.sql_lookup_node | SQL Lookup Node: ['inventory']
+2026-04-18 23:19:26,545 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-18 23:19:27,553 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-18 23:19:27,561 | INFO | agents.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['inventory']
+2026-04-18 23:19:27,793 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-18 23:19:31,542 | INFO | agents.nodes.sql_run_sql_node | SQL node completed. Success: True, Domains: ['inventory']
+2026-04-18 23:19:46,447 | INFO | agents.nodes.router_node | task='parallel' enriched_query='What is the current inventory level for SKU-003?'
+2026-04-18 23:19:46,451 | INFO | agents.edges.route_after_router | Routing to PARALLEL path (ticket=INC, query=What is the current inventory level for SKU-003?)
+2026-04-18 23:19:46,481 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-18 23:19:47,502 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 503 Service Unavailable"
+2026-04-18 23:19:47,522 | INFO | agents.nodes.sql_lookup_node | SQL Lookup Node: ['inventory']
+2026-04-18 23:19:47,544 | INFO | agents.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['inventory']
+2026-04-18 23:19:51,323 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-18 23:19:55,003 | INFO | agents.nodes.sql_run_sql_node | SQL node completed. Success: True, Domains: ['inventory']
+2026-04-18 23:22:58,414 | INFO | agents.nodes.router_node | task='parallel' enriched_query='What is the current inventory level for SKU-003?'
+2026-04-18 23:22:58,417 | INFO | agents.edges.route_after_router | Routing to PARALLEL path (ticket=INC, query=What is the current inventory level for SKU-003?)
+2026-04-18 23:22:58,453 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-18 23:23:04,428 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 503 Service Unavailable"
+2026-04-18 23:23:04,454 | INFO | agents.nodes.sql_lookup_node | SQL Lookup Node: ['inventory']
+2026-04-18 23:23:04,478 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-18 23:23:05,170 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 503 Service Unavailable"
+2026-04-18 23:23:09,854 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-18 23:23:09,880 | INFO | agents.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['inventory']
+2026-04-18 23:23:13,602 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-18 23:23:17,449 | INFO | agents.nodes.sql_run_sql_node | SQL node completed. Success: True, Domains: ['inventory']
+2026-04-18 23:23:25,101 | INFO | agents.nodes.router_node | task='parallel' enriched_query='What is the current inventory level for SKU-003?'
+2026-04-18 23:23:25,102 | INFO | agents.edges.route_after_router | Routing to PARALLEL path (ticket=INC, query=What is the current inventory level for SKU-003?)
+2026-04-18 23:23:25,111 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-18 23:23:34,223 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 504 Gateway Timeout"
+2026-04-18 23:23:34,235 | INFO | agents.nodes.sql_lookup_node | SQL Lookup Node: ['inventory']
+2026-04-18 23:23:34,241 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-18 23:23:43,850 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 504 Gateway Timeout"
+2026-04-18 23:23:43,860 | INFO | agents.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['inventory']
+2026-04-18 23:23:44,259 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-18 23:23:47,913 | INFO | agents.nodes.sql_run_sql_node | SQL node completed. Success: True, Domains: ['inventory']
+2026-04-18 23:23:50,875 | INFO | agents.nodes.router_node | task='parallel' enriched_query='What is the current inventory level for SKU-003?'
+2026-04-18 23:23:50,875 | INFO | agents.edges.route_after_router | Routing to PARALLEL path (ticket=INC, query=What is the current inventory level for SKU-003?)
+2026-04-18 23:23:50,884 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-18 23:23:59,414 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-18 23:23:59,437 | INFO | agents.nodes.sql_lookup_node | SQL Lookup Node: ['inventory']
+2026-04-18 23:23:59,444 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-18 23:24:04,126 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-04-18 23:24:04,142 | INFO | agents.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['inventory']
+2026-04-18 23:24:04,606 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-18 23:24:08,620 | INFO | agents.nodes.sql_run_sql_node | SQL node completed. Success: True, Domains: ['inventory']
+2026-04-18 23:24:13,344 | INFO | agents.nodes.router_node | task='parallel' enriched_query='What is the current inventory level for SKU-003?'
+2026-04-18 23:24:13,345 | INFO | agents.edges.route_after_router | Routing to PARALLEL path (ticket=INC, query=What is the current inventory level for SKU-003?)
+2026-04-18 23:24:13,355 | INFO | agents.nodes.sql_lookup_node | SQL Lookup Node: ['inventory']
+2026-04-18 23:24:13,360 | INFO | agents.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['inventory']
+2026-04-18 23:24:13,682 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-18 23:24:17,273 | INFO | agents.nodes.sql_run_sql_node | SQL node completed. Success: True, Domains: ['inventory']
+2026-04-18 23:24:21,236 | INFO | agents.nodes.router_node | task='parallel' enriched_query='What is the current inventory level for SKU-003?'
+2026-04-18 23:24:21,240 | INFO | agents.edges.route_after_router | Routing to PARALLEL path (ticket=INC, query=What is the current inventory level for SKU-003?)
+2026-04-18 23:24:21,251 | INFO | agents.nodes.sql_lookup_node | SQL Lookup Node: ['inventory']
+2026-04-18 23:24:21,255 | INFO | agents.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['inventory']
+2026-04-18 23:24:21,468 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-18 23:24:25,145 | INFO | agents.nodes.sql_run_sql_node | SQL node completed. Success: True, Domains: ['inventory']
+2026-04-18 23:24:27,293 | INFO | agents.nodes.router_node | task='parallel' enriched_query='What is the current inventory level for SKU-003?'
+2026-04-18 23:24:27,295 | INFO | agents.edges.route_after_router | Routing to PARALLEL path (ticket=INC, query=What is the current inventory level for SKU-003?)
+2026-04-18 23:24:27,306 | INFO | agents.nodes.sql_lookup_node | SQL Lookup Node: ['inventory']
+2026-04-18 23:24:27,310 | INFO | agents.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['inventory']
+2026-04-18 23:24:27,576 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-18 23:24:31,350 | INFO | agents.nodes.sql_run_sql_node | SQL node completed. Success: True, Domains: ['inventory']
+2026-04-18 23:24:45,598 | INFO | httpx | HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-04-18 23:24:46,218 | INFO | agents.nodes.router_node | task='parallel' enriched_query='What is the standard operating procedure for the putaway process of inbound pallets?'
+2026-04-18 23:24:46,221 | INFO | agents.edges.route_after_router | Routing to PARALLEL path (ticket=INC, query=What is the standard operating procedure for the putaway process of inbound pallets?)
+2026-04-18 23:24:46,234 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-18 23:24:47,644 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 503 Service Unavailable"
+2026-04-18 23:24:47,667 | INFO | agents.nodes.sop_lookup_node | Sop lookup query: What is the standard operating procedure for the inbound putaway process for pallets?
+2026-04-18 23:26:18,094 | INFO | agents.nodes.router_node | task='parallel' enriched_query='What is the standard operating procedure for the putaway process of inbound pallets?'
+2026-04-18 23:26:18,098 | INFO | agents.edges.route_after_router | Routing to PARALLEL path (ticket=INC, query=What is the standard operating procedure for the putaway process of inbound pallets?)
+2026-04-18 23:26:18,131 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-18 23:26:18,640 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 503 Service Unavailable"
+2026-04-18 23:26:18,657 | INFO | agents.nodes.sop_lookup_node | Sop lookup query: What is the standard operating procedure for the inbound putaway process for pallets?
+2026-04-18 23:26:20,929 | WARNING | langgraph.checkpoint.serde.jsonplus | Deserializing unregistered type domain.states.parallel_execution_states.parallel_execution_node_state.SubTask from checkpoint. This will be blocked in a future version. Add to allowed_msgpack_modules to silence: [('domain.states.parallel_execution_states.parallel_execution_node_state', 'SubTask')]
+2026-04-18 23:26:20,930 | WARNING | langgraph.checkpoint.serde.jsonplus | Deserializing unregistered type domain.states.parallel_execution_states.parallel_execution_node_state.SubTask from checkpoint. This will be blocked in a future version. Add to allowed_msgpack_modules to silence: [('domain.states.parallel_execution_states.parallel_execution_node_state', 'SubTask')]
+2026-04-18 23:26:20,930 | WARNING | langgraph.checkpoint.serde.jsonplus | Deserializing unregistered type domain.states.parallel_execution_states.parallel_execution_node_state.SubTask from checkpoint. This will be blocked in a future version. Add to allowed_msgpack_modules to silence: [('domain.states.parallel_execution_states.parallel_execution_node_state', 'SubTask')]
+2026-04-18 23:26:20,932 | WARNING | langgraph.checkpoint.serde.jsonplus | Deserializing unregistered type domain.states.parallel_execution_states.parallel_execution_node_state.SubTask from checkpoint. This will be blocked in a future version. Add to allowed_msgpack_modules to silence: [('domain.states.parallel_execution_states.parallel_execution_node_state', 'SubTask')]
+2026-04-18 23:26:20,932 | WARNING | langgraph.checkpoint.serde.jsonplus | Deserializing unregistered type domain.states.supervisor.diagnose_graph_state.WMState from checkpoint. This will be blocked in a future version. Add to allowed_msgpack_modules to silence: [('domain.states.supervisor.diagnose_graph_state', 'WMState')]
+2026-04-18 23:26:33,422 | WARNING | langgraph.checkpoint.serde.jsonplus | Deserializing unregistered type domain.states.parallel_execution_states.parallel_execution_node_state.SubTask from checkpoint. This will be blocked in a future version. Add to allowed_msgpack_modules to silence: [('domain.states.parallel_execution_states.parallel_execution_node_state', 'SubTask')]
+2026-04-18 23:26:33,825 | INFO | httpx | HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-04-18 23:26:34,567 | INFO | agents.nodes.router_node | task='parallel' enriched_query='What is the current on-hand inventory level for SKU-003?'
+2026-04-18 23:26:34,569 | INFO | agents.edges.route_after_router | Routing to PARALLEL path (ticket=INC, query=What is the current on-hand inventory level for SKU-003?)
+2026-04-18 23:26:34,969 | INFO | httpx | HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-04-18 23:26:36,174 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-18 23:26:37,630 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 503 Service Unavailable"
+2026-04-18 23:26:44,485 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-18 23:26:44,520 | INFO | agents.nodes.sql_lookup_node | SQL Lookup Node: ['inventory']
+2026-04-18 23:26:44,551 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-18 23:26:54,214 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 504 Gateway Timeout"
+2026-04-18 23:27:01,793 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-18 23:27:01,808 | INFO | agents.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['inventory']
+2026-04-18 23:27:05,684 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-18 23:27:09,418 | INFO | agents.nodes.sql_run_sql_node | SQL node completed. Success: True, Domains: ['inventory']
+2026-04-18 23:27:11,311 | WARNING | langgraph.checkpoint.serde.jsonplus | Deserializing unregistered type domain.states.parallel_execution_states.parallel_execution_node_state.SubTask from checkpoint. This will be blocked in a future version. Add to allowed_msgpack_modules to silence: [('domain.states.parallel_execution_states.parallel_execution_node_state', 'SubTask')]
+2026-04-18 23:27:11,321 | INFO | agents.nodes.router_node | task='parallel' enriched_query='What is the current on-hand inventory level for SKU-003?'
+2026-04-18 23:27:11,323 | INFO | agents.edges.route_after_router | Routing to PARALLEL path (ticket=INC, query=What is the current on-hand inventory level for SKU-003?)
+2026-04-18 23:27:11,488 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-18 23:27:11,966 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 503 Service Unavailable"
+2026-04-18 23:27:11,980 | INFO | agents.nodes.sql_lookup_node | SQL Lookup Node: ['inventory']
+2026-04-18 23:27:11,988 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-18 23:27:12,831 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 503 Service Unavailable"
+2026-04-18 23:27:12,844 | INFO | agents.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['inventory']
+2026-04-18 23:27:13,084 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-18 23:27:16,730 | INFO | agents.nodes.sql_run_sql_node | SQL node completed. Success: True, Domains: ['inventory']
+2026-04-18 23:27:36,992 | WARNING | langgraph.checkpoint.serde.jsonplus | Deserializing unregistered type domain.states.parallel_execution_states.parallel_execution_node_state.SubTask from checkpoint. This will be blocked in a future version. Add to allowed_msgpack_modules to silence: [('domain.states.parallel_execution_states.parallel_execution_node_state', 'SubTask')]
+2026-04-18 23:27:37,015 | INFO | agents.nodes.router_node | task='parallel' enriched_query='What is the current on-hand inventory level for SKU-003?'
+2026-04-18 23:27:37,017 | INFO | agents.edges.route_after_router | Routing to PARALLEL path (ticket=INC, query=What is the current on-hand inventory level for SKU-003?)
+2026-04-18 23:27:37,026 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-18 23:27:46,234 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 504 Gateway Timeout"
+2026-04-18 23:27:46,259 | INFO | agents.nodes.sql_lookup_node | SQL Lookup Node: ['inventory']
+2026-04-18 23:27:46,266 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-18 23:27:55,388 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 504 Gateway Timeout"
+2026-04-18 23:27:55,399 | INFO | agents.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['inventory']
+2026-04-18 23:27:55,641 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-18 23:27:59,315 | INFO | agents.nodes.sql_run_sql_node | SQL node completed. Success: True, Domains: ['inventory']
+2026-04-18 23:27:59,643 | WARNING | langgraph.checkpoint.serde.jsonplus | Deserializing unregistered type domain.states.parallel_execution_states.parallel_execution_node_state.SubTask from checkpoint. This will be blocked in a future version. Add to allowed_msgpack_modules to silence: [('domain.states.parallel_execution_states.parallel_execution_node_state', 'SubTask')]
+2026-04-18 23:27:59,643 | WARNING | langgraph.checkpoint.serde.jsonplus | Deserializing unregistered type domain.states.parallel_execution_states.parallel_execution_node_state.SubTask from checkpoint. This will be blocked in a future version. Add to allowed_msgpack_modules to silence: [('domain.states.parallel_execution_states.parallel_execution_node_state', 'SubTask')]
+2026-04-18 23:27:59,644 | WARNING | langgraph.checkpoint.serde.jsonplus | Deserializing unregistered type domain.states.parallel_execution_states.parallel_execution_node_state.SubTask from checkpoint. This will be blocked in a future version. Add to allowed_msgpack_modules to silence: [('domain.states.parallel_execution_states.parallel_execution_node_state', 'SubTask')]
+2026-04-18 23:27:59,644 | WARNING | langgraph.checkpoint.serde.jsonplus | Deserializing unregistered type domain.states.parallel_execution_states.parallel_execution_node_state.SubTask from checkpoint. This will be blocked in a future version. Add to allowed_msgpack_modules to silence: [('domain.states.parallel_execution_states.parallel_execution_node_state', 'SubTask')]
+2026-04-18 23:27:59,645 | WARNING | langgraph.checkpoint.serde.jsonplus | Deserializing unregistered type domain.states.supervisor.diagnose_graph_state.WMState from checkpoint. This will be blocked in a future version. Add to allowed_msgpack_modules to silence: [('domain.states.supervisor.diagnose_graph_state', 'WMState')]
+2026-04-18 23:27:59,645 | WARNING | langgraph.checkpoint.serde.jsonplus | Deserializing unregistered type domain.states.parallel_execution_states.parallel_execution_node_state.SubTask from checkpoint. This will be blocked in a future version. Add to allowed_msgpack_modules to silence: [('domain.states.parallel_execution_states.parallel_execution_node_state', 'SubTask')]
+2026-04-18 23:27:59,645 | WARNING | langgraph.checkpoint.serde.jsonplus | Deserializing unregistered type domain.states.parallel_execution_states.parallel_execution_node_state.SubTask from checkpoint. This will be blocked in a future version. Add to allowed_msgpack_modules to silence: [('domain.states.parallel_execution_states.parallel_execution_node_state', 'SubTask')]
+2026-04-18 23:27:59,646 | WARNING | langgraph.checkpoint.serde.jsonplus | Deserializing unregistered type domain.states.parallel_execution_states.parallel_execution_node_state.SubTask from checkpoint. This will be blocked in a future version. Add to allowed_msgpack_modules to silence: [('domain.states.parallel_execution_states.parallel_execution_node_state', 'SubTask')]
+2026-04-18 23:27:59,646 | WARNING | langgraph.checkpoint.serde.jsonplus | Deserializing unregistered type domain.states.parallel_execution_states.parallel_execution_node_state.SubTask from checkpoint. This will be blocked in a future version. Add to allowed_msgpack_modules to silence: [('domain.states.parallel_execution_states.parallel_execution_node_state', 'SubTask')]
+2026-04-18 23:27:59,646 | WARNING | langgraph.checkpoint.serde.jsonplus | Deserializing unregistered type domain.states.parallel_execution_states.parallel_execution_node_state.SubTask from checkpoint. This will be blocked in a future version. Add to allowed_msgpack_modules to silence: [('domain.states.parallel_execution_states.parallel_execution_node_state', 'SubTask')]
+2026-04-18 23:27:59,646 | WARNING | langgraph.checkpoint.serde.jsonplus | Deserializing unregistered type domain.states.supervisor.diagnose_graph_state.WMState from checkpoint. This will be blocked in a future version. Add to allowed_msgpack_modules to silence: [('domain.states.supervisor.diagnose_graph_state', 'WMState')]
+2026-04-18 23:27:59,647 | WARNING | langgraph.checkpoint.serde.jsonplus | Deserializing unregistered type domain.states.parallel_execution_states.parallel_execution_node_state.SubTask from checkpoint. This will be blocked in a future version. Add to allowed_msgpack_modules to silence: [('domain.states.parallel_execution_states.parallel_execution_node_state', 'SubTask')]
+2026-04-18 23:27:59,647 | WARNING | langgraph.checkpoint.serde.jsonplus | Deserializing unregistered type domain.states.parallel_execution_states.parallel_execution_node_state.SubTask from checkpoint. This will be blocked in a future version. Add to allowed_msgpack_modules to silence: [('domain.states.parallel_execution_states.parallel_execution_node_state', 'SubTask')]
+2026-04-18 23:27:59,647 | WARNING | langgraph.checkpoint.serde.jsonplus | Deserializing unregistered type domain.states.parallel_execution_states.parallel_execution_node_state.SubTask from checkpoint. This will be blocked in a future version. Add to allowed_msgpack_modules to silence: [('domain.states.parallel_execution_states.parallel_execution_node_state', 'SubTask')]
+2026-04-18 23:27:59,648 | WARNING | langgraph.checkpoint.serde.jsonplus | Deserializing unregistered type domain.states.parallel_execution_states.parallel_execution_node_state.SubTask from checkpoint. This will be blocked in a future version. Add to allowed_msgpack_modules to silence: [('domain.states.parallel_execution_states.parallel_execution_node_state', 'SubTask')]
+2026-04-18 23:27:59,648 | WARNING | langgraph.checkpoint.serde.jsonplus | Deserializing unregistered type domain.states.parallel_execution_states.parallel_execution_node_state.SubTask from checkpoint. This will be blocked in a future version. Add to allowed_msgpack_modules to silence: [('domain.states.parallel_execution_states.parallel_execution_node_state', 'SubTask')]
+2026-04-18 23:27:59,648 | WARNING | langgraph.checkpoint.serde.jsonplus | Deserializing unregistered type domain.states.supervisor.diagnose_graph_state.WMState from checkpoint. This will be blocked in a future version. Add to allowed_msgpack_modules to silence: [('domain.states.supervisor.diagnose_graph_state', 'WMState')]
+2026-04-18 23:27:59,648 | WARNING | langgraph.checkpoint.serde.jsonplus | Deserializing unregistered type domain.states.parallel_execution_states.parallel_execution_node_state.SubTask from checkpoint. This will be blocked in a future version. Add to allowed_msgpack_modules to silence: [('domain.states.parallel_execution_states.parallel_execution_node_state', 'SubTask')]
+2026-04-18 23:27:59,649 | WARNING | langgraph.checkpoint.serde.jsonplus | Deserializing unregistered type domain.states.parallel_execution_states.parallel_execution_node_state.SubTask from checkpoint. This will be blocked in a future version. Add to allowed_msgpack_modules to silence: [('domain.states.parallel_execution_states.parallel_execution_node_state', 'SubTask')]
+2026-04-18 23:27:59,649 | WARNING | langgraph.checkpoint.serde.jsonplus | Deserializing unregistered type domain.states.parallel_execution_states.parallel_execution_node_state.SubTask from checkpoint. This will be blocked in a future version. Add to allowed_msgpack_modules to silence: [('domain.states.parallel_execution_states.parallel_execution_node_state', 'SubTask')]
+2026-04-18 23:27:59,649 | WARNING | langgraph.checkpoint.serde.jsonplus | Deserializing unregistered type domain.states.parallel_execution_states.parallel_execution_node_state.SubTask from checkpoint. This will be blocked in a future version. Add to allowed_msgpack_modules to silence: [('domain.states.parallel_execution_states.parallel_execution_node_state', 'SubTask')]
+2026-04-18 23:27:59,649 | WARNING | langgraph.checkpoint.serde.jsonplus | Deserializing unregistered type domain.states.parallel_execution_states.parallel_execution_node_state.SubTask from checkpoint. This will be blocked in a future version. Add to allowed_msgpack_modules to silence: [('domain.states.parallel_execution_states.parallel_execution_node_state', 'SubTask')]
+2026-04-18 23:27:59,650 | WARNING | langgraph.checkpoint.serde.jsonplus | Deserializing unregistered type domain.states.supervisor.diagnose_graph_state.WMState from checkpoint. This will be blocked in a future version. Add to allowed_msgpack_modules to silence: [('domain.states.supervisor.diagnose_graph_state', 'WMState')]
+2026-04-18 23:30:12,900 | INFO | agents.nodes.router_node | task='parallel' enriched_query='What is the current on-hand inventory level for SKU-003?'
+2026-04-18 23:30:12,902 | INFO | agents.edges.route_after_router | Routing to PARALLEL path (ticket=INC, query=What is the current on-hand inventory level for SKU-003?)
+2026-04-18 23:30:12,912 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-18 23:30:13,381 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 503 Service Unavailable"
+2026-04-18 23:30:13,393 | INFO | agents.nodes.sql_lookup_node | SQL Lookup Node: ['inventory']
+2026-04-18 23:30:13,399 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-18 23:30:14,186 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 503 Service Unavailable"
+2026-04-18 23:30:14,191 | INFO | agents.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['inventory']
+2026-04-18 23:30:14,436 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-18 23:30:18,309 | INFO | agents.nodes.sql_run_sql_node | SQL node completed. Success: True, Domains: ['inventory']
+2026-04-18 23:30:21,682 | INFO | agents.nodes.router_node | task='parallel' enriched_query='What is the current on-hand inventory level for SKU-003?'
+2026-04-18 23:30:21,684 | INFO | agents.edges.route_after_router | Routing to PARALLEL path (ticket=INC, query=What is the current on-hand inventory level for SKU-003?)
+2026-04-18 23:30:21,697 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-18 23:30:26,491 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 503 Service Unavailable"
+2026-04-18 23:30:26,511 | INFO | agents.nodes.sql_lookup_node | SQL Lookup Node: ['inventory']
+2026-04-18 23:30:26,519 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-18 23:30:26,820 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 503 Service Unavailable"
+2026-04-18 23:30:26,826 | INFO | agents.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['inventory']
+2026-04-18 23:30:27,071 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-18 23:30:31,114 | INFO | agents.nodes.sql_run_sql_node | SQL node completed. Success: True, Domains: ['inventory']
+2026-04-18 23:30:33,269 | INFO | agents.nodes.router_node | task='parallel' enriched_query='What is the current on-hand inventory level for SKU-003?'
+2026-04-18 23:30:33,271 | INFO | agents.edges.route_after_router | Routing to PARALLEL path (ticket=INC, query=What is the current on-hand inventory level for SKU-003?)
+2026-04-18 23:30:33,279 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-18 23:30:42,928 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 504 Gateway Timeout"
+2026-04-18 23:30:42,953 | INFO | agents.nodes.sql_lookup_node | SQL Lookup Node: ['inventory']
+2026-04-18 23:30:42,962 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-18 23:30:51,890 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 504 Gateway Timeout"
+2026-04-18 23:30:51,900 | INFO | agents.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['inventory']
+2026-04-18 23:30:52,295 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-18 23:30:56,173 | INFO | agents.nodes.sql_run_sql_node | SQL node completed. Success: True, Domains: ['inventory']
+2026-04-18 23:37:16,913 | INFO | agents.nodes.router_node | task='parallel' enriched_query='What is the current on-hand inventory level for SKU-003?'
+2026-04-18 23:37:16,915 | INFO | agents.edges.route_after_router | Routing to PARALLEL path (ticket=INC, query=What is the current on-hand inventory level for SKU-003?)
+2026-04-18 23:37:16,925 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-18 23:37:17,594 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 503 Service Unavailable"
+2026-04-18 23:37:17,609 | INFO | agents.nodes.sql_lookup_node | SQL Lookup Node: ['inventory']
+2026-04-18 23:37:17,618 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-18 23:37:21,581 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 503 Service Unavailable"
+2026-04-18 23:37:21,593 | INFO | agents.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['inventory']
+2026-04-18 23:37:21,859 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-04-18 23:37:25,666 | INFO | agents.nodes.sql_run_sql_node | SQL node completed. Success: True, Domains: ['inventory']
+2026-04-18 23:37:47,312 | INFO | agents.nodes.router_node | task='parallel' enriched_query='What is the standard operating procedure for the putaway process of inbound pallets?'
+2026-04-18 23:37:47,313 | INFO | agents.edges.route_after_router | Routing to PARALLEL path (ticket=INC, query=What is the standard operating procedure for the putaway process of inbound pallets?)
+2026-04-18 23:37:47,322 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-18 23:37:56,346 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 504 Gateway Timeout"
+2026-04-18 23:37:56,362 | INFO | agents.nodes.sop_lookup_node | Sop lookup query: What is the standard operating procedure for the inbound putaway process for pallets?
+2026-04-18 23:37:58,761 | INFO | agents.nodes.router_node | task='parallel' enriched_query='What is the standard operating procedure for the putaway process of inbound pallets?'
+2026-04-18 23:37:58,763 | INFO | agents.edges.route_after_router | Routing to PARALLEL path (ticket=INC, query=What is the standard operating procedure for the putaway process of inbound pallets?)
+2026-04-18 23:37:58,774 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-18 23:38:01,866 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 503 Service Unavailable"
+2026-04-18 23:38:01,884 | INFO | agents.nodes.sop_lookup_node | Sop lookup query: What is the standard operating procedure for the inbound putaway process for pallets?
+2026-04-18 23:38:04,148 | INFO | agents.nodes.router_node | task='parallel' enriched_query='What is the standard operating procedure for the putaway process of inbound pallets?'
+2026-04-18 23:38:04,150 | INFO | agents.edges.route_after_router | Routing to PARALLEL path (ticket=INC, query=What is the standard operating procedure for the putaway process of inbound pallets?)
+2026-04-18 23:38:04,160 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-18 23:38:04,529 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 503 Service Unavailable"
+2026-04-18 23:38:04,539 | INFO | agents.nodes.sop_lookup_node | Sop lookup query: What is the standard operating procedure for the inbound putaway process for pallets?
+2026-04-18 23:38:05,920 | INFO | agents.nodes.router_node | task='parallel' enriched_query='What is the standard operating procedure for the putaway process of inbound pallets?'
+2026-04-18 23:38:05,921 | INFO | agents.edges.route_after_router | Routing to PARALLEL path (ticket=INC, query=What is the standard operating procedure for the putaway process of inbound pallets?)
+2026-04-18 23:38:05,930 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-18 23:38:06,572 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 503 Service Unavailable"
+2026-04-18 23:38:06,583 | INFO | agents.nodes.sop_lookup_node | Sop lookup query: What is the standard operating procedure for the inbound putaway process for pallets?
+2026-04-18 23:38:07,415 | INFO | agents.nodes.router_node | task='parallel' enriched_query='What is the standard operating procedure for the putaway process of inbound pallets?'
+2026-04-18 23:38:07,416 | INFO | agents.edges.route_after_router | Routing to PARALLEL path (ticket=INC, query=What is the standard operating procedure for the putaway process of inbound pallets?)
+2026-04-18 23:38:07,425 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-04-18 23:38:07,840 | INFO | httpx | HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 503 Service Unavailable"
+2026-04-18 23:38:07,847 | INFO | agents.nodes.sop_lookup_node | Sop lookup query: What is the standard operating procedure for the inbound putaway process for pallets?

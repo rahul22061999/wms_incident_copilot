@@ -18,7 +18,7 @@ async def sql_lookup_node(state: dict):
                 "question": query,
                 "domain": domain,
             }),
-            timeout=30.0,
+            timeout=45.0,
         )
         return {
             "parallel_results": [{

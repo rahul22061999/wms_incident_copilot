@@ -1,4 +1,4 @@
-from typing import Literal
+from typing import Literal, List
 from langchain.tools import tool
 from dotenv import load_dotenv
 from langgraph.prebuilt import ToolRuntime
@@ -11,7 +11,7 @@ load_dotenv()
 @tool(description="Lookup sql on the database")
 def sql_lookup_tool(
         question: str,
-        domain: Literal["inbound", "outbound", "inventory"]
+        domain: List[Literal["inbound", "outbound", "inventory"]]
 ):
     """
     Run a SQL lookup against the WMS database for a specific domain.
@@ -26,7 +26,7 @@ def sql_lookup_tool(
 
     lookup_question_on_database = sql_graph.invoke(
         SQLGraphState(
-            domain=[domain],
+            domain=domain,
             user_question= question
         )
     )

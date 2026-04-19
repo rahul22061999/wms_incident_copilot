@@ -1,8 +1,8 @@
 import logging
-
 from langchain_core.messages import SystemMessage, HumanMessage
 from domain.states.RoutingState.router_state import RouterState
 from domain.states.supervisor.diagnose_graph_state import WMState
+from infrastructure.operation_cache import ROUTER_CACHE
 from models.model_loader import get_ollama_llm, get_google_llm, get_openai_fast_llm
 from prompts.generate_router_node_prompt import router_prompt
 
@@ -16,10 +16,10 @@ def router_node(state: WMState) -> dict[str,str]:
         raise ValueError("state.description is empty")
 
     model = (
-        get_ollama_llm().with_structured_output(RouterState)
+        get_ollama_llm(cache=ROUTER_CACHE).with_structured_output(RouterState)
         .with_fallbacks([
-            get_google_llm().with_structured_output(RouterState),
-            get_openai_fast_llm().with_structured_output(RouterState)
+            get_google_llm(cache=ROUTER_CACHE).with_structured_output(RouterState),
+            get_openai_fast_llm(cache=ROUTER_CACHE).with_structured_output(RouterState)
         ])
     )
 

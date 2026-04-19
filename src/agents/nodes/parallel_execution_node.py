@@ -2,6 +2,7 @@ from langchain_core.messages import SystemMessage, HumanMessage
 from langsmith import traceable
 from domain.states.parallel_execution_states.parallel_execution_node_state import ParallelExecutionPlan
 from domain.states.supervisor.diagnose_graph_state import WMState
+from infrastructure.operation_cache import PARALLEL_SUBTASK_NODE_CACHE
 from models.model_loader import get_ollama_llm, get_google_llm, get_openai_fast_llm
 from prompts.generate_parallel_node_prompt import parallel_node_prompt
 
@@ -16,10 +17,10 @@ def plan_parallel_subtask_node(
 
     ##Break the query into subtasks
     llm = (
-        get_ollama_llm().with_structured_output(ParallelExecutionPlan)
+        get_ollama_llm(cache=PARALLEL_SUBTASK_NODE_CACHE).with_structured_output(ParallelExecutionPlan)
         .with_fallbacks([
-            get_google_llm().with_structured_output(ParallelExecutionPlan),
-            get_openai_fast_llm().with_structured_output(ParallelExecutionPlan)
+            get_google_llm(cache=PARALLEL_SUBTASK_NODE_CACHE).with_structured_output(ParallelExecutionPlan),
+            get_openai_fast_llm(cache=PARALLEL_SUBTASK_NODE_CACHE).with_structured_output(ParallelExecutionPlan)
         ])
     )
 

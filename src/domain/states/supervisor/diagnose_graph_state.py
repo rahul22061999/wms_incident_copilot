@@ -27,6 +27,9 @@ class WMState:
     # Worker outputs — reducer merges all parallel results
     parallel_results: Annotated[List[dict], operator.add] = field(default_factory=list)
 
+    #Sequential results
+    sequential_results: Annotated[List[dict], operator.add] = field(default_factory=list)
+
     # rollback / audit trail
     status: Literal["new", "running", "failed", "done"] = "new"
     event_log: Annotated[list[dict[str, Any]], operator.add] = field(default_factory=list)

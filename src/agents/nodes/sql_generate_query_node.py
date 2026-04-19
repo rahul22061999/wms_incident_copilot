@@ -2,6 +2,7 @@ import logging
 from langsmith import traceable
 from domain.states.sql_generate_subquery.sql_generate_subqueries_state import GenerateSubqueries
 from domain.states.sql_subgraph_state.sql_graph_state import SQLGraphState
+from infrastructure.operation_cache import GENERATE_SQL_QUERY_NODE_CACHE
 from models.model_loader import get_google_llm, get_openai_fast_llm
 from prompts.generate_sql_subquery_split_prompt import get_subquery_split_prompt
 from prompts.generate_sql_system_prompt import get_sql_prompt
@@ -31,14 +32,14 @@ def sql_generate_query_node(state: SQLGraphState) -> dict:
 
     if len(domains) > 1:
         # Split + generate SQL per domain
-        structured_llm = get_google_llm().with_structured_output(GenerateSubqueries).with_fallbacks([
-            get_openai_fast_llm().with_structured_output(GenerateSubqueries)
+        structured_llm = get_google_llm(cache=GENERATE_SQL_QUERY_NODE_CACHE).with_structured_output(GenerateSubqueries).with_fallbacks([
+            get_openai_fast_llm(cache=GENERATE_SQL_QUERY_NODE_CACHE).with_structured_output(GenerateSubqueries)
         ])
         state.subqueries = (get_subquery_split_prompt() | structured_llm).invoke({
             "description": state.user_question,
         })
 
-        llm = get_google_llm().with_fallbacks([get_openai_fast_llm()])
+        llm = get_google_llm(cache=GENERATE_SQL_QUERY_NODE_CACHE).with_fallbacks([get_openai_fast_llm()])
 
         for sq in state.subqueries.subqueries:
             response = (prompt | llm).invoke({
@@ -54,7 +55,7 @@ def sql_generate_query_node(state: SQLGraphState) -> dict:
 
             # {"inbound": "SELECT ...", "outbound": "SELECT ..."}
     else:
-        llm = get_google_llm().with_fallbacks([get_openai_fast_llm()])
+        llm = get_google_llm(cache=GENERATE_SQL_QUERY_NODE_CACHE).with_fallbacks([get_openai_fast_llm(cache=GENERATE_SQL_QUERY_NODE_CACHE)])
         response = (prompt | llm).invoke({
             "skill_context": state.skill_context[0] if state.skill_context else "",
             "description": state.user_question,
