@@ -1,7 +1,11 @@
 agents
+api
+cli
+config
 context
 data
 domain
+infrastructure
 models
 prompts
 rag_pipeline

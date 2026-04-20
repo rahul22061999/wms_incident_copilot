@@ -29,8 +29,16 @@ def router_node(state: WMState) -> dict[str,str]:
             HumanMessage(content=user_query),
         ]
     )
-    logger.info(response)
+
+    logger.info(
+        "task=%r enriched=%r interval=%s condition=%r",
+        response.task, response.enriched_query,
+        response.schedule_interval_seconds, response.schedule_condition,
+    )
+
     return {
-       "task": response.task,
+        "task": response.task,
         "enriched_query": response.enriched_query,
+        "schedule_interval_seconds": response.schedule_interval_seconds,
+        "schedule_condition": response.schedule_condition,
     }

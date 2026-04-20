@@ -1,0 +1,2 @@
+[console_scripts]
+wms-copilot = cli.cli:cli

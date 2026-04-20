@@ -6,6 +6,7 @@ from typing_extensions import Annotated, Literal
 from domain.states.RoutingState.router_state import RouterState
 from domain.states.parallel_execution_states.parallel_execution_node_state import SubTask
 from domain.states.supervisor.supervisor_evidence_states import EvidenceRecord, VerificationResult
+from domain.states.synthesizer_node_state import SynthesizerNodeReturnState
 
 
 @dataclass
@@ -30,11 +31,20 @@ class WMState:
     #Sequential results
     sequential_results: Annotated[List[dict], operator.add] = field(default_factory=list)
 
+    #schedular results
+    schedular_results: Annotated[List[str], operator.add] = field(default_factory=list)
+
     # rollback / audit trail
     status: Literal["new", "running", "failed", "done"] = "new"
     event_log: Annotated[list[dict[str, Any]], operator.add] = field(default_factory=list)
     errors: Annotated[list[dict[str, Any]], operator.add] = field(default_factory=list)
     current_node: str = "start"
+
+    ##scheduler
+    schedule_interval_seconds: Optional[int] = None
+    schedule_condition: Optional[str] = None
+    is_scheduled_run: bool = False
+
 
     loop_count: int = 0
     max_turns: int = 0
@@ -47,7 +57,8 @@ class WMState:
     tool_response: Annotated[List[dict], operator.add] = field(default_factory=list)
 
     evidence_records: Annotated[List[EvidenceRecord], operator.add] = field(default_factory=list)
-    verification_result: VerificationResult = None
+    summarized_result: Optional[SynthesizerNodeReturnState] = None
+
 
 
 

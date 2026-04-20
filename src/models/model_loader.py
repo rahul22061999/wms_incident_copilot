@@ -27,7 +27,7 @@ def get_ollama_llm(cache: BaseCache | bool | None = None):
             model="gemma4:31b-cloud",
             base_url="http://localhost:11434",
             client_kwargs={
-                "timeout": 5.0,   # seconds
+                "timeout": 100,   # seconds
                 "headers": {
                     "Authorization": f"Bearer {settings.OLLAMA_API_KEY}"
                 },

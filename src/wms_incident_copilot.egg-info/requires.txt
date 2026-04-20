@@ -1,4 +1,5 @@
 anthropic>=0.86.0
+apscheduler>=3.11.2
 boto3>=1.42.75
 bs4>=0.0.2
 chromadb>=1.5.5
@@ -25,7 +26,7 @@ langchain-qdrant>=1.1.0
 langchain-text-splitters>=1.1.1
 langgraph>=1.1.3
 langgraph-checkpoint-postgres>=3.0.5
-langgraph-cli[inmem]
+langgraph-cli
 langgraph-supervisor>=0.0.31
 pandas>=3.0.2
 prettyprinter>=0.18.0

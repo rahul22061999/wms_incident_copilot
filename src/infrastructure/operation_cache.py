@@ -14,3 +14,4 @@ SEQUENTIAL_NODE_CACHE = SQLiteCache(database_path=str(_CACHE_DIR / "sequential.d
 PARALLEL_SUBTASK_NODE_CACHE = SQLiteCache(database_path=str(_CACHE_DIR / "parallel.db"))
 
 GENERATE_SQL_QUERY_NODE_CACHE = SQLiteCache(database_path=str(_CACHE_DIR / "generate.db"))
+SYNTHESIZER_NODE_CACHE = SQLiteCache(database_path=str(_CACHE_DIR / "synthesize.db"))
