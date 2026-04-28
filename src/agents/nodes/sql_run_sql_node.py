@@ -1,36 +1,43 @@
 from langsmith import traceable
 import logging
 from domain.states.sql_subgraph_state.sql_graph_state import SQLGraphState
-from models.model_loader import get_groq_llm
 from dotenv import load_dotenv
-
-from utils.logging.logging_config import setup_logging
-from utils.sql_tools import WmsSqlTool
+from utils.sql_tools import AsyncWMSSQLService
 
 load_dotenv()
 
-setup_logging()
+
 logger = logging.getLogger(__name__)
 
 @traceable(name="sql_run_sql_node")
-def sql_run_sql_node(state: SQLGraphState) -> dict:
+async def sql_run_sql_node(state: SQLGraphState) -> dict:
     """Run sql's on the database"""
-    run_sql_query_with_columns_tool = WmsSqlTool(get_groq_llm())
+
+    run_sql_query_with_columns_tool = AsyncWMSSQLService()
 
     all_results = {}
+
     for domain,sql in state.validated_sql.items():
 
+        logger.info(
+            "starting SQL execution SQL:%s",
+            sql
+        )
         if not sql:
             state.errors.append("No sql was provided")
             all_results[domain] = {"rows": None, "error": "No SQL was provided"}
             continue
 
         try:
-            rows = run_sql_query_with_columns_tool.run_query(sql)
+            rows = await run_sql_query_with_columns_tool.run_query(sql)
             all_results[domain] = {"rows": rows, "error": None}
         except Exception as e:
             state.errors.append(str(e))
             all_results[domain] = {"rows": None, "error": str(e)}
+
+        logger.info(
+            "SQL execution completed"
+        )
 
     content = {
         domain: {

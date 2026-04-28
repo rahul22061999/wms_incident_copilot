@@ -16,7 +16,8 @@ def get_google_llm(cache: BaseCache | bool | None = None) -> ChatGoogleGenerativ
             timeout=settings.GOOGLE_TIMEOUT,
             max_retries=0,
             cache=cache,
-            temperature=0
+            temperature=0,
+
         )
 
 

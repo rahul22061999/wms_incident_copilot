@@ -8,7 +8,7 @@ from prompts.generate_router_node_prompt import router_prompt
 
 logger = logging.getLogger(__name__)
 
-def router_node(state: WMState) -> dict[str,str]:
+async def router_node(state: WMState) -> dict[str,str]:
 
     user_query = state.description
 
@@ -23,7 +23,7 @@ def router_node(state: WMState) -> dict[str,str]:
         ])
     )
 
-    response = model.invoke(
+    response = await model.ainvoke(
         [
             SystemMessage(content=router_prompt),
             HumanMessage(content=user_query),

@@ -9,6 +9,8 @@ from apscheduler.jobstores.base import JobLookupError
 from domain.states.monitoring_state import MonitoringState
 import asyncio
 
+from infrastructure.concurrency import get_graph_semaphore
+
 logger = logging.getLogger(__name__)
 
 # _scheduler = BackgroundScheduler(daemon=True)
@@ -47,7 +49,7 @@ def schedule_task(
         user_id: str,
 ) -> tuple[str, bool]:
 
-    job_id  = _key(query, interval_seconds)
+    job_id  = _key(query, interval_seconds, ticket_number, user_id)
     ## if there is a job scheduled then return False and do not schedule a job
     if job_id in _jobs:
         return job_id, False
@@ -62,36 +64,55 @@ def schedule_task(
     )
     _jobs[job_id] = monitor
 
-
     async def run():
         from agents.graph.application_graph import graph
 
-        monitor = _jobs[job_id]
+        monitor = _jobs.get(job_id)
+        if not monitor:
+            return
+
         monitor.status = "running"
 
-        result = await graph.ainvoke(
-            {
-                "description": query,
-                "is_scheduled_run": True,
-                "ticket_number": ticket_number,
-                "session_id": session_id ,
-                "user_id": user_id,
-                "monitoring_job_id": monitor.id,
-            },
-            config={"configurable": {"thread_id": f"monitor_{ticket_number}_{user_id}_{monitor.id}"}},
-        )
+        try:
+            sem = get_graph_semaphore()
 
+            async with sem:
+                result = await graph.ainvoke(
+                    {
+                        "description": query,
+                        "is_scheduled_run": True,
+                        "ticket_number": ticket_number,
+                        "session_id": session_id,
+                        "user_id": user_id,
+                        "monitoring_job_id": monitor.id,
+                    },
+                    config={
+                        "configurable": {
+                            "thread_id": f"monitor_{ticket_number}_{user_id}_{monitor.id}"
+                        }
+                    },
+                )
 
-        monitor.run_count += 1
-        monitor.last_result = result
-        monitor.status = "active"
-        monitor.last_run_at = datetime.now()
-        monitor.last_result = [result.get('summarized_result', '')]
+            monitor.run_count += 1
+            monitor.status = "active"
+            monitor.last_run_at = datetime.now()
+            monitor.last_result = [result.get("summarized_result", "")]
 
-        logger.info("Monitoring job %s completed. run_count=%s", job_id, monitor.run_count)
+            logger.info(
+                "Monitoring job %s completed. run_count=%s",
+                job_id,
+                monitor.run_count,
+            )
 
-        if monitor.run_count >= 10:
-            _cancel_job(job_id)
+            if monitor.run_count >= 10:
+                _cancel_job(job_id)
+
+        except Exception as e:
+            monitor.status = "failed"
+            monitor.last_run_at = datetime.now()
+            monitor.last_result = [f"Monitoring job failed: {str(e)}"]
+
+            logger.exception("Monitoring job %s failed", job_id)
 
 
     _scheduler.add_job(run, "interval", seconds=interval_seconds, id=job_id, max_instances=1)

@@ -3,12 +3,7 @@ from langgraph.graph import StateGraph,START
 from domain.states.sql_subgraph_state.sql_graph_state import SQLGraphState
 from agents.nodes.sql_load_skills_node import sql_load_skills_node
 from agents.nodes.sql_generate_query_node import sql_generate_query_node
-from agents.nodes.check_sql_node import check_sql_node
 from agents.nodes.sql_run_sql_node import sql_run_sql_node
-from dotenv import load_dotenv
-load_dotenv()
-
-
 
 
 def build_sql_subgraph():
@@ -18,7 +13,6 @@ def build_sql_subgraph():
     sql_graph_state.add_sequence([
         sql_load_skills_node,
         sql_generate_query_node,
-        check_sql_node,
         sql_run_sql_node
     ])
 

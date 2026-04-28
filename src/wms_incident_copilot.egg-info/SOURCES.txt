@@ -13,10 +13,6 @@ src/agents/middleware/__init__.py
 src/agents/middleware/sql_middleware.py
 src/agents/nodes/__init__.py
 src/agents/nodes/cancel_scheduler_node.py
-src/agents/nodes/check_sql_node.py
-src/agents/nodes/inbound_agent_node.py
-src/agents/nodes/inventory_agent_node.py
-src/agents/nodes/outbound_agent_node.py
 src/agents/nodes/parallel_execution_node.py
 src/agents/nodes/result_node.py
 src/agents/nodes/router_node.py
@@ -32,8 +28,6 @@ src/agents/nodes/synthesizer_node.py
 src/agents/nodes/verification_node.py
 src/api/__init__.py
 src/api/app.py
-src/cli/__init__.py
-src/cli/cli.py
 src/context/__init__.py
 src/context/skills/__init__.py
 src/context/skills/sql_skills.py
@@ -61,11 +55,11 @@ src/domain/states/supervisor/supervisor_result_schema.py
 src/domain/states/supervisor/supervisor_subagent_task_state.py
 src/domain/states/supervisor/supervisor_worker_payload_state.py
 src/infrastructure/__init__.py
+src/infrastructure/concurrency.py
 src/infrastructure/monitoring_registry.py
 src/infrastructure/operation_cache.py
 src/models/__init__.py
 src/models/model_loader.py
-src/models/sql_tool_loader.py
 src/prompts/__init__.py
 src/prompts/generate_inbound_agent_prompt.py
 src/prompts/generate_parallel_node_prompt.py
@@ -84,6 +78,8 @@ src/rag_pipeline/ingest.py
 src/runtime/__init__.py
 src/runtime/session_runtime.py
 src/runtime/session_store.py
+src/services/__init__.py
+src/services/audit_service.py
 src/tests/__init__.py
 src/tests/test_query_enrich_node.py
 src/tools/__init__.py
@@ -91,6 +87,7 @@ src/tools/rag_lookup_tool.py
 src/tools/sql_lookup_tool.py
 src/utils/__init__.py
 src/utils/sql_tools.py
+src/utils/auditing/__init__.py
 src/utils/logging/__init__.py
 src/utils/logging/logging_config.py
 src/utils/supervisor/__init__.py
@@ -99,11 +96,8 @@ src/utils/supervisor/supervisor_fallback.py
 src/utils/supervisor/supervisor_message_extractor.py
 src/utils/supervisor/supervisor_previous_context.py
 src/utils/supervisor/supervisor_subagent_handoff.py
-src/utils/verification/__init__.py
-src/utils/verification/evidence_collector.py
 src/wms_incident_copilot.egg-info/PKG-INFO
 src/wms_incident_copilot.egg-info/SOURCES.txt
 src/wms_incident_copilot.egg-info/dependency_links.txt
-src/wms_incident_copilot.egg-info/entry_points.txt
 src/wms_incident_copilot.egg-info/requires.txt
 src/wms_incident_copilot.egg-info/top_level.txt

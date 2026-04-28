@@ -52,3 +52,7 @@ langgraph-cli[inmem]
 slowapi
 pytest
 apscheduler
+asyncpg
+greenlet
+sqlalchemy[asyncio]
+aiosqlite

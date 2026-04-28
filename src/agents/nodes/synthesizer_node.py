@@ -3,13 +3,13 @@ from langchain_core.messages import HumanMessage, SystemMessage
 from domain.states.supervisor.diagnose_graph_state import WMState
 from domain.states.synthesizer_node_state import SynthesizerNodeReturnState
 from infrastructure.operation_cache import SYNTHESIZER_NODE_CACHE
-from models.model_loader import get_ollama_llm
+from models.model_loader import get_ollama_llm, get_google_llm
 import json
 
-def synthesizer_node(state: WMState):
+async def synthesizer_node(state: WMState):
     #return parallel execution results and sequential results too
 
-    llm = get_ollama_llm(cache=SYNTHESIZER_NODE_CACHE).with_structured_output(SynthesizerNodeReturnState)
+    llm = get_google_llm(cache=SYNTHESIZER_NODE_CACHE).with_structured_output(SynthesizerNodeReturnState)
 
     combined_results = {
         "parallel_results": getattr(state, "parallel_results", None) or [],
@@ -40,12 +40,12 @@ def synthesizer_node(state: WMState):
                 "- citations: list of objects, where each object has:\n"
                 "  - source_type: one of sql, sop, node, other\n"
                 "  - reference: exact supporting citation text\n\n"
-                f"{json.dumps(combined_results, indent=2, default=str)}"
+                f"{combined_results}"
             )
         ),
     ]
 
-    result: SynthesizerNodeReturnState = llm.invoke(messages)
+    result: SynthesizerNodeReturnState = await llm.ainvoke(messages)
 
     return {
         "summarized_result": result.model_dump()

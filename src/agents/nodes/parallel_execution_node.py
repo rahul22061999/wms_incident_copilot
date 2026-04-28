@@ -8,7 +8,7 @@ from prompts.generate_parallel_node_prompt import parallel_node_prompt
 
 
 @traceable(name="parallel_task_plan_node")
-def plan_parallel_subtask_node(
+async def plan_parallel_subtask_node(
     state: WMState,
 ):
     """Break the enriched query into independent subtasks for parallel execution."""
@@ -24,7 +24,7 @@ def plan_parallel_subtask_node(
         ])
     )
 
-    plan_subagent_subtasks = llm.invoke(
+    plan_subagent_subtasks = await llm.ainvoke(
         [
             SystemMessage(content=parallel_node_prompt),
             HumanMessage(content=enriched_user_query),

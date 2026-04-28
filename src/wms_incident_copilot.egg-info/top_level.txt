@@ -1,6 +1,5 @@
 agents
 api
-cli
 config
 context
 data
@@ -10,6 +9,7 @@ models
 prompts
 rag_pipeline
 runtime
+services
 tests
 tools
 utils

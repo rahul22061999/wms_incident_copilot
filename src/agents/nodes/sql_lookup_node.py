@@ -2,7 +2,6 @@ import logging
 import asyncio
 from tools.sql_lookup_tool import sql_lookup_tool
 
-
 logger  = logging.getLogger(__name__)
 
 async def sql_lookup_node(state: dict):
@@ -10,7 +9,7 @@ async def sql_lookup_node(state: dict):
     query = state["query"]
     domain = state["domain"]
 
-    logger.info(f"SQL Lookup Node: {domain}")
+    logger.info("SQL Lookup Node started | domain=%s", domain)
 
     try:
         result = await asyncio.wait_for(
