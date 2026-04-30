@@ -68,10 +68,10 @@ def sop_retrieval_tool(
     vectorstore = _get_vectorstore()
     parent_dict = _get_parent_dict()
 
-        # Step 1 + 2: embedding + vector search happen here
+
     children = vectorstore.similarity_search(query, k=k)
 
-        # Step 3: dedupe children → parents
+
     seen, parents = set(), []
     for child in children:
         pid = child.metadata.get("parent_id")

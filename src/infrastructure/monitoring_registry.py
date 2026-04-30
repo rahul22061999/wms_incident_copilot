@@ -3,157 +3,292 @@ from __future__ import annotations
 from datetime import datetime
 import hashlib
 import logging
-from apscheduler.schedulers.background import BackgroundScheduler
+
 from apscheduler.schedulers.asyncio import AsyncIOScheduler
 from apscheduler.jobstores.base import JobLookupError
-from domain.states.monitoring_state import MonitoringState
-import asyncio
+from apscheduler.jobstores.sqlalchemy import SQLAlchemyJobStore
+from sqlalchemy import select
 
+from config import settings
+from domain.models.job_schedule_event import JobScheduleEvent
 from infrastructure.concurrency import get_graph_semaphore
+from infrastructure.job_schedule_database import AsyncLocalSession
 
 logger = logging.getLogger(__name__)
 
-# _scheduler = BackgroundScheduler(daemon=True)
-_scheduler = AsyncIOScheduler()
-# _scheduler.start()
+
+_scheduler = AsyncIOScheduler(
+    jobstores={
+        "default": SQLAlchemyJobStore(url=settings.JOB_SCHEDULER_DB_URL),
+    }
+)
+
+
 def get_scheduler() -> AsyncIOScheduler:
-    """Exposed so main.py can start/shutdown it from lifespan."""
     return _scheduler
-_jobs: dict[str, MonitoringState] = {}
-
-def _key(query: str, interval: int, ticket_number: str, user_id: str) -> str:
-    raw = f"{query.strip().lower()}::{interval}::{ticket_number}::{user_id}"
-    return hashlib.sha256(raw.encode()).hexdigest()[:12]
 
 
-def _cancel_job(job_id: str) -> bool:
-    monitor = _jobs[job_id]
+def make_job_id(
+    query: str,
+    interval_seconds: int,
+    ticket_number: str,
+    user_id: str,
+) -> int:
+    raw = f"{query.strip().lower()}::{interval_seconds}::{ticket_number}::{user_id}"
+    return int(hashlib.sha256(raw.encode()).hexdigest()[:12], 16)
+
+
+async def get_monitor(job_id: int) -> JobScheduleEvent | None:
+    async with AsyncLocalSession() as session:
+        return await session.get(JobScheduleEvent, job_id)
+
+
+async def create_monitor(
+    job_id: int,
+    ticket_number: str,
+    interval_seconds: int,
+) -> None:
+    async with AsyncLocalSession() as session:
+        existing = await session.get(JobScheduleEvent, job_id)
+
+        if existing:
+            return
+
+        monitor = JobScheduleEvent(
+            job_id=job_id,
+            ticket_number=ticket_number,
+            status="active",
+            event_type="scheduler_job",
+            last_result="",
+            interval_seconds=interval_seconds,
+            run_count=0,
+            created_at=datetime.now(),
+            last_run_time=datetime.now(),
+        )
+
+        session.add(monitor)
+        await session.commit()
+
+
+async def update_monitor(
+    job_id: int,
+    status: str,
+    last_result: str | None = None,
+    increment_run_count: bool = False,
+) -> None:
+    async with AsyncLocalSession() as session:
+        monitor = await session.get(JobScheduleEvent, job_id)
+
+        if not monitor:
+            logger.warning("Monitor %s not found", job_id)
+            return
+
+        monitor.status = status
+        monitor.last_run_time = datetime.now()
+
+        if last_result is not None:
+            monitor.last_result = last_result
+
+        if increment_run_count:
+            monitor.run_count += 1
+
+        await session.commit()
+
+
+async def cancel_job(job_id: int) -> bool:
+    async with AsyncLocalSession() as session:
+        monitor = await session.get(JobScheduleEvent, job_id)
+
+        if not monitor:
+            logger.warning("Monitor %s not found in DB", job_id)
+
+            try:
+                _scheduler.remove_job(str(job_id))
+                return True
+            except JobLookupError:
+                return False
+
+        try:
+            _scheduler.remove_job(str(job_id))
+            logger.info("Removed APScheduler job %s", job_id)
+        except JobLookupError:
+            logger.warning("APScheduler job %s not found, deleting DB row anyway", job_id)
+
+        await session.delete(monitor)
+        await session.commit()
+
+        return True
+
+async def run_monitoring_job(
+    job_id: int,
+    query: str,
+    ticket_number: str,
+    session_id: str,
+    user_id: str,
+) -> None:
+    from workflows.graph.application_graph import graph
+
+    monitor = await get_monitor(job_id)
 
     if not monitor:
-        return False
+        logger.warning("Job %s exists in scheduler but not DB", job_id)
+        return
+
+    if monitor.status not in {"active", "running"}:
+        logger.info("Skipping job %s because status=%s", job_id, monitor.status)
+        return
+
+    await update_monitor(
+        job_id=job_id,
+        status="running",
+        last_result=monitor.last_result,
+    )
 
     try:
-        _scheduler.remove_job(job_id)
-    except JobLookupError:
-        pass
+        sem = get_graph_semaphore()
 
-    monitor.status = "canceled"
-    return True
+        async with sem:
+            result = await graph.ainvoke(
+                {
+                    "description": query,
+                    "is_scheduled_run": True,
+                    "ticket_number": ticket_number,
+                    "session_id": session_id,
+                    "user_id": user_id,
+                    "monitoring_job_id": str(job_id),
+                },
+                config={
+                    "configurable": {
+                        "thread_id": f"monitor_{ticket_number}_{user_id}_{job_id}"
+                    }
+                },
+            )
+
+        summarized_result = str(result.get("summarized_result", ""))
+
+        await update_monitor(
+            job_id=job_id,
+            status="active",
+            last_result=summarized_result,
+            increment_run_count=True,
+        )
+
+        updated_monitor = await get_monitor(job_id)
+
+        if updated_monitor and updated_monitor.run_count >= 10:
+            await cancel_job(job_id)
+
+    except Exception as exc:
+        error_message = f"Monitoring job failed: {str(exc)}"
+
+        await update_monitor(
+            job_id=job_id,
+            status="failed",
+            last_result=error_message,
+        )
+
+        logger.exception("Monitoring job %s failed", job_id)
 
 
-def schedule_task(
-        query: str,
-        interval_seconds: int,
-        ticket_number: str,
-        session_id: str,
-        user_id: str,
-) -> tuple[str, bool]:
-
-    job_id  = _key(query, interval_seconds, ticket_number, user_id)
-    ## if there is a job scheduled then return False and do not schedule a job
-    if job_id in _jobs:
-        return job_id, False
-
-    monitor = MonitoringState(
-        id=job_id,
+async def schedule_task(
+    query: str,
+    interval_seconds: int,
+    ticket_number: str,
+    session_id: str,
+    user_id: str,
+) -> tuple[int, bool]:
+    job_id = make_job_id(
         query=query,
         interval_seconds=interval_seconds,
         ticket_number=ticket_number,
-        original_session_id=session_id,
         user_id=user_id,
     )
-    _jobs[job_id] = monitor
 
-    async def run():
-        from agents.graph.application_graph import graph
+    existing_monitor = await get_monitor(job_id)
 
-        monitor = _jobs.get(job_id)
-        if not monitor:
-            return
+    if existing_monitor and existing_monitor.status in {"active", "running"}:
+        return job_id, False
 
-        monitor.status = "running"
+    await create_monitor(
+        job_id=job_id,
+        ticket_number=ticket_number,
+        interval_seconds=interval_seconds,
+    )
 
-        try:
-            sem = get_graph_semaphore()
+    if _scheduler.get_job(str(job_id)):
+        return job_id, False
 
-            async with sem:
-                result = await graph.ainvoke(
-                    {
-                        "description": query,
-                        "is_scheduled_run": True,
-                        "ticket_number": ticket_number,
-                        "session_id": session_id,
-                        "user_id": user_id,
-                        "monitoring_job_id": monitor.id,
-                    },
-                    config={
-                        "configurable": {
-                            "thread_id": f"monitor_{ticket_number}_{user_id}_{monitor.id}"
-                        }
-                    },
-                )
+    _scheduler.add_job(
+        run_monitoring_job,
+        trigger="interval",
+        seconds=interval_seconds,
+        id=str(job_id),
+        args=[
+            job_id,
+            query,
+            interval_seconds,
+            ticket_number,
+            session_id,
+            user_id,
+        ],
+        max_instances=1,
+        replace_existing=True,
+    )
 
-            monitor.run_count += 1
-            monitor.status = "active"
-            monitor.last_run_at = datetime.now()
-            monitor.last_result = [result.get("summarized_result", "")]
+    logger.info("Scheduled job %s every %s seconds", job_id, interval_seconds)
 
-            logger.info(
-                "Monitoring job %s completed. run_count=%s",
-                job_id,
-                monitor.run_count,
-            )
-
-            if monitor.run_count >= 10:
-                _cancel_job(job_id)
-
-        except Exception as e:
-            monitor.status = "failed"
-            monitor.last_run_at = datetime.now()
-            monitor.last_result = [f"Monitoring job failed: {str(e)}"]
-
-            logger.exception("Monitoring job %s failed", job_id)
-
-
-    _scheduler.add_job(run, "interval", seconds=interval_seconds, id=job_id, max_instances=1)
-    logger.info("Scheduled %s every %ds: %r", job_id, interval_seconds, query)
     return job_id, True
 
-def list_jobs() -> list[dict]:
-    return [monitor.model_dump() for monitor in _jobs.values()]
 
+async def cancel_jobs_for_ticket(ticket_number: str, user_id: str) -> list[int]:
+    cancelled: list[int] = []
 
-def cancel_jobs_for_ticket(ticket_number: str, user_id: str) -> list[str]:
-    cancelled = []
+    async with AsyncLocalSession() as session:
+        result = await session.execute(
+            select(JobScheduleEvent).where(
+                JobScheduleEvent.ticket_number == ticket_number
+            )
+        )
 
-    for job_id, monitor in list(_jobs.items()):
-        if (
-            monitor.ticket_number == ticket_number
-            and monitor.user_id == user_id
-            and monitor.status in {"active", "running"}
-        ):
+        monitors = result.scalars().all()
+
+        for monitor in monitors:
+            job_id = monitor.job_id
+
             try:
-                _scheduler.remove_job(job_id)
+                _scheduler.remove_job(str(job_id))
+                logger.info("Removed APScheduler job %s", job_id)
             except JobLookupError:
-                pass
+                logger.warning("APScheduler job %s not found, deleting DB row anyway", job_id)
 
-            monitor.status = "cancelled"
             cancelled.append(job_id)
-            _jobs.pop(job_id)
+            await session.delete(monitor)
+
+        await session.commit()
 
     return cancelled
+async def list_jobs_for_ticket(ticket_number: str, user_id: str) -> list[dict]:
+    async with AsyncLocalSession() as session:
+        result = await session.execute(
+            select(JobScheduleEvent).where(
+                JobScheduleEvent.ticket_number == ticket_number,
+                JobScheduleEvent.status.in_(["active", "running"]),
+            )
+        )
 
-def list_jobs_for_ticket(ticket_number: str, user_id: str) -> list[MonitoringState]:
-    """All active jobs belonging to this ticket+user."""
-    return [
-        m for m in _jobs.values()
-        if m.ticket_number == ticket_number
-        and m.user_id == user_id
-        and m.status in {"active", "running"}
-    ]
+        monitors = result.scalars().all()
 
-
-def get_run_count(job_id: str) -> int:
-    """Return current run_count for a job, or 0 if it doesn't exist."""
-    monitor = _jobs.get(job_id)
-    return monitor.run_count if monitor else 0
+        return [
+            {
+                "job_id": monitor.job_id,
+                "ticket_number": monitor.ticket_number,
+                "status": monitor.status,
+                "event_type": monitor.event_type,
+                "interval_seconds": monitor.interval_seconds,
+                "run_count": monitor.run_count,
+                "last_result": monitor.last_result,
+                "created_at": monitor.created_at,
+                "last_run_time": monitor.last_run_time,
+            }
+            for monitor in monitors
+        ]

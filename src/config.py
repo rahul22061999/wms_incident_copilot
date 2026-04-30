@@ -80,6 +80,9 @@ class Settings(BaseSettings):
     ##MAX CONCURRENT GRAPH SEMAPHORE
     MAX_GRAPH_SEMAPHORE: int = 10
 
+    ##job schedular db url
+    JOB_SCHEDULER_DB_URL:str = "sqlite:////Users/rahul/Library/Mobile Documents/com~apple~CloudDocs/SCM_Agentic_Ai/wms-incident-api/job_schedule.db"
+
 
 
 settings = Settings()

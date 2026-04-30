@@ -1,0 +1,204 @@
+Metadata-Version: 2.4
+Name: wms-incident-api
+Version: 0.1.0
+Summary: Add your description here
+Requires-Python: <3.13,>=3.12
+Description-Content-Type: text/markdown
+Requires-Dist: aiosqlite>=0.22.1
+Requires-Dist: anthropic>=0.86.0
+Requires-Dist: apscheduler>=3.11.2
+Requires-Dist: asyncpg>=0.31.0
+Requires-Dist: boto3>=1.42.75
+Requires-Dist: bs4>=0.0.2
+Requires-Dist: chromadb>=1.5.5
+Requires-Dist: deepagents>=0.4.12
+Requires-Dist: faker>=40.11.1
+Requires-Dist: fastapi>=0.135.2
+Requires-Dist: fastmcp>=3.1.1
+Requires-Dist: google-generativeai>=0.8.6
+Requires-Dist: greenlet>=3.4.0
+Requires-Dist: httpx>=0.28.1
+Requires-Dist: ipykernel>=7.2.0
+Requires-Dist: langchain>=1.2.13
+Requires-Dist: langchain-anthropic>=1.4.0
+Requires-Dist: langchain-chroma>=1.1.0
+Requires-Dist: langchain-classic>=1.0.3
+Requires-Dist: langchain-community>=0.4.1
+Requires-Dist: langchain-core>=1.2.22
+Requires-Dist: langchain-google-genai>=4.2.1
+Requires-Dist: langchain-groq>=1.1.2
+Requires-Dist: langchain-mcp-adapters>=0.2.2
+Requires-Dist: langchain-neo4j>=0.7.0
+Requires-Dist: langchain-ollama>=1.0.1
+Requires-Dist: langchain-openai>=1.1.12
+Requires-Dist: langchain-qdrant>=1.1.0
+Requires-Dist: langchain-text-splitters>=1.1.1
+Requires-Dist: langgraph>=1.1.3
+Requires-Dist: langgraph-checkpoint-postgres>=3.0.5
+Requires-Dist: langgraph-cli[inmem]
+Requires-Dist: langgraph-supervisor>=0.0.31
+Requires-Dist: pandas>=3.0.2
+Requires-Dist: prettyprinter>=0.18.0
+Requires-Dist: psycopg2>=2.9.11
+Requires-Dist: psycopg2-binary>=2.9.11
+Requires-Dist: pydantic>=2.12.5
+Requires-Dist: pydantic-settings>=2.13.1
+Requires-Dist: pymupdf>=1.27.2.2
+Requires-Dist: pypdf>=6.9.2
+Requires-Dist: pytest>=9.0.3
+Requires-Dist: python-dotenv>=1.2.2
+Requires-Dist: pyyaml>=6.0.3
+Requires-Dist: qdrant-client>=1.17.1
+Requires-Dist: slowapi>=0.1.9
+Requires-Dist: sqlalchemy[asyncio]>=2.0.48
+Requires-Dist: sqlglot>=30.0.3
+Requires-Dist: sse-starlette>=2.2.0
+Requires-Dist: structlog>=25.5.0
+Requires-Dist: tabulate>=0.10.0
+Requires-Dist: tenacity>=9.1.4
+Requires-Dist: trustcall>=0.0.39
+Requires-Dist: uvicorn[standard]>=0.42.0
+
+                  ┌─────────────────────────────┐
+                         │       API / Chatbot         │
+                         │   receives user request     │
+                         └──────────────┬──────────────┘
+                                        │
+                                        v
+                         ┌─────────────────────────────┐
+                         │       SessionRuntime         │
+                         │ load/save WMState           │
+                         │ append user message         │
+                         └──────────────┬──────────────┘
+                                        │
+                                        v
+                         ┌─────────────────────────────┐
+                         │       Parent LangGraph       │
+                         │   owns durable WMState       │
+                         └──────────────┬──────────────┘
+                                        │
+                                        v
+                         ┌─────────────────────────────┐
+                         │        Router Node           │
+                         │  outputs RoutingDecision     │
+                         └───────────┬─────────┬───────┘
+                                     │         │
+                            lookup   │         │ diagnose
+                                     │         │
+                                     v         v
+                    ┌──────────────────────┐  ┌──────────────────────┐
+                    │     Lookup Flow      │  │   Diagnosis Flow     │
+                    │ reads WMState        │  │ reads WMState        │
+                    │ may call SQL tool    │  │ may call SQL tool    │
+                    └──────────┬───────────┘  └──────────┬───────────┘
+                               │                         │
+                               │ tool call               │ tool call
+                               └──────────────┬──────────┘
+                                              v
+                          ┌────────────────────────────────────┐
+                          │         SQL TOOL ADAPTER           │
+                          │ converts WMState -> SQLGraphState  │
+                          │ invokes SQL subgraph sequentially  │
+                          └──────────────────┬─────────────────┘
+                                             v
+                    ┌───────────────────────────────────────────────────┐
+                    │              SQL SUBGRAPH (sequential)            │
+                    │            owns local SQLGraphState only          │
+                    ├───────────────────────────────────────────────────┤
+                    │ 1. understand sql intent                          │
+                    │ 2. fetch schema/context                           │
+                    │ 3. generate SQL                                   │
+                    │ 4. validate / repair SQL                          │
+                    │ 5. execute query                                  │
+                    │ 6. summarize result                               │
+                    └──────────────────┬────────────────────────────────┘
+                                       │
+                                       v
+                         ┌─────────────────────────────┐
+                         │      SQLTaskResult          │
+                         │ typed result contract       │
+                         │ rows / sql / summary / err  │
+                         └──────────────┬──────────────┘
+                                        │
+                     ┌──────────────────┴──────────────────┐
+                     │                                     │
+                     v                                     v
+          ┌──────────────────────────┐         ┌──────────────────────────┐
+          │ Lookup Flow updates      │         │ Diagnosis Flow updates   │
+          │ lookup_result            │         │ diagnosis_result         │
+          │ maybe draft response     │         │ maybe draft response     │
+          └──────────────┬───────────┘         └──────────────┬───────────┘
+                         └──────────────────┬──────────────────┘
+                                            v
+                         ┌─────────────────────────────┐
+                         │   Parent Graph Finalizer    │
+                         │ writes final_response       │
+                         │ updates WMState             │
+                         └──────────────┬──────────────┘
+                                        │
+                                        v
+                         ┌─────────────────────────────┐
+                         │       SessionRuntime        │
+                         │ persist updated WMState     │
+                         └──────────────┬──────────────┘
+                                        │
+                                        v
+                         ┌─────────────────────────────┐
+                         │       API response          │
+                         └─────────────────────────────┘
+
+
+┌─────────────────────────────────────────────────────────────────┐
+│                        STATE FLOW                                │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                   │
+│  ┌────────────────────────────────────────────────────────────┐ │
+│  │                    WMState (Durable)                        │ │
+│  │  - Long-lived state owned by Parent LangGraph               │ │
+│  │  - Persisted to database by Session Runtime                 │ │
+│  │  - Contains inventory, locations, orders, issues            │ │
+│  └────────────────────────────────────────────────────────────┘ │
+│                                                                   │
+│  ┌────────────────────────────────────────────────────────────┐ │
+│  │                  SQLGraphState (Temporary)                 │ │
+│  │  - Schema information                                       │ │
+│  │  - Generated/validated SQL                                   │ │
+│  │  - Query results                                             │ │
+│  │  - Passed through SQL Tool Adapter → SQL Subgraph           │ │
+│  └────────────────────────────────────────────────────────────┘ │
+│                                                                   │
+│  ┌────────────────────────────────────────────────────────────┐ │
+│  │                  RoutingDecision (Temporary)               │ │
+│  │  - User Intent Detection (lookup vs diagnosis)              │ │
+│  │  - Passed to Router Node                                    │ │
+│  └────────────────────────────────────────────────────────────┘ │
+│                                                                   │
+│  ┌────────────────────────────────────────────────────────────┐ │
+│  │                  Flow Results (Temporary)                  │ │
+│  │  - lookup_result OR diagnosis_result                        │ │
+│  │  - Finalized by Parent Graph Finalizer                      │ │
+│  └────────────────────────────────────────────────────────────┘ │
+│                                                                   │
+└─────────────────────────────────────────────────────────────────┘
+
+User Request → API Chatbot → Session Runtime (Load WMState)
+              ↓
+         Parent LangGraph
+              ↓
+           Router Node
+              ↓
+      ┌───────┴───────┐
+      ↓               ↓
+ Lookup Flow   Diagnosis Flow
+      ↓               ↓
+    SQL Tool    SQL Tool
+      ↓               ↓
+ SQL Subgraph (Sequential)
+      ↓
+   SQL Task Result
+      ↓
+ Parent Finalizer
+      ↓
+  Session Runtime (Persist)
+      ↓
+   API Response → User

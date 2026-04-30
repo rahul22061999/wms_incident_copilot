@@ -6,10 +6,10 @@ from config import BASE_DIR
 
 
 def ingest_sop_docs(path: Optional[Path] = None) -> List[Document]:
-    """Ingest docs into RagPipeline"""
+    """Ingest data into RagPipeline"""
 
     if path is None or not path.exists():
-        path = BASE_DIR / "docs" / "sop"
+        path = BASE_DIR / "data" / "sop"
 
     def _load_documents():
         doc_loader = PyPDFDirectoryLoader(str(path))

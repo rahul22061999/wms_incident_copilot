@@ -1,6 +1,6 @@
 from typing import Literal, List
 from langchain.tools import tool
-from agents.graph.sql_subgraph import sql_graph
+from workflows.graph.sql_subgraph import sql_graph
 from domain.states.sql_subgraph_state.sql_graph_state import SQLGraphState
 
 @tool(description="Lookup sql on the database")

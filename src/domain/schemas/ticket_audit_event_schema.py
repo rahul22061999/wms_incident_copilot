@@ -1,8 +1,5 @@
-# domain/schemas/ticket_audit_event_schema.py
-
 from datetime import datetime
 from typing import Optional
-
 from pydantic import BaseModel
 
 

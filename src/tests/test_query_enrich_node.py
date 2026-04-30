@@ -1,7 +1,7 @@
 import pytest
 from unittest.mock import MagicMock, patch
 from domain.states.supervisor.diagnose_graph_state import WMState
-from agents.nodes.query_enrich_node import query_enrich_node
+from workflows.nodes import query_enrich_node
 
 
 def make_state(description):

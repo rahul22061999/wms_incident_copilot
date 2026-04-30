@@ -56,3 +56,4 @@ asyncpg
 greenlet
 sqlalchemy[asyncio]
 aiosqlite
+langsmith

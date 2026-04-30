@@ -7,8 +7,9 @@ import logging
 from fastapi import FastAPI, HTTPException, Request
 from fastapi.responses import StreamingResponse
 from pydantic import BaseModel
+from watchfiles import awatch
 
-from agents.graph.application_graph import graph
+from workflows.graph.application_graph import graph
 from config import settings
 from domain.states.supervisor.diagnose_graph_state import WMState
 from infrastructure.concurrency import init_graph_semaphore, get_graph_semaphore
@@ -28,12 +29,16 @@ async def lifespan(app: FastAPI):
     init_graph_semaphore(settings.MAX_GRAPH_SEMAPHORE)
 
     scheduler = get_scheduler()
-    scheduler.start()
+
+    if not scheduler.running:
+        scheduler.start()
 
     try:
         yield
     finally:
-        scheduler.shutdown(wait=False)
+        if scheduler.running:
+            scheduler.shutdown(wait=False)
+
         executor.shutdown(wait=False)
 
 
@@ -99,15 +104,15 @@ async def run_app(payload: RunRequest):
 @app.get("/run/stream/{ticket_number}")
 async def stream_for_ticket(ticket_number: str, user_id: str, request: Request):
     async def gen():
-        seen: dict[str, int] = {}
+        seen: dict[int, int] = {}
 
-        initial = list_jobs_for_ticket(ticket_number, user_id)
+        initial = await list_jobs_for_ticket(ticket_number, user_id)
 
-        for m in initial:
-            seen[m.id] = m.run_count
+        for job in initial:
+            seen[job["job_id"]] = job["run_count"]
 
         yield _sse(
-            {"jobs": [m.model_dump() for m in initial]},
+            {"jobs": initial},
             event="connected",
         )
 
@@ -115,31 +120,45 @@ async def stream_for_ticket(ticket_number: str, user_id: str, request: Request):
             if await request.is_disconnected():
                 break
 
+            jobs = await list_jobs_for_ticket(ticket_number, user_id)
+
+            # stop polling if there are no active/running jobs left
+            if not jobs:
+                yield _sse(
+                    {"message": "No active scheduled jobs. Closing stream."},
+                    event="closed",
+                )
+                break
+
             current = {
-                m.id: m
-                for m in list_jobs_for_ticket(ticket_number, user_id)
+                job["job_id"]: job
+                for job in jobs
             }
 
-            for jid in list(seen):
-                if jid not in current:
-                    yield _sse({"job_id": jid}, event="job_cancelled")
-                    seen.pop(jid)
+            for job_id in list(seen):
+                if job_id not in current:
+                    yield _sse(
+                        {"job_id": job_id},
+                        event="job_cancelled",
+                    )
+                    seen.pop(job_id)
 
-            for jid, monitor in current.items():
-                last_seen = seen.get(jid, 0)
+            for job_id, job in current.items():
+                last_seen = seen.get(job_id, 0)
 
-                if monitor.run_count > last_seen:
+                if job["run_count"] > last_seen:
                     yield _sse(
                         {
-                            "job_id": jid,
-                            "run_number": monitor.run_count,
-                            "ran_at": monitor.last_run_at,
-                            "result": monitor.last_result,
+                            "job_id": job_id,
+                            "run_number": job["run_count"],
+                            "ran_at": job["last_run_time"],
+                            "result": job["last_result"],
+                            "status": job["status"],
                         },
                         event="result",
                     )
 
-                    seen[jid] = monitor.run_count
+                    seen[job_id] = job["run_count"]
 
             await asyncio.sleep(1)
 

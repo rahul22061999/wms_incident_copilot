@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/WMS_Incident_Copilot.iml" filepath="$PROJECT_DIR$/.idea/WMS_Incident_Copilot.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../wms-incident-api/.idea/wms-incident-api.iml" filepath="$PROJECT_DIR$/../wms-incident-api/.idea/wms-incident-api.iml" />
     </modules>
   </component>
 </project>
