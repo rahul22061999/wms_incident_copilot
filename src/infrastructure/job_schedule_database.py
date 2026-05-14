@@ -8,7 +8,7 @@ DB_PATH = BASE_DIR / "job_schedule.db"
 
 DATABASE_URL = f"sqlite+aiosqlite:///{DB_PATH.as_posix()}"
 
-engine = create_async_engine(DATABASE_URL, echo=True)
+engine = create_async_engine(DATABASE_URL, echo=False)
 
 
 class Base(DeclarativeBase):

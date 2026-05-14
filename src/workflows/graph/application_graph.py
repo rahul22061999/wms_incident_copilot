@@ -34,13 +34,7 @@ def _application_graph():
     builder.add_conditional_edges(
         "router_node",
         route_after_router,
-        {
-            "parallel": "plan_parallel_subtask_node",
-            "sequential": "sequential_node",
-            "schedule": "scheduler_node",
-            "cancel_schedule": "cancel_schedule_node",
-            # "sequential": "react_agent_node",  # add when sequential path is built
-        },
+        ["plan_parallel_subtask_node", "sequential_node", "scheduler_node", "cancel_schedule_node"],
     )
 
     # Planner -> fan-out to workers (parallel execution)

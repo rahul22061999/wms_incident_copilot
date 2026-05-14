@@ -1,7 +1,7 @@
 import logging
 
 from tools.rag_lookup_tool import sop_retrieval_tool
-import asyncio
+
 
 logger = logging.getLogger(__name__)
 
@@ -12,11 +12,10 @@ async def sop_lookup_node(state: dict):
     logger.info(f"Sop lookup query: {query}")
 
     try:
-        result = await asyncio.wait_for(sop_retrieval_tool.ainvoke({
+        result = await sop_retrieval_tool.ainvoke({
             'query': query,
-        }),
-            timeout=5
-        )
+        })
+
 
         return {
             "parallel_results": [{
@@ -27,7 +26,9 @@ async def sop_lookup_node(state: dict):
             }],
         }
 
-    except asyncio.TimeoutError:
+    except Exception as e:
+
+        logger.error(f"Exception occurred while looking up sop: {e}")
 
         return {
             "error": "Timeout error",

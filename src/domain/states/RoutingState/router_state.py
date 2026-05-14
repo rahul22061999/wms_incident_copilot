@@ -1,10 +1,10 @@
-from typing import Literal, Optional
+from typing import Literal, Optional, List
 from pydantic import Field, BaseModel
 
 
 
 class RouterState(BaseModel):
-    task: Literal["parallel", "sequential","schedule","cancel_schedule"] = Field(description="Route the query based on if its a parallel task, sequential or scheduler task based on user query")
+    task: List[Literal["parallel", "sequential","schedule","cancel_schedule"]] = Field(description="Route the query based on if its a parallel task, sequential or scheduler task based on user query")
     enriched_query: str = Field(
         description=(
             "The rewritten query with supply chain terminology, domain context, "

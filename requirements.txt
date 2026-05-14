@@ -57,3 +57,5 @@ greenlet
 sqlalchemy[asyncio]
 aiosqlite
 langsmith
+langchain-community
+temporalio

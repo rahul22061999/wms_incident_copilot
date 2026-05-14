@@ -61,7 +61,7 @@ def _get_parent_dict() -> dict:
         "putaway process, or what should happen operationally. "
         "Do not use this for live transactional counts or current system state."
     ))
-def sop_retrieval_tool(
+async def sop_retrieval_tool(
         query: str,
         k: int = 2) -> list:
     """Retrieve relevant inbound SOP guidance for a natural-language question."""
@@ -69,7 +69,7 @@ def sop_retrieval_tool(
     parent_dict = _get_parent_dict()
 
 
-    children = vectorstore.similarity_search(query, k=k)
+    children = await vectorstore.asimilarity_search(query, k=k)
 
 
     seen, parents = set(), []

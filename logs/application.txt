@@ -4039,3 +4039,166 @@ During task with name 'synthesizer_node' and id '132529a4-ce82-65de-9d53-e3bce00
 2026-04-21 23:57:05,399 | INFO | agents.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['outbound']
 2026-04-21 23:57:05,762 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
 2026-04-21 23:57:09,806 | INFO | agents.nodes.sql_run_sql_node | SQL node completed. Success: True, Domains: ['outbound']
+2026-05-14 12:04:49,652 | INFO | uvicorn.error | Started server process [50304]
+2026-05-14 12:04:49,653 | INFO | uvicorn.error | Waiting for application startup.
+2026-05-14 12:04:49,653 | INFO | uvicorn.error | Application startup complete.
+2026-05-14 12:04:53,392 | INFO | workflows.nodes.router_node | task=['schedule'] enriched='SKU008' interval=None condition=None
+2026-05-14 12:04:53,394 | INFO | sqlalchemy.engine.Engine | BEGIN (implicit)
+2026-05-14 12:04:53,394 | INFO | sqlalchemy.engine.Engine | INSERT INTO ticket_audit_events (ticket_number, user_id, job_id, node_name, action_name, action_type, status, action, error) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING id, created_at
+2026-05-14 12:04:53,394 | INFO | sqlalchemy.engine.Engine | [generated in 0.00008s] ('INC0003', 'rahul2', None, 'router_node', 'complete_sequential_agent', 'agent', 'success', "Router Node task=['schedule'] enriched_query='SKU008' schedule_interval_seconds=None schedule_condition=None", None)
+2026-05-14 12:04:53,395 | INFO | sqlalchemy.engine.Engine | COMMIT
+2026-05-14 12:04:53,396 | INFO | sqlalchemy.engine.Engine | BEGIN (implicit)
+2026-05-14 12:04:53,396 | INFO | sqlalchemy.engine.Engine | SELECT ticket_audit_events.id, ticket_audit_events.ticket_number, ticket_audit_events.user_id, ticket_audit_events.job_id, ticket_audit_events.node_name, ticket_audit_events.action_name, ticket_audit_events.action_type, ticket_audit_events.status, ticket_audit_events.action, ticket_audit_events.error, ticket_audit_events.created_at 
+FROM ticket_audit_events 
+WHERE ticket_audit_events.id = ?
+2026-05-14 12:04:53,396 | INFO | sqlalchemy.engine.Engine | [generated in 0.00007s] (232,)
+2026-05-14 12:04:53,397 | INFO | sqlalchemy.engine.Engine | ROLLBACK
+2026-05-14 12:04:53,398 | INFO | workflows.nodes.schedule_registrar_node | Monitoring registrar entered: ticket=INC0003 user=rahul2 session=example2 query='SKU008' interval=None
+2026-05-14 12:04:53,459 | INFO | infrastructure.monitoring_registry | Started Temporal monitoring workflow
+2026-05-14 12:04:53,473 | INFO | uvicorn.access | 127.0.0.1:58662 - "POST /tickets/diagnose HTTP/1.1" 200
+2026-05-14 12:04:59,465 | INFO | uvicorn.access | 127.0.0.1:58668 - "GET /monitoring/INC0003/jobs/stream?user_id=rahul2 HTTP/1.1" 200
+2026-05-14 12:05:07,581 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-05-14 12:05:08,690 | INFO | workflows.nodes.router_node | task=['parallel'] enriched='process to stage a load' interval=None condition=None
+2026-05-14 12:05:08,690 | INFO | sqlalchemy.engine.Engine | BEGIN (implicit)
+2026-05-14 12:05:08,690 | INFO | sqlalchemy.engine.Engine | INSERT INTO ticket_audit_events (ticket_number, user_id, job_id, node_name, action_name, action_type, status, action, error) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING id, created_at
+2026-05-14 12:05:08,691 | INFO | sqlalchemy.engine.Engine | [cached since 15.3s ago] ('INC0003', 'rahul2', None, 'router_node', 'complete_sequential_agent', 'agent', 'success', "Router Node task=['parallel'] enriched_query='process to stage a load' schedule_interval_seconds=None schedule_condition=None", None)
+2026-05-14 12:05:08,692 | INFO | sqlalchemy.engine.Engine | COMMIT
+2026-05-14 12:05:08,693 | INFO | sqlalchemy.engine.Engine | BEGIN (implicit)
+2026-05-14 12:05:08,693 | INFO | sqlalchemy.engine.Engine | SELECT ticket_audit_events.id, ticket_audit_events.ticket_number, ticket_audit_events.user_id, ticket_audit_events.job_id, ticket_audit_events.node_name, ticket_audit_events.action_name, ticket_audit_events.action_type, ticket_audit_events.status, ticket_audit_events.action, ticket_audit_events.error, ticket_audit_events.created_at 
+FROM ticket_audit_events 
+WHERE ticket_audit_events.id = ?
+2026-05-14 12:05:08,693 | INFO | sqlalchemy.engine.Engine | [cached since 15.3s ago] (234,)
+2026-05-14 12:05:08,694 | INFO | sqlalchemy.engine.Engine | ROLLBACK
+2026-05-14 12:05:27,005 | INFO | httpx | HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-14 12:05:46,538 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-05-14 12:05:54,546 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-14 12:05:54,561 | INFO | workflows.nodes.sop_lookup_node | Sop lookup query: What is the standard operating procedure for staging a load in inbound receiving?
+2026-05-14 12:05:55,359 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-05-14 12:05:57,620 | INFO | httpx | HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-14 12:06:19,195 | INFO | uvicorn.access | 127.0.0.1:58670 - "POST /tickets/diagnose HTTP/1.1" 200
+2026-05-14 12:11:32,712 | INFO | uvicorn.error | Shutting down
+2026-05-14 12:11:32,813 | INFO | uvicorn.error | Waiting for application shutdown.
+2026-05-14 12:11:32,814 | INFO | uvicorn.error | Application shutdown complete.
+2026-05-14 12:11:32,815 | INFO | uvicorn.error | Finished server process [50304]
+2026-05-14 12:11:35,426 | INFO | uvicorn.error | Started server process [50465]
+2026-05-14 12:11:35,431 | INFO | uvicorn.error | Waiting for application startup.
+2026-05-14 12:11:35,431 | INFO | uvicorn.error | Application startup complete.
+2026-05-14 12:11:37,150 | INFO | uvicorn.error | Shutting down
+2026-05-14 12:11:37,252 | INFO | uvicorn.error | Waiting for application shutdown.
+2026-05-14 12:11:37,253 | INFO | uvicorn.error | Application shutdown complete.
+2026-05-14 12:11:37,253 | INFO | uvicorn.error | Finished server process [50465]
+2026-05-14 12:11:38,869 | INFO | uvicorn.error | Started server process [50468]
+2026-05-14 12:11:38,871 | INFO | uvicorn.error | Waiting for application startup.
+2026-05-14 12:11:38,871 | INFO | uvicorn.error | Application startup complete.
+2026-05-14 12:12:01,513 | INFO | workflows.nodes.router_node | task=['schedule'] enriched='SKU008' interval=None condition=None
+2026-05-14 12:12:01,515 | INFO | sqlalchemy.engine.Engine | BEGIN (implicit)
+2026-05-14 12:12:01,515 | INFO | sqlalchemy.engine.Engine | INSERT INTO ticket_audit_events (ticket_number, user_id, job_id, node_name, action_name, action_type, status, action, error) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING id, created_at
+2026-05-14 12:12:01,515 | INFO | sqlalchemy.engine.Engine | [generated in 0.00008s] ('INC0003', 'rahul2', None, 'router_node', 'complete_sequential_agent', 'agent', 'success', "Router Node task=['schedule'] enriched_query='SKU008' schedule_interval_seconds=None schedule_condition=None", None)
+2026-05-14 12:12:01,516 | INFO | sqlalchemy.engine.Engine | COMMIT
+2026-05-14 12:12:01,518 | INFO | sqlalchemy.engine.Engine | BEGIN (implicit)
+2026-05-14 12:12:01,518 | INFO | sqlalchemy.engine.Engine | SELECT ticket_audit_events.id, ticket_audit_events.ticket_number, ticket_audit_events.user_id, ticket_audit_events.job_id, ticket_audit_events.node_name, ticket_audit_events.action_name, ticket_audit_events.action_type, ticket_audit_events.status, ticket_audit_events.action, ticket_audit_events.error, ticket_audit_events.created_at 
+FROM ticket_audit_events 
+WHERE ticket_audit_events.id = ?
+2026-05-14 12:12:01,518 | INFO | sqlalchemy.engine.Engine | [generated in 0.00008s] (235,)
+2026-05-14 12:12:01,519 | INFO | sqlalchemy.engine.Engine | ROLLBACK
+2026-05-14 12:12:01,520 | INFO | workflows.nodes.schedule_registrar_node | Monitoring registrar entered: ticket=INC0003 user=rahul2 session=example2 query='SKU008' interval=None
+2026-05-14 12:12:01,530 | INFO | infrastructure.monitoring_registry | Started Temporal monitoring workflow
+2026-05-14 12:12:01,543 | INFO | uvicorn.access | 127.0.0.1:58762 - "POST /tickets/diagnose HTTP/1.1" 200
+2026-05-14 12:12:16,224 | INFO | uvicorn.access | 127.0.0.1:58767 - "GET /monitoring/INC0003/jobs/stream?user_id=rahul2 HTTP/1.1" 200
+2026-05-14 12:12:29,768 | INFO | workflows.nodes.router_node | task=['parallel'] enriched='process to stage a load' interval=None condition=None
+2026-05-14 12:12:29,768 | INFO | sqlalchemy.engine.Engine | BEGIN (implicit)
+2026-05-14 12:12:29,768 | INFO | sqlalchemy.engine.Engine | INSERT INTO ticket_audit_events (ticket_number, user_id, job_id, node_name, action_name, action_type, status, action, error) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING id, created_at
+2026-05-14 12:12:29,768 | INFO | sqlalchemy.engine.Engine | [cached since 28.25s ago] ('INC0003', 'rahul2', None, 'router_node', 'complete_sequential_agent', 'agent', 'success', "Router Node task=['parallel'] enriched_query='process to stage a load' schedule_interval_seconds=None schedule_condition=None", None)
+2026-05-14 12:12:29,769 | INFO | sqlalchemy.engine.Engine | COMMIT
+2026-05-14 12:12:29,770 | INFO | sqlalchemy.engine.Engine | BEGIN (implicit)
+2026-05-14 12:12:29,770 | INFO | sqlalchemy.engine.Engine | SELECT ticket_audit_events.id, ticket_audit_events.ticket_number, ticket_audit_events.user_id, ticket_audit_events.job_id, ticket_audit_events.node_name, ticket_audit_events.action_name, ticket_audit_events.action_type, ticket_audit_events.status, ticket_audit_events.action, ticket_audit_events.error, ticket_audit_events.created_at 
+FROM ticket_audit_events 
+WHERE ticket_audit_events.id = ?
+2026-05-14 12:12:29,770 | INFO | sqlalchemy.engine.Engine | [cached since 28.25s ago] (236,)
+2026-05-14 12:12:29,770 | INFO | sqlalchemy.engine.Engine | ROLLBACK
+2026-05-14 12:12:29,810 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-05-14 12:12:30,094 | INFO | workflows.nodes.sop_lookup_node | Sop lookup query: What is the standard operating procedure for staging a load in inbound receiving?
+2026-05-14 12:12:30,257 | INFO | uvicorn.access | 127.0.0.1:58768 - "POST /tickets/diagnose HTTP/1.1" 200
+2026-05-14 12:12:46,572 | INFO | httpx | HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-14 12:12:46,997 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-05-14 12:12:55,196 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-14 12:12:55,221 | INFO | workflows.nodes.router_node | task=['parallel'] enriched='What is the process for trailer dispatch?' interval=None condition=None
+2026-05-14 12:12:55,222 | INFO | sqlalchemy.engine.Engine | BEGIN (implicit)
+2026-05-14 12:12:55,222 | INFO | sqlalchemy.engine.Engine | INSERT INTO ticket_audit_events (ticket_number, user_id, job_id, node_name, action_name, action_type, status, action, error) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING id, created_at
+2026-05-14 12:12:55,222 | INFO | sqlalchemy.engine.Engine | [cached since 53.71s ago] ('INC0003', 'rahul2', None, 'router_node', 'complete_sequential_agent', 'agent', 'success', "Router Node task=['parallel'] enriched_query='What is the process for trailer dispatch?' schedule_interval_seconds=None schedule_condition=None", None)
+2026-05-14 12:12:55,223 | INFO | sqlalchemy.engine.Engine | COMMIT
+2026-05-14 12:12:55,224 | INFO | sqlalchemy.engine.Engine | BEGIN (implicit)
+2026-05-14 12:12:55,225 | INFO | sqlalchemy.engine.Engine | SELECT ticket_audit_events.id, ticket_audit_events.ticket_number, ticket_audit_events.user_id, ticket_audit_events.job_id, ticket_audit_events.node_name, ticket_audit_events.action_name, ticket_audit_events.action_type, ticket_audit_events.status, ticket_audit_events.action, ticket_audit_events.error, ticket_audit_events.created_at 
+FROM ticket_audit_events 
+WHERE ticket_audit_events.id = ?
+2026-05-14 12:12:55,225 | INFO | sqlalchemy.engine.Engine | [cached since 53.71s ago] (237,)
+2026-05-14 12:12:55,226 | INFO | sqlalchemy.engine.Engine | ROLLBACK
+2026-05-14 12:12:55,577 | INFO | httpx | HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-14 12:12:56,156 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-05-14 12:13:01,778 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-14 12:13:01,796 | INFO | workflows.nodes.sop_lookup_node | Sop lookup query: What is the standard operating procedure for trailer dispatch?
+2026-05-14 12:13:02,426 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-05-14 12:13:03,091 | INFO | httpx | HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-14 12:13:10,238 | INFO | uvicorn.access | 127.0.0.1:58771 - "POST /tickets/diagnose HTTP/1.1" 200
+2026-05-14 12:42:05,919 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-05-14 12:42:06,208 | INFO | workflows.nodes.router_node | task=['parallel'] enriched='What is the process for trailer dispatch?' interval=None condition=None
+2026-05-14 12:42:06,209 | INFO | sqlalchemy.engine.Engine | BEGIN (implicit)
+2026-05-14 12:42:06,209 | INFO | sqlalchemy.engine.Engine | INSERT INTO ticket_audit_events (ticket_number, user_id, job_id, node_name, action_name, action_type, status, action, error) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING id, created_at
+2026-05-14 12:42:06,209 | INFO | sqlalchemy.engine.Engine | [cached since 974.8s ago] ('INC0003', 'rahul2', None, 'router_node', 'complete_sequential_agent', 'agent', 'success', "Router Node task=['parallel'] enriched_query='What is the process for trailer dispatch?' schedule_interval_seconds=None schedule_condition=None", None)
+2026-05-14 12:42:06,210 | INFO | sqlalchemy.engine.Engine | COMMIT
+2026-05-14 12:42:06,212 | INFO | sqlalchemy.engine.Engine | BEGIN (implicit)
+2026-05-14 12:42:06,212 | INFO | sqlalchemy.engine.Engine | SELECT ticket_audit_events.id, ticket_audit_events.ticket_number, ticket_audit_events.user_id, ticket_audit_events.job_id, ticket_audit_events.node_name, ticket_audit_events.action_name, ticket_audit_events.action_type, ticket_audit_events.status, ticket_audit_events.action, ticket_audit_events.error, ticket_audit_events.created_at 
+FROM ticket_audit_events 
+WHERE ticket_audit_events.id = ?
+2026-05-14 12:42:06,212 | INFO | sqlalchemy.engine.Engine | [cached since 974.8s ago] (238,)
+2026-05-14 12:42:06,212 | INFO | sqlalchemy.engine.Engine | ROLLBACK
+2026-05-14 12:42:06,255 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-05-14 12:42:06,492 | INFO | workflows.nodes.sop_lookup_node | Sop lookup query: What is the standard operating procedure for trailer dispatch?
+2026-05-14 12:42:06,609 | INFO | uvicorn.access | 127.0.0.1:58916 - "POST /tickets/diagnose HTTP/1.1" 200
+2026-05-14 12:42:21,861 | INFO | httpx | HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-14 12:42:22,358 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-05-14 12:42:33,598 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-14 12:42:33,622 | INFO | workflows.nodes.router_node | task=['sequential'] enriched='What is the sequence of steps to dispatch an outbound trailer?' interval=None condition=None
+2026-05-14 12:42:33,622 | INFO | sqlalchemy.engine.Engine | BEGIN (implicit)
+2026-05-14 12:42:33,623 | INFO | sqlalchemy.engine.Engine | INSERT INTO ticket_audit_events (ticket_number, user_id, job_id, node_name, action_name, action_type, status, action, error) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING id, created_at
+2026-05-14 12:42:33,623 | INFO | sqlalchemy.engine.Engine | [cached since 1002s ago] ('INC0003', 'rahul2', None, 'router_node', 'complete_sequential_agent', 'agent', 'success', "Router Node task=['sequential'] enriched_query='What is the sequence of steps to dispatch an outbound trailer?' schedule_interval_seconds=None schedule_condition=None", None)
+2026-05-14 12:42:33,624 | INFO | sqlalchemy.engine.Engine | COMMIT
+2026-05-14 12:42:33,625 | INFO | sqlalchemy.engine.Engine | BEGIN (implicit)
+2026-05-14 12:42:33,625 | INFO | sqlalchemy.engine.Engine | SELECT ticket_audit_events.id, ticket_audit_events.ticket_number, ticket_audit_events.user_id, ticket_audit_events.job_id, ticket_audit_events.node_name, ticket_audit_events.action_name, ticket_audit_events.action_type, ticket_audit_events.status, ticket_audit_events.action, ticket_audit_events.error, ticket_audit_events.created_at 
+FROM ticket_audit_events 
+WHERE ticket_audit_events.id = ?
+2026-05-14 12:42:33,625 | INFO | sqlalchemy.engine.Engine | [cached since 1002s ago] (239,)
+2026-05-14 12:42:33,626 | INFO | sqlalchemy.engine.Engine | ROLLBACK
+2026-05-14 12:42:49,754 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-14 12:42:50,287 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-05-14 12:43:19,573 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-14 12:43:19,594 | INFO | sqlalchemy.engine.Engine | BEGIN (implicit)
+2026-05-14 12:43:19,595 | INFO | sqlalchemy.engine.Engine | INSERT INTO ticket_audit_events (ticket_number, user_id, job_id, node_name, action_name, action_type, status, action, error) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING id, created_at
+2026-05-14 12:43:19,595 | INFO | sqlalchemy.engine.Engine | [cached since 1048s ago] ('INC0003', 'rahul2', None, 'sequential_agent', 'complete_sequential_agent', 'agent', 'success', 'Sequential agent completed successfully. Message count: 4', None)
+2026-05-14 12:43:19,596 | INFO | sqlalchemy.engine.Engine | COMMIT
+2026-05-14 12:43:19,597 | INFO | sqlalchemy.engine.Engine | BEGIN (implicit)
+2026-05-14 12:43:19,598 | INFO | sqlalchemy.engine.Engine | SELECT ticket_audit_events.id, ticket_audit_events.ticket_number, ticket_audit_events.user_id, ticket_audit_events.job_id, ticket_audit_events.node_name, ticket_audit_events.action_name, ticket_audit_events.action_type, ticket_audit_events.status, ticket_audit_events.action, ticket_audit_events.error, ticket_audit_events.created_at 
+FROM ticket_audit_events 
+WHERE ticket_audit_events.id = ?
+2026-05-14 12:43:19,598 | INFO | sqlalchemy.engine.Engine | [cached since 1048s ago] (240,)
+2026-05-14 12:43:19,598 | INFO | sqlalchemy.engine.Engine | ROLLBACK
+2026-05-14 12:43:20,550 | INFO | httpx | HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-14 12:43:35,081 | INFO | uvicorn.access | 127.0.0.1:58925 - "POST /tickets/diagnose HTTP/1.1" 200
+2026-05-14 12:44:08,729 | INFO | workflows.nodes.router_node | task=['cancel_schedule'] enriched='SKU008' interval=None condition=None
+2026-05-14 12:44:08,729 | INFO | sqlalchemy.engine.Engine | BEGIN (implicit)
+2026-05-14 12:44:08,730 | INFO | sqlalchemy.engine.Engine | INSERT INTO ticket_audit_events (ticket_number, user_id, job_id, node_name, action_name, action_type, status, action, error) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING id, created_at
+2026-05-14 12:44:08,730 | INFO | sqlalchemy.engine.Engine | [cached since 1097s ago] ('INC0003', 'rahul2', None, 'router_node', 'complete_sequential_agent', 'agent', 'success', "Router Node task=['cancel_schedule'] enriched_query='SKU008' schedule_interval_seconds=None schedule_condition=None", None)
+2026-05-14 12:44:08,731 | INFO | sqlalchemy.engine.Engine | COMMIT
+2026-05-14 12:44:08,732 | INFO | sqlalchemy.engine.Engine | BEGIN (implicit)
+2026-05-14 12:44:08,732 | INFO | sqlalchemy.engine.Engine | SELECT ticket_audit_events.id, ticket_audit_events.ticket_number, ticket_audit_events.user_id, ticket_audit_events.job_id, ticket_audit_events.node_name, ticket_audit_events.action_name, ticket_audit_events.action_type, ticket_audit_events.status, ticket_audit_events.action, ticket_audit_events.error, ticket_audit_events.created_at 
+FROM ticket_audit_events 
+WHERE ticket_audit_events.id = ?
+2026-05-14 12:44:08,732 | INFO | sqlalchemy.engine.Engine | [cached since 1097s ago] (241,)
+2026-05-14 12:44:08,733 | INFO | sqlalchemy.engine.Engine | ROLLBACK
+2026-05-14 12:44:08,744 | INFO | infrastructure.monitoring_registry | Removed monitoring job
+2026-05-14 12:44:08,744 | INFO | workflows.nodes.cancel_scheduler_node | FOUND JOBS, CANCELLING ['146651523101506']
+2026-05-14 12:44:08,751 | INFO | uvicorn.access | 127.0.0.1:58956 - "POST /tickets/diagnose HTTP/1.1" 200
+2026-05-14 12:44:32,693 | INFO | uvicorn.error | Shutting down
+2026-05-14 12:44:32,797 | INFO | uvicorn.error | Waiting for application shutdown.
+2026-05-14 12:44:32,800 | INFO | uvicorn.error | Application shutdown complete.
+2026-05-14 12:44:32,801 | INFO | uvicorn.error | Finished server process [50468]

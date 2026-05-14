@@ -20,5 +20,5 @@ async def cancel_scheduler_node(state: WMState) -> dict:
             )
         }
     return {
-        "final_response": f"No active monitoring jobs found for ticket {state.ticket_number}."
+        "schedular_results": [f"monitor_schedule_canceled for ticket {state.ticket_number}"]
     }
