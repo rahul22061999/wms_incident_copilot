@@ -1,6 +1,14 @@
+"""
+SOP retrieval worker node — fetches relevant warehouse process documentation.
+
+Like sql_lookup_node, accepts `state: dict` because it is dispatched via Send()
+from fan_out_edge and only receives the subtask payload, not the full WMState.
+Results are appended to parallel_results via the operator.add reducer.
+"""
+
 import logging
 
-from tools.rag_lookup_tool import sop_retrieval_tool
+from workflows.tools.rag_lookup_tool import sop_retrieval_tool
 
 
 logger = logging.getLogger(__name__)

@@ -1,13 +1,25 @@
+"""
+Parallel planner node — decomposes the enriched query into independent subtasks.
+
+This node PLANS but does not EXECUTE. It produces a list of SubTask objects
+that fan_out_edge then dispatches to sql_lookup_node or sop_retrieval_node
+in parallel. Keeping planning and execution separate allows the prompt to focus
+purely on decomposition logic without being confused by tool availability.
+
+The prompt enforces a default of ONE subtask — most WMS queries are not
+genuinely multi-domain and over-decomposition produces worse answers by
+fragmenting context. Splitting only happens when the user explicitly asks for
+data from two independent sources (e.g. "check inventory AND the SOP").
+"""
+
 from langchain_core.messages import SystemMessage, HumanMessage
-from langsmith import traceable
-from domain.states.parallel_execution_states.parallel_execution_node_state import ParallelExecutionPlan
+from domain.states.parallel_state import ParallelExecutionPlan
 from domain.states.supervisor.diagnose_graph_state import WMState
 from infrastructure.operation_cache import PARALLEL_SUBTASK_NODE_CACHE
-from models.model_loader import get_ollama_llm, get_google_llm, get_openai_fast_llm
-from prompts.generate_parallel_node_prompt import parallel_node_prompt
+from infrastructure.llm_clients import get_ollama_llm, get_google_llm, get_openai_fast_llm
+from workflows.prompts.generate_parallel_node_prompt import parallel_node_prompt
 
 
-@traceable(name="parallel_task_plan_node")
 async def plan_parallel_subtask_node(
     state: WMState,
 ):

@@ -1,13 +1,16 @@
 from domain.states.supervisor.diagnose_graph_state import WMState
-from infrastructure.monitoring_registry import cancel_jobs_for_ticket
+from infrastructure.context_access import get_app_context
+from application.schedule_monitoring import JobSchedulerService
 import logging
 
 logger = logging.getLogger(__name__)
 
 async def cancel_scheduler_node(state: WMState) -> dict:
-    cancelled_ids = await cancel_jobs_for_ticket(
+    ctx = get_app_context()
+    job_services = JobSchedulerService(ctx)
+
+    cancelled_ids = await job_services.cancel_job(
         ticket_number=state.ticket_number,
-        user_id=state.user_id,
     )
 
     logger.info(f"FOUND JOBS, CANCELLING {cancelled_ids}")
@@ -15,7 +18,7 @@ async def cancel_scheduler_node(state: WMState) -> dict:
     if cancelled_ids:
         return {
             "final_response" :(
-                f"Cancelled {len(cancelled_ids)} monitoring job(s) for ticket "
+                f"Cancelled monitoring job(s) for ticket "
                 f"{state.ticket_number}"
             )
         }

@@ -1,21 +1,30 @@
-from domain.states.supervisor.diagnose_graph_state import WMState
-from infrastructure.monitoring_registry import schedule_task
 import logging
 
+from domain.states.supervisor.diagnose_graph_state import WMState
+from infrastructure.context_access import get_app_context
+from application.schedule_monitoring import JobSchedulerService
+
 logger = logging.getLogger(__name__)
+
 
 async def schedule_registrar_node(state: WMState) -> dict:
     """Register a durable monitoring job for the current ticket."""
 
     logger.info(
         "Monitoring registrar entered: ticket=%s user=%s session=%s query=%r interval=%s",
-        state.ticket_number, state.user_id, state.session_id,
-        state.enriched_query, state.schedule_interval_seconds,
+        state.ticket_number,
+        state.user_id,
+        state.session_id,
+        state.enriched_query,
+        state.schedule_interval_seconds,
     )
 
     interval_seconds = state.schedule_interval_seconds or 30
 
-    job_id, created = await schedule_task(
+    ctx = get_app_context()
+    scheduler_service = JobSchedulerService(ctx)
+
+    job_id, is_created = await scheduler_service.schedule_job(
         query=state.enriched_query,
         interval_seconds=interval_seconds,
         ticket_number=state.ticket_number,
@@ -23,7 +32,11 @@ async def schedule_registrar_node(state: WMState) -> dict:
         user_id=state.user_id,
     )
 
-    result = "monitor_schedule_created" if created else "monitor_schedule_already_exists"
+    result = (
+        "monitor_schedule_created"
+        if is_created
+        else "monitor_schedule_already_exists"
+    )
 
     return {
         "scheduler_results": [result],

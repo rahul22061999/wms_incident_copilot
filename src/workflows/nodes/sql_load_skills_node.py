@@ -1,6 +1,6 @@
 import logging
-from context.skills.sql_skills import SKILLS
-from domain.states.sql_subgraph_state.sql_graph_state import SQLGraphState
+from workflows.tools.sql_skills import SKILLS
+from domain.states.sql_state import SQLGraphState
 
 logger = logging.getLogger(__name__)
 

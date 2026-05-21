@@ -1,11 +1,30 @@
-# tests/evals/eval_synthesizer_quality.py
-from langsmith.evaluation import LangChainStringEvaluator
+import asyncio
+
+from dotenv import load_dotenv
+from langsmith import Client
+from langsmith.evaluation import LangChainStringEvaluator, aevaluate
 from langchain_openai import ChatOpenAI
-from langsmith.evaluation import evaluate
 
-llm = ChatOpenAI(model="gpt-4o")
+from domain.states.supervisor.diagnose_graph_state import WMState
+from workflows.graph.application_graph import graph
 
-# LangSmith built-in criteria evaluator
+load_dotenv()
+client = Client()
+llm = ChatOpenAI(model="gpt-4o", temperature=0)
+
+
+async def run_graph(inputs: dict) -> dict:
+    state = WMState(
+        ticket_number=inputs.get("ticket_number", "EVAL-001"),
+        session_id=inputs.get("session_id", "eval-sess"),
+        user_id=inputs.get("user_id", "eval-user"),
+        description=inputs["description"],
+    )
+    result = await graph.ainvoke(state)
+    summarized = result.get("summarized_result") or {}
+    return {"final_response": summarized.get("summarized_issue", "")}
+
+
 criteria_evaluator = LangChainStringEvaluator(
     "criteria",
     config={
@@ -22,9 +41,18 @@ criteria_evaluator = LangChainStringEvaluator(
     },
 )
 
-results = evaluate(
-    run_graph,
-    data="wms-graph-evals",
-    evaluators=[criteria_evaluator],
-    experiment_prefix="synthesizer-quality",
-)
+
+async def main():
+    results = await aevaluate(
+        run_graph,
+        data="wms-graph-evals",
+        evaluators=[criteria_evaluator],
+        experiment_prefix="synthesizer-quality",
+        client=client,
+        max_concurrency=2,
+    )
+    print(results)
+
+
+if __name__ == "__main__":
+    asyncio.run(main())

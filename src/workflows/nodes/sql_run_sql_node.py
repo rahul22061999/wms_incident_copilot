@@ -1,6 +1,6 @@
 from langsmith import traceable
 import logging
-from domain.states.sql_subgraph_state.sql_graph_state import SQLGraphState
+from domain.states.sql_state import SQLGraphState
 from dotenv import load_dotenv
 from utils.sql_tools import AsyncWMSSQLService
 

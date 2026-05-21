@@ -1,11 +1,27 @@
+"""
+Router node — classifies the user query and enriches it with WMS terminology.
+
+Two output schemas are used depending on context:
+- RouterState: used for normal user requests; includes schedule/cancel_schedule
+  as valid task types so the router can direct a user to the scheduler path.
+- SchedulerRouterState: used when the graph is invoked by a scheduled job
+  (is_scheduled_run=True). Restricts task choices to parallel/sequential only,
+  preventing a monitoring job from accidentally scheduling another monitoring job
+  in an infinite chain.
+
+The model fallback chain (Ollama → Google → OpenAI) prioritises the local model
+for cost and latency. If Ollama is unavailable or times out, the chain falls
+through silently to the next provider.
+"""
+
 import logging
 from langchain_core.messages import SystemMessage, HumanMessage
-from domain.states.RoutingState.router_state import RouterState
+from domain.states.router_state import RouterState, SchedulerRouterState
 from domain.states.supervisor.diagnose_graph_state import WMState
 from infrastructure.operation_cache import ROUTER_CACHE
-from models.model_loader import get_ollama_llm, get_google_llm, get_openai_fast_llm
-from prompts.generate_router_node_prompt import router_prompt
-from services.audit_service import insert_ticket_audit_event
+from infrastructure.llm_clients import get_ollama_llm, get_google_llm, get_openai_fast_llm
+from workflows.prompts.generate_router_node_prompt import router_prompt
+from infrastructure.repositories.audit_repository import insert_ticket_audit_event
 
 logger = logging.getLogger(__name__)
 
@@ -16,11 +32,14 @@ async def router_node(state: WMState) -> dict[str,str]:
     if not user_query:
         raise ValueError("state.description is empty")
 
+    #if job is invoking the graph then we need to route to sequential/parallel
+    output_format = SchedulerRouterState if state.is_scheduled_run else RouterState
+
     model = (
-        get_ollama_llm(cache=ROUTER_CACHE).with_structured_output(RouterState)
+        get_ollama_llm(cache=ROUTER_CACHE).with_structured_output(output_format)
         .with_fallbacks([
-            get_google_llm(cache=ROUTER_CACHE).with_structured_output(RouterState),
-            get_openai_fast_llm(cache=ROUTER_CACHE).with_structured_output(RouterState)
+            get_google_llm(cache=ROUTER_CACHE).with_structured_output(output_format),
+            get_openai_fast_llm(cache=ROUTER_CACHE).with_structured_output(output_format)
         ])
     )
 

@@ -73,3 +73,10 @@ py-modules = ["config"]
 
 [tool.setuptools.packages.find]
 where = ["src"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/api", "src/domain", "src/infrastructure", "src/workflows", "src/config", "src/utils"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+asyncio_mode = "auto"

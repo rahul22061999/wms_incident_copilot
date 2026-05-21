@@ -80,9 +80,18 @@ class Settings(BaseSettings):
     ##MAX CONCURRENT GRAPH SEMAPHORE
     MAX_GRAPH_SEMAPHORE: int = 10
 
-    ##job schedular db url
-    JOB_SCHEDULER_DB_URL:str = "sqlite:////Users/rahul/Library/Mobile Documents/com~apple~CloudDocs/SCM_Agentic_Ai/wms-incident-api/job_schedule.db"
+    RATE_LIMIT_DEFAULT: list[str] = ["5/minute"]
 
+    EXECUTOR_MAX_WORKERS: int = 10
 
+    #monitoring job schedular db
+    JOB_SCHEDULER_DB_PATH: Path = BASE_DIR / "job_schedule.db"
+    JOB_SCHEDULER_DB_URL: str = f"sqlite+aiosqlite:///{JOB_SCHEDULER_DB_PATH.as_posix()}"
+    # for APScheduler SQLAlchemyJobStore
+    JOB_SCHEDULER_SYNC_DB_URL: str = f"sqlite:///{JOB_SCHEDULER_DB_PATH.as_posix()}"
+
+    #Authentication
+    JWT_SECRET: SecretStr = Field(description="Secret key for signing JWT tokens")
+    JWT_ALGORITHM: str = "HS256"
 
 settings = Settings()

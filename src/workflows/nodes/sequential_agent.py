@@ -4,14 +4,14 @@ from langchain.agents.middleware import ModelFallbackMiddleware, ModelRetryMiddl
     ClearToolUsesEdit
 from langchain_core.messages import HumanMessage
 
-from domain.models import TicketAuditEvent
+from infrastructure.orm.ticket_audit_event import TicketAuditEvent
 from domain.states.supervisor.diagnose_graph_state import WMState
 from infrastructure.operation_cache import SEQUENTIAL_NODE_CACHE
-from models.model_loader import get_ollama_llm, get_openai_fast_llm
-from prompts.generate_sequential_agent_prompt import sequential_agent_prompt
-from services.audit_service import insert_ticket_audit_event
-from tools.rag_lookup_tool import sop_retrieval_tool
-from tools.sql_lookup_tool import sql_lookup_tool
+from infrastructure.llm_clients import get_ollama_llm, get_openai_fast_llm
+from workflows.prompts.generate_sequential_agent_prompt import sequential_agent_prompt
+from infrastructure.repositories.audit_repository import insert_ticket_audit_event
+from workflows.tools.rag_lookup_tool import sop_retrieval_tool
+from workflows.tools.sql_lookup_tool import sql_lookup_tool
 
 
 async def sequential_agent(state: WMState):

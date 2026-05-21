@@ -1,3 +1,17 @@
+"""
+LangSmith evaluation for the router node.
+
+Runs router_node in isolation against the "wms-router-evals" dataset and scores
+two metrics per example:
+- correct_route: the returned task list exactly matches the expected list
+  (order-independent via sorting).
+- valid_task_values: every returned task is in the known valid set, guarding
+  against the model hallucinating new task types.
+
+Uses aevaluate (async) with max_concurrency=4 because router_node makes one
+LLM call per example and the calls are fully independent.
+"""
+
 import asyncio
 
 from dotenv import load_dotenv
@@ -50,7 +64,7 @@ def is_valid_task_list(run, example) -> dict:
 
     valid = {
         "parallel",
-        "orchestrator",
+        "sequential",
         "schedule",
         "cancel_schedule",
     }

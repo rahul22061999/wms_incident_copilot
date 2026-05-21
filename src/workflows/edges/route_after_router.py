@@ -1,4 +1,18 @@
-# edges/fan_out_tasks_edge.py
+"""
+Conditional edge: router_node → one or more downstream nodes.
+
+Returns a list of Send() objects so LangGraph can dispatch multiple branches
+in parallel when the router identifies more than one task type (e.g. a query
+that is both a parallel lookup and a schedule registration).
+
+Send(node_name, state) passes the full WMState to each branch independently.
+Each branch writes into its own Annotated reducer field (parallel_results,
+sequential_results, etc.) so results accumulate without overwriting each other.
+
+The fallback to sequential_node prevents a hard failure if the LLM returns an
+unrecognised task label — the query still gets answered, just via the safest path.
+"""
+
 import logging
 
 from langgraph.types import Send
@@ -15,10 +29,6 @@ logger = logging.getLogger(__name__)
 
 def route_after_router(state: WMState) -> list[Send]:
     sends = []
-
-    if getattr(state, "is_scheduled_run", False):
-        sends.append(Send("plan_parallel_subtask_node", state))
-        return sends
 
     for task in state.task:
         node = TASK_TO_NODE.get(task)

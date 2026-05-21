@@ -1,8 +1,23 @@
+"""
+Primary graph state for the WMS incident copilot.
+
+LangGraph merges partial state updates returned by each node using the reducer
+specified in the Annotated type hint. Fields marked Annotated[List[...], operator.add]
+are append-only: when two parallel branches both return {"parallel_results": [x]}
+and {"parallel_results": [y]}, LangGraph combines them into [x, y] rather than
+letting one branch overwrite the other. All other fields use the default
+"last write wins" merge strategy.
+
+schedular_results is a typo alias kept for backward compatibility with nodes
+that were written before scheduler_results was added. Both accumulate
+independently; synthesizer_node reads schedular_results.
+"""
+
 from dataclasses import dataclass, field
 from typing import Optional, Dict, List, Any, TypeAlias
 import operator
 from typing_extensions import Annotated, Literal
-from domain.states.parallel_execution_states.parallel_execution_node_state import SubTask
+from domain.states.parallel_state import SubTask
 from domain.states.supervisor.supervisor_evidence_states import EvidenceRecord
 from domain.states.synthesizer_node_state import SynthesizerNodeReturnState
 
@@ -50,6 +65,7 @@ class WMState:
 
     ##scheduler
     schedule_interval_seconds: Optional[int] = None
+    is_scheduled_run: Optional[bool] = False
 
 
     loop_count: int = 0

@@ -1,6 +1,28 @@
-from functools import lru_cache
+"""
+WMS Copilot application graph.
+
+Topology:
+    START → router_node
+              ↓  (route_after_router — one Send() per task type)
+    ┌─────────┬──────────┬────────────┬──────────────────┐
+    ▼         ▼          ▼            ▼
+  parallel  sequential  scheduler  cancel_schedule
+  planner    agent       node          node
+    ↓         │          │             │
+ fan_out_edge │          │             │
+    ↓         │          │             │
+sql/sop nodes │          │             │
+    └─────────┴──────────┴─────────────┘
+                          ↓
+                   synthesizer_node → END
+
+The compiled graph is built once at module import and reused for every request.
+sql_lookup_node and sop_retrieval_node run in parallel via Send(); LangGraph
+waits for all branches before advancing synthesizer_node because parallel_results
+uses an operator.add reducer — the barrier is implicit in the reduce semantics.
+"""
+
 from langgraph.graph import StateGraph, START, END
-from langgraph.checkpoint.memory import InMemorySaver
 from domain.states.supervisor.diagnose_graph_state import WMState
 from workflows.nodes.router_node import router_node
 from workflows.nodes.parallel_execution_node import plan_parallel_subtask_node
@@ -13,7 +35,7 @@ from workflows.nodes.sequential_agent import sequential_agent
 from workflows.nodes.schedule_registrar_node import schedule_registrar_node
 from workflows.nodes.cancel_scheduler_node import cancel_scheduler_node
 
-@lru_cache(maxsize=1)
+
 def _application_graph():
     builder = StateGraph(WMState)
 
@@ -36,7 +58,6 @@ def _application_graph():
         route_after_router,
         ["plan_parallel_subtask_node", "sequential_node", "scheduler_node", "cancel_schedule_node"],
     )
-
     # Planner -> fan-out to workers (parallel execution)
     builder.add_conditional_edges(
         "plan_parallel_subtask_node",
@@ -57,5 +78,5 @@ def _application_graph():
     return builder
 
 
-_application_graph.cache_clear()
+
 graph = _application_graph().compile()

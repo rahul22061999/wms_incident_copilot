@@ -59,3 +59,4 @@ aiosqlite
 langsmith
 langchain-community
 temporalio
+jwt
