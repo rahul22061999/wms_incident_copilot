@@ -13,7 +13,9 @@ here because every method returns immediately after commit.
 """
 
 from datetime import datetime, timezone
-from sqlalchemy import select, delete, update
+
+from sqlalchemy import delete, select, update
+
 from infrastructure.orm.job_schedule_event import JobScheduleEvent
 
 

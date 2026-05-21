@@ -1,8 +1,10 @@
 from typing import Optional
+
 from sqlalchemy import select
-from infrastructure.orm.ticket_audit_event import TicketAuditEvent
+
 from domain.schemas.ticket_audit_event_schema import TicketAuditEventRead
 from infrastructure.databases import AuditSessionLocal as AsyncSessionLocal
+from infrastructure.orm.ticket_audit_event import TicketAuditEvent
 
 
 async def insert_ticket_audit_event(

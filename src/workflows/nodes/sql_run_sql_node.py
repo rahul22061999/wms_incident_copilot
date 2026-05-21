@@ -1,7 +1,9 @@
-from langsmith import traceable
 import logging
-from domain.states.sql_state import SQLGraphState
+
 from dotenv import load_dotenv
+from langsmith import traceable
+
+from domain.states.sql_state import SQLGraphState
 from utils.sql_tools import AsyncWMSSQLService
 
 load_dotenv()

@@ -1,5 +1,7 @@
-import pytest
 from unittest.mock import MagicMock, patch
+
+import pytest
+
 from domain.states.supervisor.diagnose_graph_state import WMState
 from workflows.nodes import query_enrich_node
 

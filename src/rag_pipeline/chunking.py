@@ -1,9 +1,10 @@
+import pickle
 import re
 from pathlib import Path
-from typing import List, Dict
+from typing import List
+
 from langchain_core.documents import Document
 from langchain_text_splitters import RecursiveCharacterTextSplitter
-import pickle
 
 CHAPTER_PATTERN = re.compile(r"(?m)^(\d+)\s+((?!\d)[A-Z][^\n]+?)\s*$")
 SECTION_PATTERN = re.compile(r"(?m)^(\d+\.\d+)\s+(.+)$")
@@ -26,7 +27,7 @@ def chunk_text(document: List[Document]) -> list:
     def _create_parent_document():
         all_text = _all_merged_text()
         chapter_matches = list(CHAPTER_PATTERN.finditer(all_text))
-        section_matches = list(SECTION_PATTERN.finditer(all_text))
+        list(SECTION_PATTERN.finditer(all_text))
 
         parent_documents = []
 

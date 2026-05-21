@@ -1,7 +1,9 @@
 from pathlib import Path
 from typing import List, Optional
+
 from langchain_community.document_loaders import PyPDFDirectoryLoader
 from langchain_core.documents import Document
+
 from config import BASE_DIR
 
 

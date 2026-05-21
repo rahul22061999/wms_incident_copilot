@@ -16,13 +16,13 @@ from __future__ import annotations
 
 import asyncio
 import logging
-from contextlib import AsyncExitStack
 from concurrent.futures import ThreadPoolExecutor as PythonThreadPoolExecutor
+from contextlib import AsyncExitStack
 
-from sqlalchemy.ext.asyncio import create_async_engine, async_sessionmaker, AsyncSession, AsyncEngine
-from apscheduler.schedulers.asyncio import AsyncIOScheduler
 from apscheduler.jobstores.sqlalchemy import SQLAlchemyJobStore
-from apscheduler.executors.pool import ThreadPoolExecutor as APSchedulerThreadPoolExecutor
+from apscheduler.schedulers.asyncio import AsyncIOScheduler
+from sqlalchemy.ext.asyncio import AsyncEngine, AsyncSession, async_sessionmaker, create_async_engine
+
 from infrastructure.app_context import AppContext
 from infrastructure.job_event_bus import JobEventBus
 

@@ -8,8 +8,8 @@ create_examples will add duplicate rows if called again on an existing dataset.
 Clear the dataset in the LangSmith UI before re-seeding if you need a clean slate.
 """
 
-from langsmith import Client
 from dotenv import load_dotenv
+from langsmith import Client
 from langsmith.utils import LangSmithNotFoundError
 
 load_dotenv()

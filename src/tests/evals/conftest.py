@@ -7,8 +7,9 @@ matching logic stay consistent — a change to case sensitivity or whitespace
 handling only needs to happen in one place.
 """
 
-import pytest
 from unittest.mock import AsyncMock, MagicMock
+
+import pytest
 
 
 @pytest.fixture

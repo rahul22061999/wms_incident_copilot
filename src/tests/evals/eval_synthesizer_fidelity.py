@@ -18,9 +18,9 @@ import asyncio
 import json
 
 from dotenv import load_dotenv
+from langchain_openai import ChatOpenAI
 from langsmith import Client
 from langsmith.evaluation import aevaluate
-from langchain_openai import ChatOpenAI
 
 from domain.states.supervisor.diagnose_graph_state import WMState
 from workflows.nodes.synthesizer_node import synthesizer_node

@@ -1,7 +1,10 @@
-from typing import Literal, List
+from typing import List, Literal
+
 from langchain.tools import tool
-from workflows.graph.sql_subgraph import sql_graph
+
 from domain.states.sql_state import SQLGraphState
+from workflows.graph.sql_subgraph import sql_graph
+
 
 @tool(description="Lookup sql on the database")
 async def sql_lookup_tool(

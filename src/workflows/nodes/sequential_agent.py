@@ -1,15 +1,21 @@
 from langchain.agents import create_agent
-from langchain.agents.middleware import ModelFallbackMiddleware, ModelRetryMiddleware, ToolRetryMiddleware, \
-    ToolCallLimitMiddleware, SummarizationMiddleware, ModelCallLimitMiddleware, ContextEditingMiddleware, \
-    ClearToolUsesEdit
+from langchain.agents.middleware import (
+    ClearToolUsesEdit,
+    ContextEditingMiddleware,
+    ModelCallLimitMiddleware,
+    ModelFallbackMiddleware,
+    ModelRetryMiddleware,
+    SummarizationMiddleware,
+    ToolCallLimitMiddleware,
+    ToolRetryMiddleware,
+)
 from langchain_core.messages import HumanMessage
 
-from infrastructure.orm.ticket_audit_event import TicketAuditEvent
 from domain.states.supervisor.diagnose_graph_state import WMState
-from infrastructure.operation_cache import SEQUENTIAL_NODE_CACHE
 from infrastructure.llm_clients import get_ollama_llm, get_openai_fast_llm
-from workflows.prompts.generate_sequential_agent_prompt import sequential_agent_prompt
+from infrastructure.operation_cache import SEQUENTIAL_NODE_CACHE
 from infrastructure.repositories.audit_repository import insert_ticket_audit_event
+from workflows.prompts.generate_sequential_agent_prompt import sequential_agent_prompt
 from workflows.tools.rag_lookup_tool import sop_retrieval_tool
 from workflows.tools.sql_lookup_tool import sql_lookup_tool
 

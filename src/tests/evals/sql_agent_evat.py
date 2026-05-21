@@ -13,7 +13,6 @@ as a substring.
 
 import pytest
 
-
 FORBIDDEN_SQL_KEYWORDS = [
     "drop ",
     "delete ",

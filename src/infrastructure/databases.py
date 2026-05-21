@@ -8,13 +8,14 @@ AuditBase  → audit.db     (TicketAuditEvent)
 SchedulerBase → job_schedule.db (JobScheduleEvent) — engine built by AppContextBuilder
 """
 
-from config import BASE_DIR
 from sqlalchemy.ext.asyncio import (
-    create_async_engine,
-    async_sessionmaker,
     AsyncSession,
+    async_sessionmaker,
+    create_async_engine,
 )
 from sqlalchemy.orm import DeclarativeBase
+
+from config import BASE_DIR
 
 _AUDIT_DB_PATH = BASE_DIR / "audit.db"
 _AUDIT_DB_URL = f"sqlite+aiosqlite:///{_AUDIT_DB_PATH.as_posix()}"

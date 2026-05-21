@@ -1,6 +1,6 @@
-from typing import Literal, Optional, List
-from pydantic import Field, BaseModel
+from typing import List, Literal, Optional
 
+from pydantic import BaseModel, Field
 
 
 class RouterState(BaseModel):

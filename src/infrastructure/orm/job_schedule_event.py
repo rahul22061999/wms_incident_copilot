@@ -1,6 +1,7 @@
-from sqlalchemy import DateTime, Integer, String, Index
-from sqlalchemy.orm import Mapped, mapped_column
 from datetime import datetime, timezone
+
+from sqlalchemy import DateTime, Index, Integer, String
+from sqlalchemy.orm import Mapped, mapped_column
 
 from infrastructure.databases import SchedulerBase
 

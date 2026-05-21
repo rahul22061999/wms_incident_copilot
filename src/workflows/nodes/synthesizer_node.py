@@ -15,12 +15,14 @@ SynthesizerNodeReturnState's JSON Schema, which is stricter than the default
 function-calling approach and reduces hallucinated field names.
 """
 
+import json
+
 from domain.states.supervisor.diagnose_graph_state import WMState
 from domain.states.synthesizer_node_state import SynthesizerNodeReturnState
-from infrastructure.operation_cache import SYNTHESIZER_NODE_CACHE
 from infrastructure.llm_clients import get_ollama_llm
+from infrastructure.operation_cache import SYNTHESIZER_NODE_CACHE
 from workflows.prompts.generate_synthesizer_prompt import synthesizer_prompt
-import json
+
 
 async def synthesizer_node(state: WMState):
     llm = (get_ollama_llm(cache=SYNTHESIZER_NODE_CACHE)

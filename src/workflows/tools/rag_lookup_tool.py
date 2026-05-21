@@ -1,14 +1,16 @@
-from functools import lru_cache
-from langchain_core.tools import tool
-from langchain_qdrant.qdrant import QdrantClient, QdrantVectorStore
-from langchain_classic.storage import LocalFileStore
-from langchain_classic.embeddings import CacheBackedEmbeddings
-from langchain_openai import OpenAIEmbeddings
-from config import settings, BASE_DIR
-import pickle
-from dotenv import load_dotenv
-
 import logging
+import pickle
+from functools import lru_cache
+
+from dotenv import load_dotenv
+from langchain_classic.embeddings import CacheBackedEmbeddings
+from langchain_classic.storage import LocalFileStore
+from langchain_core.tools import tool
+from langchain_openai import OpenAIEmbeddings
+from langchain_qdrant.qdrant import QdrantClient, QdrantVectorStore
+
+from config import BASE_DIR, settings
+
 logger = logging.getLogger(__name__)
 load_dotenv()
 QDRANT_PATH = BASE_DIR / "vectorstore"

@@ -13,15 +13,15 @@ that were written before scheduler_results was added. Both accumulate
 independently; synthesizer_node reads schedular_results.
 """
 
-from dataclasses import dataclass, field
-from typing import Optional, Dict, List, Any, TypeAlias
 import operator
+from dataclasses import dataclass, field
+from typing import Any, Dict, List, Optional, TypeAlias
+
 from typing_extensions import Annotated, Literal
+
 from domain.states.parallel_state import SubTask
 from domain.states.supervisor.supervisor_evidence_states import EvidenceRecord
 from domain.states.synthesizer_node_state import SynthesizerNodeReturnState
-
-
 
 GraphResult: TypeAlias = dict[str, Any]
 GraphEvent: TypeAlias = dict[str, Any]

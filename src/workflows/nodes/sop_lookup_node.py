@@ -10,7 +10,6 @@ import logging
 
 from workflows.tools.rag_lookup_tool import sop_retrieval_tool
 
-
 logger = logging.getLogger(__name__)
 
 

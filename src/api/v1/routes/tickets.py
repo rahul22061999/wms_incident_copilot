@@ -5,18 +5,19 @@ Exposes the /tickets/diagnose endpoint, which kicks off a LangGraph
 investigation run for a given WMS ticket.
 """
 
-from fastapi import APIRouter, HTTPException, Request, status, Depends
+import logging
+
+from fastapi import APIRouter, Depends, HTTPException, Request, status
 from starlette.status import HTTP_500_INTERNAL_SERVER_ERROR
 
+from api.v1.auth import User, get_current_user
 from api.v1.schemas.requests import TicketDiagnosisRequest
 from api.v1.schemas.responses import TicketDiagnosisResponse
 from application.diagnose_ticket import TicketDiagnosisError, diagnose_ticket_service
-from infrastructure.rate_limiter import limiter
 from config import settings
 from infrastructure.app_context import AppContext
 from infrastructure.context_access import get_app_context
-from api.v1.auth import User, get_current_user
-import logging
+from infrastructure.rate_limiter import limiter
 
 logger = logging.getLogger(__name__)
 router = APIRouter(prefix="/v1/tickets", tags=["tickets"])

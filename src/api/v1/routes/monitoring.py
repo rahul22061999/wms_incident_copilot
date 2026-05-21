@@ -1,12 +1,12 @@
-from fastapi import APIRouter, Request, Query
+from fastapi import APIRouter, Request
 from fastapi.params import Depends
 from fastapi.responses import StreamingResponse
 
-from api.v1.auth import get_current_user, User
+from api.v1.auth import User, get_current_user
 from application.stream_job_updates import stream_ticket_jobs_service
-from infrastructure.rate_limiter import limiter
 from infrastructure.app_context import AppContext
 from infrastructure.context_access import get_app_context
+from infrastructure.rate_limiter import limiter
 
 router = APIRouter(prefix="/v1/tickets", tags=["monitoring"])
 

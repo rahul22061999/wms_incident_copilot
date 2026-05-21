@@ -2,7 +2,6 @@ import pytest
 
 from tests.evals.conftest import (
     assert_contains_required_terms,
-    assert_excludes_forbidden_terms,
 )
 
 
@@ -43,8 +42,6 @@ def test_rag_retrieves_relevant_sop_documents(
 
 def test_rag_does_not_hallucinate_when_no_docs_found():
     query = "Explain a made-up WMS issue called quantum carton drift"
-    retrieved_docs = []
-
     answer = generate_safe_answer_when_no_docs(query, retrieved_docs=[])
 
     assert "I do not have enough information" in answer

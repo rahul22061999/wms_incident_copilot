@@ -18,8 +18,8 @@ from dotenv import load_dotenv
 from langsmith import Client
 from langsmith.evaluation import aevaluate
 
-from workflows.nodes.router_node import router_node
 from domain.states.supervisor.diagnose_graph_state import WMState
+from workflows.nodes.router_node import router_node
 
 load_dotenv()
 

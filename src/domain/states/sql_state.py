@@ -3,12 +3,11 @@ SQL subgraph state definitions — merged from three single-file folders.
 All SQL pipeline shapes live here: subquery generation, graph state, task result.
 """
 
-from dataclasses import dataclass, field
-from typing import Literal, Optional, List, Annotated, Any, Dict
 import operator
+from dataclasses import dataclass, field
+from typing import Annotated, Any, Dict, List, Literal, Optional
 
 from pydantic import BaseModel, Field
-
 
 # ---------- Subquery generation ----------
 

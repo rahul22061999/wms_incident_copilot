@@ -1,7 +1,6 @@
 import logging
 from logging.handlers import RotatingFileHandler
 
-
 from config import BASE_DIR
 
 LOG_DIR = BASE_DIR / "logs"

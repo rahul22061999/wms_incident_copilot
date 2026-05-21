@@ -1,8 +1,10 @@
 from typing import List
+
 from langchain_core.documents import Document
 from langchain_openai import OpenAIEmbeddings
 from langchain_qdrant.qdrant import QdrantClient, QdrantVectorStore
-from qdrant_client.http.models import VectorParams, Distance
+from qdrant_client.http.models import Distance, VectorParams
+
 from config import settings
 
 

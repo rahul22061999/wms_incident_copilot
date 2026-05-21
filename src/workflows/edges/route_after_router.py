@@ -16,6 +16,7 @@ unrecognised task label — the query still gets answered, just via the safest p
 import logging
 
 from langgraph.types import Send
+
 from domain.states.supervisor.diagnose_graph_state import WMState
 
 TASK_TO_NODE = {

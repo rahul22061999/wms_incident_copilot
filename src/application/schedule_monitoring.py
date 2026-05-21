@@ -14,7 +14,9 @@ still exists.
 """
 
 import hashlib
+
 from apscheduler.jobstores.base import JobLookupError
+
 from infrastructure.app_context import AppContext
 from infrastructure.repositories.job_schedule_repository import JobScheduleRepository
 from workers.monitoring_job_entrypoint import run_monitoring_job

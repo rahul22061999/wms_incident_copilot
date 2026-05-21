@@ -1,9 +1,10 @@
-from typing import Any, Optional
-from sqlalchemy import text
-from sqlalchemy.ext.asyncio import create_async_engine, AsyncEngine, AsyncSession
-from config import settings
 import re
+from typing import Any, Optional
 
+from sqlalchemy import text
+from sqlalchemy.ext.asyncio import AsyncEngine, create_async_engine
+
+from config import settings
 
 _READ_ONLY_START = {"select", "with", "explain"}
 _BLOCKED = re.compile(

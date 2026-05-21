@@ -15,13 +15,15 @@ through silently to the next provider.
 """
 
 import logging
-from langchain_core.messages import SystemMessage, HumanMessage
+
+from langchain_core.messages import HumanMessage, SystemMessage
+
 from domain.states.router_state import RouterState, SchedulerRouterState
 from domain.states.supervisor.diagnose_graph_state import WMState
+from infrastructure.llm_clients import get_google_llm, get_ollama_llm, get_openai_fast_llm
 from infrastructure.operation_cache import ROUTER_CACHE
-from infrastructure.llm_clients import get_ollama_llm, get_google_llm, get_openai_fast_llm
-from workflows.prompts.generate_router_node_prompt import router_prompt
 from infrastructure.repositories.audit_repository import insert_ticket_audit_event
+from workflows.prompts.generate_router_node_prompt import router_prompt
 
 logger = logging.getLogger(__name__)
 

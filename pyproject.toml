@@ -84,6 +84,14 @@ asyncio_mode = "auto"
 [tool.ruff]
 src = ["src"]
 line-length = 120
+exclude = ["src/test.ipynb"]
 
 [tool.ruff.lint]
 select = ["E", "F", "I"]
+
+[tool.ruff.lint.per-file-ignores]
+"src/workflows/prompts/*" = ["E501"]
+"src/workflows/tools/sql_skills.py" = ["E501"]
+"src/tests/evals/*" = ["E501"]
+"src/domain/states/router_state.py" = ["E501"]
+"src/workflows/nodes/sql_generate_query_node.py" = ["E501"]

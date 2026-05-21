@@ -1,0 +1,169 @@
+2026-05-20 21:55:46,901 | INFO | uvicorn.access | 127.0.0.1:55739 - "POST /v1/tickets HTTP/1.1" 307
+2026-05-20 21:55:46,963 | INFO | workflows.nodes.router_node | task=['parallel'] enriched='How to perform slotting for SKU.' interval=None condition=None
+2026-05-20 21:55:46,994 | INFO | workflows.nodes.sop_lookup_node | Sop lookup query: What is the standard operating procedure for slotting SKUs?
+2026-05-20 21:55:47,041 | INFO | uvicorn.access | 127.0.0.1:55739 - "POST /v1/tickets/ HTTP/1.1" 200
+2026-05-20 21:58:06,384 | INFO | uvicorn.access | 127.0.0.1:55748 - "POST /v1/tickets HTTP/1.1" 307
+2026-05-20 21:58:06,876 | INFO | httpx | HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-20 21:58:07,501 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-05-20 21:58:08,534 | INFO | workflows.nodes.router_node | task=['parallel'] enriched='How to process damages in inbound receiving?' interval=None condition=None
+2026-05-20 21:58:09,087 | INFO | httpx | HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-20 21:58:09,675 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-05-20 21:58:10,877 | INFO | workflows.nodes.sop_lookup_node | Sop lookup query: What is the SOP for processing damages during inbound receiving?
+2026-05-20 21:58:12,054 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-05-20 21:58:12,555 | INFO | httpx | HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-20 21:58:17,087 | INFO | uvicorn.access | 127.0.0.1:55748 - "POST /v1/tickets/ HTTP/1.1" 200
+2026-05-20 22:10:21,716 | INFO | uvicorn.error | Shutting down
+2026-05-20 22:10:21,820 | INFO | uvicorn.error | Waiting for application shutdown.
+2026-05-20 22:10:21,826 | INFO | api.app | Shutdown complete
+2026-05-20 22:10:21,828 | INFO | apscheduler.scheduler | Scheduler has been shut down
+2026-05-20 22:10:21,829 | INFO | uvicorn.error | Application shutdown complete.
+2026-05-20 22:10:21,831 | INFO | uvicorn.error | Finished server process [93592]
+2026-05-20 22:10:24,754 | INFO | uvicorn.error | Started server process [94731]
+2026-05-20 22:10:24,754 | INFO | uvicorn.error | Waiting for application startup.
+2026-05-20 22:10:24,756 | INFO | apscheduler.scheduler | Scheduler started
+2026-05-20 22:10:24,756 | INFO | infrastructure.app_context_builder | Scheduler started: running=True
+2026-05-20 22:10:24,757 | INFO | uvicorn.error | Application startup complete.
+2026-05-20 22:10:30,314 | INFO | uvicorn.error | Shutting down
+2026-05-20 22:10:30,415 | INFO | uvicorn.error | Waiting for application shutdown.
+2026-05-20 22:10:30,416 | INFO | api.app | Shutdown complete
+2026-05-20 22:10:30,416 | INFO | apscheduler.scheduler | Scheduler has been shut down
+2026-05-20 22:10:30,416 | INFO | uvicorn.error | Application shutdown complete.
+2026-05-20 22:10:30,417 | INFO | uvicorn.error | Finished server process [94731]
+2026-05-20 22:10:32,550 | INFO | uvicorn.error | Started server process [94752]
+2026-05-20 22:10:32,550 | INFO | uvicorn.error | Waiting for application startup.
+2026-05-20 22:10:32,552 | INFO | apscheduler.scheduler | Scheduler started
+2026-05-20 22:10:32,552 | INFO | infrastructure.app_context_builder | Scheduler started: running=True
+2026-05-20 22:10:32,554 | INFO | uvicorn.error | Application startup complete.
+2026-05-20 22:10:33,767 | INFO | uvicorn.error | Shutting down
+2026-05-20 22:10:33,869 | INFO | uvicorn.error | Waiting for application shutdown.
+2026-05-20 22:10:33,870 | INFO | api.app | Shutdown complete
+2026-05-20 22:10:33,872 | INFO | apscheduler.scheduler | Scheduler has been shut down
+2026-05-20 22:10:33,872 | INFO | uvicorn.error | Application shutdown complete.
+2026-05-20 22:10:33,872 | INFO | uvicorn.error | Finished server process [94752]
+2026-05-20 22:10:35,524 | INFO | uvicorn.error | Started server process [94760]
+2026-05-20 22:10:35,524 | INFO | uvicorn.error | Waiting for application startup.
+2026-05-20 22:10:35,525 | INFO | apscheduler.scheduler | Scheduler started
+2026-05-20 22:10:35,525 | INFO | infrastructure.app_context_builder | Scheduler started: running=True
+2026-05-20 22:10:35,526 | INFO | uvicorn.error | Application startup complete.
+2026-05-20 22:10:46,042 | INFO | uvicorn.error | Shutting down
+2026-05-20 22:10:46,144 | INFO | uvicorn.error | Waiting for application shutdown.
+2026-05-20 22:10:46,144 | INFO | api.app | Shutdown complete
+2026-05-20 22:10:46,145 | INFO | apscheduler.scheduler | Scheduler has been shut down
+2026-05-20 22:10:46,145 | INFO | uvicorn.error | Application shutdown complete.
+2026-05-20 22:10:46,145 | INFO | uvicorn.error | Finished server process [94760]
+2026-05-20 22:10:48,119 | INFO | uvicorn.error | Started server process [94780]
+2026-05-20 22:10:48,119 | INFO | uvicorn.error | Waiting for application startup.
+2026-05-20 22:10:48,121 | INFO | apscheduler.scheduler | Scheduler started
+2026-05-20 22:10:48,121 | INFO | infrastructure.app_context_builder | Scheduler started: running=True
+2026-05-20 22:10:48,123 | INFO | uvicorn.error | Application startup complete.
+2026-05-20 22:10:48,123 | INFO | uvicorn.error | Shutting down
+2026-05-20 22:10:48,223 | INFO | uvicorn.error | Waiting for application shutdown.
+2026-05-20 22:10:48,224 | INFO | api.app | Shutdown complete
+2026-05-20 22:10:48,224 | INFO | apscheduler.scheduler | Scheduler has been shut down
+2026-05-20 22:10:48,224 | INFO | uvicorn.error | Application shutdown complete.
+2026-05-20 22:10:48,224 | INFO | uvicorn.error | Finished server process [94780]
+2026-05-20 22:10:50,901 | INFO | uvicorn.error | Started server process [94794]
+2026-05-20 22:10:50,901 | INFO | uvicorn.error | Waiting for application startup.
+2026-05-20 22:10:50,903 | INFO | apscheduler.scheduler | Scheduler started
+2026-05-20 22:10:50,903 | INFO | infrastructure.app_context_builder | Scheduler started: running=True
+2026-05-20 22:10:50,904 | INFO | uvicorn.error | Application startup complete.
+2026-05-20 22:11:00,097 | INFO | uvicorn.error | Shutting down
+2026-05-20 22:11:00,199 | INFO | uvicorn.error | Waiting for application shutdown.
+2026-05-20 22:11:00,201 | INFO | api.app | Shutdown complete
+2026-05-20 22:11:00,202 | INFO | apscheduler.scheduler | Scheduler has been shut down
+2026-05-20 22:11:00,202 | INFO | uvicorn.error | Application shutdown complete.
+2026-05-20 22:11:00,202 | INFO | uvicorn.error | Finished server process [94794]
+2026-05-20 22:11:02,248 | INFO | uvicorn.error | Started server process [94810]
+2026-05-20 22:11:02,248 | INFO | uvicorn.error | Waiting for application startup.
+2026-05-20 22:11:02,250 | INFO | apscheduler.scheduler | Scheduler started
+2026-05-20 22:11:02,250 | INFO | infrastructure.app_context_builder | Scheduler started: running=True
+2026-05-20 22:11:02,252 | INFO | uvicorn.error | Application startup complete.
+2026-05-20 22:11:02,252 | INFO | uvicorn.error | Shutting down
+2026-05-20 22:11:02,353 | INFO | uvicorn.error | Waiting for application shutdown.
+2026-05-20 22:11:02,353 | INFO | api.app | Shutdown complete
+2026-05-20 22:11:02,354 | INFO | apscheduler.scheduler | Scheduler has been shut down
+2026-05-20 22:11:02,354 | INFO | uvicorn.error | Application shutdown complete.
+2026-05-20 22:11:02,354 | INFO | uvicorn.error | Finished server process [94810]
+2026-05-20 22:11:03,968 | INFO | uvicorn.error | Started server process [94812]
+2026-05-20 22:11:03,968 | INFO | uvicorn.error | Waiting for application startup.
+2026-05-20 22:11:03,970 | INFO | apscheduler.scheduler | Scheduler started
+2026-05-20 22:11:03,970 | INFO | infrastructure.app_context_builder | Scheduler started: running=True
+2026-05-20 22:11:03,971 | INFO | uvicorn.error | Application startup complete.
+2026-05-20 22:11:03,971 | INFO | uvicorn.error | Shutting down
+2026-05-20 22:11:04,072 | INFO | uvicorn.error | Waiting for application shutdown.
+2026-05-20 22:11:04,072 | INFO | api.app | Shutdown complete
+2026-05-20 22:11:04,073 | INFO | apscheduler.scheduler | Scheduler has been shut down
+2026-05-20 22:11:04,073 | INFO | uvicorn.error | Application shutdown complete.
+2026-05-20 22:11:04,073 | INFO | uvicorn.error | Finished server process [94812]
+2026-05-20 22:11:05,675 | INFO | uvicorn.error | Started server process [94813]
+2026-05-20 22:11:05,675 | INFO | uvicorn.error | Waiting for application startup.
+2026-05-20 22:11:05,676 | INFO | apscheduler.scheduler | Scheduler started
+2026-05-20 22:11:05,676 | INFO | infrastructure.app_context_builder | Scheduler started: running=True
+2026-05-20 22:11:05,677 | INFO | uvicorn.error | Application startup complete.
+2026-05-20 22:11:05,678 | INFO | uvicorn.error | Shutting down
+2026-05-20 22:11:05,779 | INFO | uvicorn.error | Waiting for application shutdown.
+2026-05-20 22:11:05,779 | INFO | api.app | Shutdown complete
+2026-05-20 22:11:05,779 | INFO | apscheduler.scheduler | Scheduler has been shut down
+2026-05-20 22:11:05,779 | INFO | uvicorn.error | Application shutdown complete.
+2026-05-20 22:11:05,779 | INFO | uvicorn.error | Finished server process [94813]
+2026-05-20 22:11:07,349 | INFO | uvicorn.error | Started server process [94815]
+2026-05-20 22:11:07,350 | INFO | uvicorn.error | Waiting for application startup.
+2026-05-20 22:11:07,351 | INFO | apscheduler.scheduler | Scheduler started
+2026-05-20 22:11:07,351 | INFO | infrastructure.app_context_builder | Scheduler started: running=True
+2026-05-20 22:11:07,352 | INFO | uvicorn.error | Application startup complete.
+2026-05-20 22:11:07,352 | INFO | uvicorn.error | Shutting down
+2026-05-20 22:11:07,453 | INFO | uvicorn.error | Waiting for application shutdown.
+2026-05-20 22:11:07,454 | INFO | api.app | Shutdown complete
+2026-05-20 22:11:07,454 | INFO | apscheduler.scheduler | Scheduler has been shut down
+2026-05-20 22:11:07,454 | INFO | uvicorn.error | Application shutdown complete.
+2026-05-20 22:11:07,454 | INFO | uvicorn.error | Finished server process [94815]
+2026-05-20 22:11:09,039 | INFO | uvicorn.error | Started server process [94816]
+2026-05-20 22:11:09,039 | INFO | uvicorn.error | Waiting for application startup.
+2026-05-20 22:11:09,040 | INFO | apscheduler.scheduler | Scheduler started
+2026-05-20 22:11:09,040 | INFO | infrastructure.app_context_builder | Scheduler started: running=True
+2026-05-20 22:11:09,042 | INFO | uvicorn.error | Application startup complete.
+2026-05-20 22:11:18,701 | INFO | uvicorn.error | Shutting down
+2026-05-20 22:11:18,803 | INFO | uvicorn.error | Waiting for application shutdown.
+2026-05-20 22:11:18,805 | INFO | api.app | Shutdown complete
+2026-05-20 22:11:18,806 | INFO | apscheduler.scheduler | Scheduler has been shut down
+2026-05-20 22:11:18,806 | INFO | uvicorn.error | Application shutdown complete.
+2026-05-20 22:11:18,806 | INFO | uvicorn.error | Finished server process [94816]
+2026-05-20 22:11:20,728 | INFO | uvicorn.error | Started server process [94840]
+2026-05-20 22:11:20,728 | INFO | uvicorn.error | Waiting for application startup.
+2026-05-20 22:11:20,729 | INFO | apscheduler.scheduler | Scheduler started
+2026-05-20 22:11:20,730 | INFO | infrastructure.app_context_builder | Scheduler started: running=True
+2026-05-20 22:11:20,731 | INFO | uvicorn.error | Application startup complete.
+2026-05-20 22:11:21,337 | INFO | uvicorn.error | Shutting down
+2026-05-20 22:11:21,438 | INFO | uvicorn.error | Waiting for application shutdown.
+2026-05-20 22:11:21,439 | INFO | api.app | Shutdown complete
+2026-05-20 22:11:21,440 | INFO | apscheduler.scheduler | Scheduler has been shut down
+2026-05-20 22:11:21,440 | INFO | uvicorn.error | Application shutdown complete.
+2026-05-20 22:11:21,441 | INFO | uvicorn.error | Finished server process [94840]
+2026-05-20 22:11:23,605 | INFO | uvicorn.error | Started server process [94845]
+2026-05-20 22:11:23,606 | INFO | uvicorn.error | Waiting for application startup.
+2026-05-20 22:11:23,607 | INFO | apscheduler.scheduler | Scheduler started
+2026-05-20 22:11:23,607 | INFO | infrastructure.app_context_builder | Scheduler started: running=True
+2026-05-20 22:11:23,609 | INFO | uvicorn.error | Application startup complete.
+2026-05-20 22:11:24,830 | INFO | uvicorn.access | 127.0.0.1:55994 - "POST /v1/tickets HTTP/1.1" 307
+2026-05-20 22:11:25,146 | INFO | workflows.nodes.router_node | task=['parallel'] enriched='How to process damages in inbound receiving?' interval=None condition=None
+2026-05-20 22:11:25,180 | INFO | workflows.nodes.sop_lookup_node | Sop lookup query: What is the SOP for processing damages during inbound receiving?
+2026-05-20 22:11:25,313 | INFO | uvicorn.access | 127.0.0.1:55994 - "POST /v1/tickets/ HTTP/1.1" 200
+2026-05-20 22:11:48,163 | INFO | uvicorn.access | 127.0.0.1:55997 - "POST /v1/tickets HTTP/1.1" 307
+2026-05-20 22:11:48,738 | INFO | httpx | HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-20 22:11:49,491 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-05-20 22:11:50,596 | INFO | workflows.nodes.router_node | task=['sequential'] enriched='What are the steps to allocate a wave, and what is the count of existing waves?' interval=None condition=None
+2026-05-20 22:12:04,183 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-20 22:12:04,208 | INFO | workflows.nodes.sql_load_skills_node | sql_load_skills_node started | domains=['outbound'] count=1
+2026-05-20 22:12:04,208 | INFO | workflows.nodes.sql_load_skills_node | sql_load_skills_node completed | requested=1 loaded=1
+2026-05-20 22:12:04,210 | INFO | workflows.nodes.sql_generate_query_node | SQL Generate Query Node started
+2026-05-20 22:12:04,295 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-05-20 22:12:05,121 | INFO | workflows.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['outbound']
+2026-05-20 22:12:05,124 | INFO | workflows.nodes.sql_run_sql_node | starting SQL execution SQL:SELECT
+    COUNT(DISTINCT wrkref) AS total_waves,
+    COUNT(DISTINCT CASE WHEN status IN ('PENDING', 'OPEN', 'READY') THEN wrkref ELSE NULL END) AS open_pending_ready_waves,
+    COUNT(DISTINCT CASE WHEN status = 'ALLOCATED' THEN wrkref ELSE NULL END) AS allocated_waves
+FROM
+    wms1.pckwrk
+2026-05-20 22:12:05,366 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-05-20 22:12:06,962 | INFO | workflows.nodes.sql_run_sql_node | SQL execution completed
+2026-05-20 22:12:06,963 | INFO | workflows.nodes.sql_run_sql_node | SQL node completed. Success: True, Domains: ['outbound']

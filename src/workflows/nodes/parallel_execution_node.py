@@ -12,11 +12,12 @@ fragmenting context. Splitting only happens when the user explicitly asks for
 data from two independent sources (e.g. "check inventory AND the SOP").
 """
 
-from langchain_core.messages import SystemMessage, HumanMessage
+from langchain_core.messages import HumanMessage, SystemMessage
+
 from domain.states.parallel_state import ParallelExecutionPlan
 from domain.states.supervisor.diagnose_graph_state import WMState
+from infrastructure.llm_clients import get_google_llm, get_ollama_llm, get_openai_fast_llm
 from infrastructure.operation_cache import PARALLEL_SUBTASK_NODE_CACHE
-from infrastructure.llm_clients import get_ollama_llm, get_google_llm, get_openai_fast_llm
 from workflows.prompts.generate_parallel_node_prompt import parallel_node_prompt
 
 

@@ -1,7 +1,8 @@
 import uuid
 from datetime import datetime
-from typing import Optional, List
+from typing import List, Optional
 from zoneinfo import ZoneInfo
+
 from pydantic import BaseModel, Field
 
 

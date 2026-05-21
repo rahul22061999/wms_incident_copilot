@@ -1,9 +1,8 @@
-from langgraph.config import get_stream_writer
+
 from domain.states.supervisor.diagnose_graph_state import WMState
 
-def result_node(state: WMState):
-    writer = get_stream_writer()
 
+def result_node(state: WMState):
     final_text = state.result or ""
 
     return {

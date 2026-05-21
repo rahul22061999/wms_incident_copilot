@@ -11,8 +11,9 @@ SQL generation + execution). Without it, a slow database or model call would
 stall the entire graph indefinitely since LangGraph has no built-in node timeout.
 """
 
-import logging
 import asyncio
+import logging
+
 from workflows.tools.sql_lookup_tool import sql_lookup_tool
 
 logger = logging.getLogger(__name__)
