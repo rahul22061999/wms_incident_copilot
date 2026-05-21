@@ -1,0 +1,52 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    env:
+      ANTHROPIC_API_KEY: "sk-ant-fake-key-for-ci"
+      GROQ_API_KEY: "gsk_fake_key_for_ci"
+      GOOGLE_API_KEY: "fake-google-key-for-ci"
+      OPENAI_API_KEY: "sk-fake-openai-key-for-ci"
+      DATABASE_URL: "sqlite+aiosqlite:///./ci_audit.db"
+      MEMORIES_DB_URL: "sqlite+aiosqlite:///./ci_memories.db"
+      OLLAMA_API_KEY: "fake-ollama-key-for-ci"
+      LANGSMITH_API_KEY: "lsv2_fake_key_for_ci"
+      JWT_SECRET: "fake-jwt-secret-for-ci-testing-only"
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v4
+        with:
+          enable-cache: true
+
+      - name: Install dependencies
+        run: uv sync --frozen --group dev
+
+      - name: Lint with ruff
+        run: uv run ruff check src/
+
+      - name: Check app imports
+        run: uv run python -c "from api.app import app; print('App loaded OK')"
+        env:
+          PYTHONPATH: src
+
+      - name: Run tests
+        run: uv run pytest tests/ -v --ignore=tests/evals -x
+        env:
+          PYTHONPATH: src
