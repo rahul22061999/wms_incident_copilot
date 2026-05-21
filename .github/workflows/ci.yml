@@ -36,10 +36,10 @@ jobs:
           enable-cache: true
 
       - name: Install dependencies
-        run: uv sync --frozen --group dev
+        run: uv sync --frozen
 
       - name: Lint with ruff
-        run: uv run ruff check src/
+        run: uvx ruff check src/
 
       - name: Check app imports
         run: uv run python -c "from api.app import app; print('App loaded OK')"
