@@ -4,7 +4,7 @@ from dotenv import load_dotenv
 from langsmith import traceable
 
 from domain.states.sql_state import SQLGraphState
-from utils.sql_tools import AsyncWMSSQLService
+from infrastructure.context_access import get_app_context
 
 load_dotenv()
 
@@ -15,7 +15,9 @@ logger = logging.getLogger(__name__)
 async def sql_run_sql_node(state: SQLGraphState) -> dict:
     """Run sql's on the database"""
 
-    run_sql_query_with_columns_tool = AsyncWMSSQLService()
+    ctx = get_app_context()
+
+    run_sql_query_with_columns_tool = ctx.async_wms_sql_service
 
     all_results = {}
 

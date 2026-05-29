@@ -23,8 +23,10 @@ from apscheduler.jobstores.sqlalchemy import SQLAlchemyJobStore
 from apscheduler.schedulers.asyncio import AsyncIOScheduler
 from sqlalchemy.ext.asyncio import AsyncEngine, AsyncSession, async_sessionmaker, create_async_engine
 
+from config import settings
 from infrastructure.app_context import AppContext
 from infrastructure.job_event_bus import JobEventBus
+from utils.sql_tools import AsyncWMSSQLService
 
 logger = logging.getLogger(__name__)
 
@@ -53,6 +55,9 @@ class AppContextBuilder:
             scheduler.start()
             logger.info("Scheduler started: running=%s", scheduler.running)
 
+            ##initialize wms db
+            wms_sql_service = self._build_wms_sql_service()
+
             ctx = AppContext(
                 executor=executor,
                 graph_semaphore=graph_semaphore,
@@ -60,6 +65,7 @@ class AppContextBuilder:
                 job_schedule_session_factory=job_schedule_session_factory,
                 scheduler=scheduler,
                 job_event_bus=JobEventBus(),
+                async_wms_sql_service=wms_sql_service,
             )
 
             return ctx, self._stack
@@ -105,14 +111,14 @@ class AppContextBuilder:
         return engine, session_factory
 
     def _build_scheduler(self) -> AsyncIOScheduler:
-        jobstore = {
+        jobstores = {
             "default": SQLAlchemyJobStore(
                 url=self.settings.JOB_SCHEDULER_SYNC_DB_URL
             )
         }
 
         scheduler = AsyncIOScheduler(
-            jobstores=jobstore,
+            jobstores=jobstores,
             timezone="UTC",
         )
         self._stack.push_async_callback(
@@ -121,6 +127,27 @@ class AppContextBuilder:
         )
 
         return scheduler
+
+    def _build_wms_sql_service(self) -> AsyncWMSSQLService:
+        engine: AsyncEngine = create_async_engine(
+            url= settings.DATABASE_URL.get_secret_value(),
+            pool_size=settings.DB_POOL_SIZE,
+            max_overflow=settings.DB_MAX_OVERFLOW,
+            pool_timeout=settings.DB_POOL_TIMEOUT,
+            pool_recycle=settings.DB_POOL_RECYCLE,
+            pool_pre_ping=True,
+            connect_args={
+                "server_settings": {
+                    "statement_timeout": str(settings.DB_STATEMENT_TIMEOUT)
+                }
+            },
+            execution_options={"postgresql_readonly": True}
+        )
+
+        sql_service = AsyncWMSSQLService(engine)
+        self._stack.push_async_callback(engine.dispose)
+
+        return sql_service
 
     @staticmethod
     async def _shutdown_executor(executor: PythonThreadPoolExecutor) -> None:

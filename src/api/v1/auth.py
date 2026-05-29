@@ -22,7 +22,7 @@ async def get_current_user(
         payload = jwt.decode(
             token,
             settings.JWT_SECRET.get_secret_value(),
-            algorithms=[settings.JWT_ALGORITHM]
+            algorithms=[settings.JWT_ALGORITHM],
         )
 
         user_id = payload.get("sub")

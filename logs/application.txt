@@ -342,3 +342,1113 @@ WHERE
 2026-05-28 00:38:32,540 | INFO | apscheduler.scheduler | Scheduler has been shut down
 2026-05-28 00:38:32,540 | INFO | uvicorn.error | Application shutdown complete.
 2026-05-28 00:38:32,540 | INFO | uvicorn.error | Finished server process [6263]
+2026-05-28 22:25:56,819 | INFO | uvicorn.error | Started server process [13560]
+2026-05-28 22:25:56,819 | INFO | uvicorn.error | Waiting for application startup.
+2026-05-28 22:25:56,821 | INFO | apscheduler.scheduler | Scheduler started
+2026-05-28 22:25:56,821 | INFO | infrastructure.app_context_builder | Scheduler started: running=True
+2026-05-28 22:25:56,908 | INFO | uvicorn.error | Application startup complete.
+2026-05-28 22:30:12,720 | INFO | uvicorn.error | Shutting down
+2026-05-28 22:30:12,827 | INFO | uvicorn.error | Waiting for application shutdown.
+2026-05-28 22:30:12,828 | INFO | src.api.app | Shutdown complete
+2026-05-28 22:30:12,828 | INFO | apscheduler.scheduler | Scheduler has been shut down
+2026-05-28 22:30:12,828 | INFO | uvicorn.error | Application shutdown complete.
+2026-05-28 22:30:12,829 | INFO | uvicorn.error | Finished server process [13560]
+2026-05-28 22:30:14,438 | INFO | uvicorn.error | Started server process [13684]
+2026-05-28 22:30:14,439 | INFO | uvicorn.error | Waiting for application startup.
+2026-05-28 22:30:14,439 | INFO | apscheduler.scheduler | Scheduler started
+2026-05-28 22:30:14,439 | INFO | infrastructure.app_context_builder | Scheduler started: running=True
+2026-05-28 22:30:14,463 | INFO | uvicorn.error | Application startup complete.
+2026-05-28 22:37:49,621 | WARNING | uvicorn.error | Invalid HTTP request received.
+2026-05-28 22:37:53,471 | INFO | uvicorn.access | 127.0.0.1:52650 - "POST /v1/tickets/ HTTP/1.1" 500
+2026-05-28 22:37:53,471 | ERROR | uvicorn.error | Exception in ASGI application
+Traceback (most recent call last):
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/src/api/v1/auth.py", line 22, in get_current_user
+    payload = jwt.decode(
+              ^^^^^^^^^^
+AttributeError: module 'jwt' has no attribute 'decode'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/uvicorn/protocols/http/httptools_impl.py", line 420, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/uvicorn/middleware/proxy_headers.py", line 60, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/fastapi/applications.py", line 1163, in __call__
+    await super().__call__(scope, receive, send)
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/starlette/applications.py", line 90, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 186, in __call__
+    raise exc
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 191, in __call__
+    with recv_stream, send_stream, collapse_excgroups():
+                                   ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rahul/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/starlette/_utils.py", line 87, in collapse_excgroups
+    raise exc
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 193, in __call__
+    response = await self.dispatch_func(request, call_next)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/slowapi/middleware.py", line 128, in dispatch
+    return await call_next(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 168, in call_next
+    raise app_exc from app_exc.__cause__ or app_exc.__context__
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 144, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/starlette/middleware/cors.py", line 88, in __call__
+    await self.app(scope, receive, send)
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/starlette/routing.py", line 660, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/starlette/routing.py", line 680, in app
+    await route.handle(scope, receive, send)
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/starlette/routing.py", line 276, in handle
+    await self.app(scope, receive, send)
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/fastapi/routing.py", line 134, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/fastapi/routing.py", line 120, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/fastapi/routing.py", line 457, in app
+    solved_result = await solve_dependencies(
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/fastapi/dependencies/utils.py", line 678, in solve_dependencies
+    solved = await call(**solved_result.values)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/src/api/v1/auth.py", line 38, in get_current_user
+    except jwt.ExpiredSignatureError:
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'jwt' has no attribute 'ExpiredSignatureError'
+2026-05-28 22:39:36,827 | INFO | uvicorn.error | Shutting down
+2026-05-28 22:39:36,929 | INFO | uvicorn.error | Waiting for application shutdown.
+2026-05-28 22:39:36,931 | INFO | src.api.app | Shutdown complete
+2026-05-28 22:39:36,932 | INFO | apscheduler.scheduler | Scheduler has been shut down
+2026-05-28 22:39:36,932 | INFO | uvicorn.error | Application shutdown complete.
+2026-05-28 22:39:36,932 | INFO | uvicorn.error | Finished server process [13684]
+2026-05-28 22:39:39,676 | INFO | uvicorn.error | Started server process [13927]
+2026-05-28 22:39:39,676 | INFO | uvicorn.error | Waiting for application startup.
+2026-05-28 22:39:39,677 | INFO | apscheduler.scheduler | Scheduler started
+2026-05-28 22:39:39,677 | INFO | infrastructure.app_context_builder | Scheduler started: running=True
+2026-05-28 22:39:39,700 | INFO | uvicorn.error | Application startup complete.
+2026-05-28 22:39:42,800 | INFO | uvicorn.access | 127.0.0.1:52716 - "POST /v1/tickets/ HTTP/1.1" 500
+2026-05-28 22:39:42,800 | ERROR | uvicorn.error | Exception in ASGI application
+Traceback (most recent call last):
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/src/api/v1/auth.py", line 22, in get_current_user
+    payload = jwt.decode(
+              ^^^^^^^^^^
+AttributeError: module 'jwt' has no attribute 'decode'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/uvicorn/protocols/http/httptools_impl.py", line 420, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/uvicorn/middleware/proxy_headers.py", line 60, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/fastapi/applications.py", line 1163, in __call__
+    await super().__call__(scope, receive, send)
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/starlette/applications.py", line 90, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 186, in __call__
+    raise exc
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 191, in __call__
+    with recv_stream, send_stream, collapse_excgroups():
+                                   ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rahul/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/starlette/_utils.py", line 87, in collapse_excgroups
+    raise exc
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 193, in __call__
+    response = await self.dispatch_func(request, call_next)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/slowapi/middleware.py", line 128, in dispatch
+    return await call_next(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 168, in call_next
+    raise app_exc from app_exc.__cause__ or app_exc.__context__
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 144, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/starlette/middleware/cors.py", line 88, in __call__
+    await self.app(scope, receive, send)
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/starlette/routing.py", line 660, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/starlette/routing.py", line 680, in app
+    await route.handle(scope, receive, send)
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/starlette/routing.py", line 276, in handle
+    await self.app(scope, receive, send)
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/fastapi/routing.py", line 134, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/fastapi/routing.py", line 120, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/fastapi/routing.py", line 457, in app
+    solved_result = await solve_dependencies(
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/fastapi/dependencies/utils.py", line 678, in solve_dependencies
+    solved = await call(**solved_result.values)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/src/api/v1/auth.py", line 38, in get_current_user
+    except jwt.ExpiredSignatureError:
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'jwt' has no attribute 'ExpiredSignatureError'
+2026-05-28 22:40:13,116 | INFO | uvicorn.error | Shutting down
+2026-05-28 22:40:13,217 | INFO | uvicorn.error | Waiting for application shutdown.
+2026-05-28 22:40:13,218 | INFO | src.api.app | Shutdown complete
+2026-05-28 22:40:13,218 | INFO | apscheduler.scheduler | Scheduler has been shut down
+2026-05-28 22:40:13,218 | INFO | uvicorn.error | Application shutdown complete.
+2026-05-28 22:40:13,218 | INFO | uvicorn.error | Finished server process [13927]
+2026-05-28 22:40:14,743 | INFO | uvicorn.error | Started server process [13960]
+2026-05-28 22:40:14,744 | INFO | uvicorn.error | Waiting for application startup.
+2026-05-28 22:40:14,744 | INFO | apscheduler.scheduler | Scheduler started
+2026-05-28 22:40:14,744 | INFO | infrastructure.app_context_builder | Scheduler started: running=True
+2026-05-28 22:40:14,761 | INFO | uvicorn.error | Application startup complete.
+2026-05-28 22:40:21,226 | INFO | uvicorn.error | Shutting down
+2026-05-28 22:40:21,328 | INFO | uvicorn.error | Waiting for application shutdown.
+2026-05-28 22:40:21,328 | INFO | src.api.app | Shutdown complete
+2026-05-28 22:40:21,328 | INFO | apscheduler.scheduler | Scheduler has been shut down
+2026-05-28 22:40:21,328 | INFO | uvicorn.error | Application shutdown complete.
+2026-05-28 22:40:21,328 | INFO | uvicorn.error | Finished server process [13960]
+2026-05-28 22:40:22,727 | INFO | uvicorn.error | Started server process [13974]
+2026-05-28 22:40:22,727 | INFO | uvicorn.error | Waiting for application startup.
+2026-05-28 22:40:22,728 | INFO | apscheduler.scheduler | Scheduler started
+2026-05-28 22:40:22,728 | INFO | infrastructure.app_context_builder | Scheduler started: running=True
+2026-05-28 22:40:22,746 | INFO | uvicorn.error | Application startup complete.
+2026-05-28 22:40:40,740 | INFO | uvicorn.access | 127.0.0.1:52728 - "POST /v1/tickets/ HTTP/1.1" 500
+2026-05-28 22:40:40,741 | ERROR | uvicorn.error | Exception in ASGI application
+Traceback (most recent call last):
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/src/api/v1/auth.py", line 22, in get_current_user
+    payload = jwt.decode(
+              ^^^^^^^^^^
+AttributeError: module 'jwt' has no attribute 'decode'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/uvicorn/protocols/http/httptools_impl.py", line 420, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/uvicorn/middleware/proxy_headers.py", line 60, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/fastapi/applications.py", line 1163, in __call__
+    await super().__call__(scope, receive, send)
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/starlette/applications.py", line 90, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 186, in __call__
+    raise exc
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 191, in __call__
+    with recv_stream, send_stream, collapse_excgroups():
+                                   ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rahul/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/starlette/_utils.py", line 87, in collapse_excgroups
+    raise exc
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 193, in __call__
+    response = await self.dispatch_func(request, call_next)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/slowapi/middleware.py", line 128, in dispatch
+    return await call_next(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 168, in call_next
+    raise app_exc from app_exc.__cause__ or app_exc.__context__
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 144, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/starlette/middleware/cors.py", line 88, in __call__
+    await self.app(scope, receive, send)
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/starlette/routing.py", line 660, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/starlette/routing.py", line 680, in app
+    await route.handle(scope, receive, send)
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/starlette/routing.py", line 276, in handle
+    await self.app(scope, receive, send)
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/fastapi/routing.py", line 134, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/fastapi/routing.py", line 120, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/fastapi/routing.py", line 457, in app
+    solved_result = await solve_dependencies(
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/fastapi/dependencies/utils.py", line 678, in solve_dependencies
+    solved = await call(**solved_result.values)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/src/api/v1/auth.py", line 38, in get_current_user
+    except jwt.ExpiredSignatureError:
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'jwt' has no attribute 'ExpiredSignatureError'
+2026-05-28 22:43:16,130 | INFO | uvicorn.error | Shutting down
+2026-05-28 22:43:16,232 | INFO | uvicorn.error | Waiting for application shutdown.
+2026-05-28 22:43:16,232 | INFO | src.api.app | Shutdown complete
+2026-05-28 22:43:16,233 | INFO | apscheduler.scheduler | Scheduler has been shut down
+2026-05-28 22:43:16,233 | INFO | uvicorn.error | Application shutdown complete.
+2026-05-28 22:43:16,233 | INFO | uvicorn.error | Finished server process [13974]
+2026-05-28 22:43:17,566 | INFO | uvicorn.error | Started server process [14128]
+2026-05-28 22:43:17,566 | INFO | uvicorn.error | Waiting for application startup.
+2026-05-28 22:43:17,567 | INFO | apscheduler.scheduler | Scheduler started
+2026-05-28 22:43:17,567 | INFO | infrastructure.app_context_builder | Scheduler started: running=True
+2026-05-28 22:43:17,585 | INFO | uvicorn.error | Application startup complete.
+2026-05-28 22:44:54,530 | INFO | uvicorn.error | Shutting down
+2026-05-28 22:44:54,630 | INFO | uvicorn.error | Waiting for application shutdown.
+2026-05-28 22:44:54,631 | INFO | src.api.app | Shutdown complete
+2026-05-28 22:44:54,632 | INFO | apscheduler.scheduler | Scheduler has been shut down
+2026-05-28 22:44:54,632 | INFO | uvicorn.error | Application shutdown complete.
+2026-05-28 22:44:54,632 | INFO | uvicorn.error | Finished server process [14128]
+2026-05-28 22:44:56,394 | INFO | uvicorn.error | Started server process [14263]
+2026-05-28 22:44:56,394 | INFO | uvicorn.error | Waiting for application startup.
+2026-05-28 22:44:56,396 | INFO | apscheduler.scheduler | Scheduler started
+2026-05-28 22:44:56,396 | INFO | infrastructure.app_context_builder | Scheduler started: running=True
+2026-05-28 22:44:56,436 | INFO | uvicorn.error | Application startup complete.
+2026-05-28 22:45:01,389 | INFO | uvicorn.error | Shutting down
+2026-05-28 22:45:01,490 | INFO | uvicorn.error | Waiting for application shutdown.
+2026-05-28 22:45:01,492 | INFO | src.api.app | Shutdown complete
+2026-05-28 22:45:01,493 | INFO | apscheduler.scheduler | Scheduler has been shut down
+2026-05-28 22:45:01,493 | INFO | uvicorn.error | Application shutdown complete.
+2026-05-28 22:45:01,493 | INFO | uvicorn.error | Finished server process [14263]
+2026-05-28 22:45:02,793 | INFO | uvicorn.error | Started server process [14281]
+2026-05-28 22:45:02,793 | INFO | uvicorn.error | Waiting for application startup.
+2026-05-28 22:45:02,794 | INFO | apscheduler.scheduler | Scheduler started
+2026-05-28 22:45:02,794 | INFO | infrastructure.app_context_builder | Scheduler started: running=True
+2026-05-28 22:45:02,811 | INFO | uvicorn.error | Application startup complete.
+2026-05-28 22:45:14,382 | INFO | uvicorn.access | 127.0.0.1:52739 - "POST /v1/tickets/ HTTP/1.1" 401
+2026-05-28 22:46:55,116 | INFO | uvicorn.error | Shutting down
+2026-05-28 22:46:55,218 | INFO | uvicorn.error | Waiting for application shutdown.
+2026-05-28 22:46:55,219 | INFO | src.api.app | Shutdown complete
+2026-05-28 22:46:55,219 | INFO | apscheduler.scheduler | Scheduler has been shut down
+2026-05-28 22:46:55,219 | INFO | uvicorn.error | Application shutdown complete.
+2026-05-28 22:46:55,219 | INFO | uvicorn.error | Finished server process [14281]
+2026-05-28 22:46:56,674 | INFO | uvicorn.error | Started server process [14356]
+2026-05-28 22:46:56,674 | INFO | uvicorn.error | Waiting for application startup.
+2026-05-28 22:46:56,675 | INFO | apscheduler.scheduler | Scheduler started
+2026-05-28 22:46:56,675 | INFO | infrastructure.app_context_builder | Scheduler started: running=True
+2026-05-28 22:46:56,697 | INFO | uvicorn.error | Application startup complete.
+2026-05-28 22:47:07,113 | INFO | uvicorn.access | 127.0.0.1:52744 - "POST /v1/tickets/ HTTP/1.1" 401
+2026-05-28 22:48:44,607 | INFO | uvicorn.access | 127.0.0.1:52747 - "POST /v1/tickets/ HTTP/1.1" 401
+2026-05-28 22:49:29,534 | INFO | uvicorn.access | 127.0.0.1:52751 - "POST /v1/tickets/ HTTP/1.1" 401
+2026-05-28 22:49:58,109 | INFO | uvicorn.access | 127.0.0.1:52753 - "POST /v1/tickets/ HTTP/1.1" 401
+2026-05-28 22:50:59,951 | INFO | uvicorn.access | 127.0.0.1:52759 - "POST /v1/tickets/ HTTP/1.1" 401
+2026-05-28 22:53:30,003 | INFO | uvicorn.error | Shutting down
+2026-05-28 22:53:30,104 | INFO | uvicorn.error | Waiting for application shutdown.
+2026-05-28 22:53:30,105 | INFO | src.api.app | Shutdown complete
+2026-05-28 22:53:30,105 | INFO | apscheduler.scheduler | Scheduler has been shut down
+2026-05-28 22:53:30,105 | INFO | uvicorn.error | Application shutdown complete.
+2026-05-28 22:53:30,105 | INFO | uvicorn.error | Finished server process [14356]
+2026-05-28 22:53:31,656 | INFO | uvicorn.error | Started server process [14497]
+2026-05-28 22:53:31,656 | INFO | uvicorn.error | Waiting for application startup.
+2026-05-28 22:53:31,657 | INFO | apscheduler.scheduler | Scheduler started
+2026-05-28 22:53:31,657 | INFO | infrastructure.app_context_builder | Scheduler started: running=True
+2026-05-28 22:53:31,678 | INFO | uvicorn.error | Application startup complete.
+2026-05-28 22:53:33,154 | INFO | uvicorn.access | 127.0.0.1:52765 - "POST /v1/tickets/ HTTP/1.1" 500
+2026-05-28 22:53:33,154 | ERROR | uvicorn.error | Exception in ASGI application
+Traceback (most recent call last):
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/uvicorn/protocols/http/httptools_impl.py", line 420, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/uvicorn/middleware/proxy_headers.py", line 60, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/fastapi/applications.py", line 1163, in __call__
+    await super().__call__(scope, receive, send)
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/starlette/applications.py", line 90, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 186, in __call__
+    raise exc
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 191, in __call__
+    with recv_stream, send_stream, collapse_excgroups():
+                                   ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rahul/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/starlette/_utils.py", line 87, in collapse_excgroups
+    raise exc
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 193, in __call__
+    response = await self.dispatch_func(request, call_next)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/slowapi/middleware.py", line 128, in dispatch
+    return await call_next(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 168, in call_next
+    raise app_exc from app_exc.__cause__ or app_exc.__context__
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 144, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/starlette/middleware/cors.py", line 88, in __call__
+    await self.app(scope, receive, send)
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/starlette/routing.py", line 660, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/starlette/routing.py", line 680, in app
+    await route.handle(scope, receive, send)
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/starlette/routing.py", line 276, in handle
+    await self.app(scope, receive, send)
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/fastapi/routing.py", line 134, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/fastapi/routing.py", line 120, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/fastapi/routing.py", line 674, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/fastapi/routing.py", line 328, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/slowapi/extension.py", line 734, in async_wrapper
+    response = await func(*args, **kwargs)  # type: ignore
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/src/api/v1/routes/tickets.py", line 41, in diagnose_ticket
+    user_id=current_user.id,
+            ^^^^^^^^^^^^^^^
+AttributeError: 'str' object has no attribute 'id'
+2026-05-28 22:53:34,327 | INFO | uvicorn.access | 127.0.0.1:52768 - "POST /v1/tickets/ HTTP/1.1" 500
+2026-05-28 22:53:34,328 | ERROR | uvicorn.error | Exception in ASGI application
+Traceback (most recent call last):
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/uvicorn/protocols/http/httptools_impl.py", line 420, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/uvicorn/middleware/proxy_headers.py", line 60, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/fastapi/applications.py", line 1163, in __call__
+    await super().__call__(scope, receive, send)
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/starlette/applications.py", line 90, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 186, in __call__
+    raise exc
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 191, in __call__
+    with recv_stream, send_stream, collapse_excgroups():
+                                   ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rahul/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/starlette/_utils.py", line 87, in collapse_excgroups
+    raise exc
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 193, in __call__
+    response = await self.dispatch_func(request, call_next)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/slowapi/middleware.py", line 128, in dispatch
+    return await call_next(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 168, in call_next
+    raise app_exc from app_exc.__cause__ or app_exc.__context__
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 144, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/starlette/middleware/cors.py", line 88, in __call__
+    await self.app(scope, receive, send)
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/starlette/routing.py", line 660, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/starlette/routing.py", line 680, in app
+    await route.handle(scope, receive, send)
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/starlette/routing.py", line 276, in handle
+    await self.app(scope, receive, send)
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/fastapi/routing.py", line 134, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/fastapi/routing.py", line 120, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/fastapi/routing.py", line 674, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/fastapi/routing.py", line 328, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/slowapi/extension.py", line 734, in async_wrapper
+    response = await func(*args, **kwargs)  # type: ignore
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/src/api/v1/routes/tickets.py", line 41, in diagnose_ticket
+    user_id=current_user.id,
+            ^^^^^^^^^^^^^^^
+AttributeError: 'str' object has no attribute 'id'
+2026-05-28 22:53:45,306 | INFO | uvicorn.error | Shutting down
+2026-05-28 22:53:45,407 | INFO | uvicorn.error | Waiting for application shutdown.
+2026-05-28 22:53:45,409 | INFO | src.api.app | Shutdown complete
+2026-05-28 22:53:45,409 | INFO | apscheduler.scheduler | Scheduler has been shut down
+2026-05-28 22:53:45,409 | INFO | uvicorn.error | Application shutdown complete.
+2026-05-28 22:53:45,409 | INFO | uvicorn.error | Finished server process [14497]
+2026-05-28 22:53:46,573 | INFO | uvicorn.error | Started server process [14559]
+2026-05-28 22:53:46,573 | INFO | uvicorn.error | Waiting for application startup.
+2026-05-28 22:53:46,574 | INFO | apscheduler.scheduler | Scheduler started
+2026-05-28 22:53:46,574 | INFO | infrastructure.app_context_builder | Scheduler started: running=True
+2026-05-28 22:53:46,589 | INFO | uvicorn.error | Application startup complete.
+2026-05-28 22:53:48,967 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-05-28 22:53:49,832 | INFO | workflows.nodes.router_node | task=['parallel'] enriched='What is the inventory level for SKU SKU009?' interval=None condition=None
+2026-05-28 22:53:49,873 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-05-28 22:53:50,836 | INFO | workflows.nodes.sql_lookup_node | SQL Lookup Node started | domain=['inventory']
+2026-05-28 22:53:50,839 | INFO | workflows.nodes.sql_load_skills_node | sql_load_skills_node started | domains=['inventory'] count=1
+2026-05-28 22:53:50,839 | INFO | workflows.nodes.sql_load_skills_node | sql_load_skills_node completed | requested=1 loaded=1
+2026-05-28 22:53:50,840 | INFO | workflows.nodes.sql_generate_query_node | SQL Generate Query Node started
+2026-05-28 22:53:50,854 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-05-28 22:53:51,513 | INFO | workflows.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['inventory']
+2026-05-28 22:53:51,514 | INFO | workflows.nodes.sql_run_sql_node | starting SQL execution SQL:SELECT SUM(unit_qty) FROM wms1.inventory WHERE sku = 'SKU009'
+2026-05-28 22:53:53,374 | INFO | workflows.nodes.sql_run_sql_node | SQL execution completed
+2026-05-28 22:53:53,374 | INFO | workflows.nodes.sql_run_sql_node | SQL node completed. Success: True, Domains: ['inventory']
+2026-05-28 22:53:53,408 | ERROR | application.diagnose_ticket | Unexpected ticket diagnosis failure
+Traceback (most recent call last):
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/httpx/_transports/default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/httpx/_transports/default.py", line 394, in handle_async_request
+    resp = await self._pool.handle_async_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/httpcore/_async/connection_pool.py", line 256, in handle_async_request
+    raise exc from None
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/httpcore/_async/connection_pool.py", line 236, in handle_async_request
+    response = await connection.handle_async_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/httpcore/_async/connection.py", line 101, in handle_async_request
+    raise exc
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/httpcore/_async/connection.py", line 78, in handle_async_request
+    stream = await self._connect(request)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/httpcore/_async/connection.py", line 124, in _connect
+    stream = await self._network_backend.connect_tcp(**kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/httpcore/_backends/auto.py", line 31, in connect_tcp
+    return await self._backend.connect_tcp(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/httpcore/_backends/anyio.py", line 113, in connect_tcp
+    with map_exceptions(exc_map):
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rahul/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/httpcore/_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectError: All connection attempts failed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/src/application/diagnose_ticket.py", line 38, in diagnose_ticket_service
+    ai_result = await graph.ainvoke(
+                ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/langgraph/pregel/main.py", line 3479, in ainvoke
+    async for chunk in self.astream(
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/langgraph/pregel/main.py", line 3128, in astream
+    async for _ in runner.atick(
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/langgraph/pregel/_runner.py", line 304, in atick
+    await arun_with_retry(
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/langgraph/pregel/_retry.py", line 242, in arun_with_retry
+    return await task.proc.ainvoke(task.input, config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/langgraph/_internal/_runnable.py", line 705, in ainvoke
+    input = await asyncio.create_task(
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/langgraph/_internal/_runnable.py", line 473, in ainvoke
+    ret = await self.afunc(*args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/src/workflows/nodes/synthesizer_node.py", line 38, in synthesizer_node
+    result: SynthesizerNodeReturnState = await (synthesizer_prompt | llm).ainvoke({
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/langchain_core/runnables/base.py", line 3197, in ainvoke
+    input_ = await coro_with_context(part(), context, create_task=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/langchain_core/runnables/base.py", line 5708, in ainvoke
+    return await self.bound.ainvoke(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/langchain_core/language_models/chat_models.py", line 477, in ainvoke
+    llm_result = await self.agenerate_prompt(
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/langchain_core/language_models/chat_models.py", line 1196, in agenerate_prompt
+    return await self.agenerate(
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/langchain_core/language_models/chat_models.py", line 1154, in agenerate
+    raise exceptions[0]
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/langchain_core/language_models/chat_models.py", line 1423, in _agenerate_with_cache
+    result = await self._agenerate(
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/langchain_ollama/chat_models.py", line 1388, in _agenerate
+    final_chunk = await self._achat_stream_with_aggregation(
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/langchain_ollama/chat_models.py", line 1161, in _achat_stream_with_aggregation
+    async for chunk in self._aiterate_over_stream(messages, stop, **kwargs):
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/langchain_ollama/chat_models.py", line 1306, in _aiterate_over_stream
+    async for stream_resp in self._acreate_chat_stream(messages, stop, **kwargs):
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/langchain_ollama/chat_models.py", line 1102, in _acreate_chat_stream
+    async for part in await self._async_client.chat(**chat_params):
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/ollama/_client.py", line 752, in inner
+    async with self._client.stream(*args, **kwargs) as r:
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rahul/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/contextlib.py", line 210, in __aenter__
+    return await anext(self.gen)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/httpx/_client.py", line 1583, in stream
+    response = await self.send(
+               ^^^^^^^^^^^^^^^^
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/httpx/_client.py", line 1629, in send
+    response = await self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/httpx/_client.py", line 1657, in _send_handling_auth
+    response = await self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/httpx/_client.py", line 1694, in _send_handling_redirects
+    response = await self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/httpx/_client.py", line 1730, in _send_single_request
+    response = await transport.handle_async_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/httpx/_transports/default.py", line 393, in handle_async_request
+    with map_httpcore_exceptions():
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rahul/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/httpx/_transports/default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectError: All connection attempts failed
+During task with name 'synthesizer_node' and id '5ef00824-cd7b-2698-aac0-76e71201983a'
+2026-05-28 22:53:53,410 | ERROR | api.v1.routes.tickets | Diagnosis failed
+Traceback (most recent call last):
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/httpx/_transports/default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/httpx/_transports/default.py", line 394, in handle_async_request
+    resp = await self._pool.handle_async_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/httpcore/_async/connection_pool.py", line 256, in handle_async_request
+    raise exc from None
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/httpcore/_async/connection_pool.py", line 236, in handle_async_request
+    response = await connection.handle_async_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/httpcore/_async/connection.py", line 101, in handle_async_request
+    raise exc
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/httpcore/_async/connection.py", line 78, in handle_async_request
+    stream = await self._connect(request)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/httpcore/_async/connection.py", line 124, in _connect
+    stream = await self._network_backend.connect_tcp(**kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/httpcore/_backends/auto.py", line 31, in connect_tcp
+    return await self._backend.connect_tcp(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/httpcore/_backends/anyio.py", line 113, in connect_tcp
+    with map_exceptions(exc_map):
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rahul/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/httpcore/_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectError: All connection attempts failed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/src/application/diagnose_ticket.py", line 38, in diagnose_ticket_service
+    ai_result = await graph.ainvoke(
+                ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/langgraph/pregel/main.py", line 3479, in ainvoke
+    async for chunk in self.astream(
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/langgraph/pregel/main.py", line 3128, in astream
+    async for _ in runner.atick(
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/langgraph/pregel/_runner.py", line 304, in atick
+    await arun_with_retry(
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/langgraph/pregel/_retry.py", line 242, in arun_with_retry
+    return await task.proc.ainvoke(task.input, config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/langgraph/_internal/_runnable.py", line 705, in ainvoke
+    input = await asyncio.create_task(
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/langgraph/_internal/_runnable.py", line 473, in ainvoke
+    ret = await self.afunc(*args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/src/workflows/nodes/synthesizer_node.py", line 38, in synthesizer_node
+    result: SynthesizerNodeReturnState = await (synthesizer_prompt | llm).ainvoke({
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/langchain_core/runnables/base.py", line 3197, in ainvoke
+    input_ = await coro_with_context(part(), context, create_task=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/langchain_core/runnables/base.py", line 5708, in ainvoke
+    return await self.bound.ainvoke(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/langchain_core/language_models/chat_models.py", line 477, in ainvoke
+    llm_result = await self.agenerate_prompt(
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/langchain_core/language_models/chat_models.py", line 1196, in agenerate_prompt
+    return await self.agenerate(
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/langchain_core/language_models/chat_models.py", line 1154, in agenerate
+    raise exceptions[0]
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/langchain_core/language_models/chat_models.py", line 1423, in _agenerate_with_cache
+    result = await self._agenerate(
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/langchain_ollama/chat_models.py", line 1388, in _agenerate
+    final_chunk = await self._achat_stream_with_aggregation(
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/langchain_ollama/chat_models.py", line 1161, in _achat_stream_with_aggregation
+    async for chunk in self._aiterate_over_stream(messages, stop, **kwargs):
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/langchain_ollama/chat_models.py", line 1306, in _aiterate_over_stream
+    async for stream_resp in self._acreate_chat_stream(messages, stop, **kwargs):
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/langchain_ollama/chat_models.py", line 1102, in _acreate_chat_stream
+    async for part in await self._async_client.chat(**chat_params):
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/ollama/_client.py", line 752, in inner
+    async with self._client.stream(*args, **kwargs) as r:
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rahul/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/contextlib.py", line 210, in __aenter__
+    return await anext(self.gen)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/httpx/_client.py", line 1583, in stream
+    response = await self.send(
+               ^^^^^^^^^^^^^^^^
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/httpx/_client.py", line 1629, in send
+    response = await self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/httpx/_client.py", line 1657, in _send_handling_auth
+    response = await self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/httpx/_client.py", line 1694, in _send_handling_redirects
+    response = await self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/httpx/_client.py", line 1730, in _send_single_request
+    response = await transport.handle_async_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/httpx/_transports/default.py", line 393, in handle_async_request
+    with map_httpcore_exceptions():
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rahul/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/httpx/_transports/default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectError: All connection attempts failed
+During task with name 'synthesizer_node' and id '5ef00824-cd7b-2698-aac0-76e71201983a'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/src/api/v1/routes/tickets.py", line 38, in diagnose_ticket
+    result = await diagnose_ticket_service(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/src/application/diagnose_ticket.py", line 64, in diagnose_ticket_service
+    raise TicketDiagnosisError("Ticket diagnosis failed") from exc
+application.diagnose_ticket.TicketDiagnosisError: Ticket diagnosis failed
+2026-05-28 22:53:53,412 | INFO | uvicorn.access | 127.0.0.1:52771 - "POST /v1/tickets/ HTTP/1.1" 500
+2026-05-28 22:55:30,151 | INFO | uvicorn.error | Shutting down
+2026-05-28 22:55:30,255 | INFO | uvicorn.error | Waiting for application shutdown.
+2026-05-28 22:55:30,332 | INFO | src.api.app | Shutdown complete
+2026-05-28 22:55:30,332 | INFO | apscheduler.scheduler | Scheduler has been shut down
+2026-05-28 22:55:30,332 | INFO | uvicorn.error | Application shutdown complete.
+2026-05-28 22:55:30,332 | INFO | uvicorn.error | Finished server process [14559]
+2026-05-28 22:55:31,774 | INFO | uvicorn.error | Started server process [14620]
+2026-05-28 22:55:31,774 | INFO | uvicorn.error | Waiting for application startup.
+2026-05-28 22:55:31,775 | INFO | apscheduler.scheduler | Scheduler started
+2026-05-28 22:55:31,775 | INFO | infrastructure.app_context_builder | Scheduler started: running=True
+2026-05-28 22:55:31,795 | INFO | uvicorn.error | Application startup complete.
+2026-05-28 22:55:32,002 | INFO | workflows.nodes.router_node | task=['parallel'] enriched='What is the inventory level for SKU SKU009?' interval=None condition=None
+2026-05-28 22:55:32,028 | INFO | workflows.nodes.sql_lookup_node | SQL Lookup Node started | domain=['inventory']
+2026-05-28 22:55:32,029 | INFO | workflows.nodes.sql_load_skills_node | sql_load_skills_node started | domains=['inventory'] count=1
+2026-05-28 22:55:32,029 | INFO | workflows.nodes.sql_load_skills_node | sql_load_skills_node completed | requested=1 loaded=1
+2026-05-28 22:55:32,029 | INFO | workflows.nodes.sql_generate_query_node | SQL Generate Query Node started
+2026-05-28 22:55:32,040 | INFO | workflows.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['inventory']
+2026-05-28 22:55:32,041 | INFO | workflows.nodes.sql_run_sql_node | starting SQL execution SQL:SELECT SUM(unit_qty) FROM wms1.inventory WHERE sku = 'SKU009'
+2026-05-28 22:55:33,887 | INFO | workflows.nodes.sql_run_sql_node | SQL execution completed
+2026-05-28 22:55:33,888 | INFO | workflows.nodes.sql_run_sql_node | SQL node completed. Success: True, Domains: ['inventory']
+2026-05-28 22:55:46,766 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-28 22:55:46,787 | INFO | uvicorn.access | 127.0.0.1:52784 - "POST /v1/tickets/ HTTP/1.1" 500
+2026-05-28 22:55:46,787 | ERROR | uvicorn.error | Exception in ASGI application
+Traceback (most recent call last):
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/uvicorn/protocols/http/httptools_impl.py", line 420, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/uvicorn/middleware/proxy_headers.py", line 60, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/fastapi/applications.py", line 1163, in __call__
+    await super().__call__(scope, receive, send)
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/starlette/applications.py", line 90, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 186, in __call__
+    raise exc
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 191, in __call__
+    with recv_stream, send_stream, collapse_excgroups():
+                                   ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rahul/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/starlette/_utils.py", line 87, in collapse_excgroups
+    raise exc
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 193, in __call__
+    response = await self.dispatch_func(request, call_next)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/slowapi/middleware.py", line 128, in dispatch
+    return await call_next(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 168, in call_next
+    raise app_exc from app_exc.__cause__ or app_exc.__context__
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 144, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/starlette/middleware/cors.py", line 88, in __call__
+    await self.app(scope, receive, send)
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/starlette/routing.py", line 660, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/starlette/routing.py", line 680, in app
+    await route.handle(scope, receive, send)
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/starlette/routing.py", line 276, in handle
+    await self.app(scope, receive, send)
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/fastapi/routing.py", line 134, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/fastapi/routing.py", line 120, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/fastapi/routing.py", line 674, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/fastapi/routing.py", line 328, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/.venv/lib/python3.12/site-packages/slowapi/extension.py", line 734, in async_wrapper
+    response = await func(*args, **kwargs)  # type: ignore
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rahul/Documents/coding_projects/supply_chain_ai/wms-incident-api/src/api/v1/routes/tickets.py", line 55, in diagnose_ticket
+    user_id=current_user.id,
+            ^^^^^^^^^^^^^^^
+AttributeError: 'str' object has no attribute 'id'
+2026-05-28 22:55:58,247 | INFO | uvicorn.error | Shutting down
+2026-05-28 22:55:58,349 | INFO | uvicorn.error | Waiting for application shutdown.
+2026-05-28 22:55:58,427 | INFO | src.api.app | Shutdown complete
+2026-05-28 22:55:58,427 | INFO | apscheduler.scheduler | Scheduler has been shut down
+2026-05-28 22:55:58,427 | INFO | uvicorn.error | Application shutdown complete.
+2026-05-28 22:55:58,427 | INFO | uvicorn.error | Finished server process [14620]
+2026-05-28 22:55:59,877 | INFO | uvicorn.error | Started server process [14647]
+2026-05-28 22:55:59,877 | INFO | uvicorn.error | Waiting for application startup.
+2026-05-28 22:55:59,878 | INFO | apscheduler.scheduler | Scheduler started
+2026-05-28 22:55:59,878 | INFO | infrastructure.app_context_builder | Scheduler started: running=True
+2026-05-28 22:55:59,900 | INFO | uvicorn.error | Application startup complete.
+2026-05-28 22:56:00,491 | INFO | workflows.nodes.router_node | task=['parallel'] enriched='What is the inventory level for SKU SKU009?' interval=None condition=None
+2026-05-28 22:56:00,515 | INFO | workflows.nodes.sql_lookup_node | SQL Lookup Node started | domain=['inventory']
+2026-05-28 22:56:00,516 | INFO | workflows.nodes.sql_load_skills_node | sql_load_skills_node started | domains=['inventory'] count=1
+2026-05-28 22:56:00,516 | INFO | workflows.nodes.sql_load_skills_node | sql_load_skills_node completed | requested=1 loaded=1
+2026-05-28 22:56:00,517 | INFO | workflows.nodes.sql_generate_query_node | SQL Generate Query Node started
+2026-05-28 22:56:00,527 | INFO | workflows.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['inventory']
+2026-05-28 22:56:00,527 | INFO | workflows.nodes.sql_run_sql_node | starting SQL execution SQL:SELECT SUM(unit_qty) FROM wms1.inventory WHERE sku = 'SKU009'
+2026-05-28 22:56:02,320 | INFO | workflows.nodes.sql_run_sql_node | SQL execution completed
+2026-05-28 22:56:02,320 | INFO | workflows.nodes.sql_run_sql_node | SQL node completed. Success: True, Domains: ['inventory']
+2026-05-28 22:56:02,336 | INFO | uvicorn.access | 127.0.0.1:52796 - "POST /v1/tickets/ HTTP/1.1" 200
+2026-05-28 22:56:14,497 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-05-28 22:56:15,750 | INFO | workflows.nodes.router_node | task=['parallel'] enriched='Check WMS inventory availability for SKU-007.' interval=None condition=None
+2026-05-28 22:56:15,765 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-05-28 22:56:16,660 | INFO | workflows.nodes.sql_lookup_node | SQL Lookup Node started | domain=['inventory']
+2026-05-28 22:56:16,661 | INFO | workflows.nodes.sql_load_skills_node | sql_load_skills_node started | domains=['inventory'] count=1
+2026-05-28 22:56:16,661 | INFO | workflows.nodes.sql_load_skills_node | sql_load_skills_node completed | requested=1 loaded=1
+2026-05-28 22:56:16,662 | INFO | workflows.nodes.sql_generate_query_node | SQL Generate Query Node started
+2026-05-28 22:56:16,665 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-05-28 22:56:17,217 | INFO | workflows.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['inventory']
+2026-05-28 22:56:17,219 | INFO | workflows.nodes.sql_run_sql_node | starting SQL execution SQL:SELECT sku, SUM(unit_qty) AS total_inventory FROM wms1.inventory WHERE sku = 'SKU007' GROUP BY sku
+2026-05-28 22:56:17,861 | INFO | workflows.nodes.sql_run_sql_node | SQL execution completed
+2026-05-28 22:56:17,862 | INFO | workflows.nodes.sql_run_sql_node | SQL node completed. Success: True, Domains: ['inventory']
+2026-05-28 22:56:35,671 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-28 22:56:35,687 | INFO | uvicorn.access | 127.0.0.1:52804 - "POST /v1/tickets/ HTTP/1.1" 200
+2026-05-28 22:56:59,856 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-05-28 22:57:00,906 | INFO | workflows.nodes.router_node | task=['parallel'] enriched='How much receiving is left?' interval=None condition=None
+2026-05-28 22:57:00,928 | INFO | workflows.nodes.sql_lookup_node | SQL Lookup Node started | domain=['inbound']
+2026-05-28 22:57:00,930 | INFO | workflows.nodes.sql_load_skills_node | sql_load_skills_node started | domains=['inbound'] count=1
+2026-05-28 22:57:00,930 | INFO | workflows.nodes.sql_load_skills_node | sql_load_skills_node completed | requested=1 loaded=1
+2026-05-28 22:57:00,931 | INFO | workflows.nodes.sql_generate_query_node | SQL Generate Query Node started
+2026-05-28 22:57:00,934 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-05-28 22:57:01,688 | INFO | workflows.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['inbound']
+2026-05-28 22:57:01,691 | INFO | workflows.nodes.sql_run_sql_node | starting SQL execution SQL:SELECT
+  COUNT(rcv_inv)
+FROM wms1.rcv_inventory
+WHERE
+  status IN ('PENDING', 'PARTIAL')
+2026-05-28 22:57:02,258 | INFO | workflows.nodes.sql_run_sql_node | SQL execution completed
+2026-05-28 22:57:02,258 | INFO | workflows.nodes.sql_run_sql_node | SQL node completed. Success: True, Domains: ['inbound']
+2026-05-28 22:57:21,993 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-28 22:57:22,002 | INFO | uvicorn.access | 127.0.0.1:52817 - "POST /v1/tickets/ HTTP/1.1" 200
+2026-05-28 22:57:41,590 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-05-28 22:57:42,392 | INFO | workflows.nodes.router_node | task=['parallel'] enriched='Check remaining units to receive.' interval=None condition=None
+2026-05-28 22:57:42,410 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-05-28 22:57:42,903 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-05-28 22:57:43,460 | INFO | workflows.nodes.sql_lookup_node | SQL Lookup Node started | domain=['inbound']
+2026-05-28 22:57:43,462 | INFO | workflows.nodes.sql_load_skills_node | sql_load_skills_node started | domains=['inbound'] count=1
+2026-05-28 22:57:43,462 | INFO | workflows.nodes.sql_load_skills_node | sql_load_skills_node completed | requested=1 loaded=1
+2026-05-28 22:57:43,463 | INFO | workflows.nodes.sql_generate_query_node | SQL Generate Query Node started
+2026-05-28 22:57:43,467 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-05-28 22:57:43,993 | INFO | workflows.nodes.router_node | task=['parallel'] enriched='What is the remaining picking quantity for all orders?' interval=None condition=None
+2026-05-28 22:57:44,011 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-05-28 22:57:44,099 | INFO | workflows.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['inbound']
+2026-05-28 22:57:44,101 | INFO | workflows.nodes.sql_run_sql_node | starting SQL execution SQL:SELECT SUM(expected_qty - received_qty) FROM wms1.rcv_inventory WHERE status IN ('PENDING', 'PARTIAL')
+2026-05-28 22:57:44,652 | INFO | workflows.nodes.sql_run_sql_node | SQL execution completed
+2026-05-28 22:57:44,652 | INFO | workflows.nodes.sql_run_sql_node | SQL node completed. Success: True, Domains: ['inbound']
+2026-05-28 22:57:44,852 | INFO | workflows.nodes.sql_lookup_node | SQL Lookup Node started | domain=['outbound']
+2026-05-28 22:57:44,853 | INFO | workflows.nodes.sql_load_skills_node | sql_load_skills_node started | domains=['outbound'] count=1
+2026-05-28 22:57:44,853 | INFO | workflows.nodes.sql_load_skills_node | sql_load_skills_node completed | requested=1 loaded=1
+2026-05-28 22:57:44,854 | INFO | workflows.nodes.sql_generate_query_node | SQL Generate Query Node started
+2026-05-28 22:57:44,858 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-05-28 22:57:45,509 | INFO | workflows.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['outbound']
+2026-05-28 22:57:45,510 | INFO | workflows.nodes.sql_run_sql_node | starting SQL execution SQL:SELECT SUM(quantity - pck_qty) FROM wms1.pckwrk
+2026-05-28 22:57:46,068 | INFO | workflows.nodes.sql_run_sql_node | SQL execution completed
+2026-05-28 22:57:46,068 | INFO | workflows.nodes.sql_run_sql_node | SQL node completed. Success: True, Domains: ['outbound']
+2026-05-28 22:57:56,699 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-28 22:57:56,711 | INFO | uvicorn.access | 127.0.0.1:52833 - "POST /v1/tickets/ HTTP/1.1" 200
+2026-05-28 22:57:57,518 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-28 22:57:57,533 | INFO | uvicorn.access | 127.0.0.1:52825 - "POST /v1/tickets/ HTTP/1.1" 200
+2026-05-28 22:58:04,505 | INFO | workflows.nodes.router_node | task=['parallel'] enriched='Check remaining units to receive.' interval=None condition=None
+2026-05-28 22:58:04,518 | INFO | workflows.nodes.sql_lookup_node | SQL Lookup Node started | domain=['inbound']
+2026-05-28 22:58:04,519 | INFO | workflows.nodes.sql_load_skills_node | sql_load_skills_node started | domains=['inbound'] count=1
+2026-05-28 22:58:04,519 | INFO | workflows.nodes.sql_load_skills_node | sql_load_skills_node completed | requested=1 loaded=1
+2026-05-28 22:58:04,520 | INFO | workflows.nodes.sql_generate_query_node | SQL Generate Query Node started
+2026-05-28 22:58:04,522 | INFO | workflows.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['inbound']
+2026-05-28 22:58:04,523 | INFO | workflows.nodes.sql_run_sql_node | starting SQL execution SQL:SELECT SUM(expected_qty - received_qty) FROM wms1.rcv_inventory WHERE status IN ('PENDING', 'PARTIAL')
+2026-05-28 22:58:05,011 | INFO | workflows.nodes.sql_run_sql_node | SQL execution completed
+2026-05-28 22:58:05,011 | INFO | workflows.nodes.sql_run_sql_node | SQL node completed. Success: True, Domains: ['inbound']
+2026-05-28 22:58:05,020 | INFO | uvicorn.access | 127.0.0.1:52842 - "POST /v1/tickets/ HTTP/1.1" 200
+2026-05-28 22:58:47,301 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-05-28 22:58:48,181 | INFO | workflows.nodes.router_node | task=['parallel'] enriched='How to perform putaway for units from a pallet to a staging location.' interval=None condition=None
+2026-05-28 22:58:48,198 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-05-28 22:58:48,856 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-05-28 22:58:49,174 | INFO | workflows.nodes.sop_lookup_node | Sop lookup query: What is the SOP for putaway of units from a pallet to a staging location?
+2026-05-28 22:58:49,767 | INFO | workflows.nodes.router_node | task=['parallel'] enriched='Provide guidance on warehouse safety best practices.' interval=None condition=None
+2026-05-28 22:58:49,783 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-05-28 22:58:50,521 | INFO | workflows.nodes.sop_lookup_node | Sop lookup query: What are the best practices for warehouse safety?
+2026-05-28 22:58:50,980 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-05-28 22:58:51,993 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-05-28 22:59:05,662 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-28 22:59:05,678 | INFO | uvicorn.access | 127.0.0.1:52857 - "POST /v1/tickets/ HTTP/1.1" 200
+2026-05-28 22:59:09,059 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-28 22:59:09,075 | INFO | uvicorn.access | 127.0.0.1:52849 - "POST /v1/tickets/ HTTP/1.1" 200
+2026-05-28 23:00:51,079 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-05-28 23:00:54,706 | INFO | workflows.nodes.router_node | task=['parallel'] enriched='How to improve picking rate?' interval=None condition=None
+2026-05-28 23:00:54,723 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-05-28 23:00:55,489 | INFO | workflows.nodes.sop_lookup_node | Sop lookup query: What are the best practices and strategies to improve warehouse picking rate?
+2026-05-28 23:00:55,830 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-05-28 23:01:10,198 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-28 23:01:10,212 | INFO | uvicorn.access | 127.0.0.1:52868 - "POST /v1/tickets/ HTTP/1.1" 200
+2026-05-28 23:01:20,502 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-05-28 23:01:21,621 | INFO | workflows.nodes.router_node | task=['sequential'] enriched='Identify current WMS issues and provide recommendations for improvement.' interval=None condition=None
+2026-05-28 23:01:32,001 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-28 23:01:32,013 | INFO | workflows.nodes.sql_load_skills_node | sql_load_skills_node started | domains=['inbound', 'inventory', 'outbound'] count=3
+2026-05-28 23:01:32,013 | INFO | workflows.nodes.sql_load_skills_node | sql_load_skills_node completed | requested=3 loaded=3
+2026-05-28 23:01:32,015 | INFO | workflows.nodes.sql_generate_query_node | SQL Generate Query Node started
+2026-05-28 23:01:32,021 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-05-28 23:01:36,227 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-05-28 23:01:45,380 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-28 23:01:45,393 | INFO | workflows.nodes.router_node | task=['parallel'] enriched='Check WMS inventory for sku 009.' interval=None condition=None
+2026-05-28 23:01:45,409 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-05-28 23:01:49,616 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-28 23:01:49,631 | INFO | workflows.nodes.sql_lookup_node | SQL Lookup Node started | domain=['inventory']
+2026-05-28 23:01:49,633 | INFO | workflows.nodes.sql_load_skills_node | sql_load_skills_node started | domains=['inventory'] count=1
+2026-05-28 23:01:49,633 | INFO | workflows.nodes.sql_load_skills_node | sql_load_skills_node completed | requested=1 loaded=1
+2026-05-28 23:01:49,634 | INFO | workflows.nodes.sql_generate_query_node | SQL Generate Query Node started
+2026-05-28 23:01:49,639 | INFO | workflows.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['inventory']
+2026-05-28 23:01:49,641 | INFO | workflows.nodes.sql_run_sql_node | starting SQL execution SQL:SELECT SUM(unit_qty) FROM wms1.inventory WHERE sku = 'SKU009'
+2026-05-28 23:01:50,284 | INFO | workflows.nodes.sql_run_sql_node | SQL execution completed
+2026-05-28 23:01:50,284 | INFO | workflows.nodes.sql_run_sql_node | SQL node completed. Success: True, Domains: ['inventory']
+2026-05-28 23:02:14,599 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-28 23:02:14,611 | INFO | uvicorn.access | 127.0.0.1:52887 - "POST /v1/tickets/ HTTP/1.1" 200
+2026-05-28 23:02:40,744 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-28 23:02:40,764 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-05-28 23:02:57,051 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-28 23:02:57,058 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-05-28 23:03:09,149 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-05-28 23:03:12,196 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-28 23:03:12,205 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-05-28 23:03:22,134 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-28 23:03:22,144 | INFO | workflows.nodes.router_node | task=['parallel'] enriched='Check WMS inventory quantity for SKU 002.' interval=None condition=None
+2026-05-28 23:03:22,159 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-05-28 23:03:25,492 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-28 23:03:25,495 | INFO | workflows.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['inbound', 'outbound', 'inventory']
+2026-05-28 23:03:25,498 | INFO | workflows.nodes.sql_run_sql_node | starting SQL execution SQL:WITH inbound_last7 AS (
+  SELECT
+    rcv_id AS receipt_id,
+    created_at,
+    received_date,
+    expected_qty,
+    received_qty
+  FROM wms1.rcv_inventory
+  WHERE received_date >= CURRENT_DATE - INTERVAL '7 days'
+)
+SELECT
+  COUNT(DISTINCT receipt_id) AS total_receipts_processed,
+  COALESCE(SUM(CASE WHEN expected_qty IS NOT NULL AND received_qty <> expected_qty THEN 1 ELSE 0 END) * 1.0 / NULLIF(COUNT(DISTINCT receipt_id), 0), 0) AS grn_discrepancy_rate_vs_asn_po,
+  COALESCE(AVG(EXTRACT(EPOCH FROM (received_date - created_at)) / 3600.0), 0) AS avg_putaway_time_hours
+FROM inbound_last7;
+2026-05-28 23:03:26,060 | INFO | workflows.nodes.sql_run_sql_node | SQL execution completed
+2026-05-28 23:03:26,060 | INFO | workflows.nodes.sql_run_sql_node | starting SQL execution SQL:SELECT
+  CAST(SUM(CASE WHEN status = 'COMPLETED' THEN 1 ELSE 0 END) AS DOUBLE PRECISION) / NULLIF(COUNT(*), 0) AS allocation_success_rate,
+  CAST(SUM(CASE WHEN COALESCE(pck_qty, 0) > 0 THEN 1 ELSE 0 END) AS DOUBLE PRECISION) / NULLIF(COUNT(*), 0) AS pick_rate,
+  CAST(SUM(CASE WHEN COALESCE(pck_qty, 0) > 0 AND COALESCE(quantity, 0) > 0 AND COALESCE(pck_qty, 0) < COALESCE(quantity, 0) THEN 1 ELSE 0 END) AS DOUBLE PRECISION) / NULLIF(COUNT(*), 0) AS short_pick_rate
+FROM wms1.pckwrk
+WHERE pck_dt >= CURRENT_DATE - INTERVAL '7 days';
+2026-05-28 23:03:26,625 | INFO | workflows.nodes.sql_run_sql_node | SQL execution completed
+2026-05-28 23:03:26,626 | INFO | workflows.nodes.sql_run_sql_node | starting SQL execution SQL:WITH sku_totals AS (
+  SELECT sku, SUM(unit_qty) AS total_units
+  FROM wms1.inventory
+  GROUP BY sku
+)
+SELECT
+  COUNT(*) AS total_skus,
+  AVG(total_units) AS avg_units_per_sku,
+  COALESCE((
+    SELECT STRING_AGG(sku || ':' || total_units::text, ',')
+    FROM (
+      SELECT sku, total_units
+      FROM sku_totals
+      ORDER BY total_units DESC
+      LIMIT 5
+    ) AS t
+  ), '') AS top_5_skus_by_units
+FROM sku_totals;
+2026-05-28 23:03:27,186 | INFO | workflows.nodes.sql_run_sql_node | SQL execution completed
+2026-05-28 23:03:27,186 | INFO | workflows.nodes.sql_run_sql_node | SQL node completed. Success: True, Domains: ['inbound', 'outbound', 'inventory']
+2026-05-28 23:03:28,014 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-28 23:03:28,029 | INFO | workflows.nodes.sql_lookup_node | SQL Lookup Node started | domain=['inventory']
+2026-05-28 23:03:28,031 | INFO | workflows.nodes.sql_load_skills_node | sql_load_skills_node started | domains=['inventory'] count=1
+2026-05-28 23:03:28,031 | INFO | workflows.nodes.sql_load_skills_node | sql_load_skills_node completed | requested=1 loaded=1
+2026-05-28 23:03:28,032 | INFO | workflows.nodes.sql_generate_query_node | SQL Generate Query Node started
+2026-05-28 23:03:28,035 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-05-28 23:03:33,039 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-28 23:03:33,046 | INFO | workflows.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['inventory']
+2026-05-28 23:03:33,049 | INFO | workflows.nodes.sql_run_sql_node | starting SQL execution SQL:SELECT
+  sku,
+  SUM(unit_qty) AS total_inventory
+FROM wms1.inventory
+WHERE sku = 'SKU002'
+GROUP BY sku;
+2026-05-28 23:03:33,601 | INFO | workflows.nodes.sql_run_sql_node | SQL execution completed
+2026-05-28 23:03:33,602 | INFO | workflows.nodes.sql_run_sql_node | SQL node completed. Success: True, Domains: ['inventory']
+2026-05-28 23:03:39,861 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-28 23:03:39,873 | INFO | workflows.nodes.sql_load_skills_node | sql_load_skills_node started | domains=['inbound', 'outbound', 'inventory'] count=3
+2026-05-28 23:03:39,873 | INFO | workflows.nodes.sql_load_skills_node | sql_load_skills_node completed | requested=3 loaded=3
+2026-05-28 23:03:39,874 | INFO | workflows.nodes.sql_generate_query_node | SQL Generate Query Node started
+2026-05-28 23:03:39,879 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-05-28 23:03:45,565 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-28 23:03:45,576 | INFO | uvicorn.access | 127.0.0.1:52898 - "POST /v1/tickets/ HTTP/1.1" 200
+2026-05-28 23:04:08,527 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-28 23:04:08,547 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-05-28 23:04:20,914 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-28 23:04:20,920 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-05-28 23:04:32,364 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-28 23:04:32,367 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-05-28 23:04:41,593 | INFO | uvicorn.error | Shutting down
+2026-05-28 23:04:41,694 | INFO | uvicorn.error | Waiting for connections to close. (CTRL+C to force quit)
+2026-05-28 23:04:48,214 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-28 23:04:48,217 | INFO | workflows.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['inbound', 'outbound', 'inventory']
+2026-05-28 23:04:48,219 | INFO | workflows.nodes.sql_run_sql_node | starting SQL execution SQL:SELECT
+  SUM(CASE WHEN status = 'CANCELLED' THEN 1 ELSE 0 END) AS failed_grns_last_7d,
+  COUNT(*) AS total_grns_last_7d,
+  AVG(EXTRACT(EPOCH FROM (COALESCE(received_date, NOW()) - created_at)) / 60.0) AS avg_grn_processing_time_min
+FROM wms1.rcv_inventory
+WHERE created_at >= current_date - INTERVAL '7 days';
+2026-05-28 23:04:48,783 | INFO | workflows.nodes.sql_run_sql_node | SQL execution completed
+2026-05-28 23:04:48,783 | INFO | workflows.nodes.sql_run_sql_node | starting SQL execution SQL:SELECT
+  COALESCE((SELECT COUNT(*) FROM allocations a WHERE a.status = 'FAILED' AND a.created_at >= current_date - interval '7 days'), 0)
+  +
+  COALESCE((SELECT COUNT(*) FROM picks p WHERE p.status = 'FAILED' AND p.created_at >= current_date - interval '7 days'), 0)
+  AS total_outbound_failures_last_7d;
+2026-05-28 23:04:49,338 | INFO | workflows.nodes.sql_run_sql_node | SQL execution completed
+2026-05-28 23:04:49,338 | INFO | workflows.nodes.sql_run_sql_node | starting SQL execution SQL:SELECT
+  SUM(unit_qty) AS total_holds_last_7d,
+  AVG(EXTRACT(EPOCH FROM (NOW() - ins_dt)) / 60.0) AS avg_hold_duration_min
+FROM wms1.inventory
+WHERE ins_dt >= current_date - interval '7 days';
+2026-05-28 23:04:49,926 | INFO | workflows.nodes.sql_run_sql_node | SQL execution completed
+2026-05-28 23:04:49,926 | INFO | workflows.nodes.sql_run_sql_node | SQL node completed. Success: False, Domains: ['inbound', 'outbound', 'inventory']
+2026-05-28 23:05:06,221 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-28 23:05:06,233 | INFO | workflows.nodes.sql_load_skills_node | sql_load_skills_node started | domains=['outbound', 'inbound', 'inventory'] count=3
+2026-05-28 23:05:06,233 | INFO | workflows.nodes.sql_load_skills_node | sql_load_skills_node completed | requested=3 loaded=3
+2026-05-28 23:05:06,235 | INFO | workflows.nodes.sql_generate_query_node | SQL Generate Query Node started
+2026-05-28 23:05:06,239 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-05-28 23:05:07,523 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-05-28 23:05:08,242 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-05-28 23:05:18,877 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-28 23:05:18,884 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-05-28 23:05:31,638 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-28 23:05:31,645 | INFO | google_genai.models | AFC is enabled with max remote calls: 10.
+2026-05-28 23:05:38,577 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-28 23:05:38,581 | INFO | workflows.nodes.sql_generate_query_node | SQL Generate Query Node completed. Domains: ['outbound', 'inventory', 'inbound']
+2026-05-28 23:05:38,583 | INFO | workflows.nodes.sql_run_sql_node | starting SQL execution SQL:SELECT COUNT(*) AS total_completed_picks_last_7_days
+FROM wms1.pckwrk
+WHERE pck_dt >= NOW() - INTERVAL '7 days'
+  AND COALESCE(UPPER(status), '') = 'COMPLETED';
+2026-05-28 23:05:39,164 | INFO | workflows.nodes.sql_run_sql_node | SQL execution completed
+2026-05-28 23:05:39,164 | INFO | workflows.nodes.sql_run_sql_node | starting SQL execution SQL:SELECT
+  sku,
+  SUM(unit_qty) AS total_inventory
+FROM wms1.inventory
+GROUP BY sku
+ORDER BY total_inventory DESC;
+2026-05-28 23:05:39,723 | INFO | workflows.nodes.sql_run_sql_node | SQL execution completed
+2026-05-28 23:05:39,724 | INFO | workflows.nodes.sql_run_sql_node | starting SQL execution SQL:SELECT COUNT(*) AS total_receipts_last_7_days
+FROM wms1.rcv_inventory
+WHERE created_at >= DATE('now', '-7 days')
+2026-05-28 23:05:40,300 | INFO | workflows.nodes.sql_run_sql_node | SQL execution completed
+2026-05-28 23:05:40,300 | INFO | workflows.nodes.sql_run_sql_node | SQL node completed. Success: False, Domains: ['outbound', 'inventory', 'inbound']
+2026-05-28 23:06:10,977 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-05-28 23:06:44,287 | INFO | uvicorn.error | Finished server process [14647]

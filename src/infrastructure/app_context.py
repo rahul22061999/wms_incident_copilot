@@ -23,6 +23,7 @@ from apscheduler.schedulers.asyncio import AsyncIOScheduler
 from sqlalchemy.ext.asyncio import AsyncEngine, AsyncSession, async_sessionmaker
 
 from infrastructure.job_event_bus import JobEventBus
+from utils.sql_tools import AsyncWMSSQLService
 
 logger = logging.getLogger(__name__)
 
@@ -41,6 +42,9 @@ class AppContext:
     # In-process pub/sub: job runner publishes, SSE streams subscribe.
     # Only works within a single process — not safe across gunicorn workers.
     job_event_bus: JobEventBus
+
+    ##wms db
+    async_wms_sql_service: AsyncWMSSQLService
 
 
 
