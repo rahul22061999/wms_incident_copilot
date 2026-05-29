@@ -23,46 +23,45 @@ from workflows.tools.sql_lookup_tool import sql_lookup_tool
 async def sequential_agent(state: WMState):
 
     ## prompt tools and query
-    sequential_agent = create_agent(
-        model=get_openai_fast_llm(
-            cache=SEQUENTIAL_NODE_CACHE
-        ),
-        system_prompt=sequential_agent_prompt,
-        name="sequential_agent",
-        tools=[sop_retrieval_tool, sql_lookup_tool],
-        middleware=[
-            ModelFallbackMiddleware(get_openai_fast_llm()),
-            ModelRetryMiddleware(max_retries=2, on_failure="error"),
-            ToolRetryMiddleware(max_retries=2, on_failure="return_message",
-                                tools=[sop_retrieval_tool, sql_lookup_tool]),
-            ModelCallLimitMiddleware(
-            thread_limit=20,
-            run_limit=6,
-            exit_behavior="end"),
-            ToolCallLimitMiddleware(
-                tool_name="sql_lookup_tool",
-                thread_limit=10,
-                run_limit=10,
-                exit_behavior="error"),
-            SummarizationMiddleware(
-                model=get_ollama_llm(),
-                trigger=[
-                    ("tokens", 10000),
-                ],
-                keep=("messages", 20)),
-            ContextEditingMiddleware(
-                edits=[
-                    ClearToolUsesEdit(
-                        trigger=10000,
-                        keep=3,
-                        placeholder="[cleared]"
-                    )
-                ]
-            )
-        ]
-    )
+    react_agent = create_agent(
+            model=get_openai_fast_llm(
+            cache=SEQUENTIAL_NODE_CACHE,),
+            system_prompt=sequential_agent_prompt,
+            name="sequential_agent",
+            tools=[sop_retrieval_tool, sql_lookup_tool],
+            middleware=[
+                ModelFallbackMiddleware(get_openai_fast_llm()),
+                ModelRetryMiddleware(max_retries=2, on_failure="error"),
+                ToolRetryMiddleware(max_retries=2, on_failure="return_message",
+                                    tools=[sop_retrieval_tool, sql_lookup_tool]),
+                ModelCallLimitMiddleware(
+                thread_limit=20,
+                run_limit=6,
+                exit_behavior="end"),
+                ToolCallLimitMiddleware(
+                    tool_name="sql_lookup_tool",
+                    thread_limit=10,
+                    run_limit=10,
+                    exit_behavior="error"),
+                SummarizationMiddleware(
+                    model=get_ollama_llm(),
+                    trigger=[
+                        ("tokens", 10000),
+                    ],
+                    keep=("messages", 20)),
+                ContextEditingMiddleware(
+                    edits=[
+                        ClearToolUsesEdit(
+                            trigger=10000,
+                            keep=3,
+                            placeholder="[cleared]"
+                        )
+                    ]
+                )
+            ]
+        )
 
-    result = await sequential_agent.ainvoke({
+    result = await react_agent.ainvoke({
         "messages": [HumanMessage(content=state.enriched_query)]
     })
 

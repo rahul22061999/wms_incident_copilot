@@ -1,15 +1,10 @@
 api
 application
 config
-context
-core
 domain
 infrastructure
-models
-prompts
 rag_pipeline
-services
 tests
-tools
 utils
+workers
 workflows

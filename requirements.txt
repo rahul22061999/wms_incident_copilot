@@ -16,7 +16,6 @@ python-dotenv
 structlog
 tenacity
 sqlalchemy
-psycopg2
 psycopg2-binary
 python-dotenv
 PyYAML
