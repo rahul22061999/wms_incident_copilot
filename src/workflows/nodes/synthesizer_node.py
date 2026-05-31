@@ -25,7 +25,7 @@ from workflows.prompts.generate_synthesizer_prompt import synthesizer_prompt
 
 
 async def synthesizer_node(state: WMState):
-    llm = (get_openai_fast_llm(cache=SYNTHESIZER_NODE_CACHE)
+    llm = (get_ollama_llm(cache=SYNTHESIZER_NODE_CACHE)
            .with_structured_output(SynthesizerNodeReturnState, method="json_schema"))
 
     content = json.dumps({

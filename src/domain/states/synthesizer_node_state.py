@@ -18,7 +18,7 @@ class SourceCitation(BaseModel):
 
 class SynthesizerNodeReturnState(BaseModel):
 
-    summarized_issue: str = Field(
+    summarized_result: str = Field(
         min_length=1,
         description="One- or two-sentence summary of the diagnosed issue.",
     )
@@ -27,7 +27,7 @@ class SynthesizerNodeReturnState(BaseModel):
         le=1.0,
         description="Confidence in the diagnosis, between 0 and 1.",
     )
-    citations: list[SourceCitation] = Field(
+    source: list[SourceCitation] = Field(
         default_factory=list,
         description="Evidence supporting the summarized issue.",
     )

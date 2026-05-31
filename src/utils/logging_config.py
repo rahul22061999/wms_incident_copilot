@@ -1,9 +1,9 @@
 import logging
 from logging.handlers import RotatingFileHandler
 
-from config import BASE_DIR
+from config import settings
 
-LOG_DIR = BASE_DIR / "logs"
+LOG_DIR = settings.BASE_DIR / "logs"
 LOG_DIR.mkdir(exist_ok=True)
 
 LOG_FILE = LOG_DIR / "application.txt"

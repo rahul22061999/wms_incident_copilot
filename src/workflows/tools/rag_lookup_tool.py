@@ -9,15 +9,15 @@ from langchain_core.tools import tool
 from langchain_openai import OpenAIEmbeddings
 from langchain_qdrant.qdrant import QdrantClient, QdrantVectorStore
 
-from config import BASE_DIR, settings
+from config import  settings
 
 logger = logging.getLogger(__name__)
 load_dotenv()
-QDRANT_PATH = BASE_DIR / "vectorstore"
-DOCUMENT_EMBED_CACHE_PATH = BASE_DIR / "vectorstore" / "document_embedding_cache"
-QUERY_EMBED_CACHE_PATH = BASE_DIR / "vectorstore" / "query_embedding_cache"
+QDRANT_PATH = settings.BASE_DIR / "vectorstore"
+DOCUMENT_EMBED_CACHE_PATH = settings.BASE_DIR / "vectorstore" / "document_embedding_cache"
+QUERY_EMBED_CACHE_PATH = settings.BASE_DIR / "vectorstore" / "query_embedding_cache"
 COLLECTION_NAME   = "warehouse_sop"
-PARENT_STORE_PATH  = BASE_DIR/ "src" / "parent_documents.pkl"
+PARENT_STORE_PATH  = settings.BASE_DIR/ "src" / "parent_documents.pkl"
 
 
 

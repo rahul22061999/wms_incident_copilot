@@ -62,6 +62,8 @@ A query is "sequential" when:
 - The query contains a derived set:
   "most delayed order", "SKUs below reorder point", "orders stuck today",
   "locations with exceptions", "waves with low productivity"
+- If an question needs investigation and very ambigous we need it to return sequential, 
+    "why is an order stuck"
 
 Sequential examples:
 - "Find the most delayed outbound order today and tell me its SKU inventory"

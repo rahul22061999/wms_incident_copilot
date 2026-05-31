@@ -3,10 +3,12 @@ from pathlib import Path
 from pydantic import Field, SecretStr
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
-BASE_DIR = Path(__file__).resolve().parent.parent
+
 
 class Settings(BaseSettings):
     """All configs for wms_incident_copilot"""
+
+    BASE_DIR: Path = Path(__file__).resolve().parent.parent
 
     model_config = SettingsConfigDict(
         env_file= BASE_DIR / ".env",

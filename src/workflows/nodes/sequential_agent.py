@@ -19,13 +19,11 @@ from workflows.prompts.generate_sequential_agent_prompt import sequential_agent_
 from workflows.tools.rag_lookup_tool import sop_retrieval_tool
 from workflows.tools.sql_lookup_tool import sql_lookup_tool
 
-
 async def sequential_agent(state: WMState):
 
     ## prompt tools and query
     react_agent = create_agent(
-            model=get_openai_fast_llm(
-            cache=SEQUENTIAL_NODE_CACHE,),
+            model=get_ollama_llm(cache=SEQUENTIAL_NODE_CACHE,),
             system_prompt=sequential_agent_prompt,
             name="sequential_agent",
             tools=[sop_retrieval_tool, sql_lookup_tool],
@@ -62,8 +60,9 @@ async def sequential_agent(state: WMState):
         )
 
     result = await react_agent.ainvoke({
-        "messages": [HumanMessage(content=state.enriched_query)]
-    })
+        "messages": [HumanMessage(content=state.enriched_query)],
+    }
+    )
 
     messages = result.get("messages", [])
 

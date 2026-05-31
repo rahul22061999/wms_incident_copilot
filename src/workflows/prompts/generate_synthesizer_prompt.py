@@ -26,7 +26,7 @@ Job result: UNLOCK_LPN job_id=JOB-5521 failed at Step 3 with error="insufficient
 
 EXAMPLE OUTPUT:
 {{
-  "summarized_issue": "LPN-88421 is locked with qty_on_hand=0 as of 2024-03-15T09:12:00Z per inventory.lpn_detail. Resolution per SOP-WMS-014 reached Step 3 (Execute UNLOCK_LPN job via job_scheduler) but job_id=JOB-5521 failed with error='insufficient_privilege', indicating the executing user lacks the required privilege. Supervisor approval (Step 2) may not have been completed or was not propagated to the job scheduler.",
+  "summarized_result": "LPN-88421 is locked with qty_on_hand=0 as of 2024-03-15T09:12:00Z per inventory.lpn_detail. Resolution per SOP-WMS-014 reached Step 3 (Execute UNLOCK_LPN job via job_scheduler) but job_id=JOB-5521 failed with error='insufficient_privilege', indicating the executing user lacks the required privilege. Supervisor approval (Step 2) may not have been completed or was not propagated to the job scheduler.",
   "confidence": 0.82,
   "citations": [
     {{

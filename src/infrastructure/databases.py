@@ -15,9 +15,9 @@ from sqlalchemy.ext.asyncio import (
 )
 from sqlalchemy.orm import DeclarativeBase
 
-from config import BASE_DIR
+from config import settings
 
-_AUDIT_DB_PATH = BASE_DIR / "audit.db"
+_AUDIT_DB_PATH = settings.BASE_DIR / "audit.db"
 _AUDIT_DB_URL = f"sqlite+aiosqlite:///{_AUDIT_DB_PATH.as_posix()}"
 
 

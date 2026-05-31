@@ -15,9 +15,9 @@ machine and should never be committed.
 
 from langchain_community.cache import SQLiteCache
 
-from config import BASE_DIR
+from config import settings
 
-_CACHE_DIR = BASE_DIR / ".cache"
+_CACHE_DIR = settings.BASE_DIR / ".cache"
 _CACHE_DIR.mkdir(exist_ok=True)
 
 
