@@ -6,8 +6,9 @@ AsyncWMSSQLService._validate_sql is pure Python and security-critical: it is the
 only thing preventing LLM-generated SQL from mutating the WMS database.
 """
 
-import pytest
 from unittest.mock import MagicMock
+
+import pytest
 
 from utils.sql_tools import AsyncWMSSQLService
 

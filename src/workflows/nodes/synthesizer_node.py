@@ -19,7 +19,7 @@ import json
 
 from domain.states.supervisor.diagnose_graph_state import WMState
 from domain.states.synthesizer_node_state import SynthesizerNodeReturnState
-from infrastructure.llm_clients import get_ollama_llm, get_openai_fast_llm
+from infrastructure.llm_clients import get_ollama_llm
 from infrastructure.operation_cache import SYNTHESIZER_NODE_CACHE
 from workflows.prompts.generate_synthesizer_prompt import synthesizer_prompt
 

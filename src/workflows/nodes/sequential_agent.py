@@ -19,6 +19,7 @@ from workflows.prompts.generate_sequential_agent_prompt import sequential_agent_
 from workflows.tools.rag_lookup_tool import sop_retrieval_tool
 from workflows.tools.sql_lookup_tool import sql_lookup_tool
 
+
 async def sequential_agent(state: WMState):
 
     ## prompt tools and query

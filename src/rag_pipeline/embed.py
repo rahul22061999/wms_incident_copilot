@@ -2,11 +2,11 @@ from typing import List
 
 from langchain_core.documents import Document
 from langchain_openai import OpenAIEmbeddings
-from langchain_qdrant.fastembed_sparse import FastEmbedSparse
 from langchain_qdrant import RetrievalMode
+from langchain_qdrant.fastembed_sparse import FastEmbedSparse
 from langchain_qdrant.qdrant import QdrantClient, QdrantVectorStore
 from qdrant_client.conversions.common_types import SparseVectorParams
-from qdrant_client.http.models import Distance, VectorParams, SparseIndexParams
+from qdrant_client.http.models import Distance, SparseIndexParams, VectorParams
 
 from config import settings
 

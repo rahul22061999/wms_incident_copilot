@@ -4,7 +4,6 @@ from pydantic import Field, SecretStr
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
-
 class Settings(BaseSettings):
     """All configs for wms_incident_copilot"""
 

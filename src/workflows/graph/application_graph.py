@@ -23,7 +23,6 @@ uses an operator.add reducer — the barrier is implicit in the reduce semantics
 """
 
 from langgraph.graph import END, START, StateGraph
-from langgraph.store.postgres import AsyncPostgresStore
 
 from domain.states.supervisor.diagnose_graph_state import WMState
 from workflows.edges.fan_out_edge import fan_out_edge

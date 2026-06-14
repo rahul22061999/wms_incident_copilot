@@ -1,7 +1,8 @@
+import asyncio
 import json
 from pathlib import Path
 from typing import Any
-import asyncio
+
 from dotenv import load_dotenv
 
 from config import settings
@@ -131,7 +132,7 @@ async def main():
     try:
         result = await evaluate_graph()
         print(result)
-    except Exception as ex:
+    except Exception:
         await stack.aclose()
 
 if __name__ == "__main__":
