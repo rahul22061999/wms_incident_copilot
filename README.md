@@ -1,248 +1,120 @@
 # WMS Incident Copilot API
 
-> A multi-agent AI system that diagnoses Warehouse Management System incidents using LangGraph orchestration, hybrid RAG retrieval, parallel SQL execution, and scheduled monitoring — served over a production-structured FastAPI backend.
-
 [![CI](https://github.com/rahuluk9632/wms-incident-api/actions/workflows/ci.yml/badge.svg)](https://github.com/rahuluk9632/wms-incident-api/actions/workflows/ci.yml)
 ![Python](https://img.shields.io/badge/python-3.12-blue)
 ![FastAPI](https://img.shields.io/badge/FastAPI-0.115-green)
 ![LangGraph](https://img.shields.io/badge/LangGraph-1.1-orange)
 ![License](https://img.shields.io/badge/license-MIT-lightgrey)
 
----
-
-## What It Does
-
-A WMS operator files an incident — a pick failure, inventory discrepancy, inbound delay. Instead of manually triaging across SQL databases and SOP binders, the operator sends the ticket to this API. The system:
-
-1. **Classifies** the query and enriches it with WMS domain terminology via an LLM router
-2. **Fans out** SQL lookups and SOP retrieval in parallel, or runs a multi-step ReAct agent for complex investigations
-3. **Synthesises** all evidence into a structured diagnosis with root cause, confidence score, and citations
-4. **Streams** live job updates back to the client over SSE
-5. **Schedules** recurring monitoring runs that re-invoke the full graph on an interval
+A multi-agent AI backend that diagnoses warehouse incidents. You describe a problem — pick failures, inventory discrepancies, inbound delays — and the system figures out what's wrong by querying your WMS database and searching your SOP documentation, then returns a structured diagnosis with a root cause, confidence score, and citations.
 
 ---
 
-## Architecture
+## How it works
+
+When a ticket comes in, an LLM router reads the description and decides whether the investigation needs parallel lookups (e.g. check inventory AND order status at the same time) or a sequential deep-dive (where one result informs the next query). The system runs whichever path fits, pulls evidence from SQL and SOPs, and a synthesizer node merges everything into a single grounded response.
+
+You can also ask it to monitor a ticket on a recurring schedule — it'll re-run the full investigation every N minutes and push updates over a live SSE stream.
 
 ```
 POST /v1/tickets/
         │
         ▼
-   FastAPI + JWT Auth
+   FastAPI + JWT
         │
         ▼
- diagnose_ticket_service  (semaphore: max 10 concurrent runs)
+ diagnose_ticket_service  (semaphore: max 10 concurrent)
         │
         ▼
-┌─────────────────────────────────────────────────┐
-│                  LangGraph StateGraph            │
-│                                                  │
-│  START ──► router_node  (classify + enrich)      │
-│                │                                 │
-│    ┌───────────┼──────────────┬──────────────┐   │
-│    ▼           ▼              ▼              ▼   │
-│  parallel   sequential    schedule      cancel   │
-│  planner     agent         node          node    │
-│    │           │                                 │
-│  fan_out       │ (ReAct loop,                    │
-│    │           │  4 tool calls max)              │
-│  ┌─┴──────┐    │                                 │
-│  ▼        ▼    │                                 │
-│ SQL      SOP   │                                 │
-│ node     node  │                                 │
-│  └────────┴────┴─────────────────────────────┐   │
-│                                              ▼   │
-│                                    synthesizer   │
-└─────────────────────────────────────────────────┘
+┌────────────────────────────────────────────────┐
+│               LangGraph StateGraph             │
+│                                                │
+│  router ──► parallel planner ──► SQL + SOP    │
+│         └─► sequential agent (ReAct loop)     │
+│         └─► schedule / cancel                 │
+│                      │                        │
+│                 synthesizer                   │
+└────────────────────────────────────────────────┘
         │
         ▼
-  TicketDiagnosisResponse (structured JSON + citations)
-```
-
-The parallel barrier is implemented via LangGraph's `operator.add` reducer — `sql_node` and `sop_node` both emit partial state, LangGraph merges them automatically, and the synthesiser only advances once both branches are complete.
-
----
-
-## Key Design Decisions
-
-**Clean layer isolation**
-The codebase follows a strict `api → application → domain → infrastructure → workflows` hierarchy. The application layer accepts plain parameters and has zero imports from FastAPI — the same service can be called by the HTTP handler, a scheduled job, or a test.
-
-**Immutable runtime context**
-`AppContext` is a `frozen=True, slots=True` dataclass built once at startup via `AppContextBuilder` and injected via `Depends`. No mutable singletons, no global state.
-
-**Dedicated scheduler process**
-The API workers never own an `AsyncIOScheduler`. A separate `scheduler_main.py` process is the only process allowed to register and fire APScheduler jobs. It reconciles active schedule rows from the database every 30 seconds — so API workers simply write a row to the DB and the scheduler picks it up, regardless of how many API replicas are running.
-
-**Concurrency control**
-A shared `asyncio.Semaphore` bounds concurrent LangGraph runs. Each graph run fans out to multiple LLM calls and SQL queries — without a ceiling, a burst of requests would saturate provider rate limits.
-
-**LLM fallback chain**
-Every node that calls an LLM uses a priority chain: `Ollama (local, zero cost) → Google Gemini → OpenAI`. If Ollama is unavailable the chain falls through silently.
-
-**Per-node LLM response caching**
-Each node has its own isolated cache backend. The same input to the same model always hits. Clearing one node's cache during debugging does not affect others.
-
----
-
-## Hybrid RAG Pipeline
-
-SOPs are indexed using a **two-level parent-document retrieval** strategy combined with **hybrid search** (dense + sparse + RRF):
-
-```
-Offline (index time)
-────────────────────
-PDF → chapter-level parent documents (regex split on headings)
-    → 700-token child chunks with 100-token overlap
-    → child chunks embedded with OpenAI text-embedding-3-small
-    → stored in Qdrant with both dense (cosine) and sparse (BM25) vectors
-
-Online (query time)
-────────────────────
-User query
-  ├── Dense search   (semantic similarity via OpenAI embedding)
-  └── Sparse search  (BM25 keyword match via FastEmbed Qdrant/bm25)
-          │
-     Reciprocal Rank Fusion (RRF) — Qdrant native
-          │
-     child chunk matched → parent chapter fetched from pickle store
-          │
-     full chapter section passed to LLM (not the small chunk)
-```
-
-Dense retrieval captures semantic meaning; BM25 captures exact WMS terminology (`SKU-003`, `ASN`, `pick wave`). RRF fuses both ranked lists without tuning weights.
-
----
-
-## Context Engineering
-
-The system applies several deliberate techniques to manage what the LLM sees at each step:
-
-| Technique | Where | Effect |
-|---|---|---|
-| **Query enrichment** | `router_node` | Raw user query rewritten with WMS terminology before any downstream call |
-| **Structured output** | All nodes | Pydantic schemas enforced via `method="json_schema"` — eliminates hallucinated keys |
-| **Skill-injected SQL context** | `sql_generate_query_node` | Table schema, column semantics, and example queries injected per domain before SQL generation |
-| **Token-triggered summarisation** | `sequential_agent` | Conversation history compressed at 10k tokens so the agent never hits context limits |
-| **Tool-call clearing** | `sequential_agent` | Old tool results replaced with `[cleared]` when context grows — keeps recent evidence, drops stale output |
-| **Parent-document retrieval** | `sop_retrieval_tool` | Small chunks retrieved for precision; full chapter sections returned for rich context |
-
----
-
-## Tech Stack
-
-| Layer | Technology |
-|---|---|
-| **API** | FastAPI, Uvicorn, SlowAPI (rate limiting), JWT auth |
-| **Orchestration** | LangGraph (StateGraph, Send, conditional edges, reducers) |
-| **LLM Providers** | OpenAI GPT, Google Gemini, Groq Llama, Ollama (local) |
-| **RAG** | Qdrant, OpenAI `text-embedding-3-small`, FastEmbed BM25, LangChain text splitters |
-| **Database** | SQLAlchemy async, asyncpg (Postgres), aiosqlite |
-| **Scheduling** | APScheduler (dedicated process, SQLAlchemy job store) |
-| **Streaming** | Server-Sent Events via asyncio pub/sub `JobEventBus` |
-| **Observability** | LangSmith tracing, structlog, RotatingFileHandler |
-| **Packaging** | uv, pyproject.toml |
-| **Linting** | Ruff |
-| **CI** | GitHub Actions |
-| **Containers** | Docker, docker-compose (API + scheduler + Postgres + Qdrant) |
-
----
-
-## Project Structure
-
-```
-src/
-├── api/                    # HTTP delivery layer only
-│   └── v1/
-│       ├── auth.py         # JWT bearer validation
-│       ├── routes/         # tickets, monitoring (SSE)
-│       └── schemas/        # request / response models
-│
-├── application/            # Use-case layer — no HTTP imports
-│   ├── diagnose_ticket.py  # runs the LangGraph graph
-│   ├── schedule_monitoring.py
-│   └── stream_job_updates.py
-│
-├── domain/                 # Pure Python — no I/O, no frameworks
-│   ├── states/             # LangGraph state dataclasses
-│   └── schemas/
-│
-├── infrastructure/         # External wiring
-│   ├── app_context.py      # frozen runtime context dataclass
-│   ├── app_context_builder.py
-│   ├── databases.py        # SQLAlchemy engines + sessions
-│   ├── llm_clients.py      # LLM factory (lru_cache, multi-provider)
-│   ├── operation_cache.py  # per-node LLM response caches
-│   ├── job_event_bus.py    # asyncio pub/sub for SSE
-│   └── repositories/
-│
-├── workflows/              # LangGraph graph definitions
-│   ├── graph/              # compiled StateGraphs
-│   ├── nodes/              # individual agent nodes
-│   ├── edges/              # conditional routing functions
-│   ├── prompts/            # system prompts per node
-│   └── tools/              # SQL + RAG tools
-│
-├── rag_pipeline/           # offline: ingest → chunk → embed
-├── workers/                # scheduled job runner
-├── utils/                  # logging config, SQL safety guard
-├── config.py               # pydantic-settings
-└── scheduler_main.py       # dedicated scheduler process entry point
+  structured JSON diagnosis + citations
 ```
 
 ---
 
-## Getting Started
+## Running it with Docker
 
-### Prerequisites
+This is the fastest way to get everything running. Docker handles Postgres, Qdrant, the API, and the scheduler — one command starts it all.
 
-- Python 3.12, [uv](https://docs.astral.sh/uv/)
-- Docker (for Postgres + Qdrant)
-
-### 1. Clone and install
+### 1. Clone the repo
 
 ```bash
 git clone https://github.com/rahuluk9632/wms-incident-api.git
 cd wms-incident-api
-uv sync
 ```
 
-### 2. Configure environment
+### 2. Create your `.env` file
 
 ```bash
-cp .env.example .env
-# fill in API keys and database URLs
+# create the file and fill in your keys
+cat > .env << 'EOF'
+OPENAI_API_KEY=sk-...
+GOOGLE_API_KEY=...
+GROQ_API_KEY=...
+OLLAMA_API_KEY=any-string-if-not-using-ollama
+LANGSMITH_API_KEY=...
+
+# your actual WMS postgres database (read-only access is enough)
+DATABASE_URL=postgresql+asyncpg://user:password@host:5432/wms_db
+
+# these stay as-is for the docker setup
+MEMORIES_DB_URL=sqlite+aiosqlite:///./audit.db
+JOB_SCHEDULER_DB_URL=sqlite+aiosqlite:///./job_schedule.db
+JOB_SCHEDULER_SYNC_DB_URL=sqlite:///./job_schedule.db
+
+# pick any string — used to sign JWT tokens
+JWT_SECRET=change-this-to-something-random
+EOF
 ```
 
-| Variable | Description |
-|---|---|
-| `OPENAI_API_KEY` | GPT + embeddings |
-| `GOOGLE_API_KEY` | Gemini fallback |
-| `GROQ_API_KEY` | Llama fallback |
-| `DATABASE_URL` | Async Postgres (WMS database) |
-| `JWT_SECRET` | Token signing secret |
-| `LANGSMITH_API_KEY` | Tracing (optional) |
+You need API keys for at least one LLM provider. The system tries Ollama first (free, local), then falls back to Gemini, then OpenAI — so you only pay for calls when the cheaper options fail.
 
-### 3. Start the full stack
+### 3. Start everything
 
 ```bash
 docker compose up --build
 ```
 
-This starts the API, dedicated scheduler process, Postgres, and Qdrant in one command.
+First run takes a few minutes while Docker pulls images and installs Python packages. After that, rebuilds are fast because the dependency layer is cached.
 
-### 4. Index SOPs (first run only)
+You should see:
+```
+postgres   | database system is ready to accept connections
+qdrant     | Qdrant HTTP listening on 6333
+api        | Uvicorn running on http://0.0.0.0:8000
+scheduler  | Scheduler process running — reconciling every 30s
+```
+
+### 4. Index your SOP documents (first run only)
+
+Put your SOP PDF files in `data/raw/sop/`, then run:
 
 ```bash
-PYTHONPATH=src uv run python -c "
+docker compose exec api uv run python -c "
+import sys; sys.path.insert(0, 'src')
 from rag_pipeline.ingest import ingest_sop_docs
 from rag_pipeline.chunking import chunk_text
 from rag_pipeline.embed import embed_docs
 embed_docs(chunk_text(ingest_sop_docs()))
+print('done')
 "
 ```
 
-### 5. Diagnose a ticket
+This chunks the PDFs, embeds them with OpenAI embeddings, and stores them in Qdrant. You only need to do this once unless your SOP documents change.
+
+### 5. Try it
+
+Generate a token (any JWT signed with your `JWT_SECRET`), then:
 
 ```bash
 curl -X POST http://localhost:8000/v1/tickets/ \
@@ -257,24 +129,75 @@ curl -X POST http://localhost:8000/v1/tickets/ \
 
 ---
 
-## Running Tests
+## Things worth knowing about the design
 
-```bash
-# unit tests (no LLM calls, no external dependencies)
-PYTHONPATH=src uv run pytest src/tests/ --ignore=src/tests/evals -v
+**The scheduler runs as a separate process, not inside the API**
 
-# lint
-uvx ruff check src/
-```
+Most tutorials shove a scheduler into the same process as the web server. That means if you run multiple API workers, each one starts its own scheduler and every job fires N times. Here the scheduler is its own container — it's the only process that owns APScheduler. API workers just write a row to the database when a user schedules a monitor, and the scheduler picks it up on its next reconcile cycle.
 
-`src/tests/evals/` contains LangSmith evaluation suites that call real LLM endpoints — excluded from CI to avoid cost on every push.
+**The RAG pipeline uses hybrid search**
+
+SOP retrieval combines dense vector search (semantic similarity) with BM25 sparse search (keyword matching), then fuses the results with Reciprocal Rank Fusion. Dense search handles meaning; BM25 handles exact WMS terms like `SKU-003` or `pick wave`. The results are better than either approach alone.
+
+The retrieval also uses parent-document retrieval — small chunks (700 tokens) are what gets matched against the query, but the full SOP chapter section is what gets passed to the LLM. This means precise retrieval without losing the surrounding context that makes procedures make sense.
+
+**SQL generation uses a skills catalogue**
+
+Before generating SQL, the system injects the exact table schema, column semantics, and example queries for the relevant domain (inbound / outbound / inventory) into the prompt. The LLM doesn't have to guess column names — it gets told that `unit_qty` is the quantity field, that SKUs must be formatted as `SKU003` not `SKU-003`, and that you want aggregated results by default. This drastically reduces SQL errors.
+
+**The SQL execution layer is read-only enforced**
+
+Generated SQL is validated before running: only `SELECT`, `WITH`, and `EXPLAIN` are allowed, blocked keywords like `DELETE`, `DROP`, `INSERT` are rejected, and multiple statements are disallowed. This runs regardless of what the LLM generates.
+
+**The application layer has no FastAPI imports**
+
+The service layer (`diagnose_ticket_service`, `schedule_monitoring`) accepts plain Python parameters, not request objects. The same functions get called by HTTP handlers, scheduled jobs, and tests — nothing breaks if you swap the delivery mechanism.
 
 ---
 
-## CI Pipeline
+## Tech stack
 
-Every push and pull request to `main` runs:
+| Layer | What's used |
+|---|---|
+| API | FastAPI, Uvicorn, SlowAPI, JWT |
+| Orchestration | LangGraph (StateGraph, Send, reducers) |
+| LLM providers | OpenAI, Google Gemini, Groq, Ollama |
+| RAG | Qdrant, OpenAI embeddings, FastEmbed BM25, RRF |
+| Database | SQLAlchemy async, asyncpg, aiosqlite |
+| Scheduling | APScheduler (dedicated process) |
+| Streaming | SSE via asyncio pub/sub |
+| Observability | LangSmith tracing, structured logging |
+| CI | GitHub Actions (lint + tests on every push) |
+| Containers | Docker + docker-compose |
 
+---
+
+## Development setup (without Docker)
+
+If you'd rather run locally:
+
+```bash
+uv sync
+PYTHONPATH=src uv run uvicorn api.app:app --reload --port 8000
 ```
-Checkout → Python 3.12 → uv sync → ruff lint → app import check → pytest
+
+You'll need Postgres and Qdrant running separately. For Qdrant:
+```bash
+docker run -p 6333:6333 qdrant/qdrant
+```
+
+---
+
+## Tests
+
+```bash
+PYTHONPATH=src uv run pytest src/tests/ --ignore=src/tests/evals -v
+```
+
+Tests cover the SQL safety guard — the layer that prevents LLM-generated SQL from mutating your database. No LLM calls, no network, runs in under a second.
+
+`src/tests/evals/` has LangSmith evaluation suites that make real LLM calls — those are excluded from CI to avoid running up costs on every commit.
+
+```bash
+uvx ruff check src/
 ```

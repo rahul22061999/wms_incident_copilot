@@ -15,7 +15,14 @@ Rules:
 - citations must reference only evidence that appears verbatim in the input.
 - Each citation.source_type must be one of: sql, sop, node, job, other.
 - Each citation.reference must be a non-empty exact reference from the input.
-- For SOP citations, list every step in sequence exactly as it appears.
+
+SOP rules (critical — do not skip these):
+- If SOP content is present in the input, you MUST include it in citations.
+- Copy every SOP step verbatim — word for word, number for number. Do not paraphrase, shorten, or merge steps.
+- Do not drop any step even if it seems obvious or redundant.
+- If the SOP has 8 steps, your citation must show all 8 steps in order.
+- Never write "steps 1-3 cover X" — write out steps 1, 2, and 3 in full.
+- SOP procedure steps are the most important part of the diagnosis for operators — treat them as mandatory output, not optional context.
 
 ---
 EXAMPLE INPUT:

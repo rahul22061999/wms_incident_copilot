@@ -45,14 +45,14 @@ async def sequential_agent(state: WMState):
                 SummarizationMiddleware(
                     model=get_ollama_llm(),
                     trigger=[
-                        ("tokens", 10000),
+                        ("tokens", 18000),
                     ],
                     keep=("messages", 20)),
                 ContextEditingMiddleware(
                     edits=[
                         ClearToolUsesEdit(
-                            trigger=10000,
-                            keep=3,
+                            trigger=18000,
+                            keep=6,
                             placeholder="[cleared]"
                         )
                     ]
