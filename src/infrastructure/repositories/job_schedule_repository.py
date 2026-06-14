@@ -26,8 +26,12 @@ class JobScheduleRepository:
     async def create_scheduled_job(
         self,
         job_id: str,
+        query: str,
         ticket_number: str,
+        session_id: str,
+        user_id: str,
         interval_seconds: int,
+        is_active: bool = True,
     ) -> tuple[str, bool]:
         async with self.session_factory() as session:
             existing_stmt = select(JobScheduleEvent.job_id).where(
@@ -40,12 +44,16 @@ class JobScheduleRepository:
 
             event = JobScheduleEvent(
                 job_id=job_id,
+                query=query,
                 ticket_number=ticket_number,
+                session_id=session_id,
+                user_id=user_id,
                 status="active",
                 event_type="monitoring_scheduled",
                 last_result="",
                 interval_seconds=interval_seconds,
                 run_count=0,
+                is_active=is_active,
                 created_at=datetime.now(timezone.utc),
             )
 
@@ -145,6 +153,27 @@ class JobScheduleRepository:
                 )
                 .where(JobScheduleEvent.ticket_number == ticket_number)
             )
+
+            result = await session.execute(stmt)
+
+            return list(result.mappings().all())
+
+    async def list_active_jobs(self) -> list[dict]:
+        """All active schedules, with everything needed to register an APScheduler job.
+
+        Read by the dedicated scheduler process on startup and on each
+        reconciliation tick to register any schedules the API workers have
+        written to the DB but that aren't yet live in the scheduler.
+        """
+        async with self.session_factory() as session:
+            stmt = select(
+                JobScheduleEvent.job_id,
+                JobScheduleEvent.query,
+                JobScheduleEvent.ticket_number,
+                JobScheduleEvent.session_id,
+                JobScheduleEvent.user_id,
+                JobScheduleEvent.interval_seconds,
+            ).where(JobScheduleEvent.is_active.is_(True))
 
             result = await session.execute(stmt)
 

@@ -59,3 +59,4 @@ langsmith
 langchain-community
 temporalio
 jwt
+fastembed

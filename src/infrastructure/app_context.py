@@ -38,7 +38,9 @@ class AppContext:
 
     job_schedule_engine: AsyncEngine
     job_schedule_session_factory: async_sessionmaker[AsyncSession]
-    scheduler: AsyncIOScheduler
+    # None in API/worker processes — only the dedicated scheduler process owns a
+    # live AsyncIOScheduler. API workers just write schedule state to the DB.
+    scheduler: AsyncIOScheduler | None
     # In-process pub/sub: job runner publishes, SSE streams subscribe.
     # Only works within a single process — not safe across gunicorn workers.
     job_event_bus: JobEventBus

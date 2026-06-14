@@ -1,6 +1,7 @@
 import logging
 from contextlib import asynccontextmanager
 
+import uvicorn
 from dotenv import load_dotenv
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
@@ -59,3 +60,7 @@ async def health_check():
 
 app.include_router(tickets_router)
 app.include_router(monitoring_router)
+
+
+# if __name__ == "__main__":
+#     uvicorn.run("api.app:app", host="0.0.0.0", port=8000, reload=True)

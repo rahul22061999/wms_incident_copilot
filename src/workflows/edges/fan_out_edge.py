@@ -31,7 +31,8 @@ def fan_out_edge(state: WMState):
             task.tool,
             {
                 "query": task.query,
-                "domain": task.domain
+                "domain": task.domain,
+                "is_scheduled_run": state.is_scheduled_run,
             }
         )
         for task in state.subtasks

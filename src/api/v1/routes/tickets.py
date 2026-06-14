@@ -32,13 +32,13 @@ async def diagnose_ticket(
         request: Request,
         payload: TicketDiagnosisRequest,
         ctx: AppContext = Depends(get_app_context),
-        current_user = "rahul",
+        current_user: User = Depends(get_current_user),
 ):
     try:
         result = await diagnose_ticket_service(
             ticket_number=payload.ticket_number,
             session_id=payload.session_id,
-            user_id=current_user,
+            user_id=current_user.id,
             description=payload.description,
             ctx=ctx,
         )
@@ -52,6 +52,6 @@ async def diagnose_ticket(
     return TicketDiagnosisResponse(
         ticket_number=payload.ticket_number,
         session_id=payload.session_id,
-        user_id=current_user,
+        user_id=current_user.id,
         result=result,
     )

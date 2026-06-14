@@ -11,7 +11,7 @@ def ingest_sop_docs(path: Optional[Path] = None) -> List[Document]:
     """Ingest data into RagPipeline"""
 
     if path is None or not path.exists():
-        path = settings.BASE_DIR / "data" / "sop"
+        path = settings.BASE_DIR / "data" / "raw" / "sop"
 
     def _load_documents():
         doc_loader = PyPDFDirectoryLoader(str(path))

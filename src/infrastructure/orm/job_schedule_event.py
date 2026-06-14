@@ -1,6 +1,6 @@
 from datetime import datetime, timezone
 
-from sqlalchemy import DateTime, Index, Integer, String
+from sqlalchemy import Boolean, DateTime, Index, Integer, String
 from sqlalchemy.orm import Mapped, mapped_column
 
 from infrastructure.databases import SchedulerBase
@@ -9,8 +9,14 @@ from infrastructure.databases import SchedulerBase
 class JobScheduleEvent(SchedulerBase):
     __tablename__ = 'job_schedule_event'
 
-    job_id: Mapped[int] = mapped_column(String(64), primary_key=True)
+    job_id: Mapped[str] = mapped_column(String(64), primary_key=True)
     ticket_number: Mapped[str] = mapped_column(String, nullable=False)
+    # Full context needed to re-register the APScheduler job from this row.
+    # The dedicated scheduler process reconciles jobs using these columns.
+    query: Mapped[str] = mapped_column(String, nullable=False)
+    session_id: Mapped[str] = mapped_column(String(100), nullable=False)
+    user_id: Mapped[str] = mapped_column(String(100), nullable=False)
+    is_active: Mapped[bool] = mapped_column(Boolean, nullable=False, default=True)
     status: Mapped[str] = mapped_column(String, nullable=False)
     event_type: Mapped[str] = mapped_column(String)
     last_result: Mapped[str] = mapped_column(String, nullable=False)

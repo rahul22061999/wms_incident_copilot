@@ -14,6 +14,9 @@ logger = logging.getLogger(__name__)
 
 
 async def sop_lookup_node(state: dict):
+    if state.get("is_scheduled_run"):
+        return {"parallel_results": []}
+
     query = state['query']
 
     logger.info(f"Sop lookup query: {query}")

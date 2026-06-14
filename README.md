@@ -1,10 +1,10 @@
 # WMS Incident Copilot API
 
-> A production-grade multi-agent AI system that diagnoses Warehouse Management System (WMS) incidents using LangGraph orchestration, parallel tool execution, RAG-powered SOP lookup, and scheduled monitoring jobs — all served over a FastAPI backend with JWT auth and real-time SSE streaming.
+> A multi-agent AI system that diagnoses Warehouse Management System incidents using LangGraph orchestration, hybrid RAG retrieval, parallel SQL execution, and scheduled monitoring — served over a production-structured FastAPI backend.
 
 [![CI](https://github.com/rahuluk9632/wms-incident-api/actions/workflows/ci.yml/badge.svg)](https://github.com/rahuluk9632/wms-incident-api/actions/workflows/ci.yml)
 ![Python](https://img.shields.io/badge/python-3.12-blue)
-![FastAPI](https://img.shields.io/badge/FastAPI-0.135-green)
+![FastAPI](https://img.shields.io/badge/FastAPI-0.115-green)
 ![LangGraph](https://img.shields.io/badge/LangGraph-1.1-orange)
 ![License](https://img.shields.io/badge/license-MIT-lightgrey)
 
@@ -12,13 +12,13 @@
 
 ## What It Does
 
-A WMS operator files an incident ticket — a pick failure, inventory discrepancy, inbound delay. Instead of manually triaging across SQL databases and SOP binders, the operator sends the ticket to this API. The system:
+A WMS operator files an incident — a pick failure, inventory discrepancy, inbound delay. Instead of manually triaging across SQL databases and SOP binders, the operator sends the ticket to this API. The system:
 
-1. **Routes** the query with an LLM classifier: parallel investigation, sequential deep-dive, or schedule a recurring monitor
-2. **Fans out** SQL lookups and RAG-based SOP retrieval in parallel
-3. **Synthesizes** all evidence into a structured diagnosis with root cause, confidence, and recommended actions
+1. **Classifies** the query and enriches it with WMS domain terminology via an LLM router
+2. **Fans out** SQL lookups and SOP retrieval in parallel, or runs a multi-step ReAct agent for complex investigations
+3. **Synthesises** all evidence into a structured diagnosis with root cause, confidence score, and citations
 4. **Streams** live job updates back to the client over SSE
-5. **Schedules** recurring monitoring runs that re-invoke the diagnosis graph on an interval
+5. **Schedules** recurring monitoring runs that re-invoke the full graph on an interval
 
 ---
 
@@ -28,72 +28,104 @@ A WMS operator files an incident ticket — a pick failure, inventory discrepanc
 POST /v1/tickets/
         │
         ▼
-   FastAPI + JWT
+   FastAPI + JWT Auth
         │
         ▼
- diagnose_ticket_service          ← application layer
-        │  (semaphore: max 10 concurrent graph runs)
-        ▼
-  ┌─────────────────────────────────────────────────────────────────┐
-  │                      LangGraph StateGraph                        │
-  │                                                                  │
-  │   START ──► router_node  (classifies intent + enriches query)   │
-  │                 │                                                │
-  │    ┌────────────┼───────────────┬────────────────┐              │
-  │    ▼            ▼               ▼                ▼              │
-  │  parallel     sequential     scheduler      cancel_schedule      │
-  │  planner       agent           node             node             │
-  │    │             │               │                │              │
-  │  fan_out         │               │                │              │
-  │    │             │               │                │              │
-  │  ┌─┴──────┐      │               │                │              │
-  │  ▼        ▼      │               │                │              │
-  │ SQL      SOP     │               │                │              │
-  │ node     node    │               │                │              │
-  │  └────────┴──────┴───────────────┴────────────────┘              │
-  │                          │                                       │
-  │                          ▼                                       │
-  │                   synthesizer_node ──► END                       │
-  └─────────────────────────────────────────────────────────────────┘
+ diagnose_ticket_service  (semaphore: max 10 concurrent runs)
         │
         ▼
-  TicketDiagnosisResponse (structured JSON)
+┌─────────────────────────────────────────────────┐
+│                  LangGraph StateGraph            │
+│                                                  │
+│  START ──► router_node  (classify + enrich)      │
+│                │                                 │
+│    ┌───────────┼──────────────┬──────────────┐   │
+│    ▼           ▼              ▼              ▼   │
+│  parallel   sequential    schedule      cancel   │
+│  planner     agent         node          node    │
+│    │           │                                 │
+│  fan_out       │ (ReAct loop,                    │
+│    │           │  4 tool calls max)              │
+│  ┌─┴──────┐    │                                 │
+│  ▼        ▼    │                                 │
+│ SQL      SOP   │                                 │
+│ node     node  │                                 │
+│  └────────┴────┴─────────────────────────────┐   │
+│                                              ▼   │
+│                                    synthesizer   │
+└─────────────────────────────────────────────────┘
+        │
+        ▼
+  TicketDiagnosisResponse (structured JSON + citations)
 ```
 
-### Node Responsibilities
-
-| Node | Role |
-|---|---|
-| `router_node` | LLM classifier — detects intent and enriches the query with WMS domain terminology. Fallback chain: Ollama → Gemini → OpenAI |
-| `plan_parallel_subtask_node` | Decomposes the enriched query into parallel subtasks (SQL + SOP) |
-| `sql_lookup_node` | Fans out to the SQL subgraph — generates, validates, and executes safe SQL against the WMS database |
-| `sop_retrieval_node` | RAG lookup — retrieves relevant SOP chunks from the Qdrant vector store |
-| `sequential_agent` | Tool-calling ReAct agent for multi-step investigations; includes retry, fallback, call-limit, and summarization middleware |
-| `synthesizer_node` | Merges all parallel results into a structured diagnosis |
-| `schedule_registrar_node` | Registers an APScheduler interval job that re-runs the graph on a schedule |
-| `cancel_schedule_node` | Cancels a scheduled job by ID |
-
-### SQL Subgraph
-
-```
-START → sql_load_skills_node → sql_generate_query_node → sql_run_sql_node → END
-```
-
-Generates schema-aware SQL using a skills catalogue, validates the query, and executes it against the WMS Postgres database.
+The parallel barrier is implemented via LangGraph's `operator.add` reducer — `sql_node` and `sop_node` both emit partial state, LangGraph merges them automatically, and the synthesiser only advances once both branches are complete.
 
 ---
 
 ## Key Design Decisions
 
-**Parallel barrier via LangGraph reducers** — `parallel_results` is typed `Annotated[List, operator.add]`. When `sql_lookup_node` and `sop_retrieval_node` both emit partial state, LangGraph merges them automatically. The synthesizer node only advances after both branches are complete.
+**Clean layer isolation**
+The codebase follows a strict `api → application → domain → infrastructure → workflows` hierarchy. The application layer accepts plain parameters and has zero imports from FastAPI — the same service can be called by the HTTP handler, a scheduled job, or a test.
 
-**Layer isolation** — The application layer (`diagnose_ticket_service`) never imports from the API layer. It accepts plain parameters, not request objects. The same service can be called by the HTTP handler, a scheduled job, or a test without touching FastAPI.
+**Immutable runtime context**
+`AppContext` is a `frozen=True, slots=True` dataclass built once at startup via `AppContextBuilder` and injected via `Depends`. No mutable singletons, no global state.
 
-**Immutable app context** — `AppContext` is a `frozen=True, slots=True` dataclass built once at startup and injected via `Depends`. No global state. No mutable singletons.
+**Dedicated scheduler process**
+The API workers never own an `AsyncIOScheduler`. A separate `scheduler_main.py` process is the only process allowed to register and fire APScheduler jobs. It reconciles active schedule rows from the database every 30 seconds — so API workers simply write a row to the DB and the scheduler picks it up, regardless of how many API replicas are running.
 
-**Idempotent job scheduling** — Job IDs are SHA-256 hashes of `(query, interval, ticket, user)`. Scheduling the same monitor twice replaces the existing job rather than creating a duplicate.
+**Concurrency control**
+A shared `asyncio.Semaphore` bounds concurrent LangGraph runs. Each graph run fans out to multiple LLM calls and SQL queries — without a ceiling, a burst of requests would saturate provider rate limits.
 
-**LLM fallback chain** — Every classification call has a provider priority: local Ollama first (zero cost, lowest latency), then Google Gemini, then OpenAI. If Ollama is unavailable, the chain falls through silently.
+**LLM fallback chain**
+Every node that calls an LLM uses a priority chain: `Ollama (local, zero cost) → Google Gemini → OpenAI`. If Ollama is unavailable the chain falls through silently.
+
+**Per-node LLM response caching**
+Each node has its own isolated cache backend. The same input to the same model always hits. Clearing one node's cache during debugging does not affect others.
+
+---
+
+## Hybrid RAG Pipeline
+
+SOPs are indexed using a **two-level parent-document retrieval** strategy combined with **hybrid search** (dense + sparse + RRF):
+
+```
+Offline (index time)
+────────────────────
+PDF → chapter-level parent documents (regex split on headings)
+    → 700-token child chunks with 100-token overlap
+    → child chunks embedded with OpenAI text-embedding-3-small
+    → stored in Qdrant with both dense (cosine) and sparse (BM25) vectors
+
+Online (query time)
+────────────────────
+User query
+  ├── Dense search   (semantic similarity via OpenAI embedding)
+  └── Sparse search  (BM25 keyword match via FastEmbed Qdrant/bm25)
+          │
+     Reciprocal Rank Fusion (RRF) — Qdrant native
+          │
+     child chunk matched → parent chapter fetched from pickle store
+          │
+     full chapter section passed to LLM (not the small chunk)
+```
+
+Dense retrieval captures semantic meaning; BM25 captures exact WMS terminology (`SKU-003`, `ASN`, `pick wave`). RRF fuses both ranked lists without tuning weights.
+
+---
+
+## Context Engineering
+
+The system applies several deliberate techniques to manage what the LLM sees at each step:
+
+| Technique | Where | Effect |
+|---|---|---|
+| **Query enrichment** | `router_node` | Raw user query rewritten with WMS terminology before any downstream call |
+| **Structured output** | All nodes | Pydantic schemas enforced via `method="json_schema"` — eliminates hallucinated keys |
+| **Skill-injected SQL context** | `sql_generate_query_node` | Table schema, column semantics, and example queries injected per domain before SQL generation |
+| **Token-triggered summarisation** | `sequential_agent` | Conversation history compressed at 10k tokens so the agent never hits context limits |
+| **Tool-call clearing** | `sequential_agent` | Old tool results replaced with `[cleared]` when context grows — keeps recent evidence, drops stale output |
+| **Parent-document retrieval** | `sop_retrieval_tool` | Small chunks retrieved for precision; full chapter sections returned for rich context |
 
 ---
 
@@ -102,17 +134,17 @@ Generates schema-aware SQL using a skills catalogue, validates the query, and ex
 | Layer | Technology |
 |---|---|
 | **API** | FastAPI, Uvicorn, SlowAPI (rate limiting), JWT auth |
-| **Orchestration** | LangGraph (StateGraph, Send, conditional edges) |
-| **LLM Providers** | OpenAI GPT-5-nano, Google Gemini 2.5 Flash Lite, Groq Llama 3.1, Ollama (local) |
-| **RAG** | Qdrant vector store, OpenAI `text-embedding-3-small`, LangChain text splitters |
+| **Orchestration** | LangGraph (StateGraph, Send, conditional edges, reducers) |
+| **LLM Providers** | OpenAI GPT, Google Gemini, Groq Llama, Ollama (local) |
+| **RAG** | Qdrant, OpenAI `text-embedding-3-small`, FastEmbed BM25, LangChain text splitters |
 | **Database** | SQLAlchemy async, asyncpg (Postgres), aiosqlite |
-| **Scheduling** | APScheduler (AsyncIOScheduler + SQLAlchemyJobStore) |
+| **Scheduling** | APScheduler (dedicated process, SQLAlchemy job store) |
 | **Streaming** | Server-Sent Events via asyncio pub/sub `JobEventBus` |
 | **Observability** | LangSmith tracing, structlog, RotatingFileHandler |
-| **Config** | pydantic-settings, `.env` |
 | **Packaging** | uv, pyproject.toml |
-| **Linting** | Ruff (E, F, I rules) |
+| **Linting** | Ruff |
 | **CI** | GitHub Actions |
+| **Containers** | Docker, docker-compose (API + scheduler + Postgres + Qdrant) |
 
 ---
 
@@ -120,47 +152,42 @@ Generates schema-aware SQL using a skills catalogue, validates the query, and ex
 
 ```
 src/
-├── api/                        # Delivery layer (HTTP only)
+├── api/                    # HTTP delivery layer only
 │   └── v1/
-│       ├── auth.py             # JWT bearer token validation
-│       ├── routes/
-│       │   ├── tickets.py      # POST /v1/tickets/
-│       │   └── monitoring.py   # GET  /v1/tickets/{id}/jobs/stream
-│       └── schemas/            # Request / response / error models
+│       ├── auth.py         # JWT bearer validation
+│       ├── routes/         # tickets, monitoring (SSE)
+│       └── schemas/        # request / response models
 │
-├── application/                # Use-case layer (no HTTP imports)
-│   ├── diagnose_ticket.py      # Runs the LangGraph diagnosis
-│   ├── schedule_monitoring.py  # Creates / cancels APScheduler jobs
-│   └── stream_job_updates.py   # SSE event generator
+├── application/            # Use-case layer — no HTTP imports
+│   ├── diagnose_ticket.py  # runs the LangGraph graph
+│   ├── schedule_monitoring.py
+│   └── stream_job_updates.py
 │
-├── domain/                     # Pure Python — no I/O, no frameworks
-│   ├── states/                 # LangGraph state dataclasses
-│   └── schemas/                # Pydantic read models
+├── domain/                 # Pure Python — no I/O, no frameworks
+│   ├── states/             # LangGraph state dataclasses
+│   └── schemas/
 │
-├── infrastructure/             # External wiring
-│   ├── app_context.py          # Frozen runtime context dataclass
-│   ├── app_context_builder.py  # Builds AppContext at startup
-│   ├── databases.py            # SQLAlchemy engines + session factories
-│   ├── llm_clients.py          # LLM factory functions (lru_cache, multi-provider)
-│   ├── operation_cache.py      # LangChain LLM response caches
-│   ├── job_event_bus.py        # asyncio pub/sub for SSE
-│   ├── orm/                    # SQLAlchemy ORM models
-│   └── repositories/           # Data access (queries only, no business logic)
+├── infrastructure/         # External wiring
+│   ├── app_context.py      # frozen runtime context dataclass
+│   ├── app_context_builder.py
+│   ├── databases.py        # SQLAlchemy engines + sessions
+│   ├── llm_clients.py      # LLM factory (lru_cache, multi-provider)
+│   ├── operation_cache.py  # per-node LLM response caches
+│   ├── job_event_bus.py    # asyncio pub/sub for SSE
+│   └── repositories/
 │
-├── workers/                    # Background job execution
-│   ├── monitoring_job_runner.py
-│   └── monitoring_job_entrypoint.py
+├── workflows/              # LangGraph graph definitions
+│   ├── graph/              # compiled StateGraphs
+│   ├── nodes/              # individual agent nodes
+│   ├── edges/              # conditional routing functions
+│   ├── prompts/            # system prompts per node
+│   └── tools/              # SQL + RAG tools
 │
-├── workflows/                  # LangGraph graph definitions
-│   ├── graph/                  # Compiled StateGraphs
-│   ├── nodes/                  # Individual agent nodes
-│   ├── edges/                  # Conditional routing functions
-│   ├── prompts/                # System prompts per node
-│   └── tools/                  # LangChain tools (SQL, RAG)
-│
-├── rag_pipeline/               # Offline: chunk → embed → store
-├── utils/                      # Logging config, SQL helpers
-└── config.py                   # pydantic-settings (all env vars)
+├── rag_pipeline/           # offline: ingest → chunk → embed
+├── workers/                # scheduled job runner
+├── utils/                  # logging config, SQL safety guard
+├── config.py               # pydantic-settings
+└── scheduler_main.py       # dedicated scheduler process entry point
 ```
 
 ---
@@ -169,11 +196,8 @@ src/
 
 ### Prerequisites
 
-- Python 3.12
-- [uv](https://docs.astral.sh/uv/) — `brew install uv`
-- A running PostgreSQL instance (WMS database)
-- Qdrant for RAG — `docker run -p 6333:6333 qdrant/qdrant`
-- Ollama for local LLM (optional) — `brew install ollama && ollama pull llama3.1`
+- Python 3.12, [uv](https://docs.astral.sh/uv/)
+- Docker (for Postgres + Qdrant)
 
 ### 1. Clone and install
 
@@ -187,89 +211,48 @@ uv sync
 
 ```bash
 cp .env.example .env
-# edit .env with your credentials
+# fill in API keys and database URLs
 ```
 
-| Variable | Required | Description |
-|---|---|---|
-| `ANTHROPIC_API_KEY` | Yes | Anthropic Claude API key |
-| `OPENAI_API_KEY` | Yes | OpenAI API key (GPT + embeddings) |
-| `GOOGLE_API_KEY` | Yes | Google Gemini API key |
-| `GROQ_API_KEY` | Yes | Groq API key (Llama 3.1) |
-| `OLLAMA_API_KEY` | Yes | Any string if running locally |
-| `DATABASE_URL` | Yes | Async WMS Postgres URL |
-| `MEMORIES_DB_URL` | Yes | Async SQLite/Postgres for memory store |
-| `LANGSMITH_API_KEY` | Yes | LangSmith tracing key |
-| `JWT_SECRET` | Yes | Secret for signing JWT tokens |
-| `MAX_GRAPH_SEMAPHORE` | No | Max concurrent graph runs (default: `10`) |
-| `RATE_LIMIT_DEFAULT` | No | API rate limit (default: `5/minute`) |
+| Variable | Description |
+|---|---|
+| `OPENAI_API_KEY` | GPT + embeddings |
+| `GOOGLE_API_KEY` | Gemini fallback |
+| `GROQ_API_KEY` | Llama fallback |
+| `DATABASE_URL` | Async Postgres (WMS database) |
+| `JWT_SECRET` | Token signing secret |
+| `LANGSMITH_API_KEY` | Tracing (optional) |
 
-### 3. Run the API
+### 3. Start the full stack
 
 ```bash
-PYTHONPATH=src uv run uvicorn api.app:app --reload --port 8000
+docker compose up --build
 ```
 
-### 4. Index SOPs (first time only)
+This starts the API, dedicated scheduler process, Postgres, and Qdrant in one command.
+
+### 4. Index SOPs (first run only)
 
 ```bash
-PYTHONPATH=src uv run python -m rag_pipeline.ingest
-PYTHONPATH=src uv run python -m rag_pipeline.embed
+PYTHONPATH=src uv run python -c "
+from rag_pipeline.ingest import ingest_sop_docs
+from rag_pipeline.chunking import chunk_text
+from rag_pipeline.embed import embed_docs
+embed_docs(chunk_text(ingest_sop_docs()))
+"
 ```
 
----
+### 5. Diagnose a ticket
 
-## API Reference
-
-### Diagnose a ticket
-
-```http
-POST /v1/tickets/
-Authorization: Bearer <token>
-Content-Type: application/json
-
-{
-  "ticket_number": "INC0042",
-  "session_id": "sess_abc123",
-  "description": "High pick failure rate on SKU-008 in zone WH-A for the last 24 hours"
-}
-```
-
-**Response**
-
-```json
-{
-  "ticket_number": "INC0042",
-  "session_id": "sess_abc123",
-  "user_id": "rahul",
-  "result": {
-    "summarized_issue": "SKU-008 had 42 pick failures in WH-A-A13-BIN7 over 24h. Location is flagged as blocked.",
-    "root_cause": "Blocked bin location not cleared after last cycle count",
-    "confidence": "high",
-    "recommended_actions": [
-      "Clear the blocked flag on WH-A-A13-BIN7 via WMS admin",
-      "Investigate whether cycle count completed successfully",
-      "Re-allocate open picks for SKU-008 to an alternate location"
-    ],
-    "source_type": "sql"
-  }
-}
-```
-
-### Stream live job updates (SSE)
-
-```http
-GET /v1/tickets/INC0042/jobs/stream
-Authorization: Bearer <token>
-Accept: text/event-stream
-```
-
-```
-data: monitor_schedule_created
-
-data: {"job_id": "abc123", "status": "running", "tick": 1}
-
-data: {"job_id": "abc123", "status": "complete", "result": "..."}
+```bash
+curl -X POST http://localhost:8000/v1/tickets/ \
+  -H "Authorization: Bearer <token>" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "ticket_number": "INC-042",
+    "session_id": "sess-001",
+    "description": "High pick failure rate on SKU-008 in zone WH-A for the last 24 hours"
+  }'
 ```
 
 ---
@@ -277,39 +260,21 @@ data: {"job_id": "abc123", "status": "complete", "result": "..."}
 ## Running Tests
 
 ```bash
-# Unit tests (no LLM calls, no external dependencies)
-PYTHONPATH=src uv run pytest tests/ --ignore=tests/evals -v
+# unit tests (no LLM calls, no external dependencies)
+PYTHONPATH=src uv run pytest src/tests/ --ignore=src/tests/evals -v
 
-# Lint
+# lint
 uvx ruff check src/
 ```
 
-`tests/evals/` contains LangSmith evaluation suites that call real LLM endpoints. Run those separately with valid API keys — they are excluded from CI to avoid costs on every commit.
+`src/tests/evals/` contains LangSmith evaluation suites that call real LLM endpoints — excluded from CI to avoid cost on every push.
 
 ---
 
 ## CI Pipeline
 
-Every push and pull request to `main` automatically runs on GitHub Actions:
+Every push and pull request to `main` runs:
 
 ```
-Checkout → Python 3.12 setup → uv sync → ruff lint → app boot check → pytest (unit only)
+Checkout → Python 3.12 → uv sync → ruff lint → app import check → pytest
 ```
-
-See [`.github/workflows/ci.yml`](.github/workflows/ci.yml) for the full configuration.
-
----
-
-## Roadmap
-
-- [ ] WebSocket support alongside SSE
-- [ ] LangGraph Postgres checkpoint for persistent graph state across restarts
-- [ ] OpenTelemetry trace export
-- [ ] Multi-tenant session isolation
-- [ ] Admin dashboard for scheduled job monitoring
-
----
-
-## License
-
-MIT

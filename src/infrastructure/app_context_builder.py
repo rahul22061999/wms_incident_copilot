@@ -22,6 +22,7 @@ from contextlib import AsyncExitStack
 from apscheduler.jobstores.sqlalchemy import SQLAlchemyJobStore
 from apscheduler.schedulers.asyncio import AsyncIOScheduler
 from sqlalchemy.ext.asyncio import AsyncEngine, AsyncSession, async_sessionmaker, create_async_engine
+from sqlalchemy.pool import StaticPool
 
 from config import settings
 from infrastructure.app_context import AppContext
@@ -41,7 +42,7 @@ class AppContextBuilder:
         self.settings = app_settings
         self._stack = AsyncExitStack()
 
-    async def build(self) -> tuple[AppContext, AsyncExitStack]:
+    async def build(self, start_scheduler: bool = False) -> tuple[AppContext, AsyncExitStack]:
         try:
             executor = self._build_executor()
 
@@ -51,9 +52,15 @@ class AppContextBuilder:
 
             #Scheduling monitoring jobs using db
             job_schedule_engine, job_schedule_session_factory = await self._build_scheduler_db()
-            scheduler = self._build_scheduler()
-            scheduler.start()
-            logger.info("Scheduler started: running=%s", scheduler.running)
+
+            # Only the dedicated scheduler process passes start_scheduler=True and
+            # owns a live AsyncIOScheduler. API workers leave this None and merely
+            # write schedule state to the DB.
+            scheduler = None
+            if start_scheduler:
+                scheduler = self._build_scheduler()
+                scheduler.start()
+                logger.info("Scheduler started: running=%s", scheduler.running)
 
             ##initialize wms db
             wms_sql_service = self._build_wms_sql_service()
@@ -93,12 +100,15 @@ class AppContextBuilder:
     async def _build_scheduler_db(
             self,
     ) -> tuple[AsyncEngine, async_sessionmaker[AsyncSession]]:
+        # SQLite has no connection pool — pool_size/max_overflow/pool_timeout are
+        # invalid here and raise. StaticPool keeps one shared connection, and
+        # check_same_thread=False lets aiosqlite use it across the loop's threads.
+        # (When this moves to Postgres, restore pool_size/max_overflow.)
         engine = create_async_engine(
             self.settings.JOB_SCHEDULER_DB_URL,
             echo=False,
-            pool_size=5,
-            max_overflow=0,
-            pool_timeout=30,
+            connect_args={"check_same_thread": False},
+            poolclass=StaticPool,
         )
 
         session_factory = async_sessionmaker(

@@ -45,7 +45,11 @@ class MonitoringJobRunner:
 
         if current_run_count >= self.MAX_RUNS:
             await self.repository.delete_job(job_id)
-            self.ctx.scheduler.remove_job(job_id)
+            # This runner executes inside the dedicated scheduler process, where
+            # ctx.scheduler is live. Guard for None so it's safe to call from any
+            # context (e.g. tests) without a scheduler.
+            if self.ctx.scheduler is not None:
+                self.ctx.scheduler.remove_job(job_id)
             return
 
         await self.repository.mark_running(job_id)

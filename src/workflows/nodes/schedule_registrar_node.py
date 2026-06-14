@@ -8,7 +8,7 @@ logger = logging.getLogger(__name__)
 
 
 async def schedule_registrar_node(state: WMState) -> dict:
-    """Register a durable monitoring job for the current ticket."""
+    """Register a durable monitoring schedule request for the current ticket."""
 
     logger.info(
         "Monitoring registrar entered: ticket=%s user=%s session=%s query=%r interval=%s",
@@ -40,7 +40,7 @@ async def schedule_registrar_node(state: WMState) -> dict:
 
     return {
         "scheduler_results": [result],
-        "schedular_results": [result],
+        "schedular_results": [result],  # keep only if your eval dataset expects this typo
         "event_log": [
             {
                 "node": "schedule_registrar_node",

@@ -1,0 +1,60 @@
+services:
+
+  api:
+    build: .
+    ports:
+      - "8000:8000"
+    env_file: .env
+    environment:
+      DATABASE_URL: postgresql+asyncpg://wms:wms@postgres:5432/wms_db
+      MEMORIES_DB_URL: sqlite+aiosqlite:///./audit.db
+      JOB_SCHEDULER_DB_URL: sqlite+aiosqlite:///./job_schedule.db
+      JOB_SCHEDULER_SYNC_DB_URL: sqlite:///./job_schedule.db
+    depends_on:
+      postgres:
+        condition: service_healthy
+      qdrant:
+        condition: service_started
+    restart: unless-stopped
+
+  scheduler:
+    build: .
+    command: ["uv", "run", "python", "-m", "scheduler_main"]
+    env_file: .env
+    environment:
+      DATABASE_URL: postgresql+asyncpg://wms:wms@postgres:5432/wms_db
+      MEMORIES_DB_URL: sqlite+aiosqlite:///./audit.db
+      JOB_SCHEDULER_DB_URL: sqlite+aiosqlite:///./job_schedule.db
+      JOB_SCHEDULER_SYNC_DB_URL: sqlite:///./job_schedule.db
+    depends_on:
+      postgres:
+        condition: service_healthy
+    restart: unless-stopped
+    deploy:
+      replicas: 1
+
+  postgres:
+    image: postgres:16
+    environment:
+      POSTGRES_USER: wms
+      POSTGRES_PASSWORD: wms
+      POSTGRES_DB: wms_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U wms -d wms_db"]
+      interval: 5s
+      retries: 5
+
+  qdrant:
+    image: qdrant/qdrant
+    ports:
+      - "6333:6333"
+    volumes:
+      - qdrant_data:/qdrant/storage
+
+volumes:
+  postgres_data:
+  qdrant_data:
